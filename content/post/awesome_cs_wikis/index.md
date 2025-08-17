@@ -1,7 +1,7 @@
 ---
 title: Awesome CS Wikis
 description: 精选的CS Wikis推荐
-slug: awesome_cs_sikis
+slug: awesome_cs_wikis
 date: 2025-08-17
 categories:
     - 学习
