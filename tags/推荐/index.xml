@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>推荐 on Ovidero's Blog</title><link>https://ovideros.site/tags/%E6%8E%A8%E8%8D%90/</link><description>Recent content in 推荐 on Ovidero's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sun, 17 Aug 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://ovideros.site/tags/%E6%8E%A8%E8%8D%90/index.xml" rel="self" type="application/rss+xml"/><item><title>Awesome CS Wikis</title><link>https://ovideros.site/p/awesome_cs_wikis/</link><pubDate>Sun, 17 Aug 2025 00:00:00 +0000</pubDate><guid>https://ovideros.site/p/awesome_cs_wikis/</guid><description>&lt;p>&lt;a class="link" href="https://awesome.re" target="_blank" rel="noopener"
+>&lt;img src="https://awesome.re/badge.svg"
+loading="lazy"
+alt="Awesome"
+>&lt;/a>
+&lt;a class="link" href="http://makeapullrequest.com" target="_blank" rel="noopener"
+>&lt;img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat"
+loading="lazy"
+alt="PR’s Welcome"
+>&lt;/a>&lt;/p>
+&lt;p>该列表旨在分享一些有意思的CS Wikis。不求全，但求精。&lt;/p>
+&lt;p>条目要求：&lt;/p>
+&lt;ul>
+&lt;li>原创，无广告&lt;/li>
+&lt;li>可以是wiki界面，github界面等&lt;/li>
+&lt;li>内容足够有趣&lt;/li>
+&lt;/ul>
+&lt;p>因为本人视野有限，故下面的列表肯定不全。欢迎各位直接在评论区进行补充！&lt;/p>
+&lt;h2 id="通用">通用
+&lt;/h2>&lt;ul>
+&lt;li>&lt;a class="link" href="https://ac-wiki.org/" target="_blank" rel="noopener"
+>AC Wiki&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://csdiy.wiki/" target="_blank" rel="noopener"
+>CS 自学指南&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://csbaoyan.top/" target="_blank" rel="noopener"
+>计算机保研指南&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://cs-plan.com/" target="_blank" rel="noopener"
+>CS Plan&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://hackway.org/" target="_blank" rel="noopener"
+>HackWay技术学习路线&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://aitour.site/" target="_blank" rel="noopener"
+>AI Tour&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://wiki.0xffff.one/about" target="_blank" rel="noopener"
+>0xFFFF Wiki&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://github.com/sanbuphy/awesome-cs-tutorial" target="_blank" rel="noopener"
+>awesome-cs-tutorial&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="一些大学维护的-wikis">一些大学维护的 wikis
+&lt;/h2>&lt;ul>
+&lt;li>&lt;a class="link" href="https://survivesjtu.gitbook.io/survivesjtumanual/" target="_blank" rel="noopener"
+>上海交通大学生存手册&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://101.lug.ustc.edu.cn/" target="_blank" rel="noopener"
+>Linux 101&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://201.ustclug.org/" target="_blank" rel="noopener"
+>Linux 201&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://docs.net9.org/" target="_blank" rel="noopener"
+>SAST skill docs&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://rekcarc-tsc-uht.readthedocs.io/en/latest/" target="_blank" rel="noopener"
+>THU-CST-Cracker&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://qsctech.github.io/zju-icicles/" target="_blank" rel="noopener"
+>浙江大学课程攻略共享计划&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="科研入门">科研入门
+&lt;/h2>&lt;ul>
+&lt;li>&lt;a class="link" href="https://pengsida.net/games003/" target="_blank" rel="noopener"
+>GAMES003&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://github.com/pengsida/learning_research?tab=readme-ov-file" target="_blank" rel="noopener"
+>Learning Research&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://github.com/PKU-DAIR/Starter-Guide/tree/main" target="_blank" rel="noopener"
+>PKU-DAIR Starter Guide&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://mvig-rhos.gitbook.io/rhos-ke-yan-shou-ce" target="_blank" rel="noopener"
+>RHOS 科研手册&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://github.com/TianxingChen/Embodied-AI-Guide" target="_blank" rel="noopener"
+>Embodied-AI-Guide&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="学科竞赛相关">学科/竞赛相关
+&lt;/h2>&lt;ul>
+&lt;li>&lt;a class="link" href="https://oi-wiki.org/" target="_blank" rel="noopener"
+>OI Wiki&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://ctf-wiki.org/" target="_blank" rel="noopener"
+>CTF Wiki&lt;/a>&lt;/li>
+&lt;/ul></description></item></channel></rss>
