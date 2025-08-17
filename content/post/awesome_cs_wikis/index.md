@@ -13,6 +13,14 @@ weight: 0
 [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 [![PR's Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](http://makeapullrequest.com)
 
+该列表旨在分享一些有意思的CS Wikis。不求全，但求精。
+
+条目要求：
+- 原创，无广告
+- 可以是wiki界面，github界面等
+- 内容足够有趣
+
+因为本人视野有限，故下面的列表肯定不全。欢迎各位直接在评论区进行补充！
 
 ## 通用
 - [AC Wiki](https://ac-wiki.org/)
