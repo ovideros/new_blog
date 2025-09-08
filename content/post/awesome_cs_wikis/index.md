@@ -47,6 +47,7 @@ weight: 0
 - [PKU-DAIR Starter Guide](https://github.com/PKU-DAIR/Starter-Guide/tree/main)
 - [RHOS 科研手册](https://mvig-rhos.gitbook.io/rhos-ke-yan-shou-ce)
 - [Embodied-AI-Guide](https://github.com/TianxingChen/Embodied-AI-Guide)
+- [Awesome MLLMs](https://github.com/BradyFU/Awesome-Multimodal-Large-Language-Models)
 
 ## 学科/竞赛相关
 - [OI Wiki](https://oi-wiki.org/)
