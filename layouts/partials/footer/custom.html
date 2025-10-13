@@ -1,0 +1,51 @@
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/dist/tippy-bundle.umd.min.js" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    if (typeof tippy === 'undefined') {
+        return;
+    }
+
+    var noteRefs = document.querySelectorAll('a.footnote-ref[role="doc-noteref"]');
+    if (!noteRefs.length) {
+        return;
+    }
+
+    var noteCache = new Map();
+
+    noteRefs.forEach(function (ref) {
+        var targetId = ref.getAttribute('href');
+        if (!targetId || targetId.charAt(0) !== '#') {
+            return;
+        }
+
+        targetId = targetId.slice(1);
+        var note = document.getElementById(targetId);
+        if (!note) {
+            return;
+        }
+
+        if (!noteCache.has(targetId)) {
+            var clone = note.cloneNode(true);
+
+            clone.querySelectorAll('.footnote-backref').forEach(function (backref) {
+                backref.remove();
+            });
+
+            noteCache.set(targetId, clone.innerHTML.trim());
+        }
+
+        tippy(ref, {
+            content: noteCache.get(targetId),
+            allowHTML: true,
+            interactive: true,
+            theme: 'light-border',
+            maxWidth: 360,
+            appendTo: document.body,
+            placement: 'auto',
+            touch: ['hold', 400],
+            animation: 'shift-away',
+        });
+    });
+});
+</script>

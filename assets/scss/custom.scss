@@ -1,3 +1,64 @@
 /*
     You can add your own custom styles here.
 */
+
+/* Tippy 内置 light-border 主题的细节微调，结合 Stack 的浅/深色方案。 */
+.tippy-box[data-theme~='light-border'] {
+    color: var(--card-text-color-main);
+    font-size: 1.4rem;
+    line-height: 1.6;
+    box-shadow: var(--shadow-l4);
+    border-radius: var(--card-border-radius);
+}
+
+.tippy-box[data-theme~='light-border'] .tippy-content {
+    padding: 1rem 1.2rem;
+}
+
+.tippy-box[data-theme~='light-border'] a {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+[data-scheme="light"] .tippy-box[data-theme~='light-border'] {
+    background-color: #ffffff;
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+[data-scheme="light"] .tippy-box[data-theme~='light-border'][data-placement^='top'] > .tippy-arrow::before {
+    border-top-color: #ffffff;
+}
+
+[data-scheme="light"] .tippy-box[data-theme~='light-border'][data-placement^='bottom'] > .tippy-arrow::before {
+    border-bottom-color: #ffffff;
+}
+
+[data-scheme="light"] .tippy-box[data-theme~='light-border'][data-placement^='left'] > .tippy-arrow::before {
+    border-left-color: #ffffff;
+}
+
+[data-scheme="light"] .tippy-box[data-theme~='light-border'][data-placement^='right'] > .tippy-arrow::before {
+    border-right-color: #ffffff;
+}
+
+[data-scheme="dark"] .tippy-box[data-theme~='light-border'] {
+    background-color: rgba(54, 54, 54, 1);
+    color: rgba(255, 255, 255, 0.92);
+    border-color: rgba(255, 255, 255, 0.14);
+    box-shadow: 0 20px 45px -25px rgba(0, 0, 0, 0.8);
+}
+
+[data-scheme="dark"] .tippy-box[data-theme~='light-border'][data-placement^='top'] > .tippy-arrow::before {
+    border-top-color: rgba(54, 54, 54, 1);
+}
+
+[data-scheme="dark"] .tippy-box[data-theme~='light-border'][data-placement^='bottom'] > .tippy-arrow::before {
+    border-bottom-color: rgba(54, 54, 54, 1);
+}
+
+[data-scheme="dark"] .tippy-box[data-theme~='light-border'][data-placement^='left'] > .tippy-arrow::before {
+    border-left-color: rgba(54, 54, 54, 1);
+}
+
+[data-scheme="dark"] .tippy-box[data-theme~='light-border'][data-placement^='right'] > .tippy-arrow::before {
+    border-right-color: rgba(54, 54, 54, 1);
+}
