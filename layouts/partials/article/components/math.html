@@ -1,4 +1,4 @@
-{{/* 用 MathJax 替换 Hugo Stack 默认的 KaTeX，实现 \label/\ref 等高级特性。 */}}
+{{/* MathJax 基础配置：只负责加载并启用 \label/\ref 所需的 AMS 包。 */}}
 <script>
   window.MathJax = {
     tex: {
@@ -15,11 +15,7 @@
     },
     loader: {
       load: ['[tex]/ams']
-    },
-    svg: {
-      fontCache: 'global',
-      scale: 1.
     }
   };
 </script>
-<script async id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<script async id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>

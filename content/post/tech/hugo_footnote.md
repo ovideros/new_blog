@@ -154,7 +154,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
 于是，询问AI有啥解决途径，回答到使用MathJax。查了查Hugo本身就支持KaTeX与MathJax[^4]，并且我记得苏建林的博客中用的也是MathJax[^5]，遂让AI帮我写一写。
 
-写了后有问题，AI自己根据本地导出的html分析，解决了问题。最后只需要修改一个文件 `layouts/partials/article/components/math.html`：
+写了后有问题，AI自己根据本地导出的html分析，解决了问题。最后需要修改两个文件。
+
+首先，还是那段 `layouts/partials/article/components/math.html`：
 ```html
 {{/* 用 MathJax 替换 Hugo Stack 默认的 KaTeX，实现 \label/\ref 等高级特性。 */}}
 <script>
@@ -173,19 +175,71 @@ document.addEventListener('DOMContentLoaded', function () {
     },
     loader: {
       load: ['[tex]/ams']
-    },
-    svg: {
-      fontCache: 'global',
-      scale: 1.
     }
   };
 </script>
-<script async id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<script async id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 ```
 
-这样便可以成功替换为MathJax渲染。
+其次，主题自带的 `smoothAnchors.ts` 会给所有 `href="#…"` 的链接挂平滑滚动逻辑，MathJax 重排时这些锚点会短暂无效，结果就报错。于是覆盖掉它：在 `assets/ts/smoothAnchors.ts` 新建同名文件，只在目标不是 `#mjx-eqn-...` 时才继续平滑滚动。MathJax 生成的引用链接就交给浏览器默认行为，既不会报错，也不会影响脚注、目录等其它锚点。
+
+`assets/ts/smoothAnchors.ts` 代码如下：
+```ts
+const anchorLinksQuery = "a[href]";
+const mathJaxAnchorPrefix = "#mjx-eqn-";
+
+const isMathJaxAnchor = (href: string): boolean => {
+  try {
+    return decodeURI(href).startsWith(mathJaxAnchorPrefix);
+  } catch {
+    return href.startsWith(mathJaxAnchorPrefix);
+  }
+};
+
+function setupSmoothAnchors(): void {
+  document.querySelectorAll<HTMLAnchorElement>(anchorLinksQuery).forEach((aElement) => {
+    const rawHref = aElement.getAttribute("href");
+    if (!rawHref || !rawHref.startsWith("#")) {
+      return;
+    }
+
+    if (isMathJaxAnchor(rawHref)) {
+      return;
+    }
+
+    aElement.addEventListener("click", (event) => {
+      let decodedHref: string;
+      try {
+        decodedHref = decodeURI(rawHref);
+      } catch {
+        decodedHref = rawHref;
+      }
+
+      const targetId = decodedHref.substring(1);
+      const target = document.getElementById(targetId);
+      if (!target) {
+        return;
+      }
+
+      event.preventDefault();
+
+      const offset =
+        target.getBoundingClientRect().top - document.documentElement.getBoundingClientRect().top;
+
+      window.history.pushState({}, "", rawHref);
+      scrollTo({
+        top: offset,
+        behavior: "smooth",
+      });
+    });
+  });
+}
+
+export { setupSmoothAnchors };
+```
 
 相比于KaTeX，MathJax可以直接右键公式，复制Tex源码，这点挺方便的。
+
 
 同时，也支持交叉引用，例如我可以在此交叉引用下面的公式，见 \eqref{eq:m} 。
 
