@@ -4,9 +4,8 @@ description: 精选的CS Wikis推荐
 slug: awesome_cs_wikis
 date: 2025-08-17
 categories:
-    - 学习
-tags:
     - 推荐
+tags:
 weight: 0
 ---
 

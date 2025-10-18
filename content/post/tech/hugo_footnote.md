@@ -7,6 +7,7 @@ categories:
     - 技术
 tags:
     - hugo
+    - 博客
 weight: 0
 ---
 
@@ -152,7 +153,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 此外，原先的KaTeX最多只支持数学公式标号，但是没法做到交叉引用。如果未来要写一些更复杂的文章，这点有些麻烦。
 
-于是，询问AI有啥解决途径，回答到使用MathJax。查了查Hugo本身就支持KaTeX与MathJax[^4]，并且我记得苏建林的博客中用的也是MathJax[^5]，遂让AI帮我写一写。
+于是，询问AI有啥解决途径，回答到使用MathJax。查了查Hugo本身就支持KaTeX与MathJax[^4]，并且我记得苏剑林的博客中用的也是MathJax[^5]，遂让AI帮我写一写。
 
 写了后有问题，AI自己根据本地导出的html分析，解决了问题。最后需要修改两个文件。
 
