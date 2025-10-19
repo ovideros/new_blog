@@ -19,7 +19,7 @@ weight: 0
 
 ## 预备知识
 
-假设你了解基本的 Linux 环境，以及命令行操作。可以参考 Missing Semester 进行学习[^5]。
+假设你了解基本的 Linux 环境，以及命令行操作。可以参考 [Missing Semester](https://csdiy.wiki/%e7%bc%96%e7%a8%8b%e5%85%a5%e9%97%a8/MIT-Missing-Semester/) 进行学习。
 
 ## Ubuntu服务器端操作
 
@@ -51,11 +51,11 @@ sudo apt install -y xauth x11-apps
 
 ## Mac客户端操作
 
-下载 XQuartz（https://www.xquartz.org/）。吐槽一下，好久没有更新了。
+下载 [XQuartz](https://www.xquartz.org/)。吐槽一下，好久没有更新了。
 
 因为我配置了本地的 zsh，使用了带有 UTF-8 的主题，所以 XQuartz 打开后显示乱码。（理论上好像也有配置 XQuartz 使用 UTF-8 的方法，但是懒得做了）
 
-有一些更先进的终端软件，支持 UTF-8 编码，如 Tabby（https://tabby.sh/）。该终端支持各个平台，也比较现代化与美观，且支持 X11 转发，符合需求。进入 Github 发布页面，下载对应版本即可（m芯片的 Mac 下载 `macos-arm64.dmg` 后缀的包，然后正常安装）。
+有一些更先进的终端软件，支持 UTF-8 编码，如 [Tabby](https://tabby.sh/)。该终端支持各个平台，也比较现代化与美观，且支持 X11 转发，符合需求。进入 Github 发布页面，下载对应版本即可（m芯片的 Mac 下载 `macos-arm64.dmg` 后缀的包，然后正常安装）。
 
 新建窗口，进入本机的 Shell。然后使用 `ssh -Y user@host` 连接远程服务器，其中 `user@host` 是目标服务器的用户名与ip。更多有关 SSH 登录的细节参考 Missing Semester 的第五讲[^3][^4]。
 
@@ -93,9 +93,17 @@ defaults write org.xquartz.X11 enable_iglx -bool true
 <center><img src="xquartz_settings.png" width="80%" /></center>
 
 
-重新连接服务器（`ssh -Y user@host`），尝试运行 `glxinfo`，确保没有报错。
+重新连接服务器（`ssh -Y user@host`），尝试运行 `glxinfo`，确保没有报错。如果有关于swrast的报错
+```
+libGL error: No matching fbConfigs or visuals found
+libGL error: failed to load driver: swrast
+```
+可以尝试设置环境变量：
+```bash
+export LIBGL_ALWAYS_INDIRECT=1
+```
 
-以及运行
+之后运行glxgears测试：
 ```bash
 glxgears
 ```
@@ -115,4 +123,3 @@ glxgears
 [^3]: 命令行环境. Missing Semester 中文版. https://missing-semester-cn.github.io/2020/command-line/
 [^4]: [自制双语字幕] 计算机教育缺失的一课(2020) - 第5讲 - 命令行环境
 . https://www.bilibili.com/video/BV1Jh4y1Z7SV/
-[^5]: MIT-Missing-Semester. CSDIY Wiki. https://csdiy.wiki/%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8/MIT-Missing-Semester/
