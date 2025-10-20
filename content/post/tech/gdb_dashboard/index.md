@@ -14,7 +14,7 @@ weight: 0
 
 GDB Dashboard [^2]基于 Python，重构了 GDB 的页面，且高度支持自定义，相当美观，如图：
 
-![GDB dashboard效果图](tabby.png)
+![GDB dashboard效果图](tabby2.png)
 
 我使用了 [Tabby](https://tabby.sh/) 终端，并且配置了左右两个窗口，左侧显示 GDB 指令，右侧显示信息。
 
