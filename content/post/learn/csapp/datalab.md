@@ -1,6 +1,6 @@
 ---
 title: CSAPP Datalab 实验报告
-description: 用位运算实现整型与浮点数运算
+description: 实验一，用位运算实现整型与浮点数运算
 slug: csapp_datalab
 date: 2025-10-19
 categories:
