@@ -3,6 +3,7 @@ title: GDB Dashboard 教程
 description: 使用 Dashboard 进行汇编级别调试，方便地同时显示汇编、寄存器等区域
 slug: gdb_dashboard
 date: 2025-10-20
+image: tabby2.png
 categories:
     - 技术
 tags:
@@ -19,7 +20,7 @@ GDB Dashboard [^2]基于 Python，重构了 GDB 的页面，且高度支持自�
 我使用了 [Tabby](https://tabby.sh/) 终端，并且配置了左右两个窗口，左侧显示 GDB 指令，右侧显示信息。
 
 ## 预备知识
-了解 GDB，掌握 Linux 环境与命令行基础。
+了解 GDB，掌握 Linux 环境与命令行基础。本文环境都基于 Ubuntu。
 
 ## 安装方法
 GDB dashboard 本质上就是一个脚本，可以很方便地下载：
@@ -176,6 +177,8 @@ dashboard -output /dev/pts/2
 
 ## 展望
 我也搜到有 pwndbg [^4]之类的调试器，看起来更强大。
+
+两天后，我写了相应博客，参考 [pwndbg 教程与自定义配置]({{< ref "/post/tech/pwndbg/index" >}}) 。
 
 
 ## 参考资料
