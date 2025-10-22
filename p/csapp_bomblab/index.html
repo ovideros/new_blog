@@ -1,0 +1,1109 @@
+<!doctype html><html lang=zh-cn dir=ltr><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><meta name=description content="实验二，用GDB调试汇编程序"><title>💣 CSAPP BombLab 实验指南</title><link rel=canonical href=https://ovideros.site/p/csapp_bomblab/><link rel=stylesheet href=/scss/style.min.790079a55df2d46ca5ebac3d71f31f500e903ad49de7ac8029b46ba107a3c192.css><meta property='og:title' content="💣 CSAPP BombLab 实验指南"><meta property='og:description' content="实验二，用GDB调试汇编程序"><meta property='og:url' content='https://ovideros.site/p/csapp_bomblab/'><meta property='og:site_name' content="Ovidero's Blog"><meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:tag' content='csapp'><meta property='article:published_time' content='2025-10-22T00:00:00+00:00'><meta property='article:modified_time' content='2025-10-22T00:00:00+00:00'><meta property='og:image' content='https://ovideros.site/p/csapp_bomblab/tree2.jpeg'><meta name=twitter:title content="💣 CSAPP BombLab 实验指南"><meta name=twitter:description content="实验二，用GDB调试汇编程序"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content='https://ovideros.site/p/csapp_bomblab/tree2.jpeg'><link rel="shortcut icon" href=/android-chrome-192x192.png><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/dist/tippy.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/dist/themes/light-border.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/animations/shift-away.css></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label=切换菜单>
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/img/avatar_hu_d0dc6fee23f390c5.png width=300 height=300 class=site-logo loading=lazy alt=Avatar>
+</a><span class=emoji>😇</span></figure><div class=site-meta><h1 class=site-name><a href=/>Ovidero's Blog</a></h1><h2 class=site-description></h2></div></header><ol class=menu-social><li><a href=https://github.com/ovideros target=_blank title=GitHub rel=me><svg class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/><svg class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
+<span>Home</span></a></li><li><a href=/archives/><svg class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+<span>Archives</span></a></li><li><a href=/search/><svg class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+<span>Search</span></a></li><li><a href=/links/><svg class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M10 14a3.5 3.5.0 005 0l4-4a3.5 3.5.0 00-5-5l-.5.5"/><path d="M14 10a3.5 3.5.0 00-5 0l-4 4a3.5 3.5.0 005 5l.5-.5"/></svg>
+<span>Links</span></a></li><li><a href=/about/><svg class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg>
+<span>About</span></a></li><li class=menu-bottom-section><ol class=menu><li id=dark-mode-toggle><svg class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<svg class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<span>暗色模式</span></li></ol></li></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">目录</h2><div class=widget--toc><nav id=TableOfContents><ol><li><a href=#实验介绍>实验介绍</a></li><li><a href=#实验准备>实验准备</a></li><li><a href=#phase_1>phase_1</a></li><li><a href=#phase_2>phase_2</a><ol><li><a href=#read_six_numbers-分析>read_six_numbers 分析</a></li><li><a href=#phase_2-本身分析>phase_2 本身分析</a></li></ol></li><li><a href=#phase_3>phase_3</a></li><li><a href=#phase_4>phase_4</a><ol><li><a href=#phase_4-本身分析>phase_4 本身分析</a></li><li><a href=#func4-分析>func4 分析</a></li></ol></li><li><a href=#phase_5>phase_5</a></li><li><a href=#phase_6>phase_6</a></li><li><a href=#结束了>结束了？</a></li><li><a href=#总结>总结</a></li><li><a href=#参考资料>参考资料</a></li></ol></nav></div></section></aside><main class="main full-width"><article class="has-image main-article"><header class=article-header><div class=article-image><a href=/p/csapp_bomblab/><img src=/p/csapp_bomblab/tree2_hu_9da3cfa671abe512.jpeg srcset="/p/csapp_bomblab/tree2_hu_9da3cfa671abe512.jpeg 800w, /p/csapp_bomblab/tree2_hu_fca8a8bf3795f29f.jpeg 1600w" width=800 height=522 loading=lazy alt="Featured image of post 💣 CSAPP BombLab 实验指南"></a></div><div class=article-details><header class=article-category><a href=/categories/%E5%AD%A6%E4%B9%A0/ style=background-color:#2a9d8f;color:#fff>学习</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/p/csapp_bomblab/>💣 CSAPP BombLab 实验指南</a></h2><h3 class=article-subtitle>实验二，用GDB调试汇编程序</h3></div><footer class=article-time><div><svg class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>2025年10月22日</time></div><div><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>阅读时长: 25 分钟</time></div></footer></div></header><section class=article-content><blockquote><p>⚠️ 注意，本文只提供个人的解法与思路，不能代替自己亲手用调试器做实验。如果你希望更好地锻炼自己的能力，仅仅在你尝试过，并且被卡住时候，观看对应章节的内容。或者，在你独立做完实验，可以与本指南中的内容核对。也欢迎各位对本文中的拼写错误、细节遗漏等方面进行补充！</p></blockquote><p>本文受到了 <a class=link href=https://arthals.ink/blog/bomb-lab target=_blank rel=noopener>更适合北大宝宝体质的 Bomb Lab 踩坑记</a> 很大的启发，因此你可能发现一些雷同的内容，这都只是我的拙劣模仿。</p><h2 id=实验介绍>实验介绍</h2><p>本实验是 CSAPP 第三章的实验内容，设计了汇编的许多方面，包括整数运算、字符串比较、循环条件分支、递归调用、栈、指针、链表、结构等等。本文读者应当学习过以上内容，进而更好地理解该实验。</p><p>Bomblab 的实验背景相当经典，可以在 <code>bomb.c</code> 中看到。简单来说，你需要根据二进制程序来拆弹💣。</p><h2 id=实验准备>实验准备</h2><p>实验暴露出来的源码 <code>bomb.c</code> 只涵盖了一小部分，没有涉及每个函数具体是如何实现的。不过，我们可以从中看出大概流程——获取输入，然后执行下面的函数：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=nf>initialize_bomb</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nf>printf</span><span class=p>(</span><span class=s>&#34;Welcome to my fiendish little bomb. You have 6 phases with</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=nf>printf</span><span class=p>(</span><span class=s>&#34;which to blow yourself up. Have a nice day!</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=cm>/* Hmm...  Six phases must be more secure than one phase! */</span>
+</span></span><span class=line><span class=cl><span class=n>input</span> <span class=o>=</span> <span class=nf>read_line</span><span class=p>();</span>             <span class=cm>/* Get input                   */</span>
+</span></span><span class=line><span class=cl><span class=nf>phase_1</span><span class=p>(</span><span class=n>input</span><span class=p>);</span>                  <span class=cm>/* Run the phase               */</span>
+</span></span><span class=line><span class=cl><span class=nf>phase_defused</span><span class=p>();</span>                 <span class=cm>/* Drat!  They figured it out!
+</span></span></span><span class=line><span class=cl><span class=cm>                    * Let me know how they did it. */</span>
+</span></span><span class=line><span class=cl><span class=nf>printf</span><span class=p>(</span><span class=s>&#34;Phase 1 defused. How about the next one?</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// 更多内容
+</span></span></span></code></pre></td></tr></table></div></div><p>每次都读取一行作为输入，给 <code>phase_n</code> ，然后运行 <code>phase_defused</code> 函数。</p><p>为了调试二进制程序，需要使用 gdb。我已经在之前的文章中，介绍了 <a class=link href=https://ovideros.site/p/gdb_dashboard/>GDB Dashboard</a> 以及 <a class=link href=https://ovideros.site/p/pwndbg/>pwndbg</a>。为了更好的体验，建议先配置 pwndbg ，但这不是必需的。本文前四个阶段使用 GDB Dashboard，后两个阶段使用 pwndbg。</p><p>参考北大Bomblab踩坑记<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>，该实验用到的常用调试指令如下：</p><div class=table-wrapper><table><thead><tr><th>指令</th><th>全称</th><th>描述</th></tr></thead><tbody><tr><td>r</td><td>run</td><td>开始执行程序，直到下一个断点或程序结束</td></tr><tr><td>q</td><td>quit</td><td>退出 GDB 调试器</td></tr><tr><td>ni</td><td>nexti</td><td>执行下一条汇编指令，但不进入函数内部</td></tr><tr><td>si</td><td>stepi</td><td>执行当前汇编指令，如果是函数调用则进入函数</td></tr><tr><td>b</td><td>break</td><td>在指定位置设置断点</td></tr><tr><td>c</td><td>cont</td><td>从当前位置继续执行程序，直到下一个断点或程序结束</td></tr><tr><td>p</td><td>print</td><td>打印变量的值</td></tr><tr><td>x</td><td></td><td>打印内存中的值</td></tr></tbody></table></div><p>注意 <code>n</code> 或者 <code>q</code> 指令是直接进行一步源代码指令，因此该实验中不会用到。<code>p</code> 是打印变量的值，通常是寄存器，不过在 pwndbg 的存在下没什么必要。<code>x</code> 是打印某个地址对应的值，也可以看做进行一次解引用操作，相当常用。</p><p>一些常用指令：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>x/2x <span class=nv>$rsp</span>  <span class=c1># 以十六进制格式查看栈指针 %rsp 指向的内存位置 M[%rsp] 开始的两个单位。</span>
+</span></span><span class=line><span class=cl>x/2d <span class=nv>$rsp</span> <span class=c1># 以十进制格式查看栈指针 %rsp 指向的内存位置 M[%rsp] 开始的两个单位。</span>
+</span></span><span class=line><span class=cl>x/2c <span class=nv>$rsp</span> <span class=c1># 以字符格式查看栈指针 %rsp 指向的内存位置 M[%rsp] 开始的两个单位。</span>
+</span></span><span class=line><span class=cl>x/s <span class=nv>$rsp</span> <span class=c1># 把栈指针指向的内存位置 M[%rsp] 当作 C 风格字符串来查看。</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>x/b <span class=nv>$rsp</span> <span class=c1># 检查栈指针指向的内存位置 M[%rsp] 开始的 1 字节。</span>
+</span></span><span class=line><span class=cl>x/h <span class=nv>$rsp</span> <span class=c1># 检查栈指针指向的内存位置 M[%rsp] 开始的 2 字节（半字）。</span>
+</span></span><span class=line><span class=cl>x/w <span class=nv>$rsp</span> <span class=c1># 检查栈指针指向的内存位置 M[%rsp] 开始的 4 字节（字）。</span>
+</span></span><span class=line><span class=cl>x/g <span class=nv>$rsp</span> <span class=c1># 检查栈指针指向的内存位置 M[%rsp] 开始的 8 字节（双字）。</span>
+</span></span></code></pre></td></tr></table></div></div><p>注意 <code>/</code> 后面的后缀（如 2x、2d、s、g、20c）指定了查看内存的方式和数量。具体来说：</p><ul><li>第一个数字（如 2、20）指定要查看的单位数量。</li><li>第二个字母（如 x、d、s、c）指定单位类型和显示格式，其中：<ul><li>c / d / x 分别代表以字符 / 十进制 / 十六进制格式显示内存内容。</li><li>s 代表以字符串格式显示内存内容。</li></ul></li><li>第三个字母（如 b / h / w / g）分别代表以 1 / 2 / 4 / 8 字节为单位（unit）显示内存内容。</li></ul><p>为了方便每次运行 <code>gdb bomb</code> 都能进入我们想要的部分，可以编辑当前文件夹下的 <code>.gdbinit</code> 文件（注意还需要更改系统的<code>~/.config/gdb/gdbinit</code>，参考<a class=link href=https://ovideros.site/p/gdb_dashboard/>GDB Dashboard 教程</a> ）：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=nb>set</span> args psol.txt
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>b phase_1
+</span></span><span class=line><span class=cl><span class=c1>#b phase_2</span>
+</span></span><span class=line><span class=cl><span class=c1>#b phase_3</span>
+</span></span><span class=line><span class=cl><span class=c1>#b phase_4</span>
+</span></span><span class=line><span class=cl><span class=c1>#b phase_5</span>
+</span></span><span class=line><span class=cl><span class=c1>#b phase_6</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>#b phase_defused</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>setupwin /dev/pts/5
+</span></span></code></pre></td></tr></table></div></div><p>这当中 <code>set args</code> 可以指定参数。当前目录下的 <code>psol.txt</code> 文件的每一行，就是对每一个阶段的解答。这样每次完成一个阶段，都可以写入 <code>psol.txt</code> 文件，不用重复输入密码。</p><p>断点可以根据当前阶段设置。<code>#</code> 开头的是注释。例如当前完成了前两个阶段，就可以只为第三阶段开启。</p><p>最后一行是我为 pwndbg 自定义的函数，为了打印调试信息到指定内容，参考 <a class=link href=https://ovideros.site/p/pwndbg/>pwndbg 教程与自定义配置</a>。</p><p>同时，因为 GDB 或者 pwndbg 能看到的反汇编代码的范围有限，为了方便查找，可以一次性生成反汇编代码并存储：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>objdump -d bomb &gt; bomb.asm
+</span></span></code></pre></td></tr></table></div></div><p>这样就可以在 VSCode 中查找。</p><blockquote><p>如果你发现 CSAPP Labs 只有远程桌面，其实你可以简单地把 gitlab 链接复制，在本地或其他指定的地方克隆下来，运行即可。例如我使用的是一个远程 Ubuntu 电脑，本地使用 VSCode SSH，以及直接利用 <a class=link href=https://tabby.sh/ target=_blank rel=noopener>Tabby</a> SSH 连接。</p></blockquote><blockquote><p>本文中不区分 eax 与 rax 等 32 位与 64 位寄存器，认为是等价的。本文中十六进制尽量使用 0x 前缀开头，但可能有遗漏。</p></blockquote><h2 id=phase_1>phase_1</h2><p>运行程序 <code>gdb bomb</code>，然后输入 <code>run</code>：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>(gdb) run
+</span></span><span class=line><span class=cl>Starting program: /home/ywr/dsc/learn/csapp/bomblab/bomb psol.txt
+</span></span><span class=line><span class=cl>Welcome to my fiendish little bomb. You have 6 phases with
+</span></span><span class=line><span class=cl>which to blow yourself up. Have a nice day!
+</span></span></code></pre></td></tr></table></div></div><p>此时可以随意输入一些尝试，例如我输入 <code>123456</code> 并回车，就进入了 <code>phase_1</code> 的断点：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>Breakpoint 1, 0x0000000000400e6d in phase_1 <span class=o>()</span>
+</span></span><span class=line><span class=cl><span class=o>(</span>gdb<span class=o>)</span> 
+</span></span></code></pre></td></tr></table></div></div><p>搜索 <code>phase_1</code>，可以看到如下代码：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-asm data-lang=asm><span class=line><span class=cl><span class=err>0000000000400</span><span class=nf>e6d</span> <span class=err>&lt;</span><span class=no>phase_1</span><span class=err>&gt;</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>  <span class=err>400</span><span class=nl>e6d:</span>	<span class=err>48</span> <span class=err>83</span> <span class=nf>ec</span> <span class=mi>08</span>          	<span class=no>sub</span>    <span class=no>$0x8</span><span class=p>,</span><span class=nv>%rsp</span>
+</span></span><span class=line><span class=cl>  <span class=err>400</span><span class=nl>e71:</span>	<span class=nf>be</span> <span class=no>d0</span> <span class=mi>23</span> <span class=mi>40</span> <span class=mi>00</span>       	<span class=no>mov</span>    <span class=no>$0x4023d0</span><span class=p>,</span><span class=nv>%esi</span>
+</span></span><span class=line><span class=cl>  <span class=err>400</span><span class=nl>e76:</span>	<span class=nf>e8</span> <span class=no>cf</span> <span class=mi>04</span> <span class=mi>00</span> <span class=mi>00</span>       	<span class=no>callq</span>  <span class=mh>40134a</span> <span class=p>&lt;</span><span class=no>strings_not_equal</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>  <span class=err>400</span><span class=nl>e7b:</span>	<span class=err>85</span> <span class=nf>c0</span>                	<span class=no>test</span>   <span class=nv>%eax</span><span class=p>,</span><span class=nv>%eax</span>
+</span></span><span class=line><span class=cl>  <span class=err>400</span><span class=nl>e7d:</span>	<span class=err>75</span> <span class=err>05</span>                	<span class=nf>jne</span>    <span class=mh>400e84</span> <span class=p>&lt;</span><span class=no>phase_1</span><span class=p>+</span><span class=mi>0x17</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>  <span class=err>400</span><span class=nl>e7f:</span>	<span class=err>48</span> <span class=err>83</span> <span class=nf>c4</span> <span class=mi>08</span>          	<span class=no>add</span>    <span class=no>$0x8</span><span class=p>,</span><span class=nv>%rsp</span>
+</span></span><span class=line><span class=cl>  <span class=err>400</span><span class=nl>e83:</span>	<span class=nf>c3</span>                   	<span class=no>retq</span>   
+</span></span><span class=line><span class=cl>  <span class=mi>400</span><span class=no>e84</span><span class=p>:</span>	<span class=no>e8</span> <span class=no>be</span> <span class=mi>05</span> <span class=mi>00</span> <span class=mi>00</span>       	<span class=no>callq</span>  <span class=mh>401447</span> <span class=p>&lt;</span><span class=no>explode_bomb</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>  <span class=err>400</span><span class=nl>e89:</span>	<span class=nf>eb</span> <span class=no>f4</span>                	<span class=no>jmp</span>    <span class=mh>400e7f</span> <span class=p>&lt;</span><span class=no>phase_1</span><span class=p>+</span><span class=mi>0x12</span><span class=p>&gt;</span>
+</span></span></code></pre></td></tr></table></div></div><p>可以看到，第三步调用了 <code>strings_not_equal</code> 函数。让我们输入两次 <code>ni</code>，到达 <code>0x400e76</code> 处。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=o>(</span>gdb<span class=o>)</span> ni
+</span></span><span class=line><span class=cl>0x0000000000400e71 in phase_1 <span class=o>()</span>
+</span></span><span class=line><span class=cl><span class=o>(</span>gdb<span class=o>)</span> ni
+</span></span><span class=line><span class=cl>0x0000000000400e76 in phase_1 <span class=o>()</span>
+</span></span></code></pre></td></tr></table></div></div><p>汇编中第一个与第二个参数分别是 %rdi 与%rsi，让我们尝试打印：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=o>(</span>gdb<span class=o>)</span> p/x <span class=nv>$rdi</span>
+</span></span><span class=line><span class=cl><span class=nv>$1</span> <span class=o>=</span> 0x603780
+</span></span><span class=line><span class=cl><span class=o>(</span>gdb<span class=o>)</span> p/x <span class=nv>$rsi</span>
+</span></span><span class=line><span class=cl><span class=nv>$2</span> <span class=o>=</span> 0x4023d0
+</span></span></code></pre></td></tr></table></div></div><p>我们将这两个看成字符串指针，尝试打印：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=o>(</span>gdb<span class=o>)</span> x/s <span class=nv>$rdi</span>
+</span></span><span class=line><span class=cl>0x603780 &lt;input_strings&gt;:       <span class=s2>&#34;123456&#34;</span>
+</span></span><span class=line><span class=cl><span class=o>(</span>gdb<span class=o>)</span> x/s <span class=nv>$rsi</span>
+</span></span><span class=line><span class=cl>0x4023d0:       <span class=s2>&#34;Slave, thou hast slain me. Villain, take my purse.&#34;</span>
+</span></span></code></pre></td></tr></table></div></div><p>可以看出，其中 123456 就是我们输入的字符，也是 <code>input_strings</code>。剩下的就应该是第一阶段的密码了。</p><p>阅读原先汇编的逻辑，也可以知道在 <code>strings_not_equal</code> 调用后，会利用 <code>test %eax,%eax</code> 来判断返回值是否为 0（test 指令会对两个操作数进行按位与运算），之后根据 <code>jne</code> 进行跳转。如果不为 0，则跳转到 0x400e84，然后调用 explode_bomb 函数，引发爆炸；如果为 0，说明字符串匹配，则恢复栈指针位置，然后返回。</p><p>所以第一阶段密码为 <code>Slave, thou hast slain me. Villain, take my purse.</code> 。</p><h2 id=phase_2>phase_2</h2><h3 id=read_six_numbers-分析>read_six_numbers 分析</h3><p>调用 <code>read_six_numbers</code> 后爆炸，对该函数打断点。</p><p>rcx 写为 0x00007fffffffdb44，rax 写为 0x00007fffffffdb54，推入栈，然后写为 0x00007fffffffdb50，再推入栈。r9 为0x00007fffffffdb4c，r8 为0x00007fffffffdb48 。</p><p>调用前，rdi 为 0x00007fffffffd4d0，rsi 为 0x00000000004025c3。</p><p>打印 sscanf 输入参数对应位置：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>&gt;&gt;&gt; x/s $rdi
+</span></span><span class=line><span class=cl>0x6037d0 &lt;input_strings+80&gt;:    &#34;123456&#34;
+</span></span><span class=line><span class=cl>&gt;&gt;&gt; x/s $rsi
+</span></span><span class=line><span class=cl>0x4025c3:       &#34;%d %d %d %d %d %d&#34;
+</span></span></code></pre></td></tr></table></div></div><p>发现其中第一个参数就是我们输入的字符串，第二个就是指定的格式。参考 sscanf 的使用方法<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup>：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=kt>int</span> <span class=nf>sscanf</span> <span class=p>(</span> <span class=k>const</span> <span class=kt>char</span> <span class=o>*</span> <span class=n>s</span><span class=p>,</span> <span class=k>const</span> <span class=kt>char</span> <span class=o>*</span> <span class=n>format</span><span class=p>,</span> <span class=p>...);</span>
+</span></span></code></pre></td></tr></table></div></div><p>函数返回值代表捕捉到的参数个数。第一个参数是输入字符串（如 123456），第二个是指定格式（如 <code>%d %d %d %d %d %d</code>），之后的参数都是指针，指向希望存储数据的位置。</p><p>根据定义，第三个参数开始分别是 rdx、rcx、r8、r9，超过六个参数都会压入调用者的栈中。注意，栈顶是从内存大区域往小区域的，并且压入的参数是逆序的，也就是先压入第8个参数，再压入第7个参数。所以地址最大的 %rsi+0x14 是最先压入的，也就是最后的参数。</p><p>调用后，返回值 eax 会与 5 比较，如果小于等于 5，则会直接爆炸。这说明我们应该符合格式，输入 6 个整数进行尝试，如 <code>1 2 3 4 5 6</code>。在 0x401486 处停下，打印这些变量，就可以得到此时这些变量。打印的是现在 rsi 指向的地址，也就是0x7fffffffdb40。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>&gt;&gt;&gt; x/6dw 0x7fffffffdb40
+</span></span><span class=line><span class=cl>0x7fffffffdb40: <span class=m>0</span>       <span class=m>0</span>       <span class=m>4199486</span> <span class=m>0</span>
+</span></span><span class=line><span class=cl>0x7fffffffdb50: -9112   <span class=m>32767</span>
+</span></span></code></pre></td></tr></table></div></div><p>目前都为空。经过 sscanf 函数后再次打印：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>&gt;&gt;&gt; x/6dw 0x7fffffffdb40
+</span></span><span class=line><span class=cl>0x7fffffffdb40: <span class=m>1</span>       <span class=m>2</span>       <span class=m>3</span>       <span class=m>4</span>
+</span></span><span class=line><span class=cl>0x7fffffffdb50: <span class=m>5</span>       <span class=m>6</span>
+</span></span></code></pre></td></tr></table></div></div><p>我们发现这就是 sscanf 获得的输入，将我们的输入存到了 6 个 int 类型中，放在栈上，是连续的六个变量。</p><div class=table-wrapper><table><thead><tr><th>参数</th><th>值/指向的地址</th><th>指向的值</th></tr></thead><tbody><tr><td>rdx</td><td>%rsi</td><td>1</td></tr><tr><td>rcx</td><td>%rsi+0x4</td><td>2</td></tr><tr><td>r8</td><td>%rsi+0x8</td><td>3</td></tr><tr><td>r9</td><td>%rsi+0xc</td><td>4</td></tr><tr><td>第七个参数</td><td>%rsi+0x10</td><td>5</td></tr><tr><td>第八个参数</td><td>%rsi+0x14</td><td>6</td></tr></tbody></table></div><h3 id=phase_2-本身分析>phase_2 本身分析</h3><p>之后来分析 phase_2 本身。该部分有详细的汇编注释，但之后的汇编中我会减少相关注释。注意下面的 emoji 代表了跳转的位置：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-asm data-lang=asm><span class=line><span class=cl><span class=err>0000000000400</span><span class=nf>e8b</span> <span class=err>&lt;</span><span class=no>phase_2</span><span class=err>&gt;</span><span class=p>:</span>
+</span></span><span class=line><span class=cl><span class=c1># ...省略...
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl><span class=err>400</span><span class=nl>ea3:</span>	<span class=nf>e8</span> <span class=no>c1</span> <span class=mi>05</span> <span class=mi>00</span> <span class=mi>00</span>       	<span class=no>callq</span>  <span class=mh>401469</span> <span class=p>&lt;</span><span class=no>read_six_numbers</span><span class=p>&gt;</span> <span class=c1># 获取六个数字
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=err>400</span><span class=nl>ea8:</span>	<span class=err>83</span> <span class=err>3</span><span class=nf>c</span> <span class=mi>24</span> <span class=mi>00</span>          	<span class=no>cmpl</span>   <span class=no>$0x0</span><span class=p>,(</span><span class=nv>%rsp</span><span class=p>)</span> <span class=c1># rsp 第一个数字 与 0 比较
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=err>400</span><span class=nl>eac:</span>	<span class=err>78</span> <span class=err>07</span>                	<span class=nf>js</span>     <span class=mh>400eb5</span> <span class=p>&lt;</span><span class=no>phase_2</span><span class=p>+</span><span class=mi>0x2a</span><span class=p>&gt;</span> <span class=c1># 有符号比较，当第一个数字为负数的时候跳转到爆炸
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=err>400</span><span class=nl>eae:</span>	<span class=nf>bb</span> <span class=mi>01</span> <span class=mi>00</span> <span class=mi>00</span> <span class=mi>00</span>       	<span class=no>mov</span>    <span class=no>$0x1</span><span class=p>,</span><span class=nv>%ebx</span> <span class=c1># 将 ebx 变为1
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=err>400</span><span class=nl>eb3:</span>	<span class=nf>eb</span> <span class=mi>11</span>                	<span class=no>jmp</span>    <span class=mh>400ec6</span> <span class=p>&lt;</span><span class=no>phase_2</span><span class=p>+</span><span class=mi>0x3b</span><span class=p>&gt;</span> <span class=c1># 无条件跳转到 ec6 一行😭
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=err>400</span><span class=nl>eb5:</span>	<span class=nf>e8</span> <span class=mi>8</span><span class=no>d</span> <span class=mi>05</span> <span class=mi>00</span> <span class=mi>00</span>       	<span class=no>callq</span>  <span class=mh>401447</span> <span class=p>&lt;</span><span class=no>explode_bomb</span><span class=p>&gt;</span> <span class=c1># 爆炸
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=err>400</span><span class=nl>eba:</span>	<span class=nf>eb</span> <span class=no>f2</span>                	<span class=no>jmp</span>    <span class=mh>400eae</span> <span class=p>&lt;</span><span class=no>phase_2</span><span class=p>+</span><span class=mi>0x23</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=err>400</span><span class=nl>ebc:</span>	<span class=err>48</span> <span class=err>83</span> <span class=nf>c3</span> <span class=mi>01</span>          	<span class=no>add</span>    <span class=no>$0x1</span><span class=p>,</span><span class=nv>%rbx</span> <span class=c1># 😁：rbx += 1
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=err>400</span><span class=nl>ec0:</span>	<span class=err>48</span> <span class=err>83</span> <span class=nf>fb</span> <span class=mi>06</span>          	<span class=no>cmp</span>    <span class=no>$0x6</span><span class=p>,</span><span class=nv>%rbx</span> <span class=c1># 将 rbx 与 6 比较
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=err>400</span><span class=nl>ec4:</span>	<span class=err>74</span> <span class=err>12</span>                	<span class=nf>je</span>     <span class=mh>400ed8</span> <span class=p>&lt;</span><span class=no>phase_2</span><span class=p>+</span><span class=mi>0x4d</span><span class=p>&gt;</span> <span class=c1># 如果相等，说明循环结束，跳转到🚩
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=err>400</span><span class=nl>ec6:</span>	<span class=err>89</span> <span class=nf>d8</span>                	<span class=no>mov</span>    <span class=nv>%ebx</span><span class=p>,</span><span class=nv>%eax</span>  <span class=c1># 😭：eax 变成 ebx
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=err>400</span><span class=nl>ec8:</span>	<span class=err>03</span> <span class=err>44</span> <span class=err>9</span><span class=nf>c</span> <span class=no>fc</span>          	<span class=no>add</span>    <span class=p>-</span><span class=mi>0x4</span><span class=p>(</span><span class=nv>%rsp</span><span class=p>,</span><span class=nv>%rbx</span><span class=p>,</span><span class=mi>4</span><span class=p>),</span><span class=nv>%eax</span> <span class=c1># eax += rsp对应数组中rbx偏移量后减去4，也就是rbx为1 2 3分别对应数组索引 0 1 2，也即 rsp[rbx-1]
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=err>400</span><span class=nl>ecc:</span>	<span class=err>39</span> <span class=err>04</span> <span class=err>9</span><span class=nf>c</span>             	<span class=no>cmp</span>    <span class=nv>%eax</span><span class=p>,(</span><span class=nv>%rsp</span><span class=p>,</span><span class=nv>%rbx</span><span class=p>,</span><span class=mi>4</span><span class=p>)</span> <span class=c1># 将 rsp[rbx] 与 eax 比较
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=err>400</span><span class=nl>ecf:</span>	<span class=err>74</span> <span class=nf>eb</span>                	<span class=no>je</span>     <span class=mh>400ebc</span> <span class=p>&lt;</span><span class=no>phase_2</span><span class=p>+</span><span class=mi>0x31</span><span class=p>&gt;</span> <span class=c1># 如果相等，跳转到😁
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=err>400</span><span class=nl>ed1:</span>	<span class=nf>e8</span> <span class=mi>71</span> <span class=mi>05</span> <span class=mi>00</span> <span class=mi>00</span>       	<span class=no>callq</span>  <span class=mh>401447</span> <span class=p>&lt;</span><span class=no>explode_bomb</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=err>400</span><span class=nl>ed6:</span>	<span class=nf>eb</span> <span class=no>e4</span>                	<span class=no>jmp</span>    <span class=mh>400ebc</span> <span class=p>&lt;</span><span class=no>phase_2</span><span class=p>+</span><span class=mi>0x31</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=err>400</span><span class=nl>ed8:</span>	<span class=err>48</span> <span class=err>8</span><span class=nf>b</span> <span class=mi>44</span> <span class=mi>24</span> <span class=mi>18</span>       	<span class=no>mov</span>    <span class=mi>0x18</span><span class=p>(</span><span class=nv>%rsp</span><span class=p>),</span><span class=nv>%rax</span> <span class=c1># 🚩：此时循环结束，将 rax 变成 rsp 地址加上 18
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=err>400</span><span class=nl>edd:</span>	<span class=err>64</span> <span class=err>48</span> <span class=err>33</span> <span class=err>04</span> <span class=err>25</span> <span class=err>28</span> <span class=err>00</span> 	<span class=nf>xor</span>    <span class=nv>%fs</span><span class=p>:</span><span class=mi>0x28</span><span class=p>,</span><span class=nv>%rax</span> <span class=c1># 异或比较
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=err>400</span><span class=nl>ee4:</span>	<span class=err>00</span> <span class=err>00</span> 
+</span></span><span class=line><span class=cl><span class=err>400</span><span class=nl>ee6:</span>	<span class=err>75</span> <span class=err>06</span>                	<span class=nf>jne</span>    <span class=mh>400eee</span> <span class=p>&lt;</span><span class=no>phase_2</span><span class=p>+</span><span class=mi>0x63</span><span class=p>&gt;</span> <span class=c1># 如果不相等，跳转到最后一行
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=err>400</span><span class=nl>ee8:</span>	<span class=err>48</span> <span class=err>83</span> <span class=nf>c4</span> <span class=mi>20</span>          	<span class=no>add</span>    <span class=no>$0x20</span><span class=p>,</span><span class=nv>%rsp</span> <span class=c1># rsp 增加 20
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=err>400</span><span class=nl>eec:</span>	<span class=err>5</span><span class=nf>b</span>                   	<span class=no>pop</span>    <span class=nv>%rbx</span> <span class=c1># 推出元素
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=err>400</span><span class=nl>eed:</span>	<span class=nf>c3</span>                   	<span class=no>retq</span>   <span class=err>@</span> <span class=err>返回</span>
+</span></span><span class=line><span class=cl><span class=err>400</span><span class=nl>eee:</span>	<span class=nf>e8</span> <span class=mi>0</span><span class=no>d</span> <span class=no>fc</span> <span class=no>ff</span> <span class=no>ff</span>       	<span class=no>callq</span>  <span class=mh>400b00</span> <span class=p>&lt;</span><span class=no>__stack_chk_fail@plt</span><span class=p>&gt;</span> <span class=c1># 报错
+</span></span></span></code></pre></td></tr></table></div></div><p>可以跟着编译器，看出其跳转的逻辑，写成 C 的话类似这样：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=kt>int</span><span class=p>[]</span> <span class=n>rsp</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=kt>int</span> <span class=n>eax</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=p>(</span><span class=n>rsp</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=o>&lt;</span> <span class=mi>0</span> <span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nf>explode</span><span class=p>();</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kt>int</span> <span class=n>ebx</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>do</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=n>eax</span> <span class=o>=</span> <span class=n>ebx</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=n>eax</span> <span class=o>+=</span> <span class=n>rsp</span><span class=p>[</span><span class=n>ebx</span><span class=o>-</span><span class=mi>1</span><span class=p>];</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=p>(</span><span class=o>!</span><span class=p>(</span><span class=n>eax</span> <span class=o>=</span> <span class=n>rsp</span><span class=p>[</span><span class=n>ebx</span><span class=p>]))</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nf>explode</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>ebx</span><span class=o>++</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span> <span class=k>while</span> <span class=p>(</span><span class=n>ebx</span> <span class=o>!=</span> <span class=mi>6</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><p>所以，第一个循环 eax 为 1，并且 eax 加上数组第 0 个元素，判断是否等于数组第 1 个元素；之后继续循环。</p><p>可以有多种解，就是一个二阶等差数列（二次函数），相邻两个元素的差是 <code>1 2 3 4 5</code>。同时保证第一个数不小于 0 即可：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>0 1 3 6 10 15
+</span></span><span class=line><span class=cl>1 2 4 7 11 16
+</span></span><span class=line><span class=cl>2 3 5 8 12 17
+</span></span><span class=line><span class=cl>...
+</span></span></code></pre></td></tr></table></div></div><h2 id=phase_3>phase_3</h2><p>在 sscanf 调用前，esi 便是第二个输入参数，代表了匹配的格式，打印得出：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=o>&gt;&gt;&gt;</span> <span class=n>x</span><span class=o>/</span><span class=n>s</span> <span class=err>$</span><span class=n>rsi</span>
+</span></span><span class=line><span class=cl><span class=mh>0x4025cf</span><span class=o>:</span>       <span class=s>&#34;%d %d&#34;</span>
+</span></span></code></pre></td></tr></table></div></div><p>这说明第三阶段希望匹配两个整数。前面将函数第三个参数 rdx 设置为 rsp 地址，第四个参数 rcx 设置为 <code>0x4(%rsp)</code> ，说明 rsp 指向了我们输入的两个数。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-asm data-lang=asm><span class=line><span class=cl><span class=err>0000000000400</span><span class=nf>ef3</span> <span class=err>&lt;</span><span class=no>phase_3</span><span class=err>&gt;</span><span class=p>:</span>
+</span></span><span class=line><span class=cl><span class=err>400</span><span class=nl>f0f:</span>	<span class=nf>be</span> <span class=no>cf</span> <span class=mi>25</span> <span class=mi>40</span> <span class=mi>00</span>       	<span class=no>mov</span>    <span class=no>$0x4025cf</span><span class=p>,</span><span class=nv>%esi</span>
+</span></span><span class=line><span class=cl><span class=err>400</span><span class=nl>f14:</span>	<span class=nf>e8</span> <span class=mi>87</span> <span class=no>fc</span> <span class=no>ff</span> <span class=no>ff</span>       	<span class=no>callq</span>  <span class=mh>400ba0</span> <span class=p>&lt;</span><span class=no>__isoc99_sscanf@plt</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=err>400</span><span class=nl>f19:</span>	<span class=err>83</span> <span class=nf>f8</span> <span class=mi>01</span>             	<span class=no>cmp</span>    <span class=no>$0x1</span><span class=p>,</span><span class=nv>%eax</span>  <span class=c1># 比较 sscanf 返回值与 1
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=err>400</span><span class=nl>f1c:</span>	<span class=err>7</span><span class=nf>e</span> <span class=mi>10</span>                	<span class=no>jle</span>    <span class=mh>400f2e</span> <span class=p>&lt;</span><span class=no>phase_3</span><span class=p>+</span><span class=mi>0x3b</span><span class=p>&gt;</span> <span class=c1># 如果小于等于1，则爆炸
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=err>400</span><span class=nl>f1e:</span>	<span class=err>83</span> <span class=err>3</span><span class=nf>c</span> <span class=mi>24</span> <span class=mi>07</span>          	<span class=no>cmpl</span>   <span class=no>$0x7</span><span class=p>,(</span><span class=nv>%rsp</span><span class=p>)</span> <span class=c1># 比较 rsp 指向的值与 7
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=err>400</span><span class=nl>f22:</span>	<span class=err>77</span> <span class=err>42</span>                	<span class=nf>ja</span>     <span class=mh>400f66</span> <span class=p>&lt;</span><span class=no>phase_3</span><span class=p>+</span><span class=mi>0x73</span><span class=p>&gt;</span> <span class=c1># 如果大于7，爆炸
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=err>400</span><span class=nl>f24:</span>	<span class=err>8</span><span class=nf>b</span> <span class=mi>04</span> <span class=mi>24</span>             	<span class=no>mov</span>    <span class=p>(</span><span class=nv>%rsp</span><span class=p>),</span><span class=nv>%eax</span> <span class=c1># 否则将 rsp 指向的值放入 eax
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=err>400</span><span class=nl>f27:</span>	<span class=nf>ff</span> <span class=mi>24</span> <span class=no>c5</span> <span class=mi>40</span> <span class=mi>24</span> <span class=mi>40</span> <span class=mi>00</span> 	<span class=no>jmpq</span>   <span class=p>*</span><span class=mi>0x402440</span><span class=p>(,</span><span class=nv>%rax</span><span class=p>,</span><span class=mi>8</span><span class=p>)</span> <span class=c1># 将 rax 作为索引，跳转到指定位置
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=na>...</span>
+</span></span></code></pre></td></tr></table></div></div><p>尝试输入 <code>1 2</code>。调试发现 0x400f1e 步 rsp 指向的值为 1，也就是我们输入的第一个数。接下来与 7 进行比较，然后有一大堆跳转。不难想到，这是 switch 的跳转表。可知表的位置在 0x402440 ，尝试打印（打印 8 个单位，以十六进制，每个单位有 8 个字节）。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>&gt;&gt;&gt; x/8xg 0x402440
+</span></span><span class=line><span class=cl>0x402440:       0x0000000000400f72      0x0000000000400f35
+</span></span><span class=line><span class=cl>0x402450:       0x0000000000400f3c      0x0000000000400f43
+</span></span><span class=line><span class=cl>0x402460:       0x0000000000400f4a      0x0000000000400f51
+</span></span><span class=line><span class=cl>0x402470:       0x0000000000400f58      0x0000000000400f5f
+</span></span></code></pre></td></tr></table></div></div><p>这就是输入数从 0 到 7 的时候，对应的跳转位置。让我们根据下面的代码进行分析，加上注释，将第一个输入称为 x：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-asm data-lang=asm><span class=line><span class=cl><span class=err>400</span><span class=nl>f1e:</span>	<span class=err>83</span> <span class=err>3</span><span class=nf>c</span> <span class=mi>24</span> <span class=mi>07</span>          	<span class=no>cmpl</span>   <span class=no>$0x7</span><span class=p>,(</span><span class=nv>%rsp</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=err>400</span><span class=nl>f22:</span>	<span class=err>77</span> <span class=err>42</span>                	<span class=nf>ja</span>     <span class=mh>400f66</span> <span class=p>&lt;</span><span class=no>phase_3</span><span class=p>+</span><span class=mi>0x73</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=err>400</span><span class=nl>f24:</span>	<span class=err>8</span><span class=nf>b</span> <span class=mi>04</span> <span class=mi>24</span>             	<span class=no>mov</span>    <span class=p>(</span><span class=nv>%rsp</span><span class=p>),</span><span class=nv>%eax</span>
+</span></span><span class=line><span class=cl><span class=err>400</span><span class=nl>f27:</span>	<span class=nf>ff</span> <span class=mi>24</span> <span class=no>c5</span> <span class=mi>40</span> <span class=mi>24</span> <span class=mi>40</span> <span class=mi>00</span> 	<span class=no>jmpq</span>   <span class=p>*</span><span class=mi>0x402440</span><span class=p>(,</span><span class=nv>%rax</span><span class=p>,</span><span class=mi>8</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=err>400</span><span class=nl>f2e:</span>	<span class=nf>e8</span> <span class=mi>14</span> <span class=mi>05</span> <span class=mi>00</span> <span class=mi>00</span>       	<span class=no>callq</span>  <span class=mh>401447</span> <span class=p>&lt;</span><span class=no>explode_bomb</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=err>400</span><span class=nl>f33:</span>	<span class=nf>eb</span> <span class=no>e9</span>                	<span class=no>jmp</span>    <span class=mh>400f1e</span> <span class=p>&lt;</span><span class=no>phase_3</span><span class=p>+</span><span class=mi>0x2b</span><span class=p>&gt;</span> <span class=c1># 调到rsp的值与7的比较
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=err>400</span><span class=nl>f35:</span>	<span class=nf>b8</span> <span class=mi>35</span> <span class=mi>02</span> <span class=mi>00</span> <span class=mi>00</span>       	<span class=no>mov</span>    <span class=no>$0x235</span><span class=p>,</span><span class=nv>%eax</span>   		<span class=c1># x = 1
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=err>400</span><span class=nl>f3a:</span>	<span class=nf>eb</span> <span class=mi>3</span><span class=no>b</span>                	<span class=no>jmp</span>    <span class=mh>400f77</span> <span class=p>&lt;</span><span class=no>phase_3</span><span class=p>+</span><span class=mi>0x84</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=err>400</span><span class=nl>f3c:</span>	<span class=nf>b8</span> <span class=no>a7</span> <span class=mi>01</span> <span class=mi>00</span> <span class=mi>00</span>       	<span class=no>mov</span>    <span class=no>$0x1a7</span><span class=p>,</span><span class=nv>%eax</span>   		<span class=c1># x = 2
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=err>400</span><span class=nl>f41:</span>	<span class=nf>eb</span> <span class=mi>34</span>                	<span class=no>jmp</span>    <span class=mh>400f77</span> <span class=p>&lt;</span><span class=no>phase_3</span><span class=p>+</span><span class=mi>0x84</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=err>400</span><span class=nl>f43:</span>	<span class=nf>b8</span> <span class=mi>2</span><span class=no>b</span> <span class=mi>02</span> <span class=mi>00</span> <span class=mi>00</span>       	<span class=no>mov</span>    <span class=no>$0x22b</span><span class=p>,</span><span class=nv>%eax</span>   		<span class=c1># x = 3
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=err>400</span><span class=nl>f48:</span>	<span class=nf>eb</span> <span class=mi>2</span><span class=no>d</span>                	<span class=no>jmp</span>    <span class=mh>400f77</span> <span class=p>&lt;</span><span class=no>phase_3</span><span class=p>+</span><span class=mi>0x84</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=err>400</span><span class=nl>f4a:</span>	<span class=nf>b8</span> <span class=mi>6</span><span class=no>c</span> <span class=mi>00</span> <span class=mi>00</span> <span class=mi>00</span>       	<span class=no>mov</span>    <span class=no>$0x6c</span><span class=p>,</span><span class=nv>%eax</span>   		<span class=c1># x = 4
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=err>400</span><span class=nl>f4f:</span>	<span class=nf>eb</span> <span class=mi>26</span>                	<span class=no>jmp</span>    <span class=mh>400f77</span> <span class=p>&lt;</span><span class=no>phase_3</span><span class=p>+</span><span class=mi>0x84</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=err>400</span><span class=nl>f51:</span>	<span class=nf>b8</span> <span class=no>f1</span> <span class=mi>02</span> <span class=mi>00</span> <span class=mi>00</span>       	<span class=no>mov</span>    <span class=no>$0x2f1</span><span class=p>,</span><span class=nv>%eax</span>   		<span class=c1># x = 5
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=err>400</span><span class=nl>f56:</span>	<span class=nf>eb</span> <span class=mi>1</span><span class=no>f</span>                	<span class=no>jmp</span>    <span class=mh>400f77</span> <span class=p>&lt;</span><span class=no>phase_3</span><span class=p>+</span><span class=mi>0x84</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=err>400</span><span class=nl>f58:</span>	<span class=nf>b8</span> <span class=mi>3</span><span class=no>e</span> <span class=mi>00</span> <span class=mi>00</span> <span class=mi>00</span>       	<span class=no>mov</span>    <span class=no>$0x3e</span><span class=p>,</span><span class=nv>%eax</span>    		<span class=c1># x = 6
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=err>400</span><span class=nl>f5d:</span>	<span class=nf>eb</span> <span class=mi>18</span>                	<span class=no>jmp</span>    <span class=mh>400f77</span> <span class=p>&lt;</span><span class=no>phase_3</span><span class=p>+</span><span class=mi>0x84</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=err>400</span><span class=nl>f5f:</span>	<span class=nf>b8</span> <span class=mi>48</span> <span class=mi>02</span> <span class=mi>00</span> <span class=mi>00</span>       	<span class=no>mov</span>    <span class=no>$0x248</span><span class=p>,</span><span class=nv>%eax</span>   		<span class=c1># x = 7
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=err>400</span><span class=nl>f64:</span>	<span class=nf>eb</span> <span class=mi>11</span>                	<span class=no>jmp</span>    <span class=mh>400f77</span> <span class=p>&lt;</span><span class=no>phase_3</span><span class=p>+</span><span class=mi>0x84</span><span class=p>&gt;</span> 
+</span></span><span class=line><span class=cl><span class=mi>400</span><span class=no>f66</span><span class=p>:</span>	<span class=no>e8</span> <span class=no>dc</span> <span class=mi>04</span> <span class=mi>00</span> <span class=mi>00</span>       	<span class=no>callq</span>  <span class=mh>401447</span> <span class=p>&lt;</span><span class=no>explode_bomb</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=err>400</span><span class=nl>f6b:</span>	<span class=nf>b8</span> <span class=mi>00</span> <span class=mi>00</span> <span class=mi>00</span> <span class=mi>00</span>       	<span class=no>mov</span>    <span class=no>$0x0</span><span class=p>,</span><span class=nv>%eax</span>
+</span></span><span class=line><span class=cl><span class=err>400</span><span class=nl>f70:</span>	<span class=nf>eb</span> <span class=mi>05</span>                	<span class=no>jmp</span>    <span class=mh>400f77</span> <span class=p>&lt;</span><span class=no>phase_3</span><span class=p>+</span><span class=mi>0x84</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=err>400</span><span class=nl>f72:</span>	<span class=nf>b8</span> <span class=mi>21</span> <span class=mi>01</span> <span class=mi>00</span> <span class=mi>00</span>       	<span class=no>mov</span>    <span class=no>$0x121</span><span class=p>,</span><span class=nv>%eax</span>  		 <span class=c1># x = 0
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=err>400</span><span class=nl>f77:</span>	<span class=err>39</span> <span class=err>44</span> <span class=err>24</span> <span class=err>04</span>          	<span class=nf>cmp</span>    <span class=nv>%eax</span><span class=p>,</span><span class=mi>0x4</span><span class=p>(</span><span class=nv>%rsp</span><span class=p>)</span> 		 <span class=c1># 继续运行，比较eax 与第二个输入数字的值
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=err>400</span><span class=nl>f7b:</span>	<span class=err>74</span> <span class=err>05</span>                	<span class=nf>je</span>     <span class=mh>400f82</span> <span class=p>&lt;</span><span class=no>phase_3</span><span class=p>+</span><span class=mi>0x8f</span><span class=p>&gt;</span>  <span class=c1># 如果相等，跳转到下方
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=err>400</span><span class=nl>f7d:</span>	<span class=nf>e8</span> <span class=no>c5</span> <span class=mi>04</span> <span class=mi>00</span> <span class=mi>00</span>       	<span class=no>callq</span>  <span class=mh>401447</span> <span class=p>&lt;</span><span class=no>explode_bomb</span><span class=p>&gt;</span>  <span class=c1># 不然爆炸
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=err>400</span><span class=nl>f82:</span>	<span class=err>48</span> <span class=err>8</span><span class=nf>b</span> <span class=mi>44</span> <span class=mi>24</span> <span class=mi>08</span>       	<span class=no>mov</span>    <span class=mi>0x8</span><span class=p>(</span><span class=nv>%rsp</span><span class=p>),</span><span class=nv>%rax</span>  <span class=c1># 开始各种栈相关的操作
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=err>400</span><span class=nl>f87:</span>	<span class=err>64</span> <span class=err>48</span> <span class=err>33</span> <span class=err>04</span> <span class=err>25</span> <span class=err>28</span> <span class=err>00</span> 	<span class=nf>xor</span>    <span class=nv>%fs</span><span class=p>:</span><span class=mi>0x28</span><span class=p>,</span><span class=nv>%rax</span>
+</span></span><span class=line><span class=cl><span class=err>400</span><span class=nl>f8e:</span>	<span class=err>00</span> <span class=err>00</span> 
+</span></span><span class=line><span class=cl><span class=err>400</span><span class=nl>f90:</span>	<span class=err>75</span> <span class=err>05</span>                	<span class=nf>jne</span>    <span class=mh>400f97</span> <span class=p>&lt;</span><span class=no>phase_3</span><span class=p>+</span><span class=mi>0xa4</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=err>400</span><span class=nl>f92:</span>	<span class=err>48</span> <span class=err>83</span> <span class=nf>c4</span> <span class=mi>18</span>          	<span class=no>add</span>    <span class=no>$0x18</span><span class=p>,</span><span class=nv>%rsp</span>
+</span></span><span class=line><span class=cl><span class=err>400</span><span class=nl>f96:</span>	<span class=nf>c3</span>                   	<span class=no>retq</span>   
+</span></span><span class=line><span class=cl><span class=mi>400</span><span class=no>f97</span><span class=p>:</span>	<span class=no>e8</span> <span class=mi>64</span> <span class=no>fb</span> <span class=no>ff</span> <span class=no>ff</span>       	<span class=no>callq</span>  <span class=mh>400b00</span> <span class=p>&lt;</span><span class=no>__stack_chk_fail@plt</span><span class=p>&gt;</span>
+</span></span></code></pre></td></tr></table></div></div><p>通过注释，我们不难发现，当 x 从 0 遍历到 7 的时候，都会通过一行 mov 命令设置 eax 的值，然后跳转到 0x400f77，将 eax 与第二个输入进行比较。如果不相等，就爆炸。</p><p>因此可以得出多种解法，只要让第二个参数，与对应的 mov 中的硬编码的值一样即可。注意之前 sscanf 的 %d 只能匹配十进制输入，所以需要将十六进制进行转换。</p><p>原先十六进制：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>0 0x121
+</span></span><span class=line><span class=cl>1 0x235
+</span></span><span class=line><span class=cl>2 0x1a7
+</span></span><span class=line><span class=cl>3 0x22b
+</span></span><span class=line><span class=cl>4 0x6c
+</span></span><span class=line><span class=cl>5 0x2f1
+</span></span><span class=line><span class=cl>6 0x3e
+</span></span><span class=line><span class=cl>7 0x248
+</span></span></code></pre></td></tr></table></div></div><p>转换为十进制：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>0 289
+</span></span><span class=line><span class=cl>1 565
+</span></span><span class=line><span class=cl>2 423
+</span></span><span class=line><span class=cl>3 555
+</span></span><span class=line><span class=cl>4 108
+</span></span><span class=line><span class=cl>5 753
+</span></span><span class=line><span class=cl>6 62
+</span></span><span class=line><span class=cl>7 584
+</span></span></code></pre></td></tr></table></div></div><p>任意一行都是有效的解。</p><h2 id=phase_4>phase_4</h2><h3 id=phase_4-本身分析>phase_4 本身分析</h3><p>照样有 sscanf 函数，打印出 rsi，发现还是两个整数：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>&gt;&gt;&gt; x/s $rsi
+</span></span><span class=line><span class=cl>0x4025cf:       &#34;%d %d&#34;
+</span></span></code></pre></td></tr></table></div></div><p>第三个参数 rdx 设置为 rsp 地址，第四个参数 rcx 设置为 0x4 (%rsp) ，与第三阶段一样，还是将两个输入存放在 rsp 指向的位置。</p><p>调用 sscanf 后先检验返回值是否为 2，如果不是，直接爆炸。接着比较 rsp 指向的值，也就是第一个输入与 0xe（14） 的关系，如果小于等于 14，正常跳转；否则爆炸。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-asm data-lang=asm><span class=line><span class=cl><span class=err>400</span><span class=nl>ff7:</span>	<span class=nf>be</span> <span class=no>cf</span> <span class=mi>25</span> <span class=mi>40</span> <span class=mi>00</span>       	<span class=no>mov</span>    <span class=no>$0x4025cf</span><span class=p>,</span><span class=nv>%esi</span>
+</span></span><span class=line><span class=cl><span class=err>400</span><span class=nl>ffc:</span>	<span class=nf>e8</span> <span class=mi>9</span><span class=no>f</span> <span class=no>fb</span> <span class=no>ff</span> <span class=no>ff</span>       	<span class=no>callq</span>  <span class=mh>400ba0</span> <span class=p>&lt;</span><span class=no>__isoc99_sscanf@plt</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=err>401001:</span>	<span class=err>83</span> <span class=nf>f8</span> <span class=mi>02</span>             	<span class=no>cmp</span>    <span class=no>$0x2</span><span class=p>,</span><span class=nv>%eax</span> <span class=c1># 检验返回值是否为2
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=err>401004:</span>	<span class=err>75</span> <span class=err>06</span>                	<span class=nf>jne</span>    <span class=mh>40100c</span> <span class=p>&lt;</span><span class=no>phase_4</span><span class=p>+</span><span class=mi>0x31</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=err>401006:</span>	<span class=err>83</span> <span class=err>3</span><span class=nf>c</span> <span class=mi>24</span> <span class=mi>0</span><span class=no>e</span>          	<span class=no>cmpl</span>   <span class=no>$0xe</span><span class=p>,(</span><span class=nv>%rsp</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=err>40100</span><span class=nl>a:</span>	<span class=err>76</span> <span class=err>05</span>                	<span class=nf>jbe</span>    <span class=mh>401011</span> <span class=p>&lt;</span><span class=no>phase_4</span><span class=p>+</span><span class=mi>0x36</span><span class=p>&gt;</span> <span class=c1># 如果rsp指向的值小于等于14，跳转
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=err>40100</span><span class=nl>c:</span>	<span class=nf>e8</span> <span class=mi>36</span> <span class=mi>04</span> <span class=mi>00</span> <span class=mi>00</span>       	<span class=no>callq</span>  <span class=mh>401447</span> <span class=p>&lt;</span><span class=no>explode_bomb</span><span class=p>&gt;</span> <span class=c1># 爆炸
+</span></span></span></code></pre></td></tr></table></div></div><p>分析接下来的代码：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-asm data-lang=asm><span class=line><span class=cl><span class=err>401011:</span>	<span class=nf>ba</span> <span class=mi>0</span><span class=no>e</span> <span class=mi>00</span> <span class=mi>00</span> <span class=mi>00</span>       	<span class=no>mov</span>    <span class=no>$0xe</span><span class=p>,</span><span class=nv>%edx</span>
+</span></span><span class=line><span class=cl><span class=err>401016:</span>	<span class=nf>be</span> <span class=mi>00</span> <span class=mi>00</span> <span class=mi>00</span> <span class=mi>00</span>       	<span class=no>mov</span>    <span class=no>$0x0</span><span class=p>,</span><span class=nv>%esi</span>
+</span></span><span class=line><span class=cl><span class=err>40101</span><span class=nl>b:</span>	<span class=err>8</span><span class=nf>b</span> <span class=mi>3</span><span class=no>c</span> <span class=mi>24</span>             	<span class=no>mov</span>    <span class=p>(</span><span class=nv>%rsp</span><span class=p>),</span><span class=nv>%edi</span>
+</span></span><span class=line><span class=cl><span class=err>40101</span><span class=nl>e:</span>	<span class=nf>e8</span> <span class=mi>79</span> <span class=no>ff</span> <span class=no>ff</span> <span class=no>ff</span>       	<span class=no>callq</span>  <span class=mh>400f9c</span> <span class=p>&lt;</span><span class=no>func4</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=err>401023:</span>	<span class=err>83</span> <span class=nf>f8</span> <span class=mi>03</span>             	<span class=no>cmp</span>    <span class=no>$0x3</span><span class=p>,</span><span class=nv>%eax</span>
+</span></span><span class=line><span class=cl><span class=err>401026:</span>	<span class=err>75</span> <span class=err>07</span>                	<span class=nf>jne</span>    <span class=mh>40102f</span> <span class=p>&lt;</span><span class=no>phase_4</span><span class=p>+</span><span class=mi>0x54</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=err>401028:</span>	<span class=err>83</span> <span class=err>7</span><span class=nf>c</span> <span class=mi>24</span> <span class=mi>04</span> <span class=mi>03</span>       	<span class=no>cmpl</span>   <span class=no>$0x3</span><span class=p>,</span><span class=mi>0x4</span><span class=p>(</span><span class=nv>%rsp</span><span class=p>)</span> <span class=c1># 将第二个数字与 3 比较
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=err>40102</span><span class=nl>d:</span>	<span class=err>74</span> <span class=err>05</span>                	<span class=nf>je</span>     <span class=mh>401034</span> <span class=p>&lt;</span><span class=no>phase_4</span><span class=p>+</span><span class=mi>0x59</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=err>40102</span><span class=nl>f:</span>	<span class=nf>e8</span> <span class=mi>13</span> <span class=mi>04</span> <span class=mi>00</span> <span class=mi>00</span>       	<span class=no>callq</span>  <span class=mh>401447</span> <span class=p>&lt;</span><span class=no>explode_bomb</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=err>401034:</span>	<span class=err>48</span> <span class=err>8</span><span class=nf>b</span> <span class=mi>44</span> <span class=mi>24</span> <span class=mi>08</span>       	<span class=no>mov</span>    <span class=mi>0x8</span><span class=p>(</span><span class=nv>%rsp</span><span class=p>),</span><span class=nv>%rax</span> <span class=c1># 正常操作
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=err>401039:</span>	<span class=err>64</span> <span class=err>48</span> <span class=err>33</span> <span class=err>04</span> <span class=err>25</span> <span class=err>28</span> <span class=err>00</span> 	<span class=nf>xor</span>    <span class=nv>%fs</span><span class=p>:</span><span class=mi>0x28</span><span class=p>,</span><span class=nv>%rax</span>
+</span></span><span class=line><span class=cl><span class=err>401040:</span>	<span class=err>00</span> <span class=err>00</span> 
+</span></span><span class=line><span class=cl><span class=err>401042:</span>	<span class=err>75</span> <span class=err>05</span>                	<span class=nf>jne</span>    <span class=mh>401049</span> <span class=p>&lt;</span><span class=no>phase_4</span><span class=p>+</span><span class=mi>0x6e</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=err>401044:</span>	<span class=err>48</span> <span class=err>83</span> <span class=nf>c4</span> <span class=mi>18</span>          	<span class=no>add</span>    <span class=no>$0x18</span><span class=p>,</span><span class=nv>%rsp</span>
+</span></span><span class=line><span class=cl><span class=err>401048:</span>	<span class=nf>c3</span>                   	<span class=no>retq</span>   
+</span></span><span class=line><span class=cl><span class=mi>401049</span><span class=p>:</span>	<span class=no>e8</span> <span class=no>b2</span> <span class=no>fa</span> <span class=no>ff</span> <span class=no>ff</span>       	<span class=no>callq</span>  <span class=mh>400b00</span> <span class=p>&lt;</span><span class=no>__stack_chk_fail@plt</span><span class=p>&gt;</span>
+</span></span></code></pre></td></tr></table></div></div><p>设置 edx 为 14，esi 为 0，edi 为第一个数字的值，然后调用 func4 函数。</p><p>根据输入参数顺序，可以 func4 第一个参数 rdi 为第一个数字，第二个参数为 rsi 为 0，第三个参数 rdx 为 14 。</p><p>调用后将返回值与 3 比较，如果不一样，直接爆炸；否则将第二个输入与 3 比较，如果不相等，直接爆炸。所以这里可以确定第二个输入为 3 。</p><p>所以，剩下来就看 func4 是如何处理 eax 的，让 fun4 返回值为 3。</p><h3 id=func4-分析>func4 分析</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-asm data-lang=asm><span class=line><span class=cl><span class=err>0000000000400</span><span class=nf>f9c</span> <span class=err>&lt;</span><span class=no>func4</span><span class=err>&gt;</span><span class=p>:</span>
+</span></span><span class=line><span class=cl><span class=err>400</span><span class=nl>f9c:</span>	<span class=err>48</span> <span class=err>83</span> <span class=nf>ec</span> <span class=mi>08</span>          	<span class=no>sub</span>    <span class=no>$0x8</span><span class=p>,</span><span class=nv>%rsp</span>
+</span></span><span class=line><span class=cl><span class=err>400</span><span class=nl>fa0:</span>	<span class=err>89</span> <span class=nf>d0</span>                	<span class=no>mov</span>    <span class=nv>%edx</span><span class=p>,</span><span class=nv>%eax</span>
+</span></span><span class=line><span class=cl><span class=err>400</span><span class=nl>fa2:</span>	<span class=err>29</span> <span class=nf>f0</span>                	<span class=no>sub</span>    <span class=nv>%esi</span><span class=p>,</span><span class=nv>%eax</span>
+</span></span><span class=line><span class=cl><span class=err>400</span><span class=nl>fa4:</span>	<span class=err>89</span> <span class=nf>c1</span>                	<span class=no>mov</span>    <span class=nv>%eax</span><span class=p>,</span><span class=nv>%ecx</span>
+</span></span><span class=line><span class=cl><span class=err>400</span><span class=nl>fa6:</span>	<span class=nf>c1</span> <span class=no>e9</span> <span class=mi>1</span><span class=no>f</span>             	<span class=no>shr</span>    <span class=no>$0x1f</span><span class=p>,</span><span class=nv>%ecx</span>
+</span></span><span class=line><span class=cl><span class=err>400</span><span class=nl>fa9:</span>	<span class=err>01</span> <span class=nf>c1</span>                	<span class=no>add</span>    <span class=nv>%eax</span><span class=p>,</span><span class=nv>%ecx</span>
+</span></span><span class=line><span class=cl><span class=err>400</span><span class=nl>fab:</span>	<span class=nf>d1</span> <span class=no>f9</span>                	<span class=no>sar</span>    <span class=nv>%ecx</span>
+</span></span><span class=line><span class=cl><span class=err>400</span><span class=nl>fad:</span>	<span class=err>01</span> <span class=nf>f1</span>                	<span class=no>add</span>    <span class=nv>%esi</span><span class=p>,</span><span class=nv>%ecx</span>
+</span></span><span class=line><span class=cl><span class=err>400</span><span class=nl>faf:</span>	<span class=err>39</span> <span class=nf>f9</span>                	<span class=no>cmp</span>    <span class=nv>%edi</span><span class=p>,</span><span class=nv>%ecx</span>
+</span></span><span class=line><span class=cl><span class=err>400</span><span class=nl>fb1:</span>	<span class=err>7</span><span class=nf>f</span> <span class=mi>0</span><span class=no>e</span>                	<span class=no>jg</span>     <span class=mh>400fc1</span> <span class=p>&lt;</span><span class=no>func4</span><span class=p>+</span><span class=mi>0x25</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=err>400</span><span class=nl>fb3:</span>	<span class=nf>b8</span> <span class=mi>00</span> <span class=mi>00</span> <span class=mi>00</span> <span class=mi>00</span>       	<span class=no>mov</span>    <span class=no>$0x0</span><span class=p>,</span><span class=nv>%eax</span>
+</span></span><span class=line><span class=cl><span class=err>400</span><span class=nl>fb8:</span>	<span class=err>39</span> <span class=nf>f9</span>                	<span class=no>cmp</span>    <span class=nv>%edi</span><span class=p>,</span><span class=nv>%ecx</span>
+</span></span><span class=line><span class=cl><span class=err>400</span><span class=nl>fba:</span>	<span class=err>7</span><span class=nf>c</span> <span class=mi>11</span>                	<span class=no>jl</span>     <span class=mh>400fcd</span> <span class=p>&lt;</span><span class=no>func4</span><span class=p>+</span><span class=mi>0x31</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=err>400</span><span class=nl>fbc:</span>	<span class=err>48</span> <span class=err>83</span> <span class=nf>c4</span> <span class=mi>08</span>          	<span class=no>add</span>    <span class=no>$0x8</span><span class=p>,</span><span class=nv>%rsp</span>
+</span></span><span class=line><span class=cl><span class=err>400</span><span class=nl>fc0:</span>	<span class=nf>c3</span>                   	<span class=no>retq</span>   
+</span></span><span class=line><span class=cl><span class=mi>400</span><span class=no>fc1</span><span class=p>:</span>	<span class=mi>8</span><span class=no>d</span> <span class=mi>51</span> <span class=no>ff</span>             	<span class=no>lea</span>    <span class=p>-</span><span class=mi>0x1</span><span class=p>(</span><span class=nv>%rcx</span><span class=p>),</span><span class=nv>%edx</span>
+</span></span><span class=line><span class=cl><span class=err>400</span><span class=nl>fc4:</span>	<span class=nf>e8</span> <span class=no>d3</span> <span class=no>ff</span> <span class=no>ff</span> <span class=no>ff</span>       	<span class=no>callq</span>  <span class=mh>400f9c</span> <span class=p>&lt;</span><span class=no>func4</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=err>400</span><span class=nl>fc9:</span>	<span class=err>01</span> <span class=nf>c0</span>                	<span class=no>add</span>    <span class=nv>%eax</span><span class=p>,</span><span class=nv>%eax</span>
+</span></span><span class=line><span class=cl><span class=err>400</span><span class=nl>fcb:</span>	<span class=nf>eb</span> <span class=no>ef</span>                	<span class=no>jmp</span>    <span class=mh>400fbc</span> <span class=p>&lt;</span><span class=no>func4</span><span class=p>+</span><span class=mi>0x20</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=err>400</span><span class=nl>fcd:</span>	<span class=err>8</span><span class=nf>d</span> <span class=mi>71</span> <span class=mi>01</span>             	<span class=no>lea</span>    <span class=mi>0x1</span><span class=p>(</span><span class=nv>%rcx</span><span class=p>),</span><span class=nv>%esi</span>
+</span></span><span class=line><span class=cl><span class=err>400</span><span class=nl>fd0:</span>	<span class=nf>e8</span> <span class=no>c7</span> <span class=no>ff</span> <span class=no>ff</span> <span class=no>ff</span>       	<span class=no>callq</span>  <span class=mh>400f9c</span> <span class=p>&lt;</span><span class=no>func4</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=err>400</span><span class=nl>fd5:</span>	<span class=err>8</span><span class=nf>d</span> <span class=mi>44</span> <span class=mi>00</span> <span class=mi>01</span>          	<span class=no>lea</span>    <span class=mi>0x1</span><span class=p>(</span><span class=nv>%rax</span><span class=p>,</span><span class=nv>%rax</span><span class=p>,</span><span class=mi>1</span><span class=p>),</span><span class=nv>%eax</span>
+</span></span><span class=line><span class=cl><span class=err>400</span><span class=nl>fd9:</span>	<span class=nf>eb</span> <span class=no>e1</span>                	<span class=no>jmp</span>    <span class=mh>400fbc</span> <span class=p>&lt;</span><span class=no>func4</span><span class=p>+</span><span class=mi>0x20</span><span class=p>&gt;</span>
+</span></span></code></pre></td></tr></table></div></div><p>首先将栈指针 rsp 减小，edx（14）放入 eax，减去 esi（0），再放到 ecx，向右移位 0x1f，也就是 31 位，ecx 变成 0 。ecx 加上 eax 变成 14。单独的 sar 就是向右算数移位 1 位，ecx 变成 7。加上 esi 不变。将 ecx（7）与 edi（第一个输入）比较，如果大于，跳转。</p><ul><li>第一个输入小于 7，跳转到400fc1，将 edx 设置为 rcx 减去 1（6），递归调用自身</li><li>第一个输入大于等于 7，没有跳转，eax 变成 0，比较 ecx（7）与 edi，此时一定小于等于<ul><li>小于时跳转400fcd，将 esi 设置为 rcx+1，即 8，递归调用</li><li>输入等于 7，不跳转，将栈指针增大，返回</li></ul></li></ul><p>为了方便看，将所有变量前面的 e 或者 r 隐藏：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=nf>func4</span><span class=p>(</span><span class=kt>int</span> <span class=n>dx</span> <span class=o>=</span> <span class=mi>14</span><span class=p>,</span> <span class=kt>int</span> <span class=n>si</span> <span class=o>=</span> <span class=mi>0</span><span class=p>,</span> <span class=kt>int</span> <span class=n>di</span> <span class=o>=</span> <span class=err>第一个输入</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=kt>int</span> <span class=n>ax</span> <span class=o>=</span> <span class=n>dx</span> <span class=o>-</span> <span class=n>si</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=kt>int</span> <span class=n>cx</span> <span class=o>=</span> <span class=n>ax</span> <span class=o>&gt;&gt;</span> <span class=mi>31</span> <span class=o>+</span> <span class=n>ax</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=n>cx</span> <span class=o>=</span> <span class=n>cx</span> <span class=o>&gt;&gt;</span> <span class=mi>1</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=n>cx</span> <span class=o>+=</span> <span class=n>si</span><span class=p>;</span>   <span class=c1>// cx = (dx-si的符号位 + dx-si) / 2 + si
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=k>if</span> <span class=p>(</span><span class=n>cx</span> <span class=o>&gt;</span> <span class=n>di</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=n>dx</span> <span class=o>=</span> <span class=n>cx</span> <span class=o>-</span> <span class=mi>1</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=nf>func4</span><span class=p>(</span><span class=n>dx</span><span class=p>,</span> <span class=n>si</span><span class=p>,</span> <span class=n>di</span><span class=p>);</span> <span class=c1>// 这里的 esi 与 edi 与输入的值一样，edx不同
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=n>ax</span> <span class=o>*=</span> <span class=mi>2</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=n>ax</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=p>(</span><span class=n>cx</span> <span class=o>&lt;</span> <span class=n>di</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=n>si</span> <span class=o>=</span> <span class=n>cx</span> <span class=o>+</span> <span class=mi>1</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>            <span class=nf>func4</span> <span class=p>(</span><span class=n>dx</span><span class=p>,</span> <span class=n>si</span><span class=p>,</span> <span class=n>di</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>            <span class=n>ax</span> <span class=o>=</span> <span class=mi>2</span> <span class=o>*</span> <span class=n>ax</span> <span class=o>+</span> <span class=mi>1</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>            <span class=k>return</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=k>return</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>我们希望运行这个函数后，ax 的值为 3 。</p><p>直接分析很难，尝试倒推。ax 有几个地方会被修改：</p><ul><li>进入函数，ax 设置为 dx - si</li><li>当修改后的 cx &lt;= di 时，ax 设置为 0</li><li>之后如果 cx &lt; di，调用函数后，ax 设置为 2 * ax + 1</li></ul><p>也可以发现，函数中 di 仅仅会在判断的时候用到，永远不会被修改。并且判断分为三种可能，也就是 cx 与 di 的大小关系，其中 cx 为 <code>(dx-si -(dx-si) 的符号位 ) / 2 + si</code>，看起来是取 dx 与 si 的平均值。</p><p>例如，一开始输入 dx 为 14，si 为 0，则 cx 为 7。ax 在函数开始初始化为两端之差。</p><ul><li>若均值大于 di，则 dx 变成 cx-1，也就是大端变成<code>均值-1</code>；然后递归调用，其中会改变 ax，最后返回 ax * 2</li><li>若均值小于 di，则 si 变成 cx+1，也就是小端变成<code>均值+1</code>；然后递归调用，其中会改变 ax，最后返回 ax * 2 + 1</li><li>如果均值等于 di，则直接返回，ax 为 0</li></ul><p>这种形式很像二分法。我们希望最后的 ax 返回值为 3，是奇数，其倒推的过程应该是 <code>0 -> (0 * 2 + 1 = 1) -> (1 * 2 + 1 = 3)</code> 因此均值应该小于 di，也就是 di 大于 7 。</p><p>调用函数过程中，ax 应该为 1 。在这个函数中，1 为奇数，因此其均值也应该小于 di，第二层递归。在第二层递归中，应该均值等于 di，直接返回 ax 为 0 。这样就可以构造出结果。</p><p>[0, 14] 的均值为 7，di 大于 7 。[8, 14] 的均值为 11，di 应该大于 11。[12, 14] 的均值为 13。所以应该为 13。</p><p>总之，第四阶段输入为：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>13 3
+</span></span></code></pre></td></tr></table></div></div><h2 id=phase_5>phase_5</h2><p>开始时的 sscanf 前面还是 0x4025cf，调试发现还是将输入的两个数字，存到 rsp 所指的栈上，若输入个数小于 2 则爆炸。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-asm data-lang=asm><span class=line><span class=cl><span class=err>40106</span><span class=nl>a:</span>	<span class=nf>be</span> <span class=no>cf</span> <span class=mi>25</span> <span class=mi>40</span> <span class=mi>00</span>       	<span class=no>mov</span>    <span class=no>$0x4025cf</span><span class=p>,</span><span class=nv>%esi</span>
+</span></span><span class=line><span class=cl><span class=err>40106</span><span class=nl>f:</span>	<span class=nf>e8</span> <span class=mi>2</span><span class=no>c</span> <span class=no>fb</span> <span class=no>ff</span> <span class=no>ff</span>       	<span class=no>callq</span>  <span class=mh>400ba0</span> <span class=p>&lt;</span><span class=no>__isoc99_sscanf@plt</span><span class=p>&gt;</span> 
+</span></span><span class=line><span class=cl><span class=mi>401074</span><span class=p>:</span>	<span class=mi>83</span> <span class=no>f8</span> <span class=mi>01</span>             	<span class=no>cmp</span>    <span class=no>$0x1</span><span class=p>,</span><span class=nv>%eax</span>
+</span></span><span class=line><span class=cl><span class=err>401077:</span>	<span class=err>7</span><span class=nf>e</span> <span class=mi>57</span>                	<span class=no>jle</span>    <span class=mh>4010d0</span> <span class=p>&lt;</span><span class=no>phase_5</span><span class=p>+</span><span class=mi>0x82</span><span class=p>&gt;</span> <span class=c1>#输入个数小于2，爆炸
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=err>401079:</span>	<span class=err>8</span><span class=nf>b</span> <span class=mi>04</span> <span class=mi>24</span>             	<span class=no>mov</span>    <span class=p>(</span><span class=nv>%rsp</span><span class=p>),</span><span class=nv>%eax</span> <span class=c1># eax变成第一个输入
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=err>40107</span><span class=nl>c:</span>	<span class=err>83</span> <span class=nf>e0</span> <span class=mi>0</span><span class=no>f</span>             	<span class=no>and</span>    <span class=no>$0xf</span><span class=p>,</span><span class=nv>%eax</span>
+</span></span><span class=line><span class=cl><span class=err>40107</span><span class=nl>f:</span>	<span class=err>89</span> <span class=err>04</span> <span class=err>24</span>             	<span class=nf>mov</span>    <span class=nv>%eax</span><span class=p>,(</span><span class=nv>%rsp</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=err>401082:</span>	<span class=err>83</span> <span class=nf>f8</span> <span class=mi>0</span><span class=no>f</span>             	<span class=no>cmp</span>    <span class=no>$0xf</span><span class=p>,</span><span class=nv>%eax</span>
+</span></span><span class=line><span class=cl><span class=err>401085:</span>	<span class=err>74</span> <span class=err>2</span><span class=nf>f</span>                	<span class=no>je</span>     <span class=mh>4010b6</span> <span class=p>&lt;</span><span class=no>phase_5</span><span class=p>+</span><span class=mi>0x68</span><span class=p>&gt;</span> <span class=c1>#爆炸
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=err>401087:</span>	<span class=nf>b9</span> <span class=mi>00</span> <span class=mi>00</span> <span class=mi>00</span> <span class=mi>00</span>       	<span class=no>mov</span>    <span class=no>$0x0</span><span class=p>,</span><span class=nv>%ecx</span>
+</span></span><span class=line><span class=cl><span class=err>40108</span><span class=nl>c:</span>	<span class=nf>ba</span> <span class=mi>00</span> <span class=mi>00</span> <span class=mi>00</span> <span class=mi>00</span>       	<span class=no>mov</span>    <span class=no>$0x0</span><span class=p>,</span><span class=nv>%edx</span>
+</span></span><span class=line><span class=cl><span class=err>401091:</span>	<span class=err>83</span> <span class=nf>c2</span> <span class=mi>01</span>             	<span class=no>add</span>    <span class=no>$0x1</span><span class=p>,</span><span class=nv>%edx</span>
+</span></span><span class=line><span class=cl><span class=err>401094:</span>	<span class=err>48</span> <span class=err>98</span>                	<span class=nf>cltq</span>   
+</span></span></code></pre></td></tr></table></div></div><p>接着 eax 变成第一个输入，与 0xf 按位与运算，写入 rsp 第一个输入。如果 eax 等于 0xf，爆炸。然后 ecx 为 0，edx 为 1，并将 eax 拓展为 64 位。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-asm data-lang=asm><span class=line><span class=cl><span class=err>401091:</span>	<span class=err>83</span> <span class=nf>c2</span> <span class=mi>01</span>             	<span class=no>add</span>    <span class=no>$0x1</span><span class=p>,</span><span class=nv>%edx</span> <span class=c1># 😎
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=err>401094:</span>	<span class=err>48</span> <span class=err>98</span>                	<span class=nf>cltq</span>   
+</span></span><span class=line><span class=cl><span class=mi>401096</span><span class=p>:</span>	<span class=mi>8</span><span class=no>b</span> <span class=mi>04</span> <span class=mi>85</span> <span class=mi>80</span> <span class=mi>24</span> <span class=mi>40</span> <span class=mi>00</span> 	<span class=no>mov</span>    <span class=mi>0x402480</span><span class=p>(,</span><span class=nv>%rax</span><span class=p>,</span><span class=mi>4</span><span class=p>),</span><span class=nv>%eax</span>
+</span></span><span class=line><span class=cl><span class=err>40109</span><span class=nl>d:</span>	<span class=err>01</span> <span class=nf>c1</span>                	<span class=no>add</span>    <span class=nv>%eax</span><span class=p>,</span><span class=nv>%ecx</span>
+</span></span><span class=line><span class=cl><span class=err>40109</span><span class=nl>f:</span>	<span class=err>83</span> <span class=nf>f8</span> <span class=mi>0</span><span class=no>f</span>             	<span class=no>cmp</span>    <span class=no>$0xf</span><span class=p>,</span><span class=nv>%eax</span>
+</span></span><span class=line><span class=cl><span class=err>4010</span><span class=nl>a2:</span>	<span class=err>75</span> <span class=nf>ed</span>                	<span class=no>jne</span>    <span class=mh>401091</span> <span class=p>&lt;</span><span class=no>phase_5</span><span class=p>+</span><span class=mi>0x43</span><span class=p>&gt;</span> <span class=c1># 跳转到 😎，循环计数
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=err>4010</span><span class=nl>a4:</span>	<span class=nf>c7</span> <span class=mi>04</span> <span class=mi>24</span> <span class=mi>0</span><span class=no>f</span> <span class=mi>00</span> <span class=mi>00</span> <span class=mi>00</span> 	<span class=no>movl</span>   <span class=no>$0xf</span><span class=p>,(</span><span class=nv>%rsp</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=err>4010</span><span class=nl>ab:</span>	<span class=err>83</span> <span class=nf>fa</span> <span class=mi>03</span>             	<span class=no>cmp</span>    <span class=no>$0x3</span><span class=p>,</span><span class=nv>%edx</span>
+</span></span><span class=line><span class=cl><span class=err>4010</span><span class=nl>ae:</span>	<span class=err>75</span> <span class=err>06</span>                	<span class=nf>jne</span>    <span class=mh>4010b6</span> <span class=p>&lt;</span><span class=no>phase_5</span><span class=p>+</span><span class=mi>0x68</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=err>4010</span><span class=nl>b0:</span>	<span class=err>39</span> <span class=err>4</span><span class=nf>c</span> <span class=mi>24</span> <span class=mi>04</span>          	<span class=no>cmp</span>    <span class=nv>%ecx</span><span class=p>,</span><span class=mi>0x4</span><span class=p>(</span><span class=nv>%rsp</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=err>4010</span><span class=nl>b4:</span>	<span class=err>74</span> <span class=err>05</span>                	<span class=nf>je</span>     <span class=mh>4010bb</span> <span class=p>&lt;</span><span class=no>phase_5</span><span class=p>+</span><span class=mi>0x6d</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=err>4010</span><span class=nl>b6:</span>	<span class=nf>e8</span> <span class=mi>8</span><span class=no>c</span> <span class=mi>03</span> <span class=mi>00</span> <span class=mi>00</span>       	<span class=no>callq</span>  <span class=mh>401447</span> <span class=p>&lt;</span><span class=no>explode_bomb</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=err>4010</span><span class=nl>bb:</span>	<span class=err>48</span> <span class=err>8</span><span class=nf>b</span> <span class=mi>44</span> <span class=mi>24</span> <span class=mi>08</span>       	<span class=no>mov</span>    <span class=mi>0x8</span><span class=p>(</span><span class=nv>%rsp</span><span class=p>),</span><span class=nv>%rax</span>
+</span></span><span class=line><span class=cl><span class=err>4010</span><span class=nl>c0:</span>	<span class=err>64</span> <span class=err>48</span> <span class=err>33</span> <span class=err>04</span> <span class=err>25</span> <span class=err>28</span> <span class=err>00</span> 	<span class=nf>xor</span>    <span class=nv>%fs</span><span class=p>:</span><span class=mi>0x28</span><span class=p>,</span><span class=nv>%rax</span>
+</span></span><span class=line><span class=cl><span class=err>4010</span><span class=nl>c7:</span>	<span class=err>00</span> <span class=err>00</span> 
+</span></span><span class=line><span class=cl><span class=err>4010</span><span class=nl>c9:</span>	<span class=err>75</span> <span class=err>0</span><span class=nf>c</span>                	<span class=no>jne</span>    <span class=mh>4010d7</span> <span class=p>&lt;</span><span class=no>phase_5</span><span class=p>+</span><span class=mi>0x89</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=err>4010</span><span class=nl>cb:</span>	<span class=err>48</span> <span class=err>83</span> <span class=nf>c4</span> <span class=mi>18</span>          	<span class=no>add</span>    <span class=no>$0x18</span><span class=p>,</span><span class=nv>%rsp</span>
+</span></span><span class=line><span class=cl><span class=err>4010</span><span class=nl>cf:</span>	<span class=nf>c3</span>                   	<span class=no>retq</span>   
+</span></span><span class=line><span class=cl><span class=mi>4010</span><span class=no>d0</span><span class=p>:</span>	<span class=no>e8</span> <span class=mi>72</span> <span class=mi>03</span> <span class=mi>00</span> <span class=mi>00</span>       	<span class=no>callq</span>  <span class=mh>401447</span> <span class=p>&lt;</span><span class=no>explode_bomb</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=err>4010</span><span class=nl>d5:</span>	<span class=nf>eb</span> <span class=no>a2</span>                	<span class=no>jmp</span>    <span class=mh>401079</span> <span class=p>&lt;</span><span class=no>phase_5</span><span class=p>+</span><span class=mi>0x2b</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=err>4010</span><span class=nl>d7:</span>	<span class=nf>e8</span> <span class=mi>24</span> <span class=no>fa</span> <span class=no>ff</span> <span class=no>ff</span>       	<span class=no>callq</span>  <span class=mh>400b00</span> <span class=p>&lt;</span><span class=no>__stack_chk_fail@plt</span><span class=p>&gt;</span>
+</span></span></code></pre></td></tr></table></div></div><p>接下来会取 0x402480 开始的第 rax 的元素，尝试打印：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=n>pwndbg</span><span class=o>&gt;</span> <span class=n>x</span><span class=o>/</span><span class=mi>20</span><span class=n>dw</span> <span class=mh>0x402480</span>
+</span></span><span class=line><span class=cl><span class=mh>0x402480</span> <span class=o>&lt;</span><span class=n>array</span><span class=mf>.3415</span><span class=o>&gt;:</span>  <span class=mi>10</span>      <span class=mi>2</span>       <span class=mi>14</span>      <span class=mi>7</span>
+</span></span><span class=line><span class=cl><span class=mh>0x402490</span> <span class=o>&lt;</span><span class=n>array</span><span class=mf>.3415</span><span class=o>+</span><span class=mi>16</span><span class=o>&gt;:</span>       <span class=mi>8</span>       <span class=mi>12</span>      <span class=mi>15</span>     <span class=mi>11</span>
+</span></span><span class=line><span class=cl><span class=mh>0x4024a0</span> <span class=o>&lt;</span><span class=n>array</span><span class=mf>.3415</span><span class=o>+</span><span class=mi>32</span><span class=o>&gt;:</span>       <span class=mi>0</span>       <span class=mi>4</span>       <span class=mi>1</span>      <span class=mi>13</span>
+</span></span><span class=line><span class=cl><span class=mh>0x4024b0</span> <span class=o>&lt;</span><span class=n>array</span><span class=mf>.3415</span><span class=o>+</span><span class=mi>48</span><span class=o>&gt;:</span>       <span class=mi>3</span>       <span class=mi>9</span>       <span class=mi>6</span>      <span class=mi>5</span>
+</span></span><span class=line><span class=cl><span class=mh>0x4024c0</span><span class=o>:</span>       <span class=mi>2032168787</span>      <span class=mi>1948284271</span>      <span class=mi>1802398056</span>      <span class=mi>1970239776</span>
+</span></span></code></pre></td></tr></table></div></div><p>发现这是一个大小为 16 的数组，这也说明了之前为什么要限制 eax 为 0 到 15 之间的数：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>10 2 14 7
+</span></span><span class=line><span class=cl>8 12 15 11
+</span></span><span class=line><span class=cl>0 4 1 13
+</span></span><span class=line><span class=cl>3 9 6 5
+</span></span></code></pre></td></tr></table></div></div><p>其索引与数组元素的对应关系如下：</p><div class=table-wrapper><table><thead><tr><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th></tr></thead><tbody><tr><td>10</td><td>2</td><td>14</td><td>7</td><td>8</td><td>12</td><td>15</td><td>11</td></tr></tbody></table></div><div class=table-wrapper><table><thead><tr><th>8</th><th>9</th><th>10</th><th>11</th><th>12</th><th>13</th><th>14</th><th>15</th></tr></thead><tbody><tr><td>0</td><td>4</td><td>1</td><td>13</td><td>3</td><td>9</td><td>6</td><td>5</td></tr></tbody></table></div><p>取其中第 rax 的元素放入 eax，将 ecx 加上 eax。判断 eax 与 0xf（15） 的关系，如果不相等，跳转回 0x401091。期间对 edx 不断加 1，ecx 不断加上 eax。</p><p>画出其跳转关系：</p><p><code>0 -> 10 -> 1 -> 2 -> 14 -> 6 -> 15 -> 5 -> 12 -> 3 -> 7 -> 11 -> 13 -> 9 -> 4 -> 8 -> 0</code>，然后循环。可以知道当变成 15 的时候终止，所以可以改变终点：</p><p><code>5 -> 12 -> 3 -> 7 -> 11 -> 13 -> 9 -> 4 -> 8 -> 0 -> 10 -> 1 -> 2 -> 14 -> 6 -> 15</code></p><p>循环结束后，将 15 写入 rsp 指向的元素，也就是第一个输入改为 15 。然后将 edx 与 3 进行比较，如果不为 3，跳转并爆炸。</p><p>这说明循环需要进行 3 次。例如，我的尝试中输入为 <code>13 14</code>，在 0x4010a4 打上断点，发现此时 edx 为 0xa(10)，刚好是上面的链条中 13 到最后 15 的距离。</p><p>因此，第一个输入应该是 2，或者 <code>2 + 16n</code>，其中 <code>n</code> 为自然数。</p><p>之后，将 ecx 与第二个输入比较，如果不相等，爆炸。已知 ecx 是累计的数字的和，可知其为 <code>14 + 6 + 15 = 35</code>。</p><p>总之，输入可以是如下的数：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>2 35
+</span></span><span class=line><span class=cl>18 35
+</span></span><span class=line><span class=cl>34 35
+</span></span><span class=line><span class=cl>...
+</span></span></code></pre></td></tr></table></div></div><h2 id=phase_6>phase_6</h2><p>首先将多个 caller-saved 的寄存器推入栈：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-asm data-lang=asm><span class=line><span class=cl><span class=err>0000000004010</span><span class=nf>dc</span> <span class=err>&lt;</span><span class=no>phase_6</span><span class=err>&gt;</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>  <span class=err>4010</span><span class=nl>dc:</span>	<span class=err>41</span> <span class=err>56</span>                	<span class=nf>push</span>   <span class=nv>%r14</span>
+</span></span><span class=line><span class=cl>  <span class=err>4010</span><span class=nl>de:</span>	<span class=err>41</span> <span class=err>55</span>                	<span class=nf>push</span>   <span class=nv>%r13</span>
+</span></span><span class=line><span class=cl>  <span class=err>4010</span><span class=nl>e0:</span>	<span class=err>41</span> <span class=err>54</span>                	<span class=nf>push</span>   <span class=nv>%r12</span>
+</span></span><span class=line><span class=cl>  <span class=err>4010</span><span class=nl>e2:</span>	<span class=err>55</span>                   	<span class=nf>push</span>   <span class=nv>%rbp</span>
+</span></span><span class=line><span class=cl>  <span class=err>4010</span><span class=nl>e3:</span>	<span class=err>53</span>                   	<span class=nf>push</span>   <span class=nv>%rbx</span>
+</span></span></code></pre></td></tr></table></div></div><p>接着是金丝雀数的一些操作（参考<sup id=fnref1:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>），此处略。</p><p>然后将 eax 清零，rsp 放入第二个参数 rsi，调用 read_six_numbers。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-asm data-lang=asm><span class=line><span class=cl><span class=err>4010</span><span class=nl>f6:</span>	<span class=err>31</span> <span class=nf>c0</span>                	<span class=no>xor</span>    <span class=nv>%eax</span><span class=p>,</span><span class=nv>%eax</span>
+</span></span><span class=line><span class=cl><span class=err>4010</span><span class=nl>f8:</span>	<span class=err>48</span> <span class=err>89</span> <span class=nf>e6</span>             	<span class=no>mov</span>    <span class=nv>%rsp</span><span class=p>,</span><span class=nv>%rsi</span>
+</span></span><span class=line><span class=cl><span class=err>4010</span><span class=nl>fb:</span>	<span class=nf>e8</span> <span class=mi>69</span> <span class=mi>03</span> <span class=mi>00</span> <span class=mi>00</span>       	<span class=no>callq</span>  <span class=mh>401469</span> <span class=p>&lt;</span><span class=no>read_six_numbers</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=err>401100:</span>	<span class=err>49</span> <span class=err>89</span> <span class=nf>e4</span>             	<span class=no>mov</span>    <span class=nv>%rsp</span><span class=p>,</span><span class=nv>%r12</span>
+</span></span><span class=line><span class=cl><span class=err>401103:</span>	<span class=err>49</span> <span class=err>89</span> <span class=nf>e5</span>             	<span class=no>mov</span>    <span class=nv>%rsp</span><span class=p>,</span><span class=nv>%r13</span>
+</span></span><span class=line><span class=cl><span class=err>401106:</span>	<span class=err>41</span> <span class=nf>be</span> <span class=mi>00</span> <span class=mi>00</span> <span class=mi>00</span> <span class=mi>00</span>    	<span class=no>mov</span>    <span class=no>$0x0</span><span class=p>,</span><span class=nv>%r14d</span>
+</span></span><span class=line><span class=cl><span class=err>40110</span><span class=nl>c:</span>	<span class=nf>eb</span> <span class=mi>25</span>                	<span class=no>jmp</span>    <span class=mh>401133</span> <span class=p>&lt;</span><span class=no>phase_6</span><span class=p>+</span><span class=mi>0x57</span><span class=p>&gt;</span>
+</span></span></code></pre></td></tr></table></div></div><p>回顾之前的 read_six_numbers 函数，可知第一个参数 dsi 是我们的输入字符串的地址，例如此处我的输入为 <code>2 3 4 5 6 7</code>，第二个参数 rsi 是当前 rsp 的地址。</p><p>调用 read_six_numbers 后，打印当前 rsp 对应的量：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>pwndbg&gt; x/6dw $rsp
+</span></span><span class=line><span class=cl>0x7fffffffd9f0: 2       3       4       5
+</span></span><span class=line><span class=cl>0x7fffffffda00: 6       7
+</span></span></code></pre></td></tr></table></div></div><p>可知我们输入的六个数都存在了栈上。然后函数更改一些寄存器，跳到 0x401133。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-asm data-lang=asm><span class=line><span class=cl><span class=err>401133:</span>	<span class=err>4</span><span class=nf>c</span> <span class=mi>89</span> <span class=no>ed</span>             	<span class=no>mov</span>    <span class=nv>%r13</span><span class=p>,</span><span class=nv>%rbp</span>
+</span></span><span class=line><span class=cl><span class=err>401136:</span>	<span class=err>41</span> <span class=err>8</span><span class=nf>b</span> <span class=mi>45</span> <span class=mi>00</span>          	<span class=no>mov</span>    <span class=mi>0x0</span><span class=p>(</span><span class=nv>%r13</span><span class=p>),</span><span class=nv>%eax</span>
+</span></span><span class=line><span class=cl><span class=err>40113</span><span class=nl>a:</span>	<span class=err>83</span> <span class=nf>e8</span> <span class=mi>01</span>             	<span class=no>sub</span>    <span class=no>$0x1</span><span class=p>,</span><span class=nv>%eax</span>
+</span></span><span class=line><span class=cl><span class=err>40113</span><span class=nl>d:</span>	<span class=err>83</span> <span class=nf>f8</span> <span class=mi>05</span>             	<span class=no>cmp</span>    <span class=no>$0x5</span><span class=p>,</span><span class=nv>%eax</span>
+</span></span><span class=line><span class=cl><span class=err>401140:</span>	<span class=err>77</span> <span class=nf>cc</span>                	<span class=no>ja</span>     <span class=mh>40110e</span> <span class=p>&lt;</span><span class=no>phase_6</span><span class=p>+</span><span class=mi>0x32</span><span class=p>&gt;</span> <span class=c1># 爆炸
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=err>401142:</span>	<span class=err>41</span> <span class=err>83</span> <span class=nf>c6</span> <span class=mi>01</span>          	<span class=no>add</span>    <span class=no>$0x1</span><span class=p>,</span><span class=nv>%r14d</span>
+</span></span><span class=line><span class=cl><span class=err>401146:</span>	<span class=err>41</span> <span class=err>83</span> <span class=nf>fe</span> <span class=mi>06</span>          	<span class=no>cmp</span>    <span class=no>$0x6</span><span class=p>,</span><span class=nv>%r14d</span>
+</span></span><span class=line><span class=cl><span class=err>40114</span><span class=nl>a:</span>	<span class=err>74</span> <span class=err>05</span>                	<span class=nf>je</span>     <span class=mh>401151</span> <span class=p>&lt;</span><span class=no>phase_6</span><span class=p>+</span><span class=mi>0x75</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=err>40114</span><span class=nl>c:</span>	<span class=err>44</span> <span class=err>89</span> <span class=nf>f3</span>             	<span class=no>mov</span>    <span class=nv>%r14d</span><span class=p>,</span><span class=nv>%ebx</span>
+</span></span><span class=line><span class=cl><span class=err>40114</span><span class=nl>f:</span>	<span class=nf>eb</span> <span class=no>cc</span>                	<span class=no>jmp</span>    <span class=mh>40111d</span> <span class=p>&lt;</span><span class=no>phase_6</span><span class=p>+</span><span class=mi>0x41</span><span class=p>&gt;</span>
+</span></span></code></pre></td></tr></table></div></div><p>将第一个输入放入 eax，与 5 比较，如果大于，爆炸。r14 之前初始化为 0 。现在加上 1，与 6 比较，如果相等，跳到 0x401151 结束循环；否则将 r14 移到 ebx 中，跳到 40111d。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-asm data-lang=asm><span class=line><span class=cl><span class=err>401115:</span>	<span class=err>83</span> <span class=nf>c3</span> <span class=mi>01</span>             	<span class=no>add</span>    <span class=no>$0x1</span><span class=p>,</span><span class=nv>%ebx</span>
+</span></span><span class=line><span class=cl><span class=err>401118:</span>	<span class=err>83</span> <span class=nf>fb</span> <span class=mi>05</span>             	<span class=no>cmp</span>    <span class=no>$0x5</span><span class=p>,</span><span class=nv>%ebx</span>
+</span></span><span class=line><span class=cl><span class=err>40111</span><span class=nl>b:</span>	<span class=err>7</span><span class=nf>f</span> <span class=mi>12</span>                	<span class=no>jg</span>     <span class=mh>40112f</span> <span class=p>&lt;</span><span class=no>phase_6</span><span class=p>+</span><span class=mi>0x53</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=err>40111</span><span class=nl>d:</span>	<span class=err>48</span> <span class=err>63</span> <span class=nf>c3</span>             	<span class=no>movslq</span> <span class=nv>%ebx</span><span class=p>,</span><span class=nv>%rax</span>  <span class=c1># 刚刚跳转的位置
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=err>401120:</span>	<span class=err>8</span><span class=nf>b</span> <span class=mi>04</span> <span class=mi>84</span>             	<span class=no>mov</span>    <span class=p>(</span><span class=nv>%rsp</span><span class=p>,</span><span class=nv>%rax</span><span class=p>,</span><span class=mi>4</span><span class=p>),</span><span class=nv>%eax</span>
+</span></span><span class=line><span class=cl><span class=err>401123:</span>	<span class=err>39</span> <span class=err>45</span> <span class=err>00</span>             	<span class=nf>cmp</span>    <span class=nv>%eax</span><span class=p>,</span><span class=mi>0x0</span><span class=p>(</span><span class=nv>%rbp</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=err>401126:</span>	<span class=err>75</span> <span class=nf>ed</span>                	<span class=no>jne</span>    <span class=mh>401115</span> <span class=p>&lt;</span><span class=no>phase_6</span><span class=p>+</span><span class=mi>0x39</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=err>401128:</span>	<span class=nf>e8</span> <span class=mi>1</span><span class=no>a</span> <span class=mi>03</span> <span class=mi>00</span> <span class=mi>00</span>       	<span class=no>callq</span>  <span class=mh>401447</span> <span class=p>&lt;</span><span class=no>explode_bomb</span><span class=p>&gt;</span>
+</span></span></code></pre></td></tr></table></div></div><p>将 ebx 移入 rax，rsp 中第 rax 个元素放入 eax。第一次来到这里时 ebx 为 1，所以这就是取第二个输入，例如我的是 3。目前 rbp 指向元素就是第一个元素，所以比较第二个元素与第一个是否相等。如果相等，就直接爆炸。否则跳转到 401115，增加 ebx，与 5 比较，如果大于，跳转到 40112f，这会给 rsp 指向的地址加 4，也就是指向下一个元素。</p><p>利用调试器，多看几次流程。会发现其本质就是检查输入的 6 个数中第 i 个元素与第 j 个元素是否相等，如果相等就会触发爆炸。然后每次循环后增加 i 索引。同时，也会讲当前第 i 个元素减 1 后与 5 比较，如果大于，也会爆炸。说明当前元素应该小于等于 6 。</p><p>因此，我们尝试输入 <code>1 2 3 4 5 6</code>，为 0x401151 打断点，跳转。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-asm data-lang=asm><span class=line><span class=cl><span class=err>401151:</span>	<span class=err>49</span> <span class=err>8</span><span class=nf>d</span> <span class=mi>4</span><span class=no>c</span> <span class=mi>24</span> <span class=mi>18</span>       	<span class=no>lea</span>    <span class=mi>0x18</span><span class=p>(</span><span class=nv>%r12</span><span class=p>),</span><span class=nv>%rcx</span>
+</span></span><span class=line><span class=cl><span class=err>401156:</span>	<span class=nf>ba</span> <span class=mi>07</span> <span class=mi>00</span> <span class=mi>00</span> <span class=mi>00</span>       	<span class=no>mov</span>    <span class=no>$0x7</span><span class=p>,</span><span class=nv>%edx</span>
+</span></span><span class=line><span class=cl><span class=err>40115</span><span class=nl>b:</span>	<span class=err>89</span> <span class=nf>d0</span>                	<span class=no>mov</span>    <span class=nv>%edx</span><span class=p>,</span><span class=nv>%eax</span>
+</span></span><span class=line><span class=cl><span class=err>40115</span><span class=nl>d:</span>	<span class=err>41</span> <span class=err>2</span><span class=nf>b</span> <span class=mi>04</span> <span class=mi>24</span>          	<span class=no>sub</span>    <span class=p>(</span><span class=nv>%r12</span><span class=p>),</span><span class=nv>%eax</span>
+</span></span><span class=line><span class=cl><span class=err>401161:</span>	<span class=err>41</span> <span class=err>89</span> <span class=err>04</span> <span class=err>24</span>          	<span class=nf>mov</span>    <span class=nv>%eax</span><span class=p>,(</span><span class=nv>%r12</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=err>401165:</span>	<span class=err>49</span> <span class=err>83</span> <span class=nf>c4</span> <span class=mi>04</span>          	<span class=no>add</span>    <span class=no>$0x4</span><span class=p>,</span><span class=nv>%r12</span>
+</span></span><span class=line><span class=cl><span class=err>401169:</span>	<span class=err>4</span><span class=nf>c</span> <span class=mi>39</span> <span class=no>e1</span>             	<span class=no>cmp</span>    <span class=nv>%r12</span><span class=p>,</span><span class=nv>%rcx</span>
+</span></span><span class=line><span class=cl><span class=err>40116</span><span class=nl>c:</span>	<span class=err>75</span> <span class=nf>ed</span>                	<span class=no>jne</span>    <span class=mh>40115b</span> <span class=p>&lt;</span><span class=no>phase_6</span><span class=p>+</span><span class=mi>0x7f</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=err>40116</span><span class=nl>e:</span>	<span class=nf>be</span> <span class=mi>00</span> <span class=mi>00</span> <span class=mi>00</span> <span class=mi>00</span>       	<span class=no>mov</span>    <span class=no>$0x0</span><span class=p>,</span><span class=nv>%esi</span>
+</span></span><span class=line><span class=cl><span class=err>401173:</span>	<span class=nf>eb</span> <span class=mi>1</span><span class=no>a</span>                	<span class=no>jmp</span>    <span class=mh>40118f</span> <span class=p>&lt;</span><span class=no>phase_6</span><span class=p>+</span><span class=mi>0xb3</span><span class=p>&gt;</span>
+</span></span></code></pre></td></tr></table></div></div><p>首先将输入字符串的指针的地址（在栈上）写入 rcx。edx 与 eax 设为 7，将 <code>7 - 第一个输入</code> 写入第一个输入。然后增加 r12 指针指向下一个元素，直到指向尽头（rcx），否则跳转到 0x40115b 重复操作。总之，就是数组每个元素都变成 <code>7-自身</code>，因此现在我的数组变成了 <code>6 5 4 3 2 1</code>。将 esi 变成 0，跳转到 0x40118f 。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>40118f:	8b 0c b4             	mov    (%rsp,%rsi,4),%ecx
+</span></span><span class=line><span class=cl>401192:	b8 01 00 00 00       	mov    $0x1,%eax
+</span></span><span class=line><span class=cl>401197:	ba d0 32 60 00       	mov    $0x6032d0,%edx
+</span></span><span class=line><span class=cl>40119c:	83 f9 01             	cmp    $0x1,%ecx
+</span></span><span class=line><span class=cl>40119f:	7f d4                	jg     401175 &lt;phase_6+0x99&gt;
+</span></span><span class=line><span class=cl>4011a1:	eb dd                	jmp    401180 &lt;phase_6+0xa4&gt;
+</span></span></code></pre></td></tr></table></div></div><p>将 <code>rsp[rsi]</code> 放入 ecx，eax 写入 1，edx 是一个地址，然后 <code>rsp[rsi]</code> 与 1 比较。如果大于，跳转到 0x401175，否则跳转到 0x401180。尝试打印 edx：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>pwndbg&gt; x/12xw 0x6032d0
+</span></span><span class=line><span class=cl>0x6032d0 &lt;node1&gt;:       0x0000027a      0x00000001      0x006032e0       0x00000000
+</span></span><span class=line><span class=cl>0x6032e0 &lt;node2&gt;:       0x00000353      0x00000002      0x006032f0       0x00000000
+</span></span><span class=line><span class=cl>0x6032f0 &lt;node3&gt;:       0x00000399      0x00000003      0x00603300       0x00000000
+</span></span></code></pre></td></tr></table></div></div><p>可以看到这是一个类似链表的结构—— node1 中 0x006032e0 指向下一个的地址 0x006032e0，以此类推。我们看看一共有多少：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>pwndbg&gt; x/28xw 0x6032d0
+</span></span><span class=line><span class=cl>0x6032d0 &lt;node1&gt;:       0x0000027a      0x00000001      0x006032e0       0x00000000
+</span></span><span class=line><span class=cl>0x6032e0 &lt;node2&gt;:       0x00000353      0x00000002      0x006032f0       0x00000000
+</span></span><span class=line><span class=cl>0x6032f0 &lt;node3&gt;:       0x00000399      0x00000003      0x00603300       0x00000000
+</span></span><span class=line><span class=cl>0x603300 &lt;node4&gt;:       0x00000136      0x00000004      0x00603310       0x00000000
+</span></span><span class=line><span class=cl>0x603310 &lt;node5&gt;:       0x00000249      0x00000005      0x00603320       0x00000000
+</span></span><span class=line><span class=cl>0x603320 &lt;node6&gt;:       0x0000008a      0x00000006      0x00000000       0x00000000
+</span></span><span class=line><span class=cl>0x603330 &lt;bomb_id&gt;:     0x000007e6      0x00000000      0x00000000       0x00000000
+</span></span></code></pre></td></tr></table></div></div><p>可以看到刚好有 6 个，并且其中数字部分就是 <code>1 2 3 4 5 6</code> 。尝试更换我们的输入，我们发现这些链表的值与我们的输入是无关的：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>Good work!  On to the next...
+</span></span><span class=line><span class=cl>6 5 4 3 2 1
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Breakpoint 1, 0x00000000004010dc in phase_6 ()
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>pwndbg&gt; c
+</span></span><span class=line><span class=cl>Continuing.
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Breakpoint 2, 0x0000000000401151 in phase_6 ()
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>pwndbg&gt; c
+</span></span><span class=line><span class=cl>Continuing.
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Breakpoint 3, 0x0000000000401197 in phase_6 ()
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>pwndbg&gt; x/28xw 0x6032d0
+</span></span><span class=line><span class=cl>0x6032d0 &lt;node1&gt;:       0x0000027a      0x00000001      0x006032e0       0x00000000
+</span></span><span class=line><span class=cl>0x6032e0 &lt;node2&gt;:       0x00000353      0x00000002      0x006032f0       0x00000000
+</span></span><span class=line><span class=cl>0x6032f0 &lt;node3&gt;:       0x00000399      0x00000003      0x00603300       0x00000000
+</span></span><span class=line><span class=cl>0x603300 &lt;node4&gt;:       0x00000136      0x00000004      0x00603310       0x00000000
+</span></span><span class=line><span class=cl>0x603310 &lt;node5&gt;:       0x00000249      0x00000005      0x00603320       0x00000000
+</span></span><span class=line><span class=cl>0x603320 &lt;node6&gt;:       0x0000008a      0x00000006      0x00000000       0x00000000
+</span></span><span class=line><span class=cl>0x603330 &lt;bomb_id&gt;:     0x000007e6      0x00000000      0x00000000       0x00000000
+</span></span></code></pre></td></tr></table></div></div><p>换回 <code>1 2 3 4 5 6</code> 的输入。我这里 <code>rsp[rsi]</code> 是 5，所以大于，跳转到 0x401175。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-asm data-lang=asm><span class=line><span class=cl><span class=err>401175:</span>	<span class=err>48</span> <span class=err>8</span><span class=nf>b</span> <span class=mi>52</span> <span class=mi>08</span>          	<span class=no>mov</span>    <span class=mi>0x8</span><span class=p>(</span><span class=nv>%rdx</span><span class=p>),</span><span class=nv>%rdx</span>
+</span></span><span class=line><span class=cl><span class=err>401179:</span>	<span class=err>83</span> <span class=nf>c0</span> <span class=mi>01</span>             	<span class=no>add</span>    <span class=no>$0x1</span><span class=p>,</span><span class=nv>%eax</span>
+</span></span><span class=line><span class=cl><span class=err>40117</span><span class=nl>c:</span>	<span class=err>39</span> <span class=nf>c8</span>                	<span class=no>cmp</span>    <span class=nv>%ecx</span><span class=p>,</span><span class=nv>%eax</span>
+</span></span><span class=line><span class=cl><span class=err>40117</span><span class=nl>e:</span>	<span class=err>75</span> <span class=nf>f5</span>                	<span class=no>jne</span>    <span class=mh>401175</span> <span class=p>&lt;</span><span class=no>phase_6</span><span class=p>+</span><span class=mi>0x99</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=err>401180:</span>	<span class=err>48</span> <span class=err>89</span> <span class=err>54</span> <span class=nf>f4</span> <span class=mi>20</span>       	<span class=no>mov</span>    <span class=nv>%rdx</span><span class=p>,</span><span class=mi>0x20</span><span class=p>(</span><span class=nv>%rsp</span><span class=p>,</span><span class=nv>%rsi</span><span class=p>,</span><span class=mi>8</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=err>401185:</span>	<span class=err>48</span> <span class=err>83</span> <span class=nf>c6</span> <span class=mi>01</span>          	<span class=no>add</span>    <span class=no>$0x1</span><span class=p>,</span><span class=nv>%rsi</span>
+</span></span><span class=line><span class=cl><span class=err>401189:</span>	<span class=err>48</span> <span class=err>83</span> <span class=nf>fe</span> <span class=mi>06</span>          	<span class=no>cmp</span>    <span class=no>$0x6</span><span class=p>,</span><span class=nv>%rsi</span>
+</span></span><span class=line><span class=cl><span class=err>40118</span><span class=nl>d:</span>	<span class=err>74</span> <span class=err>14</span>                	<span class=nf>je</span>     <span class=mh>4011a3</span> <span class=p>&lt;</span><span class=no>phase_6</span><span class=p>+</span><span class=mi>0xc7</span><span class=p>&gt;</span>
+</span></span></code></pre></td></tr></table></div></div><p>这一段不断增加 rdx，也就是寻找下一个链表元素，并且计数到 eax 中。记住 ecx 是 <code>rsp[rsi]</code> ，所以就相当于是取这个链表的第 <code>rsp[rsi]</code> 个元素，rdx 就指向该元素。</p><p>然后将链表的第 <code>rsp[rsi]</code> 个元素的地址放入栈中。结束循环，现在的栈如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-asm data-lang=asm><span class=line><span class=cl><span class=err>00:0000│</span> <span class=nf>rsp</span>         <span class=mi>0x7fffffffd9f0</span> <span class=err>◂—</span> <span class=mi>0x500000006</span>
+</span></span><span class=line><span class=cl><span class=err>01:0008│-00</span><span class=nf>c</span>         <span class=mi>0x7fffffffd9f8</span> <span class=err>◂—</span> <span class=mi>0x300000004</span>
+</span></span><span class=line><span class=cl><span class=err>02:0010│</span> <span class=nf>r13-4</span> <span class=no>rbp-4</span> <span class=mi>0x7fffffffda00</span> <span class=err>◂—</span> <span class=mi>0x100000002</span>
+</span></span><span class=line><span class=cl><span class=err>03:0018│</span> <span class=nf>r12</span>         <span class=mi>0x7fffffffda08</span> <span class=err>—▸</span> <span class=mi>0x603910</span> <span class=p>(</span><span class=no>input_strings</span><span class=err>+</span><span class=mi>400</span><span class=p>)</span> <span class=err>◂—</span> <span class=err>&#39;</span><span class=mi>1</span> <span class=mi>2</span> <span class=mi>3</span> <span class=mi>4</span> <span class=mi>5</span> <span class=mi>6</span><span class=err>&#39;</span>
+</span></span><span class=line><span class=cl><span class=err>04:0020│+00</span><span class=nf>c</span>         <span class=mi>0x7fffffffda10</span> <span class=err>—▸</span> <span class=mi>0x603320</span> <span class=p>(</span><span class=no>node6</span><span class=p>)</span> <span class=err>◂—</span> <span class=mi>0x60000008a</span>
+</span></span><span class=line><span class=cl><span class=err>05:0028│+014</span>         <span class=err>0</span><span class=nf>x7fffffffda18</span> <span class=err>—▸</span> <span class=mi>0x603310</span> <span class=p>(</span><span class=no>node5</span><span class=p>)</span> <span class=err>◂—</span> <span class=mi>0x500000249</span>
+</span></span><span class=line><span class=cl><span class=err>06:0030│+01</span><span class=nf>c</span>         <span class=mi>0x7fffffffda20</span> <span class=err>—▸</span> <span class=mi>0x603300</span> <span class=p>(</span><span class=no>node4</span><span class=p>)</span> <span class=err>◂—</span> <span class=mi>0x400000136</span>
+</span></span><span class=line><span class=cl><span class=err>07:0038│+024</span>         <span class=err>0</span><span class=nf>x7fffffffda28</span> <span class=err>—▸</span> <span class=mi>0x6032f0</span> <span class=p>(</span><span class=no>node3</span><span class=p>)</span> <span class=err>◂—</span> <span class=mi>0x300000399</span>
+</span></span><span class=line><span class=cl><span class=err>08:0040│+02</span><span class=nf>c</span>         <span class=mi>0x7fffffffda30</span> <span class=err>—▸</span> <span class=mi>0x6032e0</span> <span class=p>(</span><span class=no>node2</span><span class=p>)</span> <span class=err>◂—</span> <span class=mi>0x200000353</span>
+</span></span><span class=line><span class=cl><span class=err>09:0048│+034</span>         <span class=err>0</span><span class=nf>x7fffffffda38</span> <span class=err>—▸</span> <span class=mi>0x6032d0</span> <span class=p>(</span><span class=no>node1</span><span class=p>)</span> <span class=err>◂—</span> <span class=mi>0x10000027a</span>
+</span></span><span class=line><span class=cl><span class=err>0</span><span class=nl>a:</span><span class=err>0050│+03</span><span class=nf>c</span>         <span class=mi>0x7fffffffda40</span> <span class=err>◂—</span> <span class=mi>0</span>
+</span></span></code></pre></td></tr></table></div></div><p>可以看到栈中 00 到 02 存储的是输入数字，已经经过被7减处理了，原本是 <code>1 2 3 4 5 6</code>，现在是 <code>6 5 4 3 2 1</code>。03 存储的是输入字符串的指针。04 到 09 存储的是链表节点的指针，顺序是根据处理后的输入决定的。</p><p>例如，输入 <code>2 4 5 3 1 6</code>，处理后变成 <code>5 3 2 4 5 1</code>，内存如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>04:0020│+00c         0x7fffffffda10 —▸ 0x603310 (node5) ◂— 0x500000249
+</span></span><span class=line><span class=cl>05:0028│+014         0x7fffffffda18 —▸ 0x6032f0 (node3) ◂— 0x300000399
+</span></span><span class=line><span class=cl>06:0030│+01c         0x7fffffffda20 —▸ 0x6032e0 (node2) ◂— 0x200000353
+</span></span><span class=line><span class=cl>07:0038│+024         0x7fffffffda28 —▸ 0x603300 (node4) ◂— 0x400000136
+</span></span><span class=line><span class=cl>08:0040│+02c         0x7fffffffda30 —▸ 0x603320 (node6) ◂— 0x60000008a
+</span></span><span class=line><span class=cl>09:0048│+034         0x7fffffffda38 —▸ 0x6032d0 (node1) ◂— 0x10000027a
+</span></span></code></pre></td></tr></table></div></div><p>可以看到这里链表指针的顺序就与我们的输入有关。</p><p>接下来又是许多代码：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-asm data-lang=asm><span class=line><span class=cl><span class=err>4011</span><span class=nl>a3:</span>	<span class=err>48</span> <span class=err>8</span><span class=nf>b</span> <span class=mi>5</span><span class=no>c</span> <span class=mi>24</span> <span class=mi>20</span>       	<span class=no>mov</span>    <span class=mi>0x20</span><span class=p>(</span><span class=nv>%rsp</span><span class=p>),</span><span class=nv>%rbx</span>
+</span></span><span class=line><span class=cl><span class=err>4011</span><span class=nl>a8:</span>	<span class=err>48</span> <span class=err>8</span><span class=nf>b</span> <span class=mi>44</span> <span class=mi>24</span> <span class=mi>28</span>       	<span class=no>mov</span>    <span class=mi>0x28</span><span class=p>(</span><span class=nv>%rsp</span><span class=p>),</span><span class=nv>%rax</span>
+</span></span><span class=line><span class=cl><span class=err>4011</span><span class=nl>ad:</span>	<span class=err>48</span> <span class=err>89</span> <span class=err>43</span> <span class=err>08</span>          	<span class=nf>mov</span>    <span class=nv>%rax</span><span class=p>,</span><span class=mi>0x8</span><span class=p>(</span><span class=nv>%rbx</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=err>4011</span><span class=nl>b1:</span>	<span class=err>48</span> <span class=err>8</span><span class=nf>b</span> <span class=mi>54</span> <span class=mi>24</span> <span class=mi>30</span>       	<span class=no>mov</span>    <span class=mi>0x30</span><span class=p>(</span><span class=nv>%rsp</span><span class=p>),</span><span class=nv>%rdx</span>
+</span></span><span class=line><span class=cl><span class=err>4011</span><span class=nl>b6:</span>	<span class=err>48</span> <span class=err>89</span> <span class=err>50</span> <span class=err>08</span>          	<span class=nf>mov</span>    <span class=nv>%rdx</span><span class=p>,</span><span class=mi>0x8</span><span class=p>(</span><span class=nv>%rax</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=err>4011</span><span class=nl>ba:</span>	<span class=err>48</span> <span class=err>8</span><span class=nf>b</span> <span class=mi>44</span> <span class=mi>24</span> <span class=mi>38</span>       	<span class=no>mov</span>    <span class=mi>0x38</span><span class=p>(</span><span class=nv>%rsp</span><span class=p>),</span><span class=nv>%rax</span>
+</span></span><span class=line><span class=cl><span class=err>4011</span><span class=nl>bf:</span>	<span class=err>48</span> <span class=err>89</span> <span class=err>42</span> <span class=err>08</span>          	<span class=nf>mov</span>    <span class=nv>%rax</span><span class=p>,</span><span class=mi>0x8</span><span class=p>(</span><span class=nv>%rdx</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=err>4011</span><span class=nl>c3:</span>	<span class=err>48</span> <span class=err>8</span><span class=nf>b</span> <span class=mi>54</span> <span class=mi>24</span> <span class=mi>40</span>       	<span class=no>mov</span>    <span class=mi>0x40</span><span class=p>(</span><span class=nv>%rsp</span><span class=p>),</span><span class=nv>%rdx</span>
+</span></span><span class=line><span class=cl><span class=err>4011</span><span class=nl>c8:</span>	<span class=err>48</span> <span class=err>89</span> <span class=err>50</span> <span class=err>08</span>          	<span class=nf>mov</span>    <span class=nv>%rdx</span><span class=p>,</span><span class=mi>0x8</span><span class=p>(</span><span class=nv>%rax</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=err>4011</span><span class=nl>cc:</span>	<span class=err>48</span> <span class=err>8</span><span class=nf>b</span> <span class=mi>44</span> <span class=mi>24</span> <span class=mi>48</span>       	<span class=no>mov</span>    <span class=mi>0x48</span><span class=p>(</span><span class=nv>%rsp</span><span class=p>),</span><span class=nv>%rax</span>
+</span></span><span class=line><span class=cl><span class=err>4011</span><span class=nl>d1:</span>	<span class=err>48</span> <span class=err>89</span> <span class=err>42</span> <span class=err>08</span>          	<span class=nf>mov</span>    <span class=nv>%rax</span><span class=p>,</span><span class=mi>0x8</span><span class=p>(</span><span class=nv>%rdx</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=err>4011</span><span class=nl>d5:</span>	<span class=err>48</span> <span class=nf>c7</span> <span class=mi>40</span> <span class=mi>08</span> <span class=mi>00</span> <span class=mi>00</span> <span class=mi>00</span> 	<span class=no>movq</span>   <span class=no>$0x0</span><span class=p>,</span><span class=mi>0x8</span><span class=p>(</span><span class=nv>%rax</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=err>4011</span><span class=nl>dc:</span>	<span class=err>00</span> 
+</span></span><span class=line><span class=cl><span class=err>4011</span><span class=nl>dc:</span>	<span class=err>00</span> 
+</span></span><span class=line><span class=cl><span class=err>4011</span><span class=nl>dd:</span>	<span class=nf>bd</span> <span class=mi>05</span> <span class=mi>00</span> <span class=mi>00</span> <span class=mi>00</span>       	<span class=no>mov</span>    <span class=no>$0x5</span><span class=p>,</span><span class=nv>%ebp</span>
+</span></span><span class=line><span class=cl><span class=err>4011</span><span class=nl>e2:</span>	<span class=nf>eb</span> <span class=mi>09</span>                	<span class=no>jmp</span>    <span class=mh>4011ed</span> <span class=p>&lt;</span><span class=no>phase_6</span><span class=p>+</span><span class=mi>0x111</span><span class=p>&gt;</span>
+</span></span></code></pre></td></tr></table></div></div><p>还是先将输入变回 <code>1 2 3 4 5 6</code>，然后会发现这串代码会改变链表的顺序。原始顺序：</p><p><code>1 -> 2 -> 3 -> 4 -> 5 -> 6</code></p><p>在存放顺序是 <code>6 5 4 3 2 1</code> 的情况下，这些操作的结果如下（我省略了其他代码的结果）：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-asm data-lang=asm><span class=line><span class=cl><span class=err>0</span><span class=nf>x4011ad</span> <span class=err>&lt;</span><span class=no>phase_6</span><span class=err>+</span><span class=mi>209</span><span class=err>&gt;</span>    <span class=no>movq</span>   <span class=nv>%rax</span><span class=p>,</span> <span class=mi>8</span><span class=p>(</span><span class=nv>%rbx</span><span class=p>)</span>        <span class=p>[</span><span class=no>node6</span><span class=err>+</span><span class=mi>8</span><span class=p>]</span> <span class=err>=&gt;</span> <span class=mi>0x603310</span> <span class=p>(</span><span class=no>node5</span><span class=p>)</span> <span class=err>◂—</span> <span class=mi>0x500000249</span>
+</span></span><span class=line><span class=cl><span class=err>0</span><span class=nf>x4011b6</span> <span class=err>&lt;</span><span class=no>phase_6</span><span class=err>+</span><span class=mi>218</span><span class=err>&gt;</span>    <span class=no>movq</span>   <span class=nv>%rdx</span><span class=p>,</span> <span class=mi>8</span><span class=p>(</span><span class=nv>%rax</span><span class=p>)</span>        <span class=p>[</span><span class=no>node5</span><span class=err>+</span><span class=mi>8</span><span class=p>]</span> <span class=err>=&gt;</span> <span class=mi>0x603300</span> <span class=p>(</span><span class=no>node4</span><span class=p>)</span> <span class=err>◂—</span> <span class=mi>0x400000136</span>
+</span></span><span class=line><span class=cl><span class=err>0</span><span class=nf>x4011bf</span> <span class=err>&lt;</span><span class=no>phase_6</span><span class=err>+</span><span class=mi>227</span><span class=err>&gt;</span>    <span class=no>movq</span>   <span class=nv>%rax</span><span class=p>,</span> <span class=mi>8</span><span class=p>(</span><span class=nv>%rdx</span><span class=p>)</span>        <span class=p>[</span><span class=no>node4</span><span class=err>+</span><span class=mi>8</span><span class=p>]</span> <span class=err>=&gt;</span> <span class=mi>0x6032f0</span> <span class=p>(</span><span class=no>node3</span><span class=p>)</span> <span class=err>◂—</span> <span class=mi>0x300000399</span>
+</span></span><span class=line><span class=cl><span class=err>0</span><span class=nf>x4011c8</span> <span class=err>&lt;</span><span class=no>phase_6</span><span class=err>+</span><span class=mi>236</span><span class=err>&gt;</span>    <span class=no>movq</span>   <span class=nv>%rdx</span><span class=p>,</span> <span class=mi>8</span><span class=p>(</span><span class=nv>%rax</span><span class=p>)</span>        <span class=p>[</span><span class=no>node3</span><span class=err>+</span><span class=mi>8</span><span class=p>]</span> <span class=err>=&gt;</span> <span class=mi>0x6032e0</span> <span class=p>(</span><span class=no>node2</span><span class=p>)</span> <span class=err>◂—</span> <span class=mi>0x200000353</span>
+</span></span><span class=line><span class=cl><span class=err>0</span><span class=nf>x4011d1</span> <span class=err>&lt;</span><span class=no>phase_6</span><span class=err>+</span><span class=mi>245</span><span class=err>&gt;</span>    <span class=no>movq</span>   <span class=nv>%rax</span><span class=p>,</span> <span class=mi>8</span><span class=p>(</span><span class=nv>%rdx</span><span class=p>)</span>        <span class=p>[</span><span class=no>node2</span><span class=err>+</span><span class=mi>8</span><span class=p>]</span> <span class=err>=&gt;</span> <span class=mi>0x6032d0</span> <span class=p>(</span><span class=no>node1</span><span class=p>)</span> <span class=err>◂—</span> <span class=mi>0x10000027a</span>
+</span></span><span class=line><span class=cl><span class=err>0</span><span class=nf>x4011d5</span> <span class=err>&lt;</span><span class=no>phase_6</span><span class=err>+</span><span class=mi>249</span><span class=err>&gt;</span>    <span class=no>movq</span>   <span class=no>$0</span><span class=p>,</span> <span class=mi>8</span><span class=p>(</span><span class=nv>%rax</span><span class=p>)</span>          <span class=p>[</span><span class=no>node1</span><span class=err>+</span><span class=mi>8</span><span class=p>]</span> <span class=err>=&gt;</span> <span class=mi>0</span>
+</span></span></code></pre></td></tr></table></div></div><p>再次打印，发现顺序发生变化：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>pwndbg&gt; x/28xw 0x6032d0
+</span></span><span class=line><span class=cl>0x6032d0 &lt;node1&gt;:       0x0000027a      0x00000001      0x00000000       0x00000000
+</span></span><span class=line><span class=cl>0x6032e0 &lt;node2&gt;:       0x00000353      0x00000002      0x006032d0       0x00000000
+</span></span><span class=line><span class=cl>0x6032f0 &lt;node3&gt;:       0x00000399      0x00000003      0x006032e0       0x00000000
+</span></span><span class=line><span class=cl>0x603300 &lt;node4&gt;:       0x00000136      0x00000004      0x006032f0       0x00000000
+</span></span><span class=line><span class=cl>0x603310 &lt;node5&gt;:       0x00000249      0x00000005      0x00603300       0x00000000
+</span></span><span class=line><span class=cl>0x603320 &lt;node6&gt;:       0x0000008a      0x00000006      0x00603310       0x00000000
+</span></span><span class=line><span class=cl>0x603330 &lt;bomb_id&gt;:     0x000007e6      0x00000000      0x00000000       0x00000000
+</span></span></code></pre></td></tr></table></div></div><p><code>6 -> 5 -> 4 -> 3 -> 2 -> 1 -> NaN</code></p><p>所以，该函数的功能就是根据栈中存放的顺序，重新调整链表节点的顺序。例如输入 <code>1 2 3 4 5 6</code>，存放到栈中为 <code>6 5 4 3 2 1</code> ，于是链表顺序变成 <code>6 5 4 3 2 1</code>。</p><p>尝试输入 <code>5 3 1 2 6 4</code> ，存放到栈中为 <code>2 4 6 5 1 3</code>，链表顺序为 <code>2 4 6 5 1 3</code>。</p><p>接着跳转到 0x4011ed，将 rbx 指向的下一个节点地址放入 rax，将该下一个节点的值放入 eax，让 rbx 指向的节点的值与该值比较。如果大于等于，跳转；否则爆炸。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>4011ed:	48 8b 43 08          	mov    0x8(%rbx),%rax
+</span></span><span class=line><span class=cl>4011f1:	8b 00                	mov    (%rax),%eax
+</span></span><span class=line><span class=cl>4011f3:	39 03                	cmp    %eax,(%rbx)
+</span></span><span class=line><span class=cl>4011f5:	7d ed                	jge    4011e4 &lt;phase_6+0x108&gt;
+</span></span><span class=line><span class=cl>4011f7:	e8 4b 02 00 00       	callq  401447 &lt;explode_bomb&gt;
+</span></span></code></pre></td></tr></table></div></div><p>想要跳出循环，需要在上面满足该条件，也就是 ebp 等于 0。而 ebp 一开始为 5，说明会进行遍历操作。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>4011e4:	48 8b 5b 08          	mov    0x8(%rbx),%rbx
+</span></span><span class=line><span class=cl>4011e8:	83 ed 01             	sub    $0x1,%ebp
+</span></span><span class=line><span class=cl>4011eb:	74 11                	je     4011fe &lt;phase_6+0x122&gt;
+</span></span></code></pre></td></tr></table></div></div><p>若此处跳转，就可以结束了。所以，我们的目标明确了起来——<strong>找到一组 1-6 的顺序，可以调整链表的连接顺序，进而满足最后的每个节点大于另一个节点的条件</strong>。</p><p>观察原始链表中的大小，可以得到正确的排序：</p><div class=table-wrapper><table><thead><tr><th>链表 id</th><th>值</th></tr></thead><tbody><tr><td>3</td><td>0x399</td></tr><tr><td>2</td><td>0x353</td></tr><tr><td>1</td><td>0x27a</td></tr><tr><td>5</td><td>0x249</td></tr><tr><td>4</td><td>0x136</td></tr><tr><td>6</td><td>0x08a</td></tr></tbody></table></div><p>也就是处理后为 <code>3 2 1 5 4 6</code>，处理前为 <code>4 5 6 2 3 1</code>。第六阶段密码为 <code>4 5 6 2 3 1</code>。</p><h2 id=结束了>结束了？</h2><p>翻一下汇编，我们会发现一个神秘的函数 <code>fun7</code>，它会在 <code>secret_phase</code> 中被调用。搜索 <code>secret_phase</code>，发现它隐藏在 <code>phase_defused</code> 中。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-asm data-lang=asm><span class=line><span class=cl><span class=err>00000000004015</span><span class=nf>d6</span> <span class=err>&lt;</span><span class=no>phase_defused</span><span class=err>&gt;</span><span class=p>:</span>
+</span></span><span class=line><span class=cl><span class=err>4015</span><span class=nl>d6:</span>	<span class=err>48</span> <span class=err>83</span> <span class=nf>ec</span> <span class=mi>78</span>          	<span class=no>sub</span>    <span class=no>$0x78</span><span class=p>,</span><span class=nv>%rsp</span>
+</span></span><span class=line><span class=cl><span class=err>4015</span><span class=nl>da:</span>	<span class=err>64</span> <span class=err>48</span> <span class=err>8</span><span class=nf>b</span> <span class=mi>04</span> <span class=mi>25</span> <span class=mi>28</span> <span class=mi>00</span> 	<span class=no>mov</span>    <span class=nv>%fs</span><span class=p>:</span><span class=mi>0x28</span><span class=p>,</span><span class=nv>%rax</span>
+</span></span><span class=line><span class=cl><span class=err>4015</span><span class=nl>e1:</span>	<span class=err>00</span> <span class=err>00</span> 
+</span></span><span class=line><span class=cl><span class=err>4015</span><span class=nl>e3:</span>	<span class=err>48</span> <span class=err>89</span> <span class=err>44</span> <span class=err>24</span> <span class=err>68</span>       	<span class=nf>mov</span>    <span class=nv>%rax</span><span class=p>,</span><span class=mi>0x68</span><span class=p>(</span><span class=nv>%rsp</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=err>4015</span><span class=nl>e8:</span>	<span class=err>31</span> <span class=nf>c0</span>                	<span class=no>xor</span>    <span class=nv>%eax</span><span class=p>,</span><span class=nv>%eax</span>
+</span></span><span class=line><span class=cl><span class=err>4015</span><span class=nl>ea:</span>	<span class=err>83</span> <span class=err>3</span><span class=nf>d</span> <span class=mi>7</span><span class=no>b</span> <span class=mi>21</span> <span class=mi>20</span> <span class=mi>00</span> <span class=mi>06</span> 	<span class=no>cmpl</span>   <span class=no>$0x6</span><span class=p>,</span><span class=mi>0x20217b</span><span class=p>(</span><span class=nv>%rip</span><span class=p>)</span>        <span class=c1># 60376c &lt;num_input_strings&gt;
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=err>4015</span><span class=nl>f1:</span>	<span class=err>74</span> <span class=err>15</span>                	<span class=nf>je</span>     <span class=mh>401608</span> <span class=p>&lt;</span><span class=no>phase_defused</span><span class=p>+</span><span class=mi>0x32</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=err>4015</span><span class=nl>f3:</span>	<span class=err>48</span> <span class=err>8</span><span class=nf>b</span> <span class=mi>44</span> <span class=mi>24</span> <span class=mi>68</span>       	<span class=no>mov</span>    <span class=mi>0x68</span><span class=p>(</span><span class=nv>%rsp</span><span class=p>),</span><span class=nv>%rax</span>
+</span></span><span class=line><span class=cl><span class=err>4015</span><span class=nl>f8:</span>	<span class=err>64</span> <span class=err>48</span> <span class=err>33</span> <span class=err>04</span> <span class=err>25</span> <span class=err>28</span> <span class=err>00</span> 	<span class=nf>xor</span>    <span class=nv>%fs</span><span class=p>:</span><span class=mi>0x28</span><span class=p>,</span><span class=nv>%rax</span>
+</span></span><span class=line><span class=cl><span class=err>4015</span><span class=nl>ff:</span>	<span class=err>00</span> <span class=err>00</span> 
+</span></span><span class=line><span class=cl><span class=err>401601:</span>	<span class=err>75</span> <span class=err>67</span>                	<span class=nf>jne</span>    <span class=mh>40166a</span> <span class=p>&lt;</span><span class=no>phase_defused</span><span class=p>+</span><span class=mi>0x94</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=err>401603:</span>	<span class=err>48</span> <span class=err>83</span> <span class=nf>c4</span> <span class=mi>78</span>          	<span class=no>add</span>    <span class=no>$0x78</span><span class=p>,</span><span class=nv>%rsp</span>
+</span></span><span class=line><span class=cl><span class=err>401607:</span>	<span class=nf>c3</span>                   	<span class=no>retq</span>   
+</span></span></code></pre></td></tr></table></div></div><p>发现其中要想进入隐藏阶段，必须满足 <code>cmpl $0x6,0x20217b(%rip)</code>，这就是 num_input_strings 的地址。在 read_line 中，每次读取一行的输入，都会将该变量加一。所以这一行代表着结束第六阶段后才能解锁。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-asm data-lang=asm><span class=line><span class=cl><span class=err>401608:</span>	<span class=err>4</span><span class=nf>c</span> <span class=mi>8</span><span class=no>d</span> <span class=mi>44</span> <span class=mi>24</span> <span class=mi>10</span>       	<span class=no>lea</span>    <span class=mi>0x10</span><span class=p>(</span><span class=nv>%rsp</span><span class=p>),</span><span class=nv>%r8</span>
+</span></span><span class=line><span class=cl><span class=err>40160</span><span class=nl>d:</span>	<span class=err>48</span> <span class=err>8</span><span class=nf>d</span> <span class=mi>4</span><span class=no>c</span> <span class=mi>24</span> <span class=mi>0</span><span class=no>c</span>       	<span class=no>lea</span>    <span class=mi>0xc</span><span class=p>(</span><span class=nv>%rsp</span><span class=p>),</span><span class=nv>%rcx</span>
+</span></span><span class=line><span class=cl><span class=err>401612:</span>	<span class=err>48</span> <span class=err>8</span><span class=nf>d</span> <span class=mi>54</span> <span class=mi>24</span> <span class=mi>08</span>       	<span class=no>lea</span>    <span class=mi>0x8</span><span class=p>(</span><span class=nv>%rsp</span><span class=p>),</span><span class=nv>%rdx</span>
+</span></span><span class=line><span class=cl><span class=err>401617:</span>	<span class=nf>be</span> <span class=mi>19</span> <span class=mi>26</span> <span class=mi>40</span> <span class=mi>00</span>       	<span class=no>mov</span>    <span class=no>$0x402619</span><span class=p>,</span><span class=nv>%esi</span>
+</span></span><span class=line><span class=cl><span class=err>40161</span><span class=nl>c:</span>	<span class=nf>bf</span> <span class=mi>70</span> <span class=mi>38</span> <span class=mi>60</span> <span class=mi>00</span>       	<span class=no>mov</span>    <span class=no>$0x603870</span><span class=p>,</span><span class=nv>%edi</span>
+</span></span><span class=line><span class=cl><span class=err>401621:</span>	<span class=nf>e8</span> <span class=mi>7</span><span class=no>a</span> <span class=no>f5</span> <span class=no>ff</span> <span class=no>ff</span>       	<span class=no>callq</span>  <span class=mh>400ba0</span> <span class=p>&lt;</span><span class=no>__isoc99_sscanf@plt</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=err>401626:</span>	<span class=err>83</span> <span class=nf>f8</span> <span class=mi>03</span>             	<span class=no>cmp</span>    <span class=no>$0x3</span><span class=p>,</span><span class=nv>%eax</span>
+</span></span><span class=line><span class=cl><span class=err>401629:</span>	<span class=err>74</span> <span class=err>0</span><span class=nf>c</span>                	<span class=no>je</span>     <span class=mh>401637</span> <span class=p>&lt;</span><span class=no>phase_defused</span><span class=p>+</span><span class=mi>0x61</span><span class=p>&gt;</span>
+</span></span></code></pre></td></tr></table></div></div><p>调试可以发现，该 sscanf 的输入是 <code>input_strings+240</code>，也就是第四阶段输入的字符串，例如我的是 <code>13 3</code>。匹配的格式是 <code>%d %d %s</code>，说明需要额外输入一个字符串。</p><p>尝试改变第四阶段输入为 <code>13 3 hello</code>，进入 0x401637 ：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-asm data-lang=asm><span class=line><span class=cl><span class=err>401637:</span>	<span class=nf>be</span> <span class=mi>22</span> <span class=mi>26</span> <span class=mi>40</span> <span class=mi>00</span>       	<span class=no>mov</span>    <span class=no>$0x402622</span><span class=p>,</span><span class=nv>%esi</span>
+</span></span><span class=line><span class=cl><span class=err>40163</span><span class=nl>c:</span>	<span class=err>48</span> <span class=err>8</span><span class=nf>d</span> <span class=mi>7</span><span class=no>c</span> <span class=mi>24</span> <span class=mi>10</span>       	<span class=no>lea</span>    <span class=mi>0x10</span><span class=p>(</span><span class=nv>%rsp</span><span class=p>),</span><span class=nv>%rdi</span>
+</span></span><span class=line><span class=cl><span class=err>401641:</span>	<span class=nf>e8</span> <span class=mi>04</span> <span class=no>fd</span> <span class=no>ff</span> <span class=no>ff</span>       	<span class=no>callq</span>  <span class=mh>40134a</span> <span class=p>&lt;</span><span class=no>strings_not_equal</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=err>401646:</span>	<span class=err>85</span> <span class=nf>c0</span>                	<span class=no>test</span>   <span class=nv>%eax</span><span class=p>,</span><span class=nv>%eax</span>
+</span></span><span class=line><span class=cl><span class=err>401648:</span>	<span class=err>75</span> <span class=nf>e1</span>                	<span class=no>jne</span>    <span class=mh>40162b</span> <span class=p>&lt;</span><span class=no>phase_defused</span><span class=p>+</span><span class=mi>0x55</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=err>40164</span><span class=nl>a:</span>	<span class=nf>bf</span> <span class=no>f8</span> <span class=mi>24</span> <span class=mi>40</span> <span class=mi>00</span>       	<span class=no>mov</span>    <span class=no>$0x4024f8</span><span class=p>,</span><span class=nv>%edi</span>
+</span></span><span class=line><span class=cl><span class=err>40164</span><span class=nl>f:</span>	<span class=nf>e8</span> <span class=mi>8</span><span class=no>c</span> <span class=no>f4</span> <span class=no>ff</span> <span class=no>ff</span>       	<span class=no>callq</span>  <span class=mh>400ae0</span> <span class=p>&lt;</span><span class=no>puts@plt</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=err>401654:</span>	<span class=nf>bf</span> <span class=mi>20</span> <span class=mi>25</span> <span class=mi>40</span> <span class=mi>00</span>       	<span class=no>mov</span>    <span class=no>$0x402520</span><span class=p>,</span><span class=nv>%edi</span>
+</span></span><span class=line><span class=cl><span class=err>401659:</span>	<span class=nf>e8</span> <span class=mi>82</span> <span class=no>f4</span> <span class=no>ff</span> <span class=no>ff</span>       	<span class=no>callq</span>  <span class=mh>400ae0</span> <span class=p>&lt;</span><span class=no>puts@plt</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=err>40165</span><span class=nl>e:</span>	<span class=nf>b8</span> <span class=mi>00</span> <span class=mi>00</span> <span class=mi>00</span> <span class=mi>00</span>       	<span class=no>mov</span>    <span class=no>$0x0</span><span class=p>,</span><span class=nv>%eax</span>
+</span></span><span class=line><span class=cl><span class=err>401663:</span>	<span class=nf>e8</span> <span class=no>f7</span> <span class=no>fb</span> <span class=no>ff</span> <span class=no>ff</span>       	<span class=no>callq</span>  <span class=mh>40125f</span> <span class=p>&lt;</span><span class=no>secret_phase</span><span class=p>&gt;</span>
+</span></span></code></pre></td></tr></table></div></div><p>发现 esi 为字符串 <code>urxvt</code>，然后调用字符串匹配。因此我们修改输入为 <code>13 3 urxvt</code>，成功进入隐藏阶段。</p><p>一开始就要输入，然后调用 strtol 将字符串转换为 long。接着返回值移入 rbx，eax 变成输入的数减一，与 0x3e8 (1000) 比较，如果大于，爆炸。因此我们尝试输入 987。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-asm data-lang=asm><span class=line><span class=cl><span class=err>00000000040125</span><span class=nf>f</span> <span class=err>&lt;</span><span class=no>secret_phase</span><span class=err>&gt;</span><span class=p>:</span>
+</span></span><span class=line><span class=cl><span class=err>40125</span><span class=nl>f:</span>	<span class=err>53</span>                   	<span class=nf>push</span>   <span class=nv>%rbx</span>
+</span></span><span class=line><span class=cl><span class=err>401260:</span>	<span class=nf>e8</span> <span class=mi>43</span> <span class=mi>02</span> <span class=mi>00</span> <span class=mi>00</span>       	<span class=no>callq</span>  <span class=mh>4014a8</span> <span class=p>&lt;</span><span class=no>read_line</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=err>401265:</span>	<span class=nf>ba</span> <span class=mi>0</span><span class=no>a</span> <span class=mi>00</span> <span class=mi>00</span> <span class=mi>00</span>       	<span class=no>mov</span>    <span class=no>$0xa</span><span class=p>,</span><span class=nv>%edx</span>
+</span></span><span class=line><span class=cl><span class=err>40126</span><span class=nl>a:</span>	<span class=nf>be</span> <span class=mi>00</span> <span class=mi>00</span> <span class=mi>00</span> <span class=mi>00</span>       	<span class=no>mov</span>    <span class=no>$0x0</span><span class=p>,</span><span class=nv>%esi</span>
+</span></span><span class=line><span class=cl><span class=err>40126</span><span class=nl>f:</span>	<span class=err>48</span> <span class=err>89</span> <span class=nf>c7</span>             	<span class=no>mov</span>    <span class=nv>%rax</span><span class=p>,</span><span class=nv>%rdi</span>
+</span></span><span class=line><span class=cl><span class=err>401272:</span>	<span class=nf>e8</span> <span class=mi>09</span> <span class=no>f9</span> <span class=no>ff</span> <span class=no>ff</span>       	<span class=no>callq</span>  <span class=mh>400b80</span> <span class=p>&lt;</span><span class=no>strtol@plt</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=err>401277:</span>	<span class=err>48</span> <span class=err>89</span> <span class=nf>c3</span>             	<span class=no>mov</span>    <span class=nv>%rax</span><span class=p>,</span><span class=nv>%rbx</span>
+</span></span><span class=line><span class=cl><span class=err>40127</span><span class=nl>a:</span>	<span class=err>8</span><span class=nf>d</span> <span class=mi>40</span> <span class=no>ff</span>             	<span class=no>lea</span>    <span class=p>-</span><span class=mi>0x1</span><span class=p>(</span><span class=nv>%rax</span><span class=p>),</span><span class=nv>%eax</span>
+</span></span><span class=line><span class=cl><span class=err>40127</span><span class=nl>d:</span>	<span class=err>3</span><span class=nf>d</span> <span class=no>e8</span> <span class=mi>03</span> <span class=mi>00</span> <span class=mi>00</span>       	<span class=no>cmp</span>    <span class=no>$0x3e8</span><span class=p>,</span><span class=nv>%eax</span>
+</span></span><span class=line><span class=cl><span class=err>401282:</span>	<span class=err>77</span> <span class=err>27</span>                	<span class=nf>ja</span>     <span class=mh>4012ab</span> <span class=p>&lt;</span><span class=no>secret_phase</span><span class=p>+</span><span class=mi>0x4c</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=err>401284:</span>	<span class=err>89</span> <span class=nf>de</span>                	<span class=no>mov</span>    <span class=nv>%ebx</span><span class=p>,</span><span class=nv>%esi</span>
+</span></span><span class=line><span class=cl><span class=err>401286:</span>	<span class=nf>bf</span> <span class=no>f0</span> <span class=mi>30</span> <span class=mi>60</span> <span class=mi>00</span>       	<span class=no>mov</span>    <span class=no>$0x6030f0</span><span class=p>,</span><span class=nv>%edi</span>
+</span></span><span class=line><span class=cl><span class=err>40128</span><span class=nl>b:</span>	<span class=nf>e8</span> <span class=mi>90</span> <span class=no>ff</span> <span class=no>ff</span> <span class=no>ff</span>       	<span class=no>callq</span>  <span class=mh>401220</span> <span class=p>&lt;</span><span class=no>fun7</span><span class=p>&gt;</span>
+</span></span></code></pre></td></tr></table></div></div><p>接下来调用函数 <code>fun7</code>，第一个参数为 0x6030f0，第二个参数为我们输入的数。可以发现我们希望这个函数的返回值是 4，这就是最终目标。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-asm data-lang=asm><span class=line><span class=cl><span class=err>0000000000401220</span> <span class=err>&lt;</span><span class=nf>fun7</span><span class=err>&gt;</span><span class=p>:</span>
+</span></span><span class=line><span class=cl><span class=err>401220:</span>	<span class=err>48</span> <span class=err>85</span> <span class=nf>ff</span>             	<span class=no>test</span>   <span class=nv>%rdi</span><span class=p>,</span><span class=nv>%rdi</span>
+</span></span><span class=line><span class=cl><span class=err>401223:</span>	<span class=err>74</span> <span class=err>34</span>                	<span class=nf>je</span>     <span class=mh>401259</span> <span class=p>&lt;</span><span class=no>fun7</span><span class=p>+</span><span class=mi>0x39</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=na>...</span>
+</span></span><span class=line><span class=cl><span class=err>401259:</span>	<span class=nf>b8</span> <span class=no>ff</span> <span class=no>ff</span> <span class=no>ff</span> <span class=no>ff</span>       	<span class=no>mov</span>    <span class=no>$0xffffffff</span><span class=p>,</span><span class=nv>%eax</span>
+</span></span><span class=line><span class=cl><span class=err>40125</span><span class=nl>e:</span>	<span class=nf>c3</span>                   	<span class=no>retq</span>   
+</span></span></code></pre></td></tr></table></div></div><p>首先判断 rdi 不为 0，否则直接返回 -1 。</p><p>然后将 rdi 指向的值放入 edx，这里的值是 0x24，判断与我们输入数的关系。</p><ul><li>如果输入大于 edx，不跳转，eax 写入 0，跳转到 40124a。将 rdi 后面隔 16 个字节的中数写入 rdi，递归调用</li><li>如果输入小于等于 edx，跳转，将 rdi 后面隔 8 个字节中的数写入 rdi，递归调用</li></ul><p>打印这些值：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>pwndbg&gt; x/64xg $rdi
+</span></span><span class=line><span class=cl>0x6030f0 &lt;n1&gt;:  0x0000000000000024      0x0000000000603110 &lt;n21&gt;
+</span></span><span class=line><span class=cl>0x603100 &lt;n1+16&gt;:       0x0000000000603130 &lt;n22&gt;      0x0000000000000000
+</span></span><span class=line><span class=cl>0x603110 &lt;n21&gt;: 0x0000000000000008      0x0000000000603190 &lt;n31&gt;
+</span></span><span class=line><span class=cl>0x603120 &lt;n21+16&gt;:      0x0000000000603150 &lt;n32&gt;      0x0000000000000000
+</span></span><span class=line><span class=cl>0x603130 &lt;n22&gt;: 0x0000000000000032      0x0000000000603170 &lt;n33&gt;
+</span></span><span class=line><span class=cl>0x603140 &lt;n22+16&gt;:      0x00000000006031b0 &lt;n34&gt;      0x0000000000000000
+</span></span><span class=line><span class=cl>0x603150 &lt;n32&gt;: 0x0000000000000016      0x0000000000603270 &lt;n43&gt;
+</span></span><span class=line><span class=cl>0x603160 &lt;n32+16&gt;:      0x0000000000603230 &lt;n44&gt;      0x0000000000000000 
+</span></span><span class=line><span class=cl>0x603170 &lt;n33&gt;: 0x000000000000002d      0x00000000006031d0 &lt;n45&gt;
+</span></span><span class=line><span class=cl>0x603180 &lt;n33+16&gt;:      0x0000000000603290 &lt;n46&gt;      0x0000000000000000
+</span></span><span class=line><span class=cl>0x603190 &lt;n31&gt;: 0x0000000000000006      0x00000000006031f0 &lt;n41&gt;
+</span></span><span class=line><span class=cl>0x6031a0 &lt;n31+16&gt;:      0x0000000000603250 &lt;n42&gt;      0x0000000000000000
+</span></span><span class=line><span class=cl>0x6031b0 &lt;n34&gt;: 0x000000000000006b      0x0000000000603210 &lt;n47&gt;
+</span></span><span class=line><span class=cl>0x6031c0 &lt;n34+16&gt;:      0x00000000006032b0 &lt;n48&gt;     0x0000000000000000
+</span></span><span class=line><span class=cl>0x6031d0 &lt;n45&gt;: 0x0000000000000028      0x0000000000000000
+</span></span><span class=line><span class=cl>0x6031e0 &lt;n45+16&gt;:      0x0000000000000000      0x0000000000000000
+</span></span><span class=line><span class=cl>0x6031f0 &lt;n41&gt;: 0x0000000000000001      0x0000000000000000
+</span></span><span class=line><span class=cl>0x603200 &lt;n41+16&gt;:      0x0000000000000000      0x0000000000000000
+</span></span><span class=line><span class=cl>0x603210 &lt;n47&gt;: 0x0000000000000063      0x0000000000000000
+</span></span><span class=line><span class=cl>0x603220 &lt;n47+16&gt;:      0x0000000000000000      0x0000000000000000
+</span></span><span class=line><span class=cl>0x603230 &lt;n44&gt;: 0x0000000000000023      0x0000000000000000
+</span></span><span class=line><span class=cl>0x603240 &lt;n44+16&gt;:      0x0000000000000000      0x0000000000000000
+</span></span><span class=line><span class=cl>0x603250 &lt;n42&gt;: 0x0000000000000007      0x0000000000000000
+</span></span><span class=line><span class=cl>0x603260 &lt;n42+16&gt;:      0x0000000000000000      0x0000000000000000
+</span></span><span class=line><span class=cl>0x603270 &lt;n43&gt;: 0x0000000000000014      0x0000000000000000
+</span></span><span class=line><span class=cl>0x603280 &lt;n43+16&gt;:      0x0000000000000000      0x0000000000000000
+</span></span><span class=line><span class=cl>0x603290 &lt;n46&gt;: 0x000000000000002f      0x0000000000000000
+</span></span><span class=line><span class=cl>0x6032a0 &lt;n46+16&gt;:      0x0000000000000000      0x0000000000000000
+</span></span><span class=line><span class=cl>0x6032b0 &lt;n48&gt;: 0x00000000000003e9      0x0000000000000000
+</span></span><span class=line><span class=cl>0x6032c0 &lt;n48+16&gt;:      0x0000000000000000      0x0000000000000000
+</span></span><span class=line><span class=cl>0x6032d0 &lt;node1&gt;:       0x000000010000027a      0x0000000000603310
+</span></span><span class=line><span class=cl>0x6032e0 &lt;node2&gt;:       0x0000000200000353      0x00000000006032d0
+</span></span></code></pre></td></tr></table></div></div><p>这些节点的相互引用关系如图：</p><p><img src=/p/csapp_bomblab/tree1.jpeg width=1971 height=1265 srcset="/p/csapp_bomblab/tree1_hu_bfd43b474d77ede2.jpeg 480w, /p/csapp_bomblab/tree1_hu_b6f34679425d0a66.jpeg 1024w" loading=lazy alt=树的指针参考 class=gallery-image data-flex-grow=155 data-flex-basis=373px></p><p>不断调用，可以发现当 rdi 指向 n48 时，n48 中的值为 3e9 (1001)，必定大于我们的输入。此时结束，跳转到 0x40123d，此时会取 rdi 指向位置的<strong>后 8 个字节</strong>，放入 rdi（<strong>与之前的 16 字节不同！</strong>）。不过现在 n48 对应的这个值为 0 。再次递归调用。这时候因为 rdi 参数为 0，所以将 -1 写入 eax，返回。</p><ul><li>8 字节情况返回 401246：<code>eax = eax + eax</code>，例如我这里变成了-2</li><li>16 字节情况返回 401253：<code>eax = rax + rax + 1</code>，例如我这里有几个状态：<ul><li><code>-2 + -2 + 1 = -3</code></li><li><code>-3 + -3 + 1 = -5</code></li><li><code>-5 + -5 + 1 = -9</code></li></ul></li><li>最终在 987 输入的情况下，返回为 -9</li></ul><p>于是，当时让我迷惑的事情来了：<strong>secret_phase 中希望我们最后得到的返回值是整数 4，这怎么做到呢？</strong></p><p>尝试输入 1 调试，发现当输入的数恰好等于叶子结点时，就会停止递归调用。此时会运行 0x40122f ，将 eax 变成 0 。所以，从反向推导，要得到 4 应该是这样的：</p><p>0 -> 2 * 0 + 1 = 1 -> 1 * 2 = 2 -> 2 * 2 = 4</p><p>反向过程先是一个大于，然后是两个小于等于。正向过程就是先两个小于等于，然后一个大于。</p><p>参考图片：</p><p><img src=/p/csapp_bomblab/tree2.jpeg width=1937 height=1265 srcset="/p/csapp_bomblab/tree2_hu_6ec1846d3025ba5c.jpeg 480w, /p/csapp_bomblab/tree2_hu_aad439705d8fa219.jpeg 1024w" loading=lazy alt=树的指针参考2 class=gallery-image data-flex-grow=153 data-flex-basis=367px></p><p>答案为 7 。</p><h2 id=总结>总结</h2><p>这个实验确实量大管饱，我差不多前前后后花了好几天时间才写完。</p><p>对于此前没有接触过汇编的我来说，确实有些难度。还好借助了 GDB Dashboard、pwndbg 等强大的调试器，以及部分地方参考了 arthals 的北大 bomblab 博客<sup id=fnref2:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>。自然有些细节上还是有差异的，并且该博客没有写 secret phase。</p><p>经过这样的折腾，确实感觉自己对汇编的掌握更加深入。也让我想起了很久之前手挫 cs61b 的 gitlet 的快感（）</p><p>该指南很多地方都是我做 lab 的时候，边想边写的，所以语句可能不通顺，也不是最适合理解的顺序。该指南只记录了我解题中的一些思考过程。如果能在某个卡点帮到你，有所启发，那么我的目的就达成了。</p><h2 id=参考资料>参考资料</h2><div class=footnotes role=doc-endnotes><hr><ol><li id=fn:1><p>更适合北大宝宝体质的 Bomb Lab 踩坑记. <a class=link href=https://arthals.ink/blog/bomb-lab target=_blank rel=noopener>https://arthals.ink/blog/bomb-lab</a>&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a>&#160;<a href=#fnref1:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a>&#160;<a href=#fnref2:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:2><p>sscanf. cplusplus. <a class=link href=https://cplusplus.com/reference/cstdio/sscanf target=_blank rel=noopener>https://cplusplus.com/reference/cstdio/sscanf</a>&#160;<a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></div></section><footer class=article-footer><section class=article-tags><a href=/tags/csapp/>Csapp</a></section><section class=article-copyright><svg class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
+<span>Licensed under CC BY-NC-SA 4.0</span></section></footer><script>window.MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]],displayMath:[["$$","$$"],["\\[","\\]"]],tags:"ams",processEscapes:!0,packages:{"[+]":["ams"]}},options:{skipHtmlTags:["script","noscript","style","textarea","annotation","annotation-xml"],ignoreHtmlClass:"gist|no-mathjax",processHtmlClass:"main-article"},loader:{load:["[tex]/ams"]}}</script><script async id=MathJax-script src=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js></script></article><aside class=related-content--wrapper><h2 class=section-title>相关文章</h2><div class=related-content><div class="flex article-list--tile"><article><a href=/p/csapp_datalab/><div class=article-details><h2 class=article-title>📊 CSAPP Datalab 实验指南</h2></div></a></article><article class=has-image><a href=/p/guidance2/><div class=article-image><img src=/p/guidance2/guidance2.bbcfda78c7c15f870c26b970d8937f35_hu_44d10db14b78afac.jpg width=250 height=150 loading=lazy alt="Featured image of post 计科大二通关指南" data-key=guidance2 data-hash="md5-u8/aeMfBX4cMJrlw2JN/NQ=="></div><div class=article-details><h2 class=article-title>计科大二通关指南</h2></div></a></article></div></div></aside><script src=https://giscus.app/client.js data-repo=ovideros/new_blog data-repo-id=R_kgDOPIzbSQ data-category=Announcements data-category-id=DIC_kwDOPIzbSc4CspIa data-mapping=pathname data-strict=0 data-reactions-enabled=1 data-emit-metadata=0 data-input-position=top data-theme=light data-lang=en data-loading crossorigin=anonymous async></script><script>function setGiscusTheme(e){let t=document.querySelector("iframe.giscus-frame");t&&t.contentWindow.postMessage({giscus:{setConfig:{theme:e}}},"https://giscus.app")}(function(){addEventListener("message",t=>{if(event.origin!=="https://giscus.app")return;e()}),window.addEventListener("onColorSchemeChange",e);function e(){setGiscusTheme(document.documentElement.dataset.scheme==="light"?"light":"dark_dimmed")}})()</script><footer class=site-footer><section class=copyright>&copy;
+2025 Ovidero's Blog</section><section class=powerby>使用 <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> 构建<br>主题 <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.31.0>Stack</a></b> 由 <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a> 设计</section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.7ca59fa0cd045fc5f03113157395af86259d64de9bfa7f392d01c5f8461997a3.js defer></script><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script><script src=https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js defer></script><script src=https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/dist/tippy-bundle.umd.min.js defer></script><script>document.addEventListener("DOMContentLoaded",function(){if(typeof tippy=="undefined")return;var e,t=document.querySelectorAll('a.footnote-ref[role="doc-noteref"]');if(!t.length)return;e=new Map,t.forEach(function(t){var s,o,n=t.getAttribute("href");if(!n||n.charAt(0)!=="#")return;if(n=n.slice(1),s=document.getElementById(n),!s)return;e.has(n)||(o=s.cloneNode(!0),o.querySelectorAll(".footnote-backref").forEach(function(e){e.remove()}),e.set(n,o.innerHTML.trim())),tippy(t,{content:e.get(n),allowHTML:!0,interactive:!0,theme:"light-border",maxWidth:360,appendTo:document.body,placement:"auto",touch:["hold",400],animation:"shift-away"})})})</script></body></html>

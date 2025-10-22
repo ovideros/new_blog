@@ -1,0 +1,404 @@
+<!doctype html><html lang=zh-cn dir=ltr><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><meta name=description content="增加脚注悬停功能，以及数学公式引擎从KaTeX改为MathJax"><title>魔改hugo footnote与数学公式，实现漂亮的引用</title><link rel=canonical href=https://ovideros.site/p/hugo_footnote/><link rel=stylesheet href=/scss/style.min.790079a55df2d46ca5ebac3d71f31f500e903ad49de7ac8029b46ba107a3c192.css><meta property='og:title' content="魔改hugo footnote与数学公式，实现漂亮的引用"><meta property='og:description' content="增加脚注悬停功能，以及数学公式引擎从KaTeX改为MathJax"><meta property='og:url' content='https://ovideros.site/p/hugo_footnote/'><meta property='og:site_name' content="Ovidero's Blog"><meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:tag' content='hugo'><meta property='article:tag' content='博客'><meta property='article:published_time' content='2025-10-13T00:00:00+00:00'><meta property='article:modified_time' content='2025-10-13T00:00:00+00:00'><meta name=twitter:title content="魔改hugo footnote与数学公式，实现漂亮的引用"><meta name=twitter:description content="增加脚注悬停功能，以及数学公式引擎从KaTeX改为MathJax"><link rel="shortcut icon" href=/android-chrome-192x192.png><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/dist/tippy.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/dist/themes/light-border.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/animations/shift-away.css></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label=切换菜单>
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/img/avatar_hu_d0dc6fee23f390c5.png width=300 height=300 class=site-logo loading=lazy alt=Avatar>
+</a><span class=emoji>😇</span></figure><div class=site-meta><h1 class=site-name><a href=/>Ovidero's Blog</a></h1><h2 class=site-description></h2></div></header><ol class=menu-social><li><a href=https://github.com/ovideros target=_blank title=GitHub rel=me><svg class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/><svg class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
+<span>Home</span></a></li><li><a href=/archives/><svg class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+<span>Archives</span></a></li><li><a href=/search/><svg class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+<span>Search</span></a></li><li><a href=/links/><svg class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M10 14a3.5 3.5.0 005 0l4-4a3.5 3.5.0 00-5-5l-.5.5"/><path d="M14 10a3.5 3.5.0 00-5 0l-4 4a3.5 3.5.0 005 5l.5-.5"/></svg>
+<span>Links</span></a></li><li><a href=/about/><svg class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg>
+<span>About</span></a></li><li class=menu-bottom-section><ol class=menu><li id=dark-mode-toggle><svg class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<svg class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<span>暗色模式</span></li></ol></li></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">目录</h2><div class=widget--toc><nav id=TableOfContents><ol><li><a href=#脚注>脚注</a></li><li><a href=#公式>公式</a></li><li><a href=#小结>小结</a></li><li><a href=#参考文献>参考文献</a></li></ol></nav></div></section></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/%E6%8A%80%E6%9C%AF/ style=background-color:#0077b8;color:#fff>技术</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/p/hugo_footnote/>魔改hugo footnote与数学公式，实现漂亮的引用</a></h2><h3 class=article-subtitle>增加脚注悬停功能，以及数学公式引擎从KaTeX改为MathJax</h3></div><footer class=article-time><div><svg class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>2025年10月13日</time></div><div><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>阅读时长: 3 分钟</time></div></footer></div></header><section class=article-content><h2 id=脚注>脚注</h2><p>本博客基于 Hugo 框架<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>，使用 hugo-theme-stack 主题<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup>搭建。</p><p>为了方便之后我在正文中进行引用，我希望“魔改”一下 footnote 脚注功能。原始的 footnote 只能显示数字，光标放上去可以跳转到文末处的链接，但是无法直接显示，这就导致你需要反复跳转，很麻烦。</p><p>有些网站<sup id=fnref:3><a href=#fn:3 class=footnote-ref role=doc-noteref>3</a></sup>便实现了方便的预览功能，只需要悬停，即可查看并复制脚注中的文本。</p><p>在 AI 帮助下，此种行为自然很容易达成。</p><p>首先，修改 <code>assets/scss/custom.scss</code> 文件：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span><span class=lnt>60
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-scss data-lang=scss><span class=line><span class=cl><span class=cm>/* Tippy 内置 light-border 主题的细节微调，结合 Stack 的浅/深色方案。 */</span>
+</span></span><span class=line><span class=cl><span class=nc>.tippy-box</span><span class=o>[</span><span class=nt>data-theme</span><span class=o>~=</span><span class=s1>&#39;light-border&#39;</span><span class=o>]</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=na>color</span><span class=o>:</span> <span class=nf>var</span><span class=p>(</span><span class=o>--</span><span class=n>card-text-color-main</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=na>font-size</span><span class=o>:</span> <span class=mi>1</span><span class=mf>.4</span><span class=kt>rem</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=na>line-height</span><span class=o>:</span> <span class=mi>1</span><span class=mf>.6</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=na>box-shadow</span><span class=o>:</span> <span class=nf>var</span><span class=p>(</span><span class=o>--</span><span class=n>shadow-l4</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=na>border-radius</span><span class=o>:</span> <span class=nf>var</span><span class=p>(</span><span class=o>--</span><span class=n>card-border-radius</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nc>.tippy-box</span><span class=o>[</span><span class=nt>data-theme</span><span class=o>~=</span><span class=s1>&#39;light-border&#39;</span><span class=o>]</span> <span class=nc>.tippy-content</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=na>padding</span><span class=o>:</span> <span class=mi>1</span><span class=kt>rem</span> <span class=mi>1</span><span class=mf>.2</span><span class=kt>rem</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nc>.tippy-box</span><span class=o>[</span><span class=nt>data-theme</span><span class=o>~=</span><span class=s1>&#39;light-border&#39;</span><span class=o>]</span> <span class=nt>a</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=na>color</span><span class=o>:</span> <span class=nf>var</span><span class=p>(</span><span class=o>--</span><span class=n>accent-color</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=na>text-decoration</span><span class=o>:</span> <span class=ni>underline</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=o>[</span><span class=nt>data-scheme</span><span class=o>=</span><span class=s2>&#34;light&#34;</span><span class=o>]</span> <span class=nc>.tippy-box</span><span class=o>[</span><span class=nt>data-theme</span><span class=o>~=</span><span class=s1>&#39;light-border&#39;</span><span class=o>]</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=na>background-color</span><span class=o>:</span> <span class=mh>#ffffff</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=na>border-color</span><span class=o>:</span> <span class=nf>rgba</span><span class=p>(</span><span class=mi>0</span><span class=o>,</span> <span class=mi>0</span><span class=o>,</span> <span class=mi>0</span><span class=o>,</span> <span class=mi>0</span><span class=mf>.08</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>[</span><span class=nt>data-scheme</span><span class=o>=</span><span class=s2>&#34;light&#34;</span><span class=o>]</span> <span class=nc>.tippy-box</span><span class=o>[</span><span class=nt>data-theme</span><span class=o>~=</span><span class=s1>&#39;light-border&#39;</span><span class=o>][</span><span class=nt>data-placement</span><span class=o>^=</span><span class=s1>&#39;top&#39;</span><span class=o>]</span> <span class=o>&gt;</span> <span class=nc>.tippy-arrow</span><span class=nd>::before</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=na>border-top-color</span><span class=o>:</span> <span class=mh>#ffffff</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>[</span><span class=nt>data-scheme</span><span class=o>=</span><span class=s2>&#34;light&#34;</span><span class=o>]</span> <span class=nc>.tippy-box</span><span class=o>[</span><span class=nt>data-theme</span><span class=o>~=</span><span class=s1>&#39;light-border&#39;</span><span class=o>][</span><span class=nt>data-placement</span><span class=o>^=</span><span class=s1>&#39;bottom&#39;</span><span class=o>]</span> <span class=o>&gt;</span> <span class=nc>.tippy-arrow</span><span class=nd>::before</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=na>border-bottom-color</span><span class=o>:</span> <span class=mh>#ffffff</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>[</span><span class=nt>data-scheme</span><span class=o>=</span><span class=s2>&#34;light&#34;</span><span class=o>]</span> <span class=nc>.tippy-box</span><span class=o>[</span><span class=nt>data-theme</span><span class=o>~=</span><span class=s1>&#39;light-border&#39;</span><span class=o>][</span><span class=nt>data-placement</span><span class=o>^=</span><span class=s1>&#39;left&#39;</span><span class=o>]</span> <span class=o>&gt;</span> <span class=nc>.tippy-arrow</span><span class=nd>::before</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=na>border-left-color</span><span class=o>:</span> <span class=mh>#ffffff</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>[</span><span class=nt>data-scheme</span><span class=o>=</span><span class=s2>&#34;light&#34;</span><span class=o>]</span> <span class=nc>.tippy-box</span><span class=o>[</span><span class=nt>data-theme</span><span class=o>~=</span><span class=s1>&#39;light-border&#39;</span><span class=o>][</span><span class=nt>data-placement</span><span class=o>^=</span><span class=s1>&#39;right&#39;</span><span class=o>]</span> <span class=o>&gt;</span> <span class=nc>.tippy-arrow</span><span class=nd>::before</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=na>border-right-color</span><span class=o>:</span> <span class=mh>#ffffff</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>[</span><span class=nt>data-scheme</span><span class=o>=</span><span class=s2>&#34;dark&#34;</span><span class=o>]</span> <span class=nc>.tippy-box</span><span class=o>[</span><span class=nt>data-theme</span><span class=o>~=</span><span class=s1>&#39;light-border&#39;</span><span class=o>]</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=na>background-color</span><span class=o>:</span> <span class=nf>rgba</span><span class=p>(</span><span class=mi>54</span><span class=o>,</span> <span class=mi>54</span><span class=o>,</span> <span class=mi>54</span><span class=o>,</span> <span class=mi>1</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=na>color</span><span class=o>:</span> <span class=nf>rgba</span><span class=p>(</span><span class=mi>255</span><span class=o>,</span> <span class=mi>255</span><span class=o>,</span> <span class=mi>255</span><span class=o>,</span> <span class=mi>0</span><span class=mf>.92</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=na>border-color</span><span class=o>:</span> <span class=nf>rgba</span><span class=p>(</span><span class=mi>255</span><span class=o>,</span> <span class=mi>255</span><span class=o>,</span> <span class=mi>255</span><span class=o>,</span> <span class=mi>0</span><span class=mf>.14</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=na>box-shadow</span><span class=o>:</span> <span class=mi>0</span> <span class=mi>20</span><span class=kt>px</span> <span class=mi>45</span><span class=kt>px</span> <span class=o>-</span><span class=mi>25</span><span class=kt>px</span> <span class=nf>rgba</span><span class=p>(</span><span class=mi>0</span><span class=o>,</span> <span class=mi>0</span><span class=o>,</span> <span class=mi>0</span><span class=o>,</span> <span class=mi>0</span><span class=mf>.8</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>[</span><span class=nt>data-scheme</span><span class=o>=</span><span class=s2>&#34;dark&#34;</span><span class=o>]</span> <span class=nc>.tippy-box</span><span class=o>[</span><span class=nt>data-theme</span><span class=o>~=</span><span class=s1>&#39;light-border&#39;</span><span class=o>][</span><span class=nt>data-placement</span><span class=o>^=</span><span class=s1>&#39;top&#39;</span><span class=o>]</span> <span class=o>&gt;</span> <span class=nc>.tippy-arrow</span><span class=nd>::before</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=na>border-top-color</span><span class=o>:</span> <span class=nf>rgba</span><span class=p>(</span><span class=mi>54</span><span class=o>,</span> <span class=mi>54</span><span class=o>,</span> <span class=mi>54</span><span class=o>,</span> <span class=mi>1</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>[</span><span class=nt>data-scheme</span><span class=o>=</span><span class=s2>&#34;dark&#34;</span><span class=o>]</span> <span class=nc>.tippy-box</span><span class=o>[</span><span class=nt>data-theme</span><span class=o>~=</span><span class=s1>&#39;light-border&#39;</span><span class=o>][</span><span class=nt>data-placement</span><span class=o>^=</span><span class=s1>&#39;bottom&#39;</span><span class=o>]</span> <span class=o>&gt;</span> <span class=nc>.tippy-arrow</span><span class=nd>::before</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=na>border-bottom-color</span><span class=o>:</span> <span class=nf>rgba</span><span class=p>(</span><span class=mi>54</span><span class=o>,</span> <span class=mi>54</span><span class=o>,</span> <span class=mi>54</span><span class=o>,</span> <span class=mi>1</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>[</span><span class=nt>data-scheme</span><span class=o>=</span><span class=s2>&#34;dark&#34;</span><span class=o>]</span> <span class=nc>.tippy-box</span><span class=o>[</span><span class=nt>data-theme</span><span class=o>~=</span><span class=s1>&#39;light-border&#39;</span><span class=o>][</span><span class=nt>data-placement</span><span class=o>^=</span><span class=s1>&#39;left&#39;</span><span class=o>]</span> <span class=o>&gt;</span> <span class=nc>.tippy-arrow</span><span class=nd>::before</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=na>border-left-color</span><span class=o>:</span> <span class=nf>rgba</span><span class=p>(</span><span class=mi>54</span><span class=o>,</span> <span class=mi>54</span><span class=o>,</span> <span class=mi>54</span><span class=o>,</span> <span class=mi>1</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>[</span><span class=nt>data-scheme</span><span class=o>=</span><span class=s2>&#34;dark&#34;</span><span class=o>]</span> <span class=nc>.tippy-box</span><span class=o>[</span><span class=nt>data-theme</span><span class=o>~=</span><span class=s1>&#39;light-border&#39;</span><span class=o>][</span><span class=nt>data-placement</span><span class=o>^=</span><span class=s1>&#39;right&#39;</span><span class=o>]</span> <span class=o>&gt;</span> <span class=nc>.tippy-arrow</span><span class=nd>::before</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=na>border-right-color</span><span class=o>:</span> <span class=nf>rgba</span><span class=p>(</span><span class=mi>54</span><span class=o>,</span> <span class=mi>54</span><span class=o>,</span> <span class=mi>54</span><span class=o>,</span> <span class=mi>1</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>在 <code>layouts/partials/head/custom.html</code> 中加入相关的库：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>link</span> <span class=na>rel</span><span class=o>=</span><span class=s>&#34;stylesheet&#34;</span> <span class=na>href</span><span class=o>=</span><span class=s>&#34;https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/dist/tippy.css&#34;</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>link</span> <span class=na>rel</span><span class=o>=</span><span class=s>&#34;stylesheet&#34;</span> <span class=na>href</span><span class=o>=</span><span class=s>&#34;https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/dist/themes/light-border.css&#34;</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>link</span> <span class=na>rel</span><span class=o>=</span><span class=s>&#34;stylesheet&#34;</span> <span class=na>href</span><span class=o>=</span><span class=s>&#34;https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/animations/shift-away.css&#34;</span><span class=p>&gt;</span>
+</span></span></code></pre></td></tr></table></div></div><p>在 <code>layouts/partials/footer/custom.html</code> 中实现逻辑：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>script</span> <span class=na>src</span><span class=o>=</span><span class=s>&#34;https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js&#34;</span> <span class=na>defer</span><span class=p>&gt;&lt;/</span><span class=nt>script</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>script</span> <span class=na>src</span><span class=o>=</span><span class=s>&#34;https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/dist/tippy-bundle.umd.min.js&#34;</span> <span class=na>defer</span><span class=p>&gt;&lt;/</span><span class=nt>script</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>script</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=nb>document</span><span class=p>.</span><span class=nx>addEventListener</span><span class=p>(</span><span class=s1>&#39;DOMContentLoaded&#39;</span><span class=p>,</span> <span class=kd>function</span> <span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=p>(</span><span class=k>typeof</span> <span class=nx>tippy</span> <span class=o>===</span> <span class=s1>&#39;undefined&#39;</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=kd>var</span> <span class=nx>noteRefs</span> <span class=o>=</span> <span class=nb>document</span><span class=p>.</span><span class=nx>querySelectorAll</span><span class=p>(</span><span class=s1>&#39;a.footnote-ref[role=&#34;doc-noteref&#34;]&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=p>(</span><span class=o>!</span><span class=nx>noteRefs</span><span class=p>.</span><span class=nx>length</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=kd>var</span> <span class=nx>noteCache</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>Map</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nx>noteRefs</span><span class=p>.</span><span class=nx>forEach</span><span class=p>(</span><span class=kd>function</span> <span class=p>(</span><span class=nx>ref</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=kd>var</span> <span class=nx>targetId</span> <span class=o>=</span> <span class=nx>ref</span><span class=p>.</span><span class=nx>getAttribute</span><span class=p>(</span><span class=s1>&#39;href&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=p>(</span><span class=o>!</span><span class=nx>targetId</span> <span class=o>||</span> <span class=nx>targetId</span><span class=p>.</span><span class=nx>charAt</span><span class=p>(</span><span class=mi>0</span><span class=p>)</span> <span class=o>!==</span> <span class=s1>&#39;#&#39;</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=k>return</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=nx>targetId</span> <span class=o>=</span> <span class=nx>targetId</span><span class=p>.</span><span class=nx>slice</span><span class=p>(</span><span class=mi>1</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>        <span class=kd>var</span> <span class=nx>note</span> <span class=o>=</span> <span class=nb>document</span><span class=p>.</span><span class=nx>getElementById</span><span class=p>(</span><span class=nx>targetId</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=p>(</span><span class=o>!</span><span class=nx>note</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=k>return</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=p>(</span><span class=o>!</span><span class=nx>noteCache</span><span class=p>.</span><span class=nx>has</span><span class=p>(</span><span class=nx>targetId</span><span class=p>))</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=kd>var</span> <span class=nx>clone</span> <span class=o>=</span> <span class=nx>note</span><span class=p>.</span><span class=nx>cloneNode</span><span class=p>(</span><span class=kc>true</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=nx>clone</span><span class=p>.</span><span class=nx>querySelectorAll</span><span class=p>(</span><span class=s1>&#39;.footnote-backref&#39;</span><span class=p>).</span><span class=nx>forEach</span><span class=p>(</span><span class=kd>function</span> <span class=p>(</span><span class=nx>backref</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>                <span class=nx>backref</span><span class=p>.</span><span class=nx>remove</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>            <span class=p>});</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=nx>noteCache</span><span class=p>.</span><span class=nx>set</span><span class=p>(</span><span class=nx>targetId</span><span class=p>,</span> <span class=nx>clone</span><span class=p>.</span><span class=nx>innerHTML</span><span class=p>.</span><span class=nx>trim</span><span class=p>());</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=nx>tippy</span><span class=p>(</span><span class=nx>ref</span><span class=p>,</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nx>content</span><span class=o>:</span> <span class=nx>noteCache</span><span class=p>.</span><span class=nx>get</span><span class=p>(</span><span class=nx>targetId</span><span class=p>),</span>
+</span></span><span class=line><span class=cl>            <span class=nx>allowHTML</span><span class=o>:</span> <span class=kc>true</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nx>interactive</span><span class=o>:</span> <span class=kc>true</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nx>theme</span><span class=o>:</span> <span class=s1>&#39;light-border&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nx>maxWidth</span><span class=o>:</span> <span class=mi>360</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nx>appendTo</span><span class=o>:</span> <span class=nb>document</span><span class=p>.</span><span class=nx>body</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nx>placement</span><span class=o>:</span> <span class=s1>&#39;auto&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nx>touch</span><span class=o>:</span> <span class=p>[</span><span class=s1>&#39;hold&#39;</span><span class=p>,</span> <span class=mi>400</span><span class=p>],</span>
+</span></span><span class=line><span class=cl>            <span class=nx>animation</span><span class=o>:</span> <span class=s1>&#39;shift-away&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=p>});</span>
+</span></span><span class=line><span class=cl>    <span class=p>});</span>
+</span></span><span class=line><span class=cl><span class=p>});</span>
+</span></span><span class=line><span class=cl><span class=p>&lt;/</span><span class=nt>script</span><span class=p>&gt;</span>
+</span></span></code></pre></td></tr></table></div></div><p>这样就可以正确实现想要的功能了。</p><h2 id=公式>公式</h2><p>此外，原先的KaTeX最多只支持数学公式标号，但是没法做到交叉引用。如果未来要写一些更复杂的文章，这点有些麻烦。</p><p>于是，询问AI有啥解决途径，回答到使用MathJax。查了查Hugo本身就支持KaTeX与MathJax<sup id=fnref:4><a href=#fn:4 class=footnote-ref role=doc-noteref>4</a></sup>，并且我记得苏剑林的博客中用的也是MathJax<sup id=fnref:5><a href=#fn:5 class=footnote-ref role=doc-noteref>5</a></sup>，遂让AI帮我写一写。</p><p>写了后有问题，AI自己根据本地导出的html分析，解决了问题。最后需要修改两个文件。</p><p>首先，还是那段 <code>layouts/partials/article/components/math.html</code>：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl>{{/* 用 MathJax 替换 Hugo Stack 默认的 KaTeX，实现 \label/\ref 等高级特性。 */}}
+</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>script</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>  <span class=nb>window</span><span class=p>.</span><span class=nx>MathJax</span> <span class=o>=</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>tex</span><span class=o>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nx>inlineMath</span><span class=o>:</span> <span class=p>[[</span><span class=s1>&#39;$&#39;</span><span class=p>,</span> <span class=s1>&#39;$&#39;</span><span class=p>],</span> <span class=p>[</span><span class=s1>&#39;\\(&#39;</span><span class=p>,</span> <span class=s1>&#39;\\)&#39;</span><span class=p>]],</span>
+</span></span><span class=line><span class=cl>      <span class=nx>displayMath</span><span class=o>:</span> <span class=p>[[</span><span class=s1>&#39;$$&#39;</span><span class=p>,</span> <span class=s1>&#39;$$&#39;</span><span class=p>],</span> <span class=p>[</span><span class=s1>&#39;\\[&#39;</span><span class=p>,</span> <span class=s1>&#39;\\]&#39;</span><span class=p>]],</span>
+</span></span><span class=line><span class=cl>      <span class=nx>tags</span><span class=o>:</span> <span class=s1>&#39;ams&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>      <span class=nx>processEscapes</span><span class=o>:</span> <span class=kc>true</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>      <span class=nx>packages</span><span class=o>:</span> <span class=p>{</span><span class=s1>&#39;[+]&#39;</span><span class=o>:</span> <span class=p>[</span><span class=s1>&#39;ams&#39;</span><span class=p>]}</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span>
+</span></span><span class=line><span class=cl>    <span class=nx>options</span><span class=o>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nx>skipHtmlTags</span><span class=o>:</span> <span class=p>[</span><span class=s1>&#39;script&#39;</span><span class=p>,</span> <span class=s1>&#39;noscript&#39;</span><span class=p>,</span> <span class=s1>&#39;style&#39;</span><span class=p>,</span> <span class=s1>&#39;textarea&#39;</span><span class=p>,</span> <span class=s1>&#39;annotation&#39;</span><span class=p>,</span> <span class=s1>&#39;annotation-xml&#39;</span><span class=p>],</span>
+</span></span><span class=line><span class=cl>      <span class=nx>ignoreHtmlClass</span><span class=o>:</span> <span class=s1>&#39;gist|no-mathjax&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>      <span class=nx>processHtmlClass</span><span class=o>:</span> <span class=s1>&#39;main-article&#39;</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span>
+</span></span><span class=line><span class=cl>    <span class=nx>loader</span><span class=o>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nx>load</span><span class=o>:</span> <span class=p>[</span><span class=s1>&#39;[tex]/ams&#39;</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=p>};</span>
+</span></span><span class=line><span class=cl><span class=p>&lt;/</span><span class=nt>script</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>script</span> <span class=na>async</span> <span class=na>id</span><span class=o>=</span><span class=s>&#34;MathJax-script&#34;</span> <span class=na>src</span><span class=o>=</span><span class=s>&#34;https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>script</span><span class=p>&gt;</span>
+</span></span></code></pre></td></tr></table></div></div><p>其次，主题自带的 <code>smoothAnchors.ts</code> 会给所有 <code>href="#…"</code> 的链接挂平滑滚动逻辑，MathJax 重排时这些锚点会短暂无效，结果就报错。于是覆盖掉它：在 <code>assets/ts/smoothAnchors.ts</code> 新建同名文件，只在目标不是 <code>#mjx-eqn-...</code> 时才继续平滑滚动。MathJax 生成的引用链接就交给浏览器默认行为，既不会报错，也不会影响脚注、目录等其它锚点。</p><p><code>assets/ts/smoothAnchors.ts</code> 代码如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-ts data-lang=ts><span class=line><span class=cl><span class=kr>const</span> <span class=nx>anchorLinksQuery</span> <span class=o>=</span> <span class=s2>&#34;a[href]&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>mathJaxAnchorPrefix</span> <span class=o>=</span> <span class=s2>&#34;#mjx-eqn-&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>isMathJaxAnchor</span> <span class=o>=</span> <span class=p>(</span><span class=nx>href</span>: <span class=kt>string</span><span class=p>)</span><span class=o>:</span> <span class=kr>boolean</span> <span class=o>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=k>try</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=nb>decodeURI</span><span class=p>(</span><span class=nx>href</span><span class=p>).</span><span class=nx>startsWith</span><span class=p>(</span><span class=nx>mathJaxAnchorPrefix</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span> <span class=k>catch</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=nx>href</span><span class=p>.</span><span class=nx>startsWith</span><span class=p>(</span><span class=nx>mathJaxAnchorPrefix</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>};</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>function</span> <span class=nx>setupSmoothAnchors</span><span class=p>()</span><span class=o>:</span> <span class=k>void</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nb>document</span><span class=p>.</span><span class=nx>querySelectorAll</span><span class=p>&lt;</span><span class=nt>HTMLAnchorElement</span><span class=p>&gt;(</span><span class=nx>anchorLinksQuery</span><span class=p>).</span><span class=nx>forEach</span><span class=p>((</span><span class=nx>aElement</span><span class=p>)</span> <span class=o>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=nx>rawHref</span> <span class=o>=</span> <span class=nx>aElement</span><span class=p>.</span><span class=nx>getAttribute</span><span class=p>(</span><span class=s2>&#34;href&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=p>(</span><span class=o>!</span><span class=nx>rawHref</span> <span class=o>||</span> <span class=o>!</span><span class=nx>rawHref</span><span class=p>.</span><span class=nx>startsWith</span><span class=p>(</span><span class=s2>&#34;#&#34;</span><span class=p>))</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=k>return</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=p>(</span><span class=nx>isMathJaxAnchor</span><span class=p>(</span><span class=nx>rawHref</span><span class=p>))</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=k>return</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nx>aElement</span><span class=p>.</span><span class=nx>addEventListener</span><span class=p>(</span><span class=s2>&#34;click&#34;</span><span class=p>,</span> <span class=p>(</span><span class=nx>event</span><span class=p>)</span> <span class=o>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=kd>let</span> <span class=nx>decodedHref</span>: <span class=kt>string</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>      <span class=k>try</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nx>decodedHref</span> <span class=o>=</span> <span class=nb>decodeURI</span><span class=p>(</span><span class=nx>rawHref</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>      <span class=p>}</span> <span class=k>catch</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nx>decodedHref</span> <span class=o>=</span> <span class=nx>rawHref</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>      <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>      <span class=kr>const</span> <span class=nx>targetId</span> <span class=o>=</span> <span class=nx>decodedHref</span><span class=p>.</span><span class=nx>substring</span><span class=p>(</span><span class=mi>1</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>      <span class=kr>const</span> <span class=nx>target</span> <span class=o>=</span> <span class=nb>document</span><span class=p>.</span><span class=nx>getElementById</span><span class=p>(</span><span class=nx>targetId</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>      <span class=k>if</span> <span class=p>(</span><span class=o>!</span><span class=nx>target</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>      <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>      <span class=nx>event</span><span class=p>.</span><span class=nx>preventDefault</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>      <span class=kr>const</span> <span class=nx>offset</span> <span class=o>=</span>
+</span></span><span class=line><span class=cl>        <span class=nx>target</span><span class=p>.</span><span class=nx>getBoundingClientRect</span><span class=p>().</span><span class=nx>top</span> <span class=o>-</span> <span class=nb>document</span><span class=p>.</span><span class=nx>documentElement</span><span class=p>.</span><span class=nx>getBoundingClientRect</span><span class=p>().</span><span class=nx>top</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>      <span class=nb>window</span><span class=p>.</span><span class=nx>history</span><span class=p>.</span><span class=nx>pushState</span><span class=p>({},</span> <span class=s2>&#34;&#34;</span><span class=p>,</span> <span class=nx>rawHref</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>      <span class=nx>scrollTo</span><span class=p>({</span>
+</span></span><span class=line><span class=cl>        <span class=nx>top</span>: <span class=kt>offset</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nx>behavior</span><span class=o>:</span> <span class=s2>&#34;smooth&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>      <span class=p>});</span>
+</span></span><span class=line><span class=cl>    <span class=p>});</span>
+</span></span><span class=line><span class=cl>  <span class=p>});</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>export</span> <span class=p>{</span> <span class=nx>setupSmoothAnchors</span> <span class=p>};</span>
+</span></span></code></pre></td></tr></table></div></div><p>相比于KaTeX，MathJax可以直接右键公式，复制Tex源码，这点挺方便的。</p><p>同时，也支持交叉引用，例如我可以在此交叉引用下面的公式，见 \eqref{eq:m} 。</p>$$
+\begin{equation}
+\begin{cases}
+\nabla \cdot \mathbf{E} = \frac{\rho}{\epsilon_0} \\
+\nabla \cdot \mathbf{B} = 0 \\
+\nabla \times \mathbf{E} = -\frac{\partial \mathbf{B}}{\partial t} \\
+\nabla \times \mathbf{B} = \mu_0 \mathbf{J} + \mu_0 \epsilon_0 \frac{\partial \mathbf{E}}{\partial t}
+\end{cases}
+\label{eq:m}
+\end{equation}
+$$<h2 id=小结>小结</h2><p>折腾一番，总算让博客看起来更加美观，也更方便未来更新更多内容了（）</p><h2 id=参考文献>参考文献</h2><div class=footnotes role=doc-endnotes><hr><ol><li id=fn:1><p>Hugo. <a class=link href=https://gohugo.io/ target=_blank rel=noopener>https://gohugo.io/</a>&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:2><p>Hugo Theme Stack. <a class=link href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener>https://github.com/CaiJimmy/hugo-theme-stack</a>&#160;<a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:3><p>Yang Song. Generative Modeling by Estimating Gradients of the Data Distribution
+. <a class=link href=https://yang-song.net/blog/2021/score/ target=_blank rel=noopener>https://yang-song.net/blog/2021/score/</a>&#160;<a href=#fnref:3 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:4><p>Hugo. Mathematics in Markdown
+. <a class=link href=https://gohugo.io/content-management/mathematics/ target=_blank rel=noopener>https://gohugo.io/content-management/mathematics/</a>&#160;<a href=#fnref:4 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:5><p>科学空间. <a class=link href=https://spaces.ac.cn/ target=_blank rel=noopener>https://spaces.ac.cn/</a>&#160;<a href=#fnref:5 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></div></section><footer class=article-footer><section class=article-tags><a href=/tags/hugo/>Hugo</a>
+<a href=/tags/%E5%8D%9A%E5%AE%A2/>博客</a></section><section class=article-copyright><svg class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
+<span>Licensed under CC BY-NC-SA 4.0</span></section></footer><script>window.MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]],displayMath:[["$$","$$"],["\\[","\\]"]],tags:"ams",processEscapes:!0,packages:{"[+]":["ams"]}},options:{skipHtmlTags:["script","noscript","style","textarea","annotation","annotation-xml"],ignoreHtmlClass:"gist|no-mathjax",processHtmlClass:"main-article"},loader:{load:["[tex]/ams"]}}</script><script async id=MathJax-script src=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js></script></article><aside class=related-content--wrapper><h2 class=section-title>相关文章</h2><div class=related-content><div class="flex article-list--tile"><article class=has-image><a href=/p/pwndbg/><div class=article-image><img src=/p/pwndbg/front.ca007bec710542c21cb2fcfee8dd223e_hu_ddb0148ff6bf22cf.png width=250 height=150 loading=lazy alt="Featured image of post pwndbg 教程与自定义配置" data-key=pwndbg data-hash="md5-ygB77HEFQsIcsvz+6N0iPg=="></div><div class=article-details><h2 class=article-title>pwndbg 教程与自定义配置</h2></div></a></article><article class=has-image><a href=/p/gdb_dashboard/><div class=article-image><img src=/p/gdb_dashboard/tabby2.979a9cd8b8c922af6c2470acb2526bde_hu_505b927055538b7c.png width=250 height=150 loading=lazy alt="Featured image of post GDB Dashboard 教程" data-key=gdb_dashboard data-hash="md5-l5qc2LjJIq9sJHCsslJr3g=="></div><div class=article-details><h2 class=article-title>GDB Dashboard 教程</h2></div></a></article><article><a href=/p/x11_mac/><div class=article-details><h2 class=article-title>如何在Mac上连接远程服务器，并显示应用窗口？</h2></div></a></article></div></div></aside><script src=https://giscus.app/client.js data-repo=ovideros/new_blog data-repo-id=R_kgDOPIzbSQ data-category=Announcements data-category-id=DIC_kwDOPIzbSc4CspIa data-mapping=pathname data-strict=0 data-reactions-enabled=1 data-emit-metadata=0 data-input-position=top data-theme=light data-lang=en data-loading crossorigin=anonymous async></script><script>function setGiscusTheme(e){let t=document.querySelector("iframe.giscus-frame");t&&t.contentWindow.postMessage({giscus:{setConfig:{theme:e}}},"https://giscus.app")}(function(){addEventListener("message",t=>{if(event.origin!=="https://giscus.app")return;e()}),window.addEventListener("onColorSchemeChange",e);function e(){setGiscusTheme(document.documentElement.dataset.scheme==="light"?"light":"dark_dimmed")}})()</script><footer class=site-footer><section class=copyright>&copy;
+2025 Ovidero's Blog</section><section class=powerby>使用 <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> 构建<br>主题 <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.31.0>Stack</a></b> 由 <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a> 设计</section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.7ca59fa0cd045fc5f03113157395af86259d64de9bfa7f392d01c5f8461997a3.js defer></script><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script><script src=https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js defer></script><script src=https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/dist/tippy-bundle.umd.min.js defer></script><script>document.addEventListener("DOMContentLoaded",function(){if(typeof tippy=="undefined")return;var e,t=document.querySelectorAll('a.footnote-ref[role="doc-noteref"]');if(!t.length)return;e=new Map,t.forEach(function(t){var s,o,n=t.getAttribute("href");if(!n||n.charAt(0)!=="#")return;if(n=n.slice(1),s=document.getElementById(n),!s)return;e.has(n)||(o=s.cloneNode(!0),o.querySelectorAll(".footnote-backref").forEach(function(e){e.remove()}),e.set(n,o.innerHTML.trim())),tippy(t,{content:e.get(n),allowHTML:!0,interactive:!0,theme:"light-border",maxWidth:360,appendTo:document.body,placement:"auto",touch:["hold",400],animation:"shift-away"})})})</script></body></html>
