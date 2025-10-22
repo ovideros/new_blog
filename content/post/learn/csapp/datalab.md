@@ -1,5 +1,5 @@
 ---
-title: CSAPP Datalab 实验报告
+title: 📊 CSAPP Datalab 实验指南
 description: 实验一，用位运算实现整型与浮点数运算
 slug: csapp_datalab
 date: 2025-10-19
