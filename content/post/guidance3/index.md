@@ -2,7 +2,7 @@
 title: 计科大三通关指南
 description: 惯例的通关指南，还在施工中...
 slug: guidance3
-date: 2026-07-02
+date: 2026-07-05
 image: guidance3.png
 categories:
     - 学习
@@ -16,7 +16,7 @@ weight: 0
 封面画师为Tsukumizu (つくみず)，图文无关。
 
 
-# 大二上
+# 大三上
 ## 小学期——计算机专业基础实习
 - 你可知道 BIT101 上**评价最多**的课程？
 - 你是否目睹过课程评价为 **0.81** 的课程？
