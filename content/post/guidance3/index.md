@@ -42,6 +42,7 @@ weight: 0
 13. 一时兴起时，记得在 BIT101 评论
 14. 记住课程的名称不是《环境科学与技术》《压力管理与心理韧性》《Vibe Coding与AI Agent实践》《公共演讲与辩论》
 
+课程总共两者，实际上从开始到答辩可能只有一周半不到的时间，加上还有中期答辩和各种文档。最后均分 86.55，看上去还行，但实在折磨。
 
 ## 参考资料
 [^1]:DeepSeek API文档.接入 Claude Code. https://api-docs.deepseek.com/zh-cn/quick_start/agent_integrations/claude_code
