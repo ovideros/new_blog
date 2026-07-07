@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ubuntu on Ovidero's Blog</title><link>https://ovideros.site/tags/ubuntu/</link><description>Recent content in Ubuntu on Ovidero's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sat, 18 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://ovideros.site/tags/ubuntu/index.xml" rel="self" type="application/rss+xml"/><item><title>如何在Mac上连接远程服务器，并显示应用窗口？</title><link>https://ovideros.site/p/x11_mac/</link><pubDate>Sat, 18 Oct 2025 00:00:00 +0000</pubDate><guid>https://ovideros.site/p/x11_mac/</guid><description>&lt;p&gt;本文探讨了如何使用x11+XQuartz客户端，在Mac上连接远程Ubuntu（或其他Linux）服务器，并弹出应用窗口。&lt;/p&gt;
+&lt;p&gt;然而，实际上这种效果并不是最优的，例如最简单的&lt;code&gt;xeyes&lt;/code&gt;或者&lt;code&gt;glxgears&lt;/code&gt;都不是很流畅。更好的方案包括VNC，或者使用更直接的远程桌面程序（如ToDesk、向日葵等等）。&lt;/p&gt;
+&lt;p&gt;之前我也尝试过VNC，以及ToDesk等程序。未来有机会可以梳理。&lt;/p&gt;
+&lt;h2 id="预备知识"&gt;预备知识
+&lt;/h2&gt;&lt;p&gt;假设你了解基本的 Linux 环境，以及命令行操作。可以参考 &lt;a class="link" href="https://csdiy.wiki/%e7%bc%96%e7%a8%8b%e5%85%a5%e9%97%a8/MIT-Missing-Semester/" target="_blank" rel="noopener"
+&gt;Missing Semester&lt;/a&gt; 进行学习。&lt;/p&gt;
+&lt;h2 id="ubuntu服务器端操作"&gt;Ubuntu服务器端操作
+&lt;/h2&gt;&lt;p&gt;修改 &lt;code&gt;/etc/ssh/sshd_config&lt;/code&gt; 中关于 SSH 的配置，将&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;#X11Forwarding yes
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;或者&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;X11Forwarding no
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;选项，修改为：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;X11Forwarding yes
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;可以使用任意编辑器（如 Vim&lt;sup id="fnref:1"&gt;&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref"&gt;1&lt;/a&gt;&lt;/sup&gt;, Nano&lt;sup id="fnref:2"&gt;&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref"&gt;2&lt;/a&gt;&lt;/sup&gt;）编辑后保存，需要 sudo 权限（&lt;code&gt;sudo vim /etc/ssh/sshd_config&lt;/code&gt;）。&lt;/p&gt;
+&lt;p&gt;然后，重启 SSH 服务：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo systemctl restart sshd
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;之后，安装 X11 相关的包（假设使用 Ubuntu，其他发行版可使用其他包管理器）：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt update
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt install -y xauth x11-apps
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id="mac客户端操作"&gt;Mac客户端操作
+&lt;/h2&gt;&lt;p&gt;下载 &lt;a class="link" href="https://www.xquartz.org/" target="_blank" rel="noopener"
+&gt;XQuartz&lt;/a&gt;。吐槽一下，好久没有更新了。&lt;/p&gt;
+&lt;p&gt;因为我配置了本地的 zsh，使用了带有 UTF-8 的主题，所以 XQuartz 打开后显示乱码。（理论上好像也有配置 XQuartz 使用 UTF-8 的方法，但是懒得做了）&lt;/p&gt;
+&lt;p&gt;有一些更先进的终端软件，支持 UTF-8 编码，如 &lt;a class="link" href="https://tabby.sh/" target="_blank" rel="noopener"
+&gt;Tabby&lt;/a&gt;。该终端支持各个平台，也比较现代化与美观，且支持 X11 转发，符合需求。进入 Github 发布页面，下载对应版本即可（m芯片的 Mac 下载 &lt;code&gt;macos-arm64.dmg&lt;/code&gt; 后缀的包，然后正常安装）。&lt;/p&gt;
+&lt;p&gt;新建窗口，进入本机的 Shell。然后使用 &lt;code&gt;ssh -Y user@host&lt;/code&gt; 连接远程服务器，其中 &lt;code&gt;user@host&lt;/code&gt; 是目标服务器的用户名与ip。更多有关 SSH 登录的细节参考 Missing Semester 的第五讲&lt;sup id="fnref:3"&gt;&lt;a href="#fn:3" class="footnote-ref" role="doc-noteref"&gt;3&lt;/a&gt;&lt;/sup&gt;&lt;sup id="fnref:4"&gt;&lt;a href="#fn:4" class="footnote-ref" role="doc-noteref"&gt;4&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
+&lt;p&gt;登录后，运行 &lt;code&gt;echo $DISPLAY&lt;/code&gt;，输出应该如下：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;localhost:10.0
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;也可以是 11.0 等数字。&lt;/p&gt;
+&lt;p&gt;尝试运行 &lt;code&gt;xeyes&lt;/code&gt;，应该能在本地 Mac 运行 XQuartz，弹出一个窗口，显示效果如下：&lt;/p&gt;
+&lt;center&gt;&lt;img src="xeyes.png" width="50%" /&gt;&lt;/center&gt;
+&lt;p&gt;这说明基本的 X11 流程配置完成。&lt;/p&gt;
+&lt;p&gt;如果配置中遇到问题，建议带着具体报错询问 AI。&lt;/p&gt;
+&lt;h2 id="glxopengl设置"&gt;GLX/OpenGL设置
+&lt;/h2&gt;&lt;p&gt;上述实现了基本 X11 功能，但对于依赖 GLX/OpenGL 的包（例如 Pygame 等），则还需要进一步配置。&lt;/p&gt;
+&lt;p&gt;首先确保Ubuntu服务器端安装相应包：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt install libgl1-mesa-glx libgl1-mesa-dri mesa-utils
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;然后在Mac上打开终端，退出XQuartz，运行下面指令，把 XQuartz 的间接 GLX 打开：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;defaults write org.macosforge.xquartz.X11 enable_iglx -bool &lt;span class="nb"&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;defaults write org.xquartz.X11 enable_iglx -bool &lt;span class="nb"&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;重新启动XQuartz，&lt;code&gt;⌘+,&lt;/code&gt;打开设置，确保开启允许网络客户端连接，如图：&lt;/p&gt;
+&lt;center&gt;&lt;img src="xquartz_settings.png" width="80%" /&gt;&lt;/center&gt;
+&lt;p&gt;重新连接服务器（&lt;code&gt;ssh -Y user@host&lt;/code&gt;），尝试运行 &lt;code&gt;glxinfo&lt;/code&gt;，确保没有报错。如果有关于swrast的报错&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-gdscript3" data-lang="gdscript3"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;libGL&lt;/span&gt; &lt;span class="n"&gt;error&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;No&lt;/span&gt; &lt;span class="n"&gt;matching&lt;/span&gt; &lt;span class="n"&gt;fbConfigs&lt;/span&gt; &lt;span class="ow"&gt;or&lt;/span&gt; &lt;span class="n"&gt;visuals&lt;/span&gt; &lt;span class="n"&gt;found&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;libGL&lt;/span&gt; &lt;span class="n"&gt;error&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;failed&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="nb"&gt;load&lt;/span&gt; &lt;span class="n"&gt;driver&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;swrast&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;可以尝试设置环境变量：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;LIBGL_ALWAYS_INDIRECT&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;之后运行glxgears测试：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;glxgears
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;可以看到本地弹出窗口，显示旋转的齿轮。说明配置成功。&lt;/p&gt;
+&lt;h2 id="总结"&gt;总结
+&lt;/h2&gt;&lt;p&gt;然而，由于X11本身协议并没有那么好，所以很可能看起来卡顿。为了更流畅的体验，可能还是要使用其他方案。X11本身方便在不创建完整的桌面，只是弹出部分程序的窗口。&lt;/p&gt;
+&lt;p&gt;如果你有更好的远程桌面相关方案，也欢迎讨论！（如VNC、商业软件等等）&lt;/p&gt;
+&lt;h2 id="参考资料"&gt;参考资料
+&lt;/h2&gt;&lt;div class="footnotes" role="doc-endnotes"&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id="fn:1"&gt;
+&lt;p&gt;Vim. Wikipedia. &lt;a class="link" href="https://en.wikipedia.org/wiki/Vim_%28text_editor%29" target="_blank" rel="noopener"
+&gt;https://en.wikipedia.org/wiki/Vim_(text_editor)&lt;/a&gt;&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:2"&gt;
+&lt;p&gt;GNU Nano. Wikipedia. &lt;a class="link" href="https://en.wikipedia.org/wiki/GNU_nano" target="_blank" rel="noopener"
+&gt;https://en.wikipedia.org/wiki/GNU_nano&lt;/a&gt;&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:3"&gt;
+&lt;p&gt;命令行环境. Missing Semester 中文版. &lt;a class="link" href="https://missing-semester-cn.github.io/2020/command-line/" target="_blank" rel="noopener"
+&gt;https://missing-semester-cn.github.io/2020/command-line/&lt;/a&gt;&amp;#160;&lt;a href="#fnref:3" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:4"&gt;
+&lt;p&gt;[自制双语字幕] 计算机教育缺失的一课(2020) - 第5讲 - 命令行环境
+. &lt;a class="link" href="https://www.bilibili.com/video/BV1Jh4y1Z7SV/" target="_blank" rel="noopener"
+&gt;https://www.bilibili.com/video/BV1Jh4y1Z7SV/&lt;/a&gt;&amp;#160;&lt;a href="#fnref:4" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</description></item></channel></rss>

