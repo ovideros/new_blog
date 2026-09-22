@@ -8,7 +8,7 @@ categories:
     - 学习
 tags:
     - 指南
-weight: 0      
+weight: 1  
 ---
 
 > 🚧🚧🚧该项目仍在施工中，会持续更新。我也准备创建一个Github repo，收集个人大二大三计算机课程用到的复习资料。虽说这些资料也都来自于Github。
