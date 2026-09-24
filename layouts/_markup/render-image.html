@@ -1,0 +1,54 @@
+{{- $u := urls.Parse .Destination -}}
+{{- $src := $u.String -}}
+{{- if and (not $u.IsAbs) (not (strings.HasPrefix $u.Path "/")) -}}
+  {{- $path := strings.TrimPrefix "./" $u.Path -}}
+  {{- with or (.PageInner.Resources.Get $path) (resources.Get $path) -}}
+    {{- $src = .RelPermalink -}}
+    {{- with $u.RawQuery -}}
+      {{- $src = printf "%s?%s" $src . -}}
+    {{- end -}}
+    {{- with $u.Fragment -}}
+      {{- $src = printf "%s#%s" $src . -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $width := index .Attributes "width" | default "" -}}
+{{- $height := index .Attributes "height" | default "" -}}
+{{- $caption := "" -}}
+{{- if gt (len .Attributes) 0 -}}
+  {{- $caption = index .Attributes "caption" | default "" -}}
+{{- else -}}
+  {{- $caption = .PlainText -}}
+{{- end -}}
+{{- $widthAttribute := "" -}}
+{{- $widthStyle := "" -}}
+{{- if findRE `^[0-9]+$` $width -}}
+  {{- $widthAttribute = $width -}}
+{{- else if findRE `^[0-9]+(\.[0-9]+)?(px|%)$` $width -}}
+  {{- $widthStyle = $width -}}
+{{- end -}}
+{{- $heightAttribute := "" -}}
+{{- if findRE `^[0-9]+$` $height -}}
+  {{- $heightAttribute = $height -}}
+{{- end -}}
+
+{{- if .IsBlock -}}
+<figure class="post-image">
+  <img src="{{ $src }}" alt="{{ .PlainText }}"
+    {{- with .Title }} title="{{ . }}"{{ end }}
+    {{- with $widthAttribute }} width="{{ . }}"{{ end }}
+    {{- with $heightAttribute }} height="{{ . }}"{{ end }}
+    {{- with $widthStyle }} style="width: {{ . }}; max-width: 100%;"{{ else }} style="max-width: 100%;"{{ end }}
+  >
+  {{- with $caption }}
+  <figcaption>{{ . }}</figcaption>
+  {{- end }}
+</figure>
+{{- else -}}
+<img src="{{ $src }}" alt="{{ .PlainText }}"
+  {{- with .Title }} title="{{ . }}"{{ end }}
+  style="max-width: 100%;"
+>
+{{- end -}}
+{{- /**/ -}}

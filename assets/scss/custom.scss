@@ -62,3 +62,28 @@
 [data-scheme="dark"] .tippy-box[data-theme~='light-border'][data-placement^='right'] > .tippy-arrow::before {
     border-right-color: rgba(54, 54, 54, 1);
 }
+
+
+/* Markdown 图片渲染钩子的图片与图注样式。 */
+.article-content figure.post-image {
+    width: 100%;
+    margin: 1.5em 0;
+    text-align: center;
+}
+
+figure.post-image > img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+figure.post-image > figcaption {
+    color: var(--card-text-color-secondary, currentColor);
+    font-size: 0.9em;
+    margin-top: 0.5em;
+}
+
+/* Keep Markdown table rows on one consistent background. */
+.article-content table:not(.lntable) tbody tr:nth-child(even) {
+    background-color: transparent;
+}
