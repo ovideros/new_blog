@@ -8,10 +8,16 @@ categories:
     - 保研
 tags:
     - 指南
-weight: 2
+weight: 10
 ---
 
 图文无关。画师为 X(twitter) 上的 @risuyorokobi。
+
+我关于本校本科阶段的一些指南：
+- [信科大一通关指南]({{< ref "/post/guidance/index" >}})
+- [计科大二通关指南]({{< ref "/post/guidance2/index" >}})
+- [计科大三通关指南]({{< ref "/post/guidance3/index" >}})
+
 
 ## 前言
 

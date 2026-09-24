@@ -1,6 +1,6 @@
 ---
 title: 计科大三通关指南
-description: 惯例的通关指南，还在施工中...
+description: 惯例的通关指南
 slug: guidance3
 date: 2026-07-05
 image: guidance3.png
@@ -8,8 +8,12 @@ categories:
     - 学习
 tags:
     - 指南
-weight: 1  
+weight: 20
 ---
+
+其他指南：
+- [信科大一通关指南]({{< ref "/post/guidance/index" >}})
+- [计科大二通关指南]({{< ref "/post/guidance2/index" >}})
 
 > 🚧🚧🚧该项目仍在施工中，会持续更新。我也准备创建一个Github repo，收集个人大二大三计算机课程用到的复习资料。虽说这些资料也都来自于Github。
 
