@@ -15,7 +15,7 @@ weight: 30
 其他指南：
 - [信科大一通关指南]({{< ref "/post/guidance/index" >}})
 - [计科大三通关指南]({{< ref "/post/guidance3/index" >}})
-
+- [2026年计算机保研经验贴]({{< ref "/post/baoyan/index" >}})
 
 ## ▶️ 前言
 相信各位应该看过[信科大一通关指南]({{< ref "/post/guidance/index" >}})。其中心态篇与方法篇也介绍了许多内容，各位感觉有需要可以翻一翻。

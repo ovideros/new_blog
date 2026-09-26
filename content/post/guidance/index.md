@@ -14,6 +14,7 @@ weight: 40
 其他指南：
 - [计科大二通关指南]({{< ref "/post/guidance2/index" >}})
 - [计科大三通关指南]({{< ref "/post/guidance3/index" >}})
+- [2026年计算机保研经验贴]({{< ref "/post/baoyan/index" >}})
 
 
 # ▶️ 前言
