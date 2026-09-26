@@ -1,0 +1,1203 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>指南 on Ovidero's Blog</title><link>https://ovideros.site/tags/%E6%8C%87%E5%8D%97/</link><description>Recent content in 指南 on Ovidero's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Thu, 24 Sep 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://ovideros.site/tags/%E6%8C%87%E5%8D%97/index.xml" rel="self" type="application/rss+xml"/><item><title>2026年(23级/27届)计算机保研经验贴——中九高rank无竞赛微科研</title><link>https://ovideros.site/p/baoyan/</link><pubDate>Thu, 24 Sep 2026 00:00:00 +0000</pubDate><guid>https://ovideros.site/p/baoyan/</guid><description>&lt;img src="https://ovideros.site/p/baoyan/baoyan.jpg" alt="Featured image of post 2026年(23级/27届)计算机保研经验贴——中九高rank无竞赛微科研" /&gt;&lt;p&gt;图文无关。画师为 X(twitter) 上的 @risuyorokobi。&lt;/p&gt;
+&lt;p&gt;我关于本校本科阶段的一些指南：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://ovideros.site/p/guidance/" &gt;信科大一通关指南&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://ovideros.site/p/guidance2/" &gt;计科大二通关指南&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://ovideros.site/p/guidance3/" &gt;计科大三通关指南&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="前言"&gt;前言
+&lt;/h2&gt;&lt;p&gt;每个人的情况终究不同，本帖&lt;strong&gt;只是从个人视角出发作介绍&lt;/strong&gt;。例如，我在获得导师口头offer后，没有报一些弱com院校的预推免，因为懒得再联系其他导师。本人报的院校较少，最后还是有幸获得了一个联培的名额，并且该offer很铁。我在保研期间&lt;strong&gt;没有鸽过任何老师&lt;/strong&gt;。我也懒得海投，投的学校基本都入了营。如果你确实没offer，可以尝试海投。&lt;/p&gt;
+&lt;p&gt;每年计算机保研似乎都在变得更卷。我这一届（23级）高三时，ChatGPT发布了；等到大学入学时，已经可以使用 AI 工具了。不过，直到我大二，ai 才发展得成熟，能够熟练解决课业问题与科研问题。这样，自然会有更多人利用 ai 做项目，bar 也水涨船高。可以预见后面几届同学，在刚入学时就有完善的 ai，此时，院校如何评价一个学生的水平，我们如何看待自身的水平，都是值得思考的问题。我目前没有答案。&lt;/p&gt;
+&lt;p&gt;个人角度来看，如果你不是高rank+ACM竞赛获奖型选手，可以走强com路线，要想保研外校，最好都提前进外校组进行科研。大多数top院校老师都希望在科研实习的过程中，看清学生的一些特质是否符合自己期待，进而起到筛选的作用。对老师而言，此类学生可能更不容易“鸽”（这条是我随便猜的，不确定）。因此，在确定名额时，&lt;strong&gt;会优先考虑在自己组实习过的学生&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;随着申请人越来越多，“专业对口”也变得重要，例如你申请具身组的研究生最好有具身的科研经历，申请llm组最好有llm的科研经历，等等。当然这也不尽然，有些导师可能更看重学生的基础能力，或者解决问题的视角等。只是说，在大二或大三阶段就选择好之后研究生的方向，能够最大化你被导师青睐的&lt;strong&gt;先验概率&lt;/strong&gt;，具体后验概率还要根据其他因素计算。&lt;/p&gt;
+&lt;p&gt;同时，我认为研究生阶段&lt;strong&gt;导师确实大于院校title&lt;/strong&gt;，因为导师能直接决定你有多少补贴、能得到多少指导、能否实习，同时决定有多少计算资源、组内氛围如何、课题组去向如何。这些方面因导师而异，不能只看院校。院校title体现在招聘时的一个初筛标签，只要不是太差，最终还是更加看重个人能力；同时院校还与城市有关，这个就更看个人偏好了。&lt;/p&gt;
+&lt;p&gt;至于选择硕士还是博士，我本人没有过多考虑，因为导师只有博士名额，所以我选择了博士。之前做过科研，感觉自己至少不讨厌科研。同时博士期间可以实习/与企业合作，所以感觉ok。&lt;/p&gt;
+&lt;h2 id="个人情况"&gt;个人情况
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;学校&lt;/strong&gt;：中九&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;专业&lt;/strong&gt;：计算机拔尖班&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;rank&lt;/strong&gt;：前五学期rank1，可以开大类130+的排名；前六学期rank2，可以开大类80+的排名。指的都是绩点，我没用过综测排名&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;竞赛&lt;/strong&gt;：无&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;科研&lt;/strong&gt;：夏令营期间一篇n作在投，9月中了CoRL&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;英语&lt;/strong&gt;：六级550+，四级600+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;荣誉&lt;/strong&gt;：两次国家奖学金&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;个人意向&lt;/strong&gt;：导师 ≈ 研究方向（具身）&amp;gt; 学校title ≈ 城市。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;最终去向&lt;/strong&gt;：上海交通大学与上海期智研究院联培，导师来自清华叉院。&lt;/p&gt;
+&lt;h2 id="保研黑话"&gt;保研黑话
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;rank（rk）&lt;/strong&gt;：指学生的绩点/综测排名，部分院校筛简历时会卡rank，也就是低于某个排名百分比不让进。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;bar&lt;/strong&gt;：指院校夏令营或预推免的入营门槛。一般学校越好，bar越高。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;wl&lt;/strong&gt;：即waiting list，候补队列。如果前面有人放弃资格，候补者就有机会依次递补。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;offer&lt;/strong&gt;：指优秀营员、考核结果优秀等，也就是院校愿意录取你；有些院校看似优营，实际要与导师双选后才有真正的offer。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;oq&lt;/strong&gt;：即over qualified，指学生水平远超所报院校的生源水平，院校因担心其最终不会选择自己而拒绝其入营。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;套磁（陶瓷）&lt;/strong&gt;：指提前通过邮件等方式与心仪导师联系，以争取实习机会、入营资格或提前锁定offer。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;鸽穿&lt;/strong&gt;：指一个学院的优营和候补人数中，最终决定接受录取的人数总和也未达到其招生数量。学院最终可能开新的批次来招生，或者电话联系学生等。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;com&lt;/strong&gt;：即committee，指招生委员会。强com指学院官方权力大，导师个人话语权小；弱com则指导师在录取中拥有很大决定权。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;bg&lt;/strong&gt;：即background，指个人的综合背景条件，包括本科院校、成绩排名、科研经历等。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;pub&lt;/strong&gt;：即publication，指论文发表情况。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="保研前准备"&gt;保研前准备
+&lt;/h2&gt;&lt;h3 id="前前保研时期大二上"&gt;前前保研时期（大二上）
+&lt;/h3&gt;&lt;p&gt;我在大二上加入了北大工学院的一位新ap的组，做的是具身智能方向。不过组内没有真机，显卡不多，只是在组会上研究一些论文。&lt;/p&gt;
+&lt;p&gt;这个阶段我入门了具身领域，阅读了 Diffusion Policy&lt;sup id="fnref:1"&gt;&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref"&gt;1&lt;/a&gt;&lt;/sup&gt;、ALOHA(ACT)&lt;sup id="fnref:2"&gt;&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref"&gt;2&lt;/a&gt;&lt;/sup&gt;、RT系列&lt;sup id="fnref:3"&gt;&lt;a href="#fn:3" class="footnote-ref" role="doc-noteref"&gt;3&lt;/a&gt;&lt;/sup&gt;&lt;sup id="fnref:4"&gt;&lt;a href="#fn:4" class="footnote-ref" role="doc-noteref"&gt;4&lt;/a&gt;&lt;/sup&gt;、Octo&lt;sup id="fnref:5"&gt;&lt;a href="#fn:5" class="footnote-ref" role="doc-noteref"&gt;5&lt;/a&gt;&lt;/sup&gt;、OpenVLA&lt;sup id="fnref:6"&gt;&lt;a href="#fn:6" class="footnote-ref" role="doc-noteref"&gt;6&lt;/a&gt;&lt;/sup&gt;等工作，虽然当时对它们的理解不深。在24年10月末，$\pi_0$ &lt;sup id="fnref:7"&gt;&lt;a href="#fn:7" class="footnote-ref" role="doc-noteref"&gt;7&lt;/a&gt;&lt;/sup&gt;发布，当时也是较早阅读了这篇工作，虽说Flow Matching、action expert等概念后面才真正理解。&lt;/p&gt;
+&lt;p&gt;该阶段的科研没有产出，只是利用Docker，复现了 Diffusion Policy 与 3D Diffusion Policy&lt;sup id="fnref:8"&gt;&lt;a href="#fn:8" class="footnote-ref" role="doc-noteref"&gt;8&lt;/a&gt;&lt;/sup&gt; 的一些实验，也尝试用 Hugging Face 的 Accelerate 库进行多卡训练（4卡）。工程上，熟悉了 Ubuntu、Pytorch、Wandb、YAML、OmegaConf 等。&lt;/p&gt;
+&lt;p&gt;后因为感觉在这个组比较缺少资源，于是寒假快结束时联系了清华的导师，并明确和北大的老师说退出该项目。当时还纠结了一阵子如何提出退出。和北大老师说完情况后，他也就简单地同意，然后挂了电话。后面想想，其实本科生退出本来就没啥，都是流动资源，导师也都心知肚明。可以尝试多个课题组，本来就是本科生的优势，没必要心态上觉得过不去。&lt;/p&gt;
+&lt;h3 id="前保研时期大二下大三上"&gt;前保研时期（大二下~大三上）
+&lt;/h3&gt;&lt;p&gt;我于大二下加入清华叉院某组做人形机器人方向（叉院做具身的不到10位，可以枚举），一开始先是旁听了一个进行到一半的项目。我最后没有被该项目挂名，只是被写在了 Acknowledgements 中。&lt;/p&gt;
+&lt;p&gt;我于25年4月左右开始参与一个新的人形机器人项目。不过该项目进展较慢，甚至前前后后花了将近一年时间。原因之一便是项目做到一半，原先想法被 scoop（抢先发表）了，导致不得不调整方向。后续引入新的硬件，带来了一些新的问题。我在25年暑假进行了接近两个月的线下实习，期间接触了真机，明白了宇树G1的一系列硬件。&lt;/p&gt;
+&lt;p&gt;大三上开始，我在该项目中没投入多少精力，也没做其他科研。&lt;/p&gt;
+&lt;h3 id="大三寒假"&gt;大三寒假
+&lt;/h3&gt;&lt;p&gt;有些同学会在此期间复习基础课程（高数、线代、概率论、机器学习、深度学习等），或者复习算法题（如刷 leetcode 等）。不过我主要还是在玩，最多复习了 CS285&lt;sup id="fnref:9"&gt;&lt;a href="#fn:9" class="footnote-ref" role="doc-noteref"&gt;9&lt;/a&gt;&lt;/sup&gt; 强化学习课程，以及其中的一些推导。&lt;/p&gt;
+&lt;h2 id="夏令营"&gt;夏令营
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;PS: 有些学校我放到预推免了。有些院校的“预推免”比另一些院校的“夏令营”还要早，因此两者差别不大，更多只是叫法的区别。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;夏令营阶段 0 offer，也算一种&lt;em&gt;夏0营&lt;/em&gt;（）&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;院校&lt;/th&gt;
+&lt;th&gt;报考类型&lt;/th&gt;
+&lt;th&gt;是否入营&lt;/th&gt;
+&lt;th&gt;是否优营&lt;/th&gt;
+&lt;th&gt;备注&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;清华 ai（cai）&lt;/td&gt;
+&lt;td&gt;直博&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;td&gt;❌&lt;/td&gt;
+&lt;td&gt;没联系cai的导师&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;清华叉院&lt;/td&gt;
+&lt;td&gt;直博&lt;/td&gt;
+&lt;td&gt;❌&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;此时叉院老师跟我说没清华的名额了&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;上交 ai（sai）&lt;/td&gt;
+&lt;td&gt;直博&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;td&gt;❌&lt;/td&gt;
+&lt;td&gt;没优营很尴尬，导致后续有些焦虑&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id="3月-5月"&gt;3月-5月
+&lt;/h3&gt;&lt;p&gt;3月回学校开始，我跟清华老师说想读他的博士/硕士，并继续做科研，老师说后续会有相关考核。&lt;/p&gt;
+&lt;p&gt;该科研项目主要是与一位学长合作，与第一人称（ego）视频有关。后续因学长实习等原因，项目没有进行下去，终止于5月多。&lt;/p&gt;
+&lt;p&gt;在4月初，我参加了导师给我的考核，为期一周半。似乎清华叉院或清华ai，导师大多数都有自己的考核，无论是完整的科研实习，还是小项目。受限于保密协议，该考核无法展开说明，只能说与具身智能26上半年最火的一个词有关。&lt;/p&gt;
+&lt;p&gt;考核结束时已经到了4月中旬，我意识到自己还没联系其他导师，因此有些担心。于是联系了上交 ai 一位导师，他不确定名额，让我等等。&lt;/p&gt;
+&lt;p&gt;考核结束约一周半后，导师约我聊了半小时，让我介绍考核中项目完成的情况，并让我继续等消息。&lt;/p&gt;
+&lt;h3 id="清华-ai-cai"&gt;清华 ai (cai)
+&lt;/h3&gt;&lt;p&gt;今年清华 ai 的 &lt;strong&gt;bar 相当高&lt;/strong&gt;，是计算机最顶尖的 bar 之一。根据官方统计数据，在报名的1000余人中，有500多位有国奖，700多位“一作”发表或在投，300多位“第一名”，100多位有ACM获奖（有学长对这类渲染peer pressure的展示持明确反对意见）。最后200多人入营。展示的图中，入营最多的是清华，其次是北理和北邮。此外是上交、北航、华科、人大等等。男女比例 4：1 。&lt;/p&gt;
+&lt;figure class="post-image"&gt;
+&lt;img src="https://ovideros.site/p/baoyan/cai.jpg" alt="姚期智院长开场演讲" style="max-width: 100%;"
+&gt;
+&lt;figcaption&gt;姚期智院长开场演讲&lt;/figcaption&gt;
+&lt;/figure&gt;&lt;figure class="post-image"&gt;
+&lt;img src="https://ovideros.site/p/baoyan/cai2.jpg" alt="cai入营情况" style="max-width: 100%;"
+&gt;
+&lt;figcaption&gt;cai入营情况&lt;/figcaption&gt;
+&lt;/figure&gt;&lt;p&gt;夏令营有三天，5月15日-5月17日。第一天下午报到+开放日（Open Office Hours），可以找导师套磁。我和几位做具身的导师聊了聊。期间发现许多参营同学都有对口研究经历，同时也有论文。晚上是AI理论知识竞赛，2小时，英文试卷英文作答。题目涵盖得很宽，包括数学、算法、AI，满分100，时间较为紧张，题目大致如下，其中第7题-第9题选一题作答（我选了第7题，因为比较套路）&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;15分，线性代数，给定矩阵，求秩、特征值、向量空间相关，求矩阵的20次方。&lt;/li&gt;
+&lt;li&gt;15分，高数的无穷级数，和函数，求导与积分。证明无穷级数等于另一个函数 $-ln(1-x)$，代入 $\frac{1}{2}$ 的值。&lt;/li&gt;
+&lt;li&gt;15分，动态规划，网格图dp问题，第一问没有障碍，写递推式，问左上角到右下角的路径数量；第二问加了障碍，写递推式，算结果；第三问格子里面是正负数，可以有一次豁免加负数的机会，改为加上0，要求到达右下角得分最大。在一个小例子中画状态转移图，求状态转移公式，写出计算结果。（三维dp）&lt;/li&gt;
+&lt;li&gt;15分，图论，有向无环图最短路径，这道题我不太确定。第一问先算各个路径对应的value，然后去掉一条边，让最小路径的值最大，求出要去除的边和对应最小的值。第二问对于所有可能去掉一条边的情况，给出求出总的最小路径的最大值的算法。第三问去掉每条边又有另一个cost，要求让cost最小，并使得终点不可达的算法。&lt;/li&gt;
+&lt;li&gt;15分，EM算法，第一问证明ELBO；给出具体伯努利分布、高斯分布后，第二问写出E-step，第三问写出M-step。&lt;/li&gt;
+&lt;li&gt;10分，CLIP模型，题目给出loss，第一问要对 $v_i^t$ 求导；第二问要利用互信息推导出InfoNCE Loss。&lt;/li&gt;
+&lt;li&gt;15分，Transformer基础推导，RoPE算法证明点积只与相对位置相关；LayerNorm的公式，以及证明可以约束梯度；先写出单头注意力公式，然后写出多头注意力公式。&lt;/li&gt;
+&lt;li&gt;15分，3d 点云与 RL 相关，涉及相机内外参数等，没有细看。&lt;/li&gt;
+&lt;li&gt;15分，优化（Optimization）相关的问题，很偏理论，没有细看。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;第二天上午，先是两个半小时的会议，最先是姚期智发言，然后是老师报告，介绍自己的课题组，每位老师都被限定了一定时间。研究方向挺多样，包括具身与空间智能、深度学习理论、autoresearch、LLM与VLM、ego视频、coding agent等等。中午在学院内有免费的午餐。下午三个半小时有三个平行的workshop，可以自行选择参加，包括空间智能、大模型Agent与AI+Science。我参加了空间智能，其实就是具身智能。该workshop主要是听该领域的五位导师仔细介绍自己的项目和想法，每个导师差不多半个小时，因此相比上午更加深入。也会有一些学生提问的环节。&lt;/p&gt;
+&lt;p&gt;这一天晚上，导师说他大概率没有清华这边的名额了，不过还有上交这边的名额，希望我考虑一下，在下周二之前给出决策（此时是周六）。我回导师需要考虑一下。&lt;/p&gt;
+&lt;p&gt;第三天是面试，需要自行准备ppt，时间为8分钟，5分钟 presentation + 3分钟 Q&amp;amp;A，有志愿者会在剩3分钟与1分钟的时候举牌子提醒。差不多一半左右的人进了面试。我面试时，有位老师的问题问得很深，我一时半会没回答上来。估计旁边老师看不下去了，还帮我打圆场😂。&lt;/p&gt;
+&lt;p&gt;总的来说，虽然清华 ai 才创办了几年，但&lt;strong&gt;老师都相当有实力与潜力&lt;/strong&gt;，未来还会引入更多AP。办公环境很好，是全新的一座大楼。录取方式上，大部分应该还是联系导师并且提前实习，之后在预推免获得名额，听说有的导师组内甚至有好几位985的rank1在实习，难度不小；好像也有少部分强com名额，但我没有优营。因为清华 ai 夏令营在5月左右，而此时导师应该都有自己的推荐人选了，因此实习要很早开始，在大三上甚至更早就要考虑。&lt;/p&gt;
+&lt;h3 id="5月-7月"&gt;5月-7月
+&lt;/h3&gt;&lt;p&gt;清华 ai 夏令营结束的晚上，我跟导师说自己愿意考虑在上交攻读直博。他说还不太确定，需要等其他一些同学回复，之后确定下来会回复。&lt;/p&gt;
+&lt;p&gt;之前清华叉院在5月7日报名截止。5月22日出了入营结果，不过此时老师已明确跟我说没有清华那边的名额了，因此没有入营。&lt;/p&gt;
+&lt;p&gt;接下来一两周感觉没什么目标有点摆，再之后两周多就是期末考试，因此突击了一下。&lt;/p&gt;
+&lt;p&gt;在6月中旬，导师询问我是否有博士的去向，电话沟通后，他说上交名额基本确定可以给到我，应该没有太多变数，问我愿不愿意接受。我自然接受。老师问我有没有其他变数，我回答基本确定，是我的第一意向。&lt;/p&gt;
+&lt;p&gt;事后想想，我与导师对这个offer的确定程度，都有些谦虚😂导师一直为我保留了这个offer，而我也没有与其他导师达成过双选。&lt;/p&gt;
+&lt;p&gt;一周多后，上交 ai 夏令营的通知出了，我与之前联系的上交导师明确说自己已有offer，准备放弃他那边的机会，他也恭喜我。他之前只是与我发过让我等待后续的消息，没有什么考核或名额方面的信息。&lt;/p&gt;
+&lt;h3 id="上交-aisai"&gt;上交 ai（sai）
+&lt;/h3&gt;&lt;p&gt;因为之前在良乡租房，我在7月中旬才正式搬到中关村，而不是7月上旬。搬到中关村再过一周，就要参加7月22日-23日的上交ai夏令营。&lt;/p&gt;
+&lt;figure class="post-image"&gt;
+&lt;img src="https://ovideros.site/p/baoyan/sai.jpg" alt="sai" style="max-width: 100%;"
+&gt;
+&lt;figcaption&gt;sai&lt;/figcaption&gt;
+&lt;/figure&gt;&lt;p&gt;提前一天坐高铁抵达上海，并入住酒店。sai对于硕士和博士的考核不同。对于直博，第一天早上进行专业测试，就是笔试，用时2小时。下午没有安排。考核的内容已有人明确整理，在小红书上&lt;sup id="fnref:10"&gt;&lt;a href="#fn:10" class="footnote-ref" role="doc-noteref"&gt;10&lt;/a&gt;&lt;/sup&gt;，如果未来下架，才可能考虑在本博客中详细展开。主要内容是 RL 方面，也涉及一些 AI infra、梯度下降、Transformer、机械臂、贝叶斯推断等方面。个人感觉最后一题计算量较大，没写出来，其他还好。&lt;/p&gt;
+&lt;p&gt;第二天面试，分为上午与下午两场，我被分到了下午。面试不使用ppt，只用简历，每人20分钟，时间相当多，因此留下了充足的“拷打”时间。每场面试内有7个专业老师+1个行政老师。面试首先会让你用英文介绍自己（这句话是英文，所以我第一时间没反应过来，老师讲第二次我才理解）。然后英文问你最喜欢的书是什么。之后全都是中文的提问。包括深入问一问你的项目细节，来弄清楚项目是不是你做的。同时会涉及一些“性格”方面的问题，或者是纯压力测试，例如“你有什么缺点”“和其他人相比你有你有什么优势与劣势”等。不太会问具体的专业问题，但会让你讲专业课（例如数学）在项目中有哪些应用。也会问你的未来研究兴趣。我当时简历上写了 World Action Model，老师似乎对此十分专业，因此拷打了许多相关问题，但彼时我对一些细节还不那么了解。具体到xxx模型的 backbone 是几B，xxx模型的优势与劣势等。行政老师可能会问你简历上社会实践等部分，以及前几天还有个心理测试但我在网站上没找到，她问我为什么没写。&lt;/p&gt;
+&lt;p&gt;sai 的结果等了较长时间才出，这里先按下不表。&lt;/p&gt;
+&lt;h2 id="预推免"&gt;预推免
+&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;院校&lt;/th&gt;
+&lt;th&gt;报考类型&lt;/th&gt;
+&lt;th&gt;是否入营&lt;/th&gt;
+&lt;th&gt;是否优营&lt;/th&gt;
+&lt;th&gt;备注&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;人大高瓴&lt;/td&gt;
+&lt;td&gt;直博&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;td&gt;❌&lt;/td&gt;
+&lt;td&gt;候补。当初没注意，报了直博；不过直博名额确实更多&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;自动化所（第一批）&lt;/td&gt;
+&lt;td&gt;随意，看双选结果&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;td&gt;⍻&lt;/td&gt;
+&lt;td&gt;优营但未双选，实际没有效力&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;上交 ai（sai）&lt;/td&gt;
+&lt;td&gt;直博&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;td&gt;“二进宫”，最终去向&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;本校 cs&lt;/td&gt;
+&lt;td&gt;学硕&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;td&gt;在确认资格ddl前，释放了本校offer&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id="人大高瓴"&gt;人大高瓴
+&lt;/h3&gt;&lt;p&gt;7月23日结束sai夏令营后，7月25日就到高瓴报道，7月26日-27日考核。&lt;/p&gt;
+&lt;p&gt;人大高瓴是&lt;strong&gt;纯粹的强com&lt;/strong&gt;，拥有硬核的考试与面试。第一天（26日）上午有两个半小时的笔试，内容很多，包括数据结构（408难度，例如给你二叉树的两种遍历写另一种遍历，hash冲突相关计算，排序等），高数，线代，概率论，机器学习（包括奇异值分解、PCA等）。前面这些都是选择题，题量较大，有40多道。两道大题选做一道，一道是算法题（我没有细看，大概是一个区间上搜索有关），一道是概率论的贝叶斯推断，具体如下。&lt;/p&gt;
+&lt;p&gt;考虑三门问题，第一问用贝叶斯定理求主持人打开一扇没有车的门后，换与不换门中奖的概率。第二问拓展到 N 个门，主持人打开 M 扇门，有 i 个车。这三者满足约束保证问题成立（具体忘了，可以让大模型补全）。求什么情况下，更换其他门可以使得门后有车的概率增加。第三问进一步为车在门后引入一个概率分布，要利用贝叶斯定理与积分，计算出后验概率，是更完整的贝叶斯推断。&lt;/p&gt;
+&lt;p&gt;除此之外，还有个英语题将中文翻译成英文，是 llm/agent 相关，内容不长，相对简单。&lt;/p&gt;
+&lt;figure class="post-image"&gt;
+&lt;img src="https://ovideros.site/p/baoyan/ruc.jpg" alt="人大高瓴" style="max-width: 100%;"
+&gt;
+&lt;figcaption&gt;人大高瓴&lt;/figcaption&gt;
+&lt;/figure&gt;&lt;p&gt;以上是笔试。当天下午，首先在报告厅开会，介绍了人大高瓴的大致情况，学院发展历史，老师研究方向等。之后便是德智体美劳考核，这也是人大颇具特色的一环。备考期间先把同学们集中在一间教室里，电子产品都放到包里管起来，只能看纸质材料复习。这样大概是为了防止同学们串通。这个考核问的问题自然很生活化，例如如果与舍友的作息不和，且学校没有多余宿舍可以换，要怎么办？以及导师的研究方向与你想做的方向不一致，怎么办？&lt;/p&gt;
+&lt;p&gt;当天下午也是 AI 学术市集环节，会有各个老师的poster介绍，且一般有博士生来向你推荐课题组。&lt;strong&gt;高瓴的强组去向是相当好的&lt;/strong&gt;，经常与大厂有学术合作，学生自然可以比较好地实习，毕业不愁找工作。方向上，llm/智能体最多，其次还有多模态、推广搜、ai4science、具身、ai理论与可解释性、社会科学智能等。整体方向都很不错。&lt;/p&gt;
+&lt;p&gt;第二天下午，面试。依旧把同学们放一块，不能使用电子设备，因此我提前打印了leetcode hot100以及一些数学题（让GPT整理的）。面试有些抽象，时间只有8分钟，却要做许多事——中文自我介绍、简单英文提问、抽试题回答（提供草稿纸，以口述为准，一道算法题，一道数学题，看别人经验贴好像还可能有ai题，但总数是两道），如果你都做完了，那才会有剩下的科研提问。显然时间相当紧张，而我甚至没有在考场中看到时间，导致完全不清楚进行到了哪里。算法题是图论相关，我刚好不知道，只能现编一个暴力方法；数学题是概率论相关，比较“脑筋急转弯”，虽然我想出来了，但回答到一半就被老师打断，因为时间到了。于是遗憾离场。&lt;/p&gt;
+&lt;p&gt;高瓴结果出得很快，三天后就出了，我在候补名单中，且排名相当靠后，基本没戏。&lt;/p&gt;
+&lt;h3 id="自动化所第一批"&gt;自动化所（第一批）
+&lt;/h3&gt;&lt;p&gt;7月末，自动化所发来通知，说是在8月12日进行面试。据说第一批的bar较高，后续还有第二批、工程硕博、第三批，bar 相对低一些。&lt;/p&gt;
+&lt;p&gt;8月6日，上交ai发来夏令营的结果，点开邮件，写着“&lt;strong&gt;未获评优秀营员资格&lt;/strong&gt;”。我久违地再次感受到挫败的滋味。回想起来自己大学过得确实挺&lt;em&gt;顺利&lt;/em&gt;的，考试排名都不错，论文不被接受也不算太大的事，反正之后能再投。倒是这次的没有优营，让我萌生了不少担忧——这是否意味着我这个offer没多大效力？要是之后预推免也没过怎么办？目前0offer怎么办？诸如此类。&lt;/p&gt;
+&lt;p&gt;几周前出成绩，就算几门课 &lt;strong&gt;60-70分&lt;/strong&gt;（详见&lt;a class="link" href="https://ovideros.site/p/guidance3/" &gt;计科大三通关指南&lt;/a&gt;），在拔尖班里排名最后，我内心也没什么感想，可能只有一种“自己主动放弃”的感慨。上一次有此类挫败的感觉，居然是大一上的《线性代数》课，老师小测，我认真复习各类证明题，结果考的是较为基础的求解非齐次方程。而我因为计算不够熟练，搞混了通解和特解，进而几乎全错。事后来看，这自然不算什么大事，不过是一门2学分的课上，一个占比较小的课堂测试罢了——老师更多只是为了看出勤，最后我甚至获得满分。但是，对当时刚进入大学校园的我，对自身没什么自我认同的我来说，确实是件大事，我浑浑噩噩了好几天，后面还是看了《积极心理学》&lt;sup id="fnref:11"&gt;&lt;a href="#fn:11" class="footnote-ref" role="doc-noteref"&gt;11&lt;/a&gt;&lt;/sup&gt;等才有所释怀，并在无聊中，翻阅到了CSDIY&lt;sup id="fnref:12"&gt;&lt;a href="#fn:12" class="footnote-ref" role="doc-noteref"&gt;12&lt;/a&gt;&lt;/sup&gt;，开始CS方面的自学。&lt;/p&gt;
+&lt;p&gt;上上次有这类挫败感，可能是高考出分吧。这种感觉，是在充分准备但结果不理想的情况下，才会有的。&lt;/p&gt;
+&lt;p&gt;我感到自己不得不面对它，但又懒得为自动化所准备更多东西。在上海期智招生老师的帮助下，联系了之前期智联培的学长，听说sai预推免只有一天的面试，他也只参加了预推免。我听说好像确实有在预推免被刷下来的人，联培终究还是要上交那边同意。&lt;/p&gt;
+&lt;p&gt;好在自动化所算是一件眼前需要做的事，因此我只能硬着头皮参加，倒是能减缓一点内心的空虚。8月12日上午报到，抵达报告厅，完成了《综合素质测评》，其实就是扫码回答心理问卷。随后便是面试，有7组不同的面试间，看名单反而清北较少，985或者顶211居多。&lt;/p&gt;
+&lt;figure class="post-image"&gt;
+&lt;img src="https://ovideros.site/p/baoyan/casia.jpg" alt="自动化所" style="width: 50%; max-width: 100%;"
+&gt;
+&lt;figcaption&gt;自动化所&lt;/figcaption&gt;
+&lt;/figure&gt;&lt;p&gt;我排在靠后位置，2:30之后。因此中午可以外出吃个饭，有充足的时间准备。面试时间为10分钟，有5位专业老师与1位行政老师。首先进行中文自我介绍。接着，我本来以为像往常经验贴，自动化所会有不少专业问题，结果实际上一个都没问，几乎全都是一位老师在问我科研项目中的细节。后来我才知道，是这位老师对我的研究方向感兴趣。其他也就问了问“你有报清北的预推免吗？为什么？”出门时，行政老师慈祥地看着我，说“有点紧张对吧，没事的”。我也意识到，自己在面试中确实可能过于紧张了，包括过往的面试。&lt;/p&gt;
+&lt;p&gt;过了两天，自动化所就发来通知，通过了考核，需要进行导师双选，&lt;strong&gt;没有导师双选相当于没有offer&lt;/strong&gt;。双选的时间有10天，需要本人与导师的签字。之前报名系统上填的硕博、专业也都不重要，更重要的是在双选阶段选择了什么。&lt;/p&gt;
+&lt;p&gt;我有些犹豫要不要找个导师保底，但想了想又觉得麻烦。有一位面试时对我感兴趣的导师，找我花一个小时聊了聊，我也比较坦诚地说了说自己已有口头offer与意向。他也说自动化所这边可能要多做所里面的一些项目等。交谈过后，之后也没联系。&lt;/p&gt;
+&lt;h3 id="上交-aisai-1"&gt;上交 ai（sai）
+&lt;/h3&gt;&lt;p&gt;又摆了一周，等到开学。很遗憾，本校就算是大四，也仍有小学期。此时本来保研的要参加预推免，考研的要复习，找工作的需要秋招，留学的&amp;hellip;（本校留学较少）。就是要在这种关键的时间点，继续恶心一下。不过好在 agent 很发达，项目一个人就能蹬完。最多的就是准备一下中期答辩与结题答辩。&lt;/p&gt;
+&lt;p&gt;在小学期的最后一周（9月14日-9月20日），发生了不少事，以下按天记录。&lt;/p&gt;
+&lt;p&gt;周一，上交 ai 预推免那边总算发了入围通知，确定了周五上午进行面试。我将此前简历与科研兴趣等方向改了改，避免出现一些自己不太熟悉的内容。&lt;/p&gt;
+&lt;p&gt;周二，我提交小学期答辩的请假条（小学期答辩在周五），咨询老师后，我们组可以放在下午，并且允许我线上答辩。&lt;/p&gt;
+&lt;p&gt;周三，没太多事，继续复习了一些项目、具身智能等知识。&lt;/p&gt;
+&lt;p&gt;周四，坐高铁前往上海。在酒店做点准备。&lt;/p&gt;
+&lt;p&gt;周五，八点抵达 sai。签到，八点半才开始面试。有四个平行组，我这次排到最后一名，倒也是有充足的时间，可以发呆一会，再多看看简历。在面试考场前，想到了两个月前的面试。这次我有意不去想太多，尝试深呼吸，确实感觉放松一些。面试中，老师仍然是几位专业老师+一位行政老师，主要是一位专业老师在提问，几乎都是项目相关。其他老师似乎不太会追问，总体比较友善。最后行政老师问了问其他的，然后老师们就下班了。我也走了。&lt;/p&gt;
+&lt;p&gt;下午，因为还有校内的答辩，故租了个钟点房。之后返回北京。&lt;/p&gt;
+&lt;h3 id="本校-cs"&gt;本校 cs
+&lt;/h3&gt;&lt;p&gt;本校 cs 的预推免是周六周天两天。&lt;del&gt;对于经历了前面那些拷打的我，恐怕是最简单的一集&lt;/del&gt;。&lt;/p&gt;
+&lt;p&gt;周六上午，半小时的英语听力。相当简单，只用关键词匹配就行，远不如六级听力，甚至可能比四级听力简单一点。&lt;/p&gt;
+&lt;p&gt;周六下午，跑到另一个校区机试。（这还是我保研期间，&lt;strong&gt;第一次参加机试&lt;/strong&gt;）使用C或者C++语言，题目相当简单：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;给定一个大于等于6的偶数，将它分解成两个质数之和，列出所有情况，每个情况一行。&lt;/li&gt;
+&lt;li&gt;给定一个字符串，将所有英文字符进行大小写转换，然后交换奇数位与偶数位（若长度为奇数，最后一位不交换位置）。&lt;/li&gt;
+&lt;li&gt;一道看似是模拟题，其实可能的输入只有13种，完全可以打表，分成13种情况打印结果即可。
+时间一个半小时，很多人都提前走了。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;周日，上午开始面试。4-5分钟自我介绍，4-5分钟英语问题，4-5分钟老师提问。请注意，这里前两项的时间加起来，&lt;strong&gt;比清华 ai、人大高瓴、自动化所的面试时间都要多&lt;/strong&gt;（这些的面试时间都小于10分钟）。再加上面试考场后面还有明确的时钟，时间把握起来很容易，慢慢讲都行。英语题有两道，一道生活向问题（你的父母怎么看待你），一道科技向问题（介绍一下安卓操作系统），题库好像挺大（感觉有20套以上）。老师提问时，问了一下项目，然后问我是否保外校，我说是的，参加了上交 ai 预推免，但结果还没出，出了结果会第一时间告诉本校的。&lt;/p&gt;
+&lt;p&gt;9月21日（下周一）上午9:00开始，可以在国家保研系统填写志愿，我只写了上交的。下午三点半，上交总算出了结果，发来的邮件中没有写情况如何，还需要打开链接，输入个人信息搜索。&lt;strong&gt;结果：优秀&lt;/strong&gt;。我也卡在ddl前，拒绝了本校的 offer。&lt;/p&gt;
+&lt;figure class="post-image"&gt;
+&lt;img src="https://ovideros.site/p/baoyan/bit.png" alt="释放本校" style="max-width: 100%;"
+&gt;
+&lt;figcaption&gt;释放本校&lt;/figcaption&gt;
+&lt;/figure&gt;&lt;p&gt;之后，9月22日上午8:00开始，学校会开始发送&lt;strong&gt;复试通知&lt;/strong&gt;。大多数学校的预推免在此前已经面试完成，这个复试通知只是走个形式。然而，上交 AI 还要求双选成功的导师将“导师评价表”发送到教务处，导师直到22日晚上才填完并发送。&lt;/p&gt;
+&lt;p&gt;复试通知直到9月23日下午才发，这是真的慢。记得学信网绑定微信，关闭消息免打扰，通知消息管理中设置以重要通知方式提醒。&lt;/p&gt;
+&lt;figure class="post-image"&gt;
+&lt;img src="https://ovideros.site/p/baoyan/fushi.png" alt="复试通知" style="max-width: 100%;"
+&gt;
+&lt;figcaption&gt;复试通知&lt;/figcaption&gt;
+&lt;/figure&gt;&lt;p&gt;9月24日上午8:00开始，学校可以发送拟录取通知。下午14:00起，学生可以接受拟录取通知。只能接受一个，并无法反悔。&lt;/p&gt;
+&lt;figure class="post-image"&gt;
+&lt;img src="https://ovideros.site/p/baoyan/dailuqu.png" alt="待录取通知" style="max-width: 100%;"
+&gt;
+&lt;figcaption&gt;待录取通知&lt;/figcaption&gt;
+&lt;/figure&gt;&lt;h2 id="感想"&gt;感想
+&lt;/h2&gt;&lt;p&gt;我的保研还算幸运，最后成功进了“梦导”的组。期间有些波折，可能事后来看波折并没有那么大，但当时会觉得看不清未来。&lt;/p&gt;
+&lt;p&gt;感谢那些在保研期间陪伴我度过焦虑日子的游戏（按时间顺序）——《以撒的结合》（寒假）、《极乐迪斯科》（寒假）、《杀戮尖塔》（2月、5月、6月、7月、8月）、《杀戮尖塔2》（3月、5月、6月）、Cataclysm系列（CDDA、CBN等）（3月、4月、6月、7月）、《奥日与黑暗森林》（7月）、《ToME4》（7月、8月、9月）、《Z.A.T.O.》（封面图）（9月）。&lt;/p&gt;
+&lt;p&gt;可以看出我是个 roguelike 爱好者，包括一些知名现代肉鸽，以及传统肉鸽。同时也感谢一些漫画——《蘑菇的拟态日常》、《杀手寓言》等。&lt;/p&gt;
+&lt;p&gt;感谢大学以来的老师，有些老师让我意识到大学教师评价体系中，科研与教课的分离；也有些教师让我真正理解了基础知识，并且体会到这些学科独特的美。&lt;/p&gt;
+&lt;p&gt;感谢我的导师，“稳稳地接住我”，给予了我一个铁 offer。&lt;/p&gt;
+&lt;p&gt;感谢所有自从我进入大学以来，向我答疑过的学长、学姐，有你们的指引，让我对未来状态的 &lt;em&gt;Value Function&lt;/em&gt; 更加精确，进而能在当下选择长远来看更优的一步。&lt;/p&gt;
+&lt;p&gt;感谢所有线上、线下的朋友，虽然我们不一定见过多少次、聊过多少天，但你们的存在，使得我见识到了大学生活更多的可能性，让我对大学的 &lt;em&gt;World Model&lt;/em&gt; 覆盖了更多 &lt;em&gt;OOD（Out of Distribution）&lt;/em&gt; 的情况。&lt;/p&gt;
+&lt;p&gt;感谢所有向我咨询过的学弟、学妹们，可能在你们的视角中，我在单方面帮助你们；但其实在我心中，这些答疑也能帮助我审视自己目前的状况，了解更多人的处境，让我能对历史状态的 &lt;em&gt;Memory&lt;/em&gt; 模块进行梯度下降。&lt;/p&gt;
+&lt;p&gt;感谢我的父母，在保研阶段坚定地相信我，为我提供基础的物质条件，也能支持我未来的选择。&lt;/p&gt;
+&lt;p&gt;最后，回到我本人。由于篇幅限制，自然忽略了许多我的准备工作：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;3月开始发现自己算法题能力太差，刷了一些leetcode题目。&lt;/li&gt;
+&lt;li&gt;导师考核阶段我花费了很大的精力，之前都不知道自己能在较短时间内，做出这么多的事（当然少不了 ai 帮忙）。&lt;/li&gt;
+&lt;li&gt;4月-5月，阅读了《Probabilistic Machine Learning》的部分内容，其中贝叶斯推断在后续多所院校的笔试中考到。&lt;/li&gt;
+&lt;li&gt;5月份对着往年笔试题，复习了线代、概率论等科目，深入了解了 Transformer （各种 attention 机制、linear attention、flash attention、RoPE等），并做了一些 ai 出的题。&lt;/li&gt;
+&lt;li&gt;6-7月复习了 GAN、VAE、Diffusion（原始 DDPM）、Flow-Matching 等生成模型的推导，虽说这些后面也没有考到（原始 DDPM 的详细推导真的很繁琐，据说中关村学院还考到了）。&lt;/li&gt;
+&lt;li&gt;8-9月阅读自己研究方向的论文，也仔细看了看 openpi、StarVLA 等开源库中的实现。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;所以，感谢我自己。&lt;/p&gt;
+&lt;p&gt;这一段是经典的保研总结语套路之一，人们总喜欢回望一下高考，觉得保研的“成功”能补偿什么，抑或是“大雪深埋”&lt;sup id="fnref:13"&gt;&lt;a href="#fn:13" class="footnote-ref" role="doc-noteref"&gt;13&lt;/a&gt;&lt;/sup&gt;。此类感慨太多了，让我们换个说法吧。&lt;strong&gt;保研，我可能遗失了什么？&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;我本来在初高中期间，为了做音MAD，自学了剪辑软件、特效软件、平面设计、音频编辑、混音、编曲等，虽然都很浅显，但都是真正出于兴趣来学。我也曾幻想大学阶段能自由地做这类事，然而没有。&lt;/li&gt;
+&lt;li&gt;我可能会很早地尝试海投大厂并实习，不一定是算法岗，但也能本科就业，更早地真正步入社会并承担责任，而不是用“研究生”的名号来拖延，逃避总会来临的身份转变。&lt;/li&gt;
+&lt;li&gt;我可能会留学（考虑到本校环境，除北美外），接触到完全全新的环境，去思考自己此前完全没想到的问题，并做出出乎意料的决策。&lt;/li&gt;
+&lt;li&gt;我可能会考研，在大学前几年有更多时间探索自己，也能利用大学原本就有的试错空间，而不是一入学就被成绩和各种时间节点束缚，人云亦云地参加竞赛、科研等等，即使自身并非真正喜爱做这些事。&lt;/li&gt;
+&lt;li&gt;&amp;hellip;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;至于&lt;strong&gt;保研让我获得了什么&lt;/strong&gt;，可以参考他人的帖子：&lt;a class="link" href="https://www.xiaohongshu.com/discovery/item/68e547d60000000004012544?source=webshare&amp;amp;xhsshare=pc_web&amp;amp;xsec_token=ABh5VPYCHsiSHTETplboq0s6wvGpq3NqPOKsGiTcTYinw=&amp;amp;xsec_source=pc_share" target="_blank" rel="noopener"
+&gt;保研为我带来了什么?&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;不管怎样，我还是到了这里。过去的我无法分割，没有这些经历也就没有现在的我，还是关注当下吧。&lt;/p&gt;
+&lt;p&gt;最后，祝愿大家都能找到想做的事，并尝试做下去！&lt;/p&gt;
+&lt;h2 id="参考资料"&gt;参考资料
+&lt;/h2&gt;&lt;div class="footnotes" role="doc-endnotes"&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id="fn:1"&gt;
+&lt;p&gt;Chi, Cheng, et al. &amp;ldquo;Diffusion policy: Visuomotor policy learning via action diffusion.&amp;rdquo; The International Journal of Robotics Research 44.10-11 (2025): 1684-1704.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:2"&gt;
+&lt;p&gt;Zhao, Tony Z., et al. &amp;ldquo;Learning fine-grained bimanual manipulation with low-cost hardware.&amp;rdquo; arXiv preprint arXiv:2304.13705 (2023).&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:3"&gt;
+&lt;p&gt;Brohan, Anthony, et al. &amp;ldquo;Rt-1: Robotics transformer for real-world control at scale.&amp;rdquo; arXiv preprint arXiv:2212.06817 (2022).&amp;#160;&lt;a href="#fnref:3" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:4"&gt;
+&lt;p&gt;Brohan, Anthony, et al. &amp;ldquo;Rt-2: Vision-language-action models transfer web knowledge to robotic control.&amp;rdquo; arXiv preprint arXiv:2307.15818 (2023).&amp;#160;&lt;a href="#fnref:4" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:5"&gt;
+&lt;p&gt;Team, Octo Model, et al. &amp;ldquo;Octo: An open-source generalist robot policy.&amp;rdquo; arXiv preprint arXiv:2405.12213 (2024).&amp;#160;&lt;a href="#fnref:5" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:6"&gt;
+&lt;p&gt;Kim, Moo Jin, et al. &amp;ldquo;Openvla: An open-source vision-language-action model.&amp;rdquo; arXiv preprint arXiv:2406.09246 (2024).&amp;#160;&lt;a href="#fnref:6" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:7"&gt;
+&lt;p&gt;Black, Kevin, et al. &amp;ldquo;$\pi_0 $: A Vision-Language-Action Flow Model for General Robot Control.&amp;rdquo; arXiv preprint arXiv:2410.24164 (2024).&amp;#160;&lt;a href="#fnref:7" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:8"&gt;
+&lt;p&gt;Ze, Yanjie, et al. &amp;ldquo;3d diffusion policy: Generalizable visuomotor policy learning via simple 3d representations.&amp;rdquo; arXiv preprint arXiv:2403.03954 (2024).&amp;#160;&lt;a href="#fnref:8" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:9"&gt;
+&lt;p&gt;CS285. UC Berkeley. &lt;a class="link" href="https://rail.eecs.berkeley.edu/deeprlcourse/" target="_blank" rel="noopener"
+&gt;https://rail.eecs.berkeley.edu/deeprlcourse/&lt;/a&gt;&amp;#160;&lt;a href="#fnref:9" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:10"&gt;
+&lt;p&gt;上海jt大学人工智能学院第一年笔试题目. &lt;a class="link" href="https://xhslink.cn/o/Acq8sJG9TdP" target="_blank" rel="noopener"
+&gt;https://xhslink.cn/o/Acq8sJG9TdP&lt;/a&gt;&amp;#160;&lt;a href="#fnref:10" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:11"&gt;
+&lt;p&gt;【哈佛大学】积极心理学 Talben Shahar（全23讲）
+. &lt;a class="link" href="https://www.bilibili.com/video/BV1Ka411w7qd" target="_blank" rel="noopener"
+&gt;https://www.bilibili.com/video/BV1Ka411w7qd&lt;/a&gt;&amp;#160;&lt;a href="#fnref:11" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:12"&gt;
+&lt;p&gt;CSDIY. &lt;a class="link" href="https://csdiy.wiki/" target="_blank" rel="noopener"
+&gt;https://csdiy.wiki/&lt;/a&gt;&amp;#160;&lt;a href="#fnref:12" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:13"&gt;
+&lt;p&gt;软微圣经. Github. &lt;a class="link" href="https://github.com/syficy/RuanWeiBible" target="_blank" rel="noopener"
+&gt;https://github.com/syficy/RuanWeiBible&lt;/a&gt;&amp;#160;&lt;a href="#fnref:13" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</description></item><item><title>计科大三通关指南</title><link>https://ovideros.site/p/guidance3/</link><pubDate>Sun, 05 Jul 2026 00:00:00 +0000</pubDate><guid>https://ovideros.site/p/guidance3/</guid><description>&lt;img src="https://ovideros.site/p/guidance3/guidance3.png" alt="Featured image of post 计科大三通关指南" /&gt;&lt;p&gt;其他指南：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://ovideros.site/p/guidance/" &gt;信科大一通关指南&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://ovideros.site/p/guidance2/" &gt;计科大二通关指南&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://ovideros.site/p/baoyan/" &gt;2026年计算机保研经验贴&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;🚧🚧🚧该项目仍在施工中，会持续更新。我也准备创建一个Github repo，收集个人大二大三计算机课程用到的复习资料。虽说这些资料也都来自于Github。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;图文无关。该图画师为 Knoenr（小红书）。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="-前言"&gt;▶️ 前言
+&lt;/h2&gt;&lt;p&gt;本文最先写于7月5日-7月6日，结合bit101评论与自己的回忆，整理了大多数课程的考试内容。后面由于忙保研搁置。于9月21日补上前言部分。&lt;/p&gt;
+&lt;h3 id="我的大三心态"&gt;我的大三心态
+&lt;/h3&gt;&lt;p&gt;大三开始，绝大多数计算机课程都变成了更纯粹的过拟合——寻找考试题目，做题，甚至有些题背答案。最核心原因自然是北理计院考试多年以来出题的连贯性，没有太大的变化。&lt;/p&gt;
+&lt;p&gt;不过，大三的事确实可能较多，尤其是如果接触科研并且保研。要么平时跑实验，要么复习保研所需的基础知识，要么参加夏令营等。此时，有些课程还有较多的平时作业，可能拖累其他方面。整体来说，更需要关注课内与课外的平衡。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;PS: 关于我的保研方面，参考&lt;a class="link" href="https://ovideros.site/p/baoyan/" &gt;2026年计算机保研经验贴&lt;/a&gt; 。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;我本人大三上还算留出了充足的时间复习，并且也真正理解了大部分课程，最后得分不错。但大三下，我一方面觉得投夏令营只看前五学期，另一方面保研上也确实有其他事要做，因此懒得再在课程方面投入什么精力。最后大三下喜提大学以来最差的几个成绩，包括——软件工程基础66，编译原理与设计65，计算机网络76 。这绝对不是这些课程太难——平均分还ok，这几门课我也在计拔排到了95%-100%，所以是纯粹的下限。不过，好在北理成绩出得超级慢，一直到八月中下旬才出来，而此时我也用前五学期的排名参加完了几个夏令营，只剩最后一个预推免。所以，如果你是特立，只要大三下不挂科并且保证总的成绩能保研，那么大三下摆一点无妨；如果你是睿信或者处在保研边缘，那自然另说。&lt;/p&gt;
+&lt;h3 id="时代的变化"&gt;时代的变化
+&lt;/h3&gt;&lt;p&gt;在我写《信科大一通关指南》时，最强的ai是GPT-4o或者Claude 3.5 Sonnet；在我写《计科大二通关指南》时，最强的ai是GPT-5、Gemini-2.5-Pro或者Claude-Opus-4。如今，则是GPT-6 Astra或者 Claude Fable 5.1。&lt;/p&gt;
+&lt;p&gt;可以说，从25年左右，较为先进的ai就完全具备了解答计算机本科阶段所有课程的能力。而如今，你甚至可以利用agent，直接创建一个本地文件夹，放入所有的课程ppt、教材、延河课堂录播、往年试卷等资料，让ai逐步整理，然后指导你逐步学习。&lt;/p&gt;
+&lt;p&gt;不过，当我们越接触精心设计的内容，也越应该回归一个简单的学习目标——那就是想办法真正理解ai为我们整理的输出。这不仅是为了应试，更是为了锻炼我们在计算机知识上的“审美能力”。在短期内，也许我们仍然需要有这些审美，才能写出更好的prompt，或者知道如何寻找更好的项目与skills，让agent的发挥更好。不过要是谈到更长期的未来，谁又能预测呢？&lt;/p&gt;
+&lt;h2 id="大三上"&gt;大三上
+&lt;/h2&gt;&lt;p&gt;这学期许多课设计计算机系统，时间充裕可以看看相关科普书与视频，例如《计算机底层的秘密》&lt;sup id="fnref:1"&gt;&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref"&gt;1&lt;/a&gt;&lt;/sup&gt;、Core Dumped&lt;sup id="fnref:2"&gt;&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref"&gt;2&lt;/a&gt;&lt;/sup&gt;（该频道可以从头开始看）。&lt;/p&gt;
+&lt;h3 id="小学期计算机专业基础实习"&gt;小学期——计算机专业基础实习
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;你可知道 BIT101 上&lt;strong&gt;评价最多&lt;/strong&gt;的课程？&lt;/li&gt;
+&lt;li&gt;你是否目睹过课程评价为 &lt;strong&gt;0.81&lt;/strong&gt; 的课程？&lt;/li&gt;
+&lt;li&gt;你有没有在群聊中对&lt;strong&gt;东软&lt;/strong&gt;有所耳闻？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;恭喜你！欢迎来到北理计院特色，究极的试炼——&lt;strong&gt;计算机专业基础实习&lt;/strong&gt;！&lt;/p&gt;
+&lt;p&gt;我本人在 BIT101 对应课程中也有匿名评论，因为太长这里就不放出来了。&lt;/p&gt;
+&lt;p&gt;以下是该课程的规则怪谈：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;每天一定要准点到班上扫码&lt;/li&gt;
+&lt;li&gt;不能完成第一条，则需要由朋友想办法帮忙扫&lt;/li&gt;
+&lt;li&gt;做小测前一定要打开AI，并将相关文档作为上下文输入&lt;/li&gt;
+&lt;li&gt;不要盲从老师的环境配置与要求，往往Linux/Ubuntu以及Qt版本都可以更换&lt;/li&gt;
+&lt;li&gt;不一定需要使用虚拟机提供Linux环境，使用WSL、双系统、远程服务器开启桌面等方式都可以&lt;/li&gt;
+&lt;li&gt;在遵循第四条时，需要在汇报时假装使用了老师要求的版本&lt;/li&gt;
+&lt;li&gt;在大教室中注意自己笔记本的电量，身体温度，以及耳朵所能承受的分贝上限&lt;/li&gt;
+&lt;li&gt;一定要小组熟练使用 Codex / Claude Code 等 Coding Agent &lt;sup id="fnref:3"&gt;&lt;a href="#fn:3" class="footnote-ref" role="doc-noteref"&gt;3&lt;/a&gt;&lt;/sup&gt;&lt;sup id="fnref:4"&gt;&lt;a href="#fn:4" class="footnote-ref" role="doc-noteref"&gt;4&lt;/a&gt;&lt;/sup&gt;&lt;sup id="fnref:5"&gt;&lt;a href="#fn:5" class="footnote-ref" role="doc-noteref"&gt;5&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;li&gt;忽略老师对你的评价&lt;/li&gt;
+&lt;li&gt;做好答辩时被提问的准备&lt;/li&gt;
+&lt;li&gt;面对第八条可能产生的Bug，最后阶段可以直接避免展示不好的部分，利用好你的视频剪辑技术与演讲能力&lt;/li&gt;
+&lt;li&gt;小组使用 Git 维护代码，并提前配置好统一的环境（遵循第四条）&lt;/li&gt;
+&lt;li&gt;一时兴起时，记得在 BIT101 评论&lt;/li&gt;
+&lt;li&gt;记住课程的名称不是《环境科学与技术》《压力管理与心理韧性》《Vibe Coding与AI Agent实践》《公共演讲与辩论》&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;课程总共两周，实际上从开始到答辩可能只有一周半不到的时间，加上还有中期答辩和各种文档。&lt;strong&gt;1学分，最后均分 86.55&lt;/strong&gt;，看上去还行，但实在折磨。&lt;/p&gt;
+&lt;h3 id="小学期大数据系统开发"&gt;小学期——大数据系统开发
+&lt;/h3&gt;&lt;p&gt;上述《计算机专业基础实习》占据了小学期的前两周，而《大数据系统开发》是后一周。考试时间会在之后，可以留几天时间复习。&lt;/p&gt;
+&lt;p&gt;这门课是公式的背ppt知识点，以及将往年题的答案背一背。实验方面AI都可以搞定。&lt;strong&gt;1学分，均分84.45&lt;/strong&gt;。&lt;/p&gt;
+&lt;h3 id="计算机系统导论"&gt;计算机系统导论
+&lt;/h3&gt;&lt;p&gt;这门课源自 CMU 的 CSAPP&lt;sup id="fnref:6"&gt;&lt;a href="#fn:6" class="footnote-ref" role="doc-noteref"&gt;6&lt;/a&gt;&lt;/sup&gt;，知识面很广，认真学下来也会有收获。最终考试与往年题重合度很高。&lt;strong&gt;课程有5学分，很重要。平均分80.45&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;这门课程入门可以看九曲阑干的讲解&lt;sup id="fnref:7"&gt;&lt;a href="#fn:7" class="footnote-ref" role="doc-noteref"&gt;7&lt;/a&gt;&lt;/sup&gt;，然后利用AI看相应PPT与书本，尤其关注书本上的练习题。如果时间实在充裕，也可以考虑做一点北大的CSAPP试卷&lt;sup id="fnref:8"&gt;&lt;a href="#fn:8" class="footnote-ref" role="doc-noteref"&gt;8&lt;/a&gt;&lt;/sup&gt;（较难）。&lt;/p&gt;
+&lt;p&gt;参考 BIT101 上的课程评论，往年卷结构与具体题目如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;20道选择题，各种小的知识点，主要是第1章与第10-12章。&lt;/li&gt;
+&lt;li&gt;8道大题，覆盖2-9章，每章一个。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;下面&lt;code&gt;电子书页码 = 课本页码 + 36&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;我按照上一级(22)与我这一级(23)，大概描述一下大题（从1开始编号，因此对应章节为编号加一）：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;(22)给定无符号数/有符号数补码，看二进制相加后是否溢出。&lt;/li&gt;
+&lt;li&gt;(22、23)IEEE 754浮点数表示方法，主要是32位，要熟练各个种类（规约形式、非规约形式、无穷与NaN），以及给定小数转换成相应IEEE浮点数表示，或者反过来。&lt;/li&gt;
+&lt;li&gt;(23)判断几个C语言相关的表达式是否正确，不为真时给出反例，参考练习题2.44、2.54。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;（22）给定函数的C语言与汇编语言，画出栈结构，分析缓冲溢出，改善代码。&lt;/li&gt;
+&lt;li&gt;（23）家庭作业3.64，给定C语言与汇编语言，考三维定长数组的地址计算，分析寄存器变化。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;(22、23)练习题4.13-4.14类型题目，也就是每个指令在各个阶段的操作。可以带着理解记忆。23级考了jxx从取值到新PC每阶段的表格，课本270页图4-21。&lt;/li&gt;
+&lt;li&gt;(22、23)课本318页，背图4-66，会直接挖空让你填写，好像占5分多。我这一年考的是这个表，不确定会不会考其他表，时间紧也可以就这么背不关心它们的区别。（事实上我都没背下来，在这里扣了几分）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;(22、23)练习题 5.5 与 5.6 类似题目，考运算次数、CPE，优化。23级加了一问写成2*1a循环。&lt;/li&gt;
+&lt;li&gt;(22)写出局部优化和全局优化的具体技术，以及影响优化的因素（内存别名和函数调用，课本344页）。&lt;/li&gt;
+&lt;li&gt;(22)课本370页，参考图5-21，写一个循环展开（例如2x2或者3x3）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;(22、23)高速缓存大小计算 C=SxExB。&lt;/li&gt;
+&lt;li&gt;(22)课本家庭作业 6.36（455页）类似题目，分析数组使用缓存时的不命中率。&lt;/li&gt;
+&lt;li&gt;(23)家庭作业 6.34，判断矩阵缓存是否命中。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;(22、23)判断符号是全局、局部、外部，是强是弱。&lt;/li&gt;
+&lt;li&gt;(22、23)练习题7.3改编，循环引用的编译命令。&lt;/li&gt;
+&lt;li&gt;(22、23)练习题7.5改编，进行重定位位置计算。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;(22)练习题8.3改编，画出进程图。&lt;/li&gt;
+&lt;li&gt;(22)练习题8.4改编，画进程图，写出各种可能的输出。&lt;/li&gt;
+&lt;li&gt;(23)家庭作业8.23改编，练习题8.16改编，加了个循环。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;(22)课本图9-20，练习题9.4，题目提供数据，进行虚拟地址翻译、访问缓存。&lt;/li&gt;
+&lt;li&gt;(23)第一问考课本579页的多级页表结构；第二问给虚拟地址从TLB或页表那PPN，然后物理地址去高速缓存判断是否命中，类似课本573页。家庭作业9.12改编。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;可以看出，整体题量偏大，考试时间紧张。上述题目出自22与23级学长/学姐，我这一级考试与上一级相差不大，因此下一级可以参考，但我无法保证之后的考试也都是这类型的题目。&lt;/p&gt;
+&lt;p&gt;如果你希望追求稳定，建议考前1-2周还是都过一遍课本与课本练习题；如果实在没时间，那就利用llm针对上述题目提问，强行overfit记住每一题的解题方法，考试套用。&lt;/p&gt;
+&lt;h3 id="操作系统"&gt;操作系统
+&lt;/h3&gt;&lt;p&gt;考研408科目之一，自然有很多考研资料&lt;sup id="fnref:9"&gt;&lt;a href="#fn:9" class="footnote-ref" role="doc-noteref"&gt;9&lt;/a&gt;&lt;/sup&gt;。&lt;strong&gt;3学分，均分78.06&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;课程最后还有Linux与Windows的部分，需要记住一些概念，该部分在常规保研辅导书上没有。&lt;/p&gt;
+&lt;p&gt;常规学习可以向AI问PPT，以及做王道书上的题目。往年卷参考价值没那么大。&lt;/p&gt;
+&lt;p&gt;这一级的题型如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;15道单选，一题一分&lt;/li&gt;
+&lt;li&gt;25道填空，一题一分&lt;/li&gt;
+&lt;li&gt;6道简答题，每题5分&lt;/li&gt;
+&lt;li&gt;5道应用题，每题6分&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;可以看到，前面单选与填空题量较大，可以涉及到许多小的考点。后面大题可以参考2016-2017操作系统期末卷、2022-2023操作系统期末试卷，但题量比往年卷更大。&lt;/p&gt;
+&lt;h3 id="汇编语言与接口技术"&gt;汇编语言与接口技术
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;3学分，均分79.17&lt;/strong&gt;。期末占比70%，剩下10%是ARM架构论文+大数乘法实现，20%是个人完成汇编游戏/工具，期末前进行答辩。&lt;/p&gt;
+&lt;p&gt;喜欢我2026年考你远古x86汇编吗？喜欢一学期的csapp与汇编使用完全不同的表示方法吗？&lt;/p&gt;
+&lt;p&gt;所幸这门课与往年卷重合度很高，重点参考&lt;strong&gt;2015、2017、2019、2020的真题&lt;/strong&gt;，我这一级的题目基本往年都考过。&lt;/p&gt;
+&lt;p&gt;学习前可以先掌握CSAPP中汇编部分，之后再来看这门课。PPT上信息可能较少，不如直接看课本。&lt;/p&gt;
+&lt;p&gt;题型如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;单选15题，每题一分&lt;/li&gt;
+&lt;li&gt;多选5题，每题两分&lt;/li&gt;
+&lt;li&gt;填空5题，每题两分&lt;/li&gt;
+&lt;li&gt;简答题6题，每题五分
+&lt;ol&gt;
+&lt;li&gt;movsd指令，执行后写出esi，dsi的值&lt;/li&gt;
+&lt;li&gt;写出&lt;code&gt;A=C*D-4&lt;/code&gt;的指令&lt;/li&gt;
+&lt;li&gt;CS EIP如何得到物理地址&lt;/li&gt;
+&lt;li&gt;lea和mov offset在寻址、执行、结果的区别&lt;/li&gt;
+&lt;li&gt;利用移位和加法实现 &lt;code&gt;x=x*21&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;用lea实现 &lt;code&gt;esi=edi*2-18&lt;/code&gt;，并说明实现原理&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;反汇编C语言题，20分，有四小问，可以参考2015级的反汇编题目&lt;/li&gt;
+&lt;li&gt;手写汇编大题，15分，具体如下
+&lt;ul&gt;
+&lt;li&gt;写出完整的32位汇编代码，输入两个字符串，在大小写不敏感的情况下，比较字符串是否相等。例如AbCD与aBCd是相等的。如果相等，输出Yes；否则输出No。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="计算机视觉"&gt;计算机视觉
+&lt;/h3&gt;&lt;p&gt;计拔的必修课，睿信计科与特立计科好像都没有。&lt;strong&gt;3学分，均分81.80&lt;/strong&gt;。半开卷考试，也就是可以将知识点写在/打印在一张正反的A4纸上。&lt;/p&gt;
+&lt;p&gt;虽然BIT101课程评价中，不少同学对fy怨声载道；但我感觉你只要不去听她讲了什么，关系不大。&lt;/p&gt;
+&lt;p&gt;课程有大作业。在AI发达的今天，不算什么大问题。除了大作业答辩之外，似乎没怎么点过名。课程复习可以看PPT。&lt;/p&gt;
+&lt;h3 id="社会实践"&gt;社会实践
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;2学分，均分86.96&lt;/strong&gt; 。毛概课程后期会有相关老师通知，大三上开学后提交。没啥好说的，多用AI。&lt;/p&gt;
+&lt;h3 id="选修计算机新技术专题"&gt;（选修）计算机新技术专题
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;2学分，均分90.7&lt;/strong&gt;。挂名的老师是黄河燕，实际每节课都是一位新老师讲自己的研究方向。课程主要是大作业论文，比较方便解决。除此之外，还会有几次点名，有时间最好还是去教室。&lt;/p&gt;
+&lt;h3 id="选修自然语言处理初步"&gt;（选修）自然语言处理初步
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;2学分，均分89，老师为高扬&lt;/strong&gt; 。大作业是小组完成一个研究形式的大模型项目。如果你或同学已经发表过llm相关论文，也可以直接使用。小作业使用线上的平台。&lt;/p&gt;
+&lt;h3 id="选修强化学习"&gt;（选修）强化学习
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;2学分，均分88.96，老师为李国政、刘驰&lt;/strong&gt;。老师讲的还行，虽然我也没怎么听。大作业是在开悟平台上，训练王者荣耀的游戏Agent。这个环境很恶心，你只能在线上编辑器中编辑，且该环境似乎不与外网相连，不方便使用Coding Agent。可能方案是想办法将代码下载下来，然后本地使用Coding Agent。&lt;/p&gt;
+&lt;p&gt;不过，最后发现其实也不怎么需要改代码。去年排名较高的组，只是简单地训练了100h，甚至没怎么调参数。所以建议尽量早开始训练。&lt;/p&gt;
+&lt;h2 id="大三下"&gt;大三下
+&lt;/h2&gt;&lt;h3 id="计算机网络"&gt;计算机网络
+&lt;/h3&gt;&lt;p&gt;3学分，均分79.61。作为408科目之一，自然有相当多考研资料。不过我没有刷相关考研题目，而是根据ppt+往年卷复习。相关科普书有《网络是怎样连接的》&lt;sup id="fnref:10"&gt;&lt;a href="#fn:10" class="footnote-ref" role="doc-noteref"&gt;10&lt;/a&gt;&lt;/sup&gt;，可以用几天时间看完。&lt;/p&gt;
+&lt;p&gt;时间紧张情况下（1-2天时间内），完全可以按照题型问AI进行overfit，掌握每种大题的公式，套用即可。&lt;/p&gt;
+&lt;p&gt;考试全英文，可以参考2013级试卷。今年题型如下，共10道大题：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;20道选择题，共20分。与2013级题目不同，其中大多数题目是概念判断题，少数是计算题。复习时建议看ppt熟悉英文名词与相关概念。&lt;/li&gt;
+&lt;li&gt;第三章，三种协议，10分。三种协议指Stop-and-Wait、Go-Back-N、Selective Repeat，求它们的利用率，以及sequence number和利用率的关系。&lt;/li&gt;
+&lt;li&gt;第四章，交换机，10分。题目提供网络的图，让你填写交换机中表的变化。&lt;/li&gt;
+&lt;li&gt;第五章，OSPF协议，9分。可以参考2013级的第6题。已知邻接表，需要填写一些表，并画出网络拓扑图。还会问OSPF的几种报文类型。&lt;/li&gt;
+&lt;li&gt;第五章，ARP，8分。已知拓扑图，A向B传递信息，要写出传递信息之前ARP请求、应答帧的内部结构。包括以太帧的Dest与Source MAC，ARP报文内部的Sender/Target各自的MAC/IP。&lt;/li&gt;
+&lt;li&gt;第五章，划分子网和路由聚合，8分。参考2013级的第7题。本题是升级版，按顺序划分4000、2000、4000、8000个，写出IP地址范围和子网掩码。&lt;/li&gt;
+&lt;li&gt;第五章，填路由表，7分。已知网络拓扑图，要求填路由表。最后填写tracert命令的回答，也就是写路径。&lt;/li&gt;
+&lt;li&gt;第六章，PDU分析，8分。参考2013级第10题，相差不大。&lt;/li&gt;
+&lt;li&gt;第六章，TCP拥塞窗口，10分。今年没有给图，给的是英文描述，要求写出窗口大小，以及握手时SYN、ACK等的值。&lt;/li&gt;
+&lt;li&gt;HTTP传输，10分。要求计算non-persistent、persistent情况下的RTT。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="计算机组成与体系结构"&gt;计算机组成与体系结构
+&lt;/h3&gt;&lt;p&gt;3学分，均分86.83。依旧408科目之一。&lt;/p&gt;
+&lt;p&gt;期末题型如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;10道选择题，每题3分&lt;/li&gt;
+&lt;li&gt;8道大题，共70分&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;考试题目基本都源自乐学作业题改编，考前建议复习相应作业题。试卷不多，例如2022～2023年试卷，参考价值没那么大。&lt;/p&gt;
+&lt;p&gt;我重新看作业题，能回忆起来的一些题型：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;第一章，求CPI、MIPS相关。&lt;/li&gt;
+&lt;li&gt;第二章，二进制的源码、补码、反码转换。&lt;/li&gt;
+&lt;li&gt;第二章，有3/16、-5/16两个数，要求使用补码计算乘法，写出寄存器的个数与作用，以及详细计算过程。&lt;/li&gt;
+&lt;li&gt;第二章，给一些指令与出现频率，要求使用Huffman编码，写出编码结果，并计算平均长度。&lt;/li&gt;
+&lt;li&gt;第四章，给一些存储芯片，求需要多少片，以及相应逻辑结构图。&lt;/li&gt;
+&lt;li&gt;第四章，页式虚拟存储系统，已知访问页面的顺序，要求写出FIFO、LRU与OPT三种算法的情况表，并计算命中率。&lt;/li&gt;
+&lt;li&gt;第五章，已知微指令与微命令信号的表，要求安排微指令的操作控制字段格式，并将全部微指令代码化。&lt;/li&gt;
+&lt;li&gt;第五章，已知流水线处理机的预约表，要求写出延迟禁止表F、冲突向量C，画出流水线状态转移图（还有些别的忘了）。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="软件工程基础"&gt;软件工程基础
+&lt;/h3&gt;&lt;p&gt;2学分，均分79.65。有小组项目，需要提交一大堆文档，但是并不需要提交真正的代码或最终结果。&lt;/p&gt;
+&lt;p&gt;这么课我都没怎么学，基本全靠考前一两天突击。可以参考一些往年卷。&lt;/p&gt;
+&lt;p&gt;考试题型如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;20道选择题&lt;/li&gt;
+&lt;li&gt;简答题1，选择开发模型并提供理由&lt;/li&gt;
+&lt;li&gt;简答题2，根据描述，确定是哪一种软件维护，并说明理由&lt;/li&gt;
+&lt;li&gt;大题1，给定情景（员工职级系统），画数据流图，写数据字典&lt;/li&gt;
+&lt;li&gt;大题2，根据代码，画盒图&lt;/li&gt;
+&lt;li&gt;大题3，根据代码，自己标号画流图，求环形复杂度，以及独立路径与测试用例&lt;/li&gt;
+&lt;li&gt;大题4，根据题目描述（指纹开锁系统），画顺序图&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="编译原理与设计"&gt;编译原理与设计
+&lt;/h3&gt;&lt;p&gt;3学分，均分74.27。考试题量较大，主要参考2023-2024学年的试卷（2021级），题型基本固定。今年考得比21级试卷简单。&lt;/p&gt;
+&lt;p&gt;今年题型如下（卷面总共70分，最后期末占比也是70分）：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;10道选择题，共10分，相对简单&lt;/li&gt;
+&lt;li&gt;10道填空题，共20分，涉及的知识点有：T形图，DFA转换为正则式，由正规式推文法，消除公共前缀转换成LL文法，逆波兰式转C语言，FOLLOW集计算，部分概念&lt;/li&gt;
+&lt;li&gt;大题1，10分，已知正规式，要求转换成NFA，然后转换成DFA，并且最小化&lt;/li&gt;
+&lt;li&gt;大题2，10分，已知文法，判断是四种LR文法中的哪一种；该部分计算繁杂，需要很多时间&lt;/li&gt;
+&lt;li&gt;大题3，10分，已知一段C语言程序，要求写出其中C语言的上下文无关文法描述，以及将代码转换为四元式，结果有20多行；程序涉及if else、while、条件运算、赋值等部分，例如&lt;code&gt;while(a==b&amp;amp;&amp;amp;(c==d||b==d)){}&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;大题4，10分，已知四元式代码段，要求划分基本块、对其中最长的基本块进行DAG、画出控制流图、写出每个节点的必经节点集、找出回边与循环&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="形势与政策"&gt;形势与政策Ⅵ
+&lt;/h3&gt;&lt;p&gt;说来搞笑，这学期形策在课程开放期间没点进去过，结果考试期间也进不去。询问老师后，说等通知。几周后通知下来，拉了个新的智慧树网络课去考试。最后60分刚好过。&lt;/p&gt;
+&lt;h2 id="参考资料"&gt;参考资料
+&lt;/h2&gt;&lt;div class="footnotes" role="doc-endnotes"&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id="fn:1"&gt;
+&lt;p&gt;计算机底层的秘密. Anna&amp;rsquo;s Archive. &lt;a class="link" href="https://annas-archive.gl/md5/2e5b7046fe8917aed7ae90880c71333e" target="_blank" rel="noopener"
+&gt;https://annas-archive.gl/md5/2e5b7046fe8917aed7ae90880c71333e&lt;/a&gt;&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:2"&gt;
+&lt;p&gt;Core Dumped. Youtube. &lt;a class="link" href="https://www.youtube.com/@CoreDumpped/videos" target="_blank" rel="noopener"
+&gt;https://www.youtube.com/@CoreDumpped/videos&lt;/a&gt;&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:3"&gt;
+&lt;p&gt;deepseek-harness. Github. &lt;a class="link" href="https://github.com/deepseek-ai/deepseek-harness/blob/master/README.zh.md" target="_blank" rel="noopener"
+&gt;https://github.com/deepseek-ai/deepseek-harness/blob/master/README.zh.md&lt;/a&gt;&amp;#160;&lt;a href="#fnref:3" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:4"&gt;
+&lt;p&gt;CC Switch
+. &lt;a class="link" href="https://github.com/farion1231/cc-switch" target="_blank" rel="noopener"
+&gt;https://github.com/farion1231/cc-switch&lt;/a&gt;&amp;#160;&lt;a href="#fnref:4" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:5"&gt;
+&lt;p&gt;Codex. &lt;a class="link" href="https://openai.com/codex/" target="_blank" rel="noopener"
+&gt;https://openai.com/codex/&lt;/a&gt;&amp;#160;&lt;a href="#fnref:5" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:6"&gt;
+&lt;p&gt;CMU CS15213: CSAPP. CSDIY. &lt;a class="link" href="https://csdiy.wiki/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E5%9F%BA%E7%A1%80/CSAPP/" target="_blank" rel="noopener"
+&gt;https://csdiy.wiki/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E5%9F%BA%E7%A1%80/CSAPP/&lt;/a&gt;&amp;#160;&lt;a href="#fnref:6" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:7"&gt;
+&lt;p&gt;【CSAPP-深入理解计算机系统】1-1.计算机系统漫游.B站. &lt;a class="link" href="https://www.bilibili.com/video/BV1cD4y1D7uR" target="_blank" rel="noopener"
+&gt;https://www.bilibili.com/video/BV1cD4y1D7uR&lt;/a&gt;&amp;#160;&lt;a href="#fnref:7" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:8"&gt;
+&lt;p&gt;Introduction-to-Computer-System-2023Fall-PKU. Github. &lt;a class="link" href="https://github.com/zhuozhiyongde/Introduction-to-Computer-System-2023Fall-PKU" target="_blank" rel="noopener"
+&gt;https://github.com/zhuozhiyongde/Introduction-to-Computer-System-2023Fall-PKU&lt;/a&gt;&amp;#160;&lt;a href="#fnref:8" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:9"&gt;
+&lt;p&gt;2025王道操作系统考研复习指导. Anna&amp;rsquo;s Archive. &lt;a class="link" href="https://annas-archive.gl/md5/f7a5823c72443d4e64ddc47ac5ea2fb4" target="_blank" rel="noopener"
+&gt;https://annas-archive.gl/md5/f7a5823c72443d4e64ddc47ac5ea2fb4&lt;/a&gt;&amp;#160;&lt;a href="#fnref:9" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:10"&gt;
+&lt;p&gt;网络是怎样连接的_户根勤. Github. &lt;a class="link" href="https://github.com/tongxurt/pdfs" target="_blank" rel="noopener"
+&gt;https://github.com/tongxurt/pdfs&lt;/a&gt;&amp;#160;&lt;a href="#fnref:10" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</description></item><item><title>计科大二通关指南</title><link>https://ovideros.site/p/guidance2/</link><pubDate>Tue, 08 Jul 2025 00:00:00 +0000</pubDate><guid>https://ovideros.site/p/guidance2/</guid><description>&lt;img src="https://ovideros.site/p/guidance2/guidance2.jpg" alt="Featured image of post 计科大二通关指南" /&gt;&lt;p&gt;其他指南：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://ovideros.site/p/guidance/" &gt;信科大一通关指南&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://ovideros.site/p/guidance3/" &gt;计科大三通关指南&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://ovideros.site/p/baoyan/" &gt;2026年计算机保研经验贴&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="-前言"&gt;▶️ 前言
+&lt;/h2&gt;&lt;p&gt;相信各位应该看过&lt;a class="link" href="https://ovideros.site/p/guidance/" &gt;信科大一通关指南&lt;/a&gt;。其中心态篇与方法篇也介绍了许多内容，各位感觉有需要可以翻一翻。&lt;/p&gt;
+&lt;p&gt;睿信与特立在大一暑假，便要选专业。当时我因为各种专业的差别，犹豫了很久。最后发现自己排名很高，于是选择了计拔。现在回头来看，在计算机大类中，各个专业（计科、软工、AI、大数据）具体差别并不大，只要你选择的专业符合你的需求即可。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;对于软件工程专业，多谢Reina同学写了一个&lt;a class="link" href="https://ri-nai-bit-se.github.io/BIT-SE/" target="_blank" rel="noopener"
+&gt;北京理工大学软件工程课程资料仓库&lt;/a&gt;，质量很高，里面也有对各个课程的评价，可以与本指南互补。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;需要注意，本攻略只是记载了我对于许多课程的主观看法以及个人心得，并不能做到客观。事实上，不同课程对于不同人都会有不同的难度，每个人都会有自己独特的方法。&lt;strong&gt;并不存在一种学习方法可以推之四海而皆准，适合自己的才是最好的&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;同时，作为一个&lt;strong&gt;应试&lt;/strong&gt;还不错的人，下面不少内容可能都存在&lt;strong&gt;幸存者偏差&lt;/strong&gt;或者&lt;strong&gt;片面归因&lt;/strong&gt;。“成功者”想要写一个攻略，便会找一些理由，然而这些理由可能只是成功的推进因素，并不是决定性因素（可参考&lt;a class="link" href="https://www.bilibili.com/video/BV1pk4y1y7Bo/" target="_blank" rel="noopener"
+&gt;真理元素的这期视频&lt;/a&gt;）。同时，每个人的关键优势也不相同。这里我举一个科幻的例子—— &lt;a class="link" href="https://scp-wiki-cn.wikidot.com/scp-cn-3000" target="_blank" rel="noopener"
+&gt;SCP-CN-3000 - 众节点永垂不朽&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;下一段存在剧透，对此 SCP 感兴趣的或者想读一读的建议先去看看&lt;a class="link" href="https://scp-wiki-cn.wikidot.com/scp-cn-3000" target="_blank" rel="noopener"
+&gt;源文档&lt;/a&gt;）&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;正文无关。我初高中阶段出于无聊，用 Kindle 联网，看过一些 SCP 的作品，感觉很有意思。进入大学以来，几乎没怎么看过。这学期考试周前一周，我打开了 SCP CN，虽然知道很早就有 CN 3000 了，不过还没看。用 2h 看完了，感到相当震撼。如果你此前没有接触过 SCP，但是对科幻相关感兴趣，推荐看一看。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;p&gt;在 SCP-CN-3000 中，为了应对非物质，众人经过不断尝试，发现了一种方案——不同人根据稀金的指引，用独特的方式改变自身，达到有效特征向量，并将其广播，进而成为节点。该过程相当多样的——有利用稀金追求梦想的工匠，有放浪形骸的酿酒师，有为了拯救世界而失去心脏的情侣，有勇敢猎杀太阳的猎手&amp;hellip;&amp;hellip; 为什么这些人可以用独特的方式找到有效地特征向量呢？没人知道。异常并不会回答。&lt;strong&gt;但是每一个成为节点的个体，都充分发挥了自己的特质，将自身的喜好与优势坚持到底&lt;/strong&gt;。这便是人类能够反抗异常的力量。&lt;/p&gt;
+&lt;p&gt;回到刚刚的话题，不同人因为先天与后天的各种条件不同，都是独特的个体。所以，本文也只是记录了一种&lt;strong&gt;符合我个人特性&lt;/strong&gt;的学习方式与个人心得，在我身上，它很适用。但对于不同特性的人，方法不尽相同。一味照搬我的方法，并不能让你的学习效率变高，反而有可能因为不适合，成为某种路径依赖，阻碍了真正有效的方式。&lt;/p&gt;
+&lt;p&gt;说回“幸存者偏差”，接下来留下来的攻略，反而可能并不是成功的关键因素，而是次要因素。&lt;strong&gt;真正关键的因素，是隐藏在具体方法或具体路径之后的精神，是每个人特有的价值&lt;/strong&gt;——例如积极地搜集各类信息与资源，大胆地改变过去的做法，无畏地尝试新事物，对自身特性的理解，对知识纯粹的好奇等等。许多特性在大众看来是较为少见的——例如我了解&lt;strong&gt;有学长不刷各类社交媒体与长短视频网站，拥有殖民火星的梦想，并以此为动力积极创业；有学长课内成绩并不优秀，但对于科研有发自内心的兴趣，对知识具有好奇心，本科阶段发了多篇顶会文章；有学长“比较俗气”地想搞钱，积极学习开发技术，去多个大厂实习，本科毕业拿到好 offer &amp;hellip;&amp;hellip;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;对于我个人而言，我可能并没有那么纯粹的特质，不过经过两年的大学生活，可能也找到了一些：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;我觉得真正理解知识是有趣的，为此会选择主动寻找资源帮助理解&lt;/li&gt;
+&lt;li&gt;我喜欢从多重视角看问题，甚至是不同学科的视角&lt;/li&gt;
+&lt;li&gt;对于难以平衡的一些事情（例如科研 vs 竞赛 vs 水综测），我会选择直接放弃不重要的&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;所以，下面的攻略或多或少会包含我的这些个人特质，请各位明鉴。也希望各位可以积极探索，或许可以找到一些自己的特质吧。&lt;/p&gt;
+&lt;h3 id="大二上的顶级折磨"&gt;大二上的顶级折磨
+&lt;/h3&gt;&lt;p&gt;下面采取&lt;strong&gt;更新&lt;/strong&gt;式的方法，说一说我认为大二与大一的区别。&lt;/p&gt;
+&lt;p&gt;如果你是信科，想必感受到了大一下与大一上难度有着鸿沟。然而大二上也不简单。具体来说，&lt;strong&gt;我们这一届大一下平均分为 79.3，大二上平均分为 78.3&lt;/strong&gt; 。这还是许多优秀学生选择去计算机学院，卷出来的结果。&lt;/p&gt;
+&lt;p&gt;我们这一届的核心课程如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;数据结构与算法设计，5 学分&lt;/li&gt;
+&lt;li&gt;离散数学，4 学分&lt;/li&gt;
+&lt;li&gt;大学物理A II，4 学分&lt;/li&gt;
+&lt;li&gt;概率论与数理统计，3 学分&lt;/li&gt;
+&lt;li&gt;马原，3 学分&lt;/li&gt;
+&lt;li&gt;数值分析，2 学分&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;小学期有两门课——程序设计方法与实践，1 学分；网站开发，1 学分。&lt;/p&gt;
+&lt;p&gt;根据课表，今年开始，5 学分的数据结构与算法设计变成了 3.5 学分的数据结构课，又拆开了。&lt;/p&gt;
+&lt;p&gt;并且，今年小学期好像合并了网站开发与算法题两门课程。原先，这两门课各自 1 学分，现在合起来变成了 3 学分的课，不确定会如何。&lt;/p&gt;
+&lt;h3 id="大二下稍微放松"&gt;大二下稍微放松
+&lt;/h3&gt;&lt;p&gt;大二下相对轻松一些，可以多选一些选修课。&lt;/p&gt;
+&lt;p&gt;核心课程如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;数据库原理，3 学分&lt;/li&gt;
+&lt;li&gt;毛中特，3 学分&lt;/li&gt;
+&lt;li&gt;面向对象技术与方法，2 学分&lt;/li&gt;
+&lt;li&gt;数字逻辑，2 学分&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如果你是计科的，那么就没了。计拔会多一门数据科学与大数据技术的数学基础，2 学分，这门课也是&lt;strong&gt;大数据专业与大数据全英班&lt;/strong&gt;的必修课。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="心态篇补充"&gt;💛心态篇补充
+&lt;/h2&gt;&lt;h3 id="关于未来方向"&gt;关于未来方向
+&lt;/h3&gt;&lt;p&gt;进入大二，你应该逐渐明确自己的专业方向与未来路径，并知道课外应该往哪方面努力（例如多刷一些&lt;a class="link" href="https://csdiy.wiki/" target="_blank" rel="noopener"
+&gt;公开课&lt;/a&gt;提升实力，多刷算法题打 acm，多去工训楼搞机器人队，多学开发技术进大厂实习，或者进组科研实习等等）。&lt;/p&gt;
+&lt;p&gt;因为每个人的路径并不相同，所以这方面并没有统一的答案。很多事情是个人偏好决定的。例如在&lt;a class="link" href="https://csbaoyan.top/" target="_blank" rel="noopener"
+&gt;计算机保研指南&lt;/a&gt;中，有的人倾向学校的 title，有的人倾向好城市，有的人倾向于好导师。这都没有对错，只是不同人有不同的喜好罢了。&lt;/p&gt;
+&lt;p&gt;不过，我还是建议各位尽早尝试，这样有可能找到自己比较&lt;strong&gt;喜欢的&lt;/strong&gt;方向。其实喜欢也并非一个很高的标准，只要你不讨厌每天花几个小时做这件事，并且持续几个星期，我觉得至少可以说明不讨厌。&lt;/p&gt;
+&lt;h3 id="关于信息"&gt;关于信息
+&lt;/h3&gt;&lt;p&gt;该帖子推荐了许多有意思的CS相关Wikis：&lt;a class="link" href="https://ovideros.site/p/awesome_cs_wikis/" &gt;Awesome CS Wikis&lt;/a&gt;。&lt;/p&gt;
+&lt;h3 id="关于计算机专业课"&gt;关于计算机专业课
+&lt;/h3&gt;&lt;p&gt;大二选择计科后，你会接触到很多计算机学院的专业课（包括必修与选修），充分感受到课程与考核的抽象——PPT 无法反映最新技术，是几十年一成不变的；考试无法反映真实理解水平，很多只是死记硬背；有些授课水平一言难尽，没有听的必要。&lt;/p&gt;
+&lt;p&gt;至于该课程或者授课水平怎么样，可以在 BIT101 的课程界面上提前搜一搜，有一个印象。如果&lt;em&gt;差评如潮&lt;/em&gt;，那么就要当心了。&lt;/p&gt;
+&lt;h3 id="关于选修课"&gt;关于选修课
+&lt;/h3&gt;&lt;p&gt;学校中选修课有两大类——全校公选课，以及专业选修课。前者全校都可以选修，要求的是 6-8 学分；后者是每个学院特有的，需要根据培养计划选够足够的学分，例如计科是 12 学分，计拔是 14 学分。这一届具体可以参考&lt;a class="link" href="https://jwb.bit.edu.cn/dlpy/zysz/5aaa1192486043fcbdcc41ac45ca6f13.htm" target="_blank" rel="noopener"
+&gt;教务部的培养方案&lt;/a&gt;，目前 24 级还没有出。&lt;/p&gt;
+&lt;p&gt;我大二上没有选修，大二下选修了两门。&lt;/p&gt;
+&lt;p&gt;有学长建议从大二上到大四上（大四下没有专业选修课），每学期的选修课如下——1, 4, 1, 0, 1（针对 14 学分的情况）。然而我的可能是 0, 2, 2, 1, 2 或者 0, 2, 2, 0, 3。具体怎样，可以根据情况安排，不过有空还是提前多选一些比较好。&lt;/p&gt;
+&lt;p&gt;个人来看，选修课可以分为三大类（具体这门课如何，可以参考 BIT101 上的评论与往年均分）——&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;水，给分高。这类课通常很热门，能否抽到需要看运气。&lt;/li&gt;
+&lt;li&gt;硬核，给分低，但是能学到真东西。例如金旭亮老师的开发系列课程。&lt;/li&gt;
+&lt;li&gt;讲的烂，给分还低。这一类没有什么选择的必要。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="关于给分"&gt;关于给分
+&lt;/h3&gt;&lt;p&gt;宏观来看，期末考试可能有三种形式——&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;机考作答，例如 C 语言。这种形式较少，大二全年只有数字逻辑这门课是机考。&lt;/li&gt;
+&lt;li&gt;答题卡作答，例如大学物理、概率论。这些课程改卷相对公正，老师之间随机批改。&lt;/li&gt;
+&lt;li&gt;纸质试卷作答，最常见的形式。这类课程有较大的&lt;strong&gt;灵活性&lt;/strong&gt;。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;纸质试卷的灵活性就在于，大多数班级的纸质试卷，都是由&lt;strong&gt;授课老师&lt;/strong&gt;亲自批改的。这就意味着有一定的放水空间。然而，不同老师的批改方式可能不完全统一，造成不同班级的考试结果不公平。所以，如果试卷答得很好，但期末成绩并不理想，或者是反过来，都可能有这方面的因素。&lt;/p&gt;
+&lt;h3 id="关于考试时间"&gt;关于考试时间
+&lt;/h3&gt;&lt;p&gt;大二开始，许多专业课的考试都会塞满大量的题目，力求覆盖各类知识点。所以，&lt;strong&gt;考试的题量相当大，也很有可能做不完&lt;/strong&gt;（例如离散数学、数值分析、数据库原理与设计等等）。&lt;/p&gt;
+&lt;p&gt;并且，许多科目网上流传的往年卷都是“难度降低”版本的，实际考试的难度往往更高。&lt;strong&gt;建议提前做好思想准备，考场上根据作答情况，灵活调整时间，大胆跳过，避免出现最后时间不够的情况&lt;/strong&gt;。&lt;/p&gt;
+&lt;h3 id="关于专业路线"&gt;关于专业路线
+&lt;/h3&gt;&lt;p&gt;既然各位点进了这个攻略，应该或多或少选择了计算机相关专业。那么，作为相关专业的学生，应该了解专业要学习什么。&lt;/p&gt;
+&lt;p&gt;在此推荐一下 &lt;a class="link" href="https://hackway.org/docs/cs/intro" target="_blank" rel="noopener"
+&gt;HackWay&lt;/a&gt; 与 &lt;a class="link" href="https://csdiy.wiki/CS%E5%AD%A6%E4%B9%A0%E8%A7%84%E5%88%92/" target="_blank" rel="noopener"
+&gt;CSDIY 上的 CS 学习规划&lt;/a&gt;，各位可以参考名校的计算机培养方案，了解计算机的大致学习内容。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;接下来的介绍部分利用 Gemini 2.5 Pro 进行润色，AI 生成。本文其他部分都没有用到 LLM。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;接下来，我们用一个“盖房子”的比喻，自底向上地看看计算机科学的全景图：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;地基：物理与数学&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;这是什么？ 一切的起点是物理学的半导体（晶体管）和数学的布尔代代数。它们告诉你如何用“开”和“关”这两个状态（0和1）来构建逻辑。&lt;/li&gt;
+&lt;li&gt;对应课程： 离散数学、数字逻辑电路。&lt;/li&gt;
+&lt;li&gt;一句话理解： 这是制造砖块（逻辑门）和水泥（运算规则）的方法。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;框架结构：计算机体系结构&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;这是什么？ 有了砖块，我们怎么把它们搭成一个能计算的“毛坯房”？CPU、内存、硬盘这些硬件如何协同工作？指令集（机器码）就是这个房子的“建筑指令”。为了方便人类理解，我们给机器码套上了一层“助记符”，这就是汇编语言。&lt;/li&gt;
+&lt;li&gt;对应课程： 计算机组成原理、汇编语言。&lt;/li&gt;
+&lt;li&gt;一句话理解： 设计房子的承重墙、房梁和水电线路，并规定了最基础的施工口令。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;灵魂核心：算法与数据结构（贯穿所有层）&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;这是什么？ 这是计算机科学的“内功心法”，是解决问题的通用“方法论”。无论你盖什么房子，都需要高效的组织材料（数据结构）和快速的施工方法（算法）。&lt;/li&gt;
+&lt;li&gt;对应课程： 数据结构、算法导论。&lt;/li&gt;
+&lt;li&gt;一句话理解： 它不是房子的一部分，而是盖房子的蓝图和施工工艺。学好它，你的“建筑水平”才能登堂入室。（这部分至关重要，请务必高度重视！）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;内部装修与管理：系统软件&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;这是什么？ 毛坯房太难住了，我们需要一个“物业管家”（操作系统）来管理水电（CPU、内存资源），安装“翻译器”（编译器）把我们人类说的高级语言（C++/Java/Python）翻译成机器能懂的“施工口令”。&lt;/li&gt;
+&lt;li&gt;对应课程： 操作系统、编译原理。&lt;/li&gt;
+&lt;li&gt;一句话理解： 从毛坯房到精装房，让房子变得宜居、易用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;对外连接：计算机网络&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;这是什么？ 房子盖好了，但不能是孤岛。我们需要修路（网络协议），让我们的房子能和别的房子通信、交换信息。&lt;/li&gt;
+&lt;li&gt;对应课程： 计算机网络。&lt;/li&gt;
+&lt;li&gt;一句话理解： 为你的房子接上互联网，连接世界。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;上层应用：入住与生活&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;这是什么？ 房子终于可以入住了！你可以在里面做各种各样的事情，这就是我们日常接触到的软件和应用。这也是大家未来最可能从事的领域。&lt;/li&gt;
+&lt;li&gt;主要方向：
+&lt;ul&gt;
+&lt;li&gt;Web开发： 建造各种网站（淘宝、B站），分为“装修”页面的前端和支撑服务的后端。&lt;/li&gt;
+&lt;li&gt;移动开发： 开发手机App（微信、抖音）。&lt;/li&gt;
+&lt;li&gt;人工智能/数据科学：训练聪明的“管家”（AI），让它帮你分析数据、识别图像。&lt;/li&gt;
+&lt;li&gt;游戏开发：在房子里建造一个虚拟游乐场。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;对应课程： 数据库、软件工程、Web开发、机器学习等各类专业选修课。&lt;/li&gt;
+&lt;li&gt;一句话理解： 在精装房里享受生活，并创造出丰富多彩的应用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;了解这个全景图，你会发现，即使你未来只想做“室内设计”（前端开发），懂一点“建筑结构”（计组、OS）也能让你避免设计出奇葩的方案，遇到问题时能更快地定位到是“墙体”还是“装修”的问题。这就是我们常说的“建立知识体系”，它能决定你未来能走多远。&lt;/p&gt;
+&lt;h3 id="关于自学"&gt;关于自学
+&lt;/h3&gt;&lt;p&gt;了解完上面的计算机学科架构后，便可以根据自己的情况，寻找相关资源进行自学。&lt;/p&gt;
+&lt;p&gt;自学后，往往能更从容地应对课程内容，也能在学期内留出更多时间做别的事。例如，我大一结束后暑假学完了 &lt;a class="link" href="https://csdiy.wiki/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/CS61B/" target="_blank" rel="noopener"
+&gt;CS61B&lt;/a&gt;，掌握了基础的数据结构与算法，所以面对大二上的数据结构课更加从容。&lt;/p&gt;
+&lt;p&gt;另一方面，自学后也能看清课程的重点，同时知道课程的大体框架，知道每一部分的作用。这对于学习来说也是很重要的。&lt;/p&gt;
+&lt;h3 id="关于缓考"&gt;关于缓考
+&lt;/h3&gt;&lt;p&gt;有时，我们总会遇到突发情况——例如考前生病，无法参加考试。对于要保研的同学来说，可能会很担心这一点。&lt;/p&gt;
+&lt;p&gt;实际上，有&lt;strong&gt;缓考&lt;/strong&gt;的机制存在。只要&lt;strong&gt;在考试前&lt;/strong&gt;提交缓考申请，就可以在下学期再次考试，不会影响你的成绩。&lt;/p&gt;
+&lt;p&gt;由于我并没有缓考的经验，所以也向一些有缓考经验的同学请教过。特别感谢 Timothy 编写了详细的缓考攻略，请各位参考 &lt;a class="link" href="https://ti-fdgg.github.io/2025/07/05/deferring-an-exam-in-BIT/" target="_blank" rel="noopener"
+&gt;Timothy 的博客&lt;/a&gt;。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="-方法篇补充"&gt;🔧 方法篇补充
+&lt;/h2&gt;&lt;p&gt;我在之前的方法篇里面介绍了总体的想法——&lt;strong&gt;效率比时间重要，费脑子的学习行为才是有效的，要积极利用先进设备&lt;/strong&gt;。这里我针对当下 LLM 发展、以及高效学习工作流进行补充，并提供关于考前突击的一些看法。&lt;/p&gt;
+&lt;h3 id="llm-发展"&gt;LLM 发展
+&lt;/h3&gt;&lt;p&gt;当今时代，LLM 发展迅猛。去年这个时候（24 年 6 月），最强的模型还是 GPT-4o，或者 Claude 3.5 Sonnet。到了 24 年 9 月，OpenAI o1 发布，是第一个具有推理能力（思维链）的模型。此后，25 年 1 月，Deepseek r1 发布，许多人第一次尝试了具有推理能力的模型。&lt;/p&gt;
+&lt;p&gt;去年，如果你随便截一张作业的图扔给 GPT-4o，往往会得到错误的回答。现如今，截图扔给 &lt;a class="link" href="https://aistudio.google.com/prompts" target="_blank" rel="noopener"
+&gt;Gemini 2.5 Pro&lt;/a&gt;，或者其他较强的最新模型（OpenAI o系列、Claude 4系列、Deepseek r1 0528、Doubao 1.6 等等）可以轻松得到高质量回复。这大大拓展了我们的学习能力。&lt;strong&gt;对着 PPT 哪里不理解，直接截图去问，或者把整个 PPT 喂过去&lt;/strong&gt;。鉴于目前许多 LLM 拥有 100k 以上的长文本，同时有思维链与多模态能力，基本上 90% 甚至 99% 的知识点与题目，你都可以直接不懂就问。&lt;/p&gt;
+&lt;h3 id="高效学习工作流"&gt;高效学习工作流
+&lt;/h3&gt;&lt;p&gt;拥有一个高效的工作流是一个常见的话题，例如 CSDIY 上就有&lt;a class="link" href="https://csdiy.wiki/%E5%BF%85%E5%AD%A6%E5%B7%A5%E5%85%B7/workflow/" target="_blank" rel="noopener"
+&gt;相应介绍&lt;/a&gt;。这里我主要针对&lt;strong&gt;应试&lt;/strong&gt;，提供一种可能的方案。&lt;/p&gt;
+&lt;p&gt;对于应试，较好的学习方案应该达到以下几点：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;可以充分利用现有资源，包括书籍、PPT、LLM 的回答等；&lt;/li&gt;
+&lt;li&gt;可以高效地复习知识点；&lt;/li&gt;
+&lt;li&gt;可以方便地刷往年题，并进行错题整理。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;我下面提供的基于 MarginNote4（后面简称 MN4）的方案便满足了这几点。当然，有的同学更倾向于纸质材料学习，也有的同学没有苹果相关设备，&lt;strong&gt;不过下面只是一种可能的方案，供各位参考。各位的方案只要能达到上面那几点，就可以了&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;我从大一下开始尝试使用 MN4，整理了一点工科数学分析下的试卷。从大二上开始，除了思政课，我都不怎么买书，直接找电子版传入 MN4。&lt;/p&gt;
+&lt;p&gt;对于 PPT 或课本中需要记忆的知识点，使用 MN4 的摘录工具形成卡片，每一个卡片正面就是对知识点的提示（例如正态分布的公式是什么），反面是具体知识点，例如：
+&lt;/p&gt;
+$$
+f(x) = \frac1{\sigma\sqrt{2\pi}}\; e^{-\frac{\left(x-\mu\right)^2}{2\sigma^2} }
+$$&lt;p&gt;根据每门课的篇章，可以划分为 4-10 个小部分，每一部分创建一个复习卡组。每个卡片绑定到相应复习卡组中，进入复习模式，便可以用记忆曲线的方式来复习卡片（类似 &lt;a class="link" href="https://apps.ankiweb.net/" target="_blank" rel="noopener"
+&gt;ANKI&lt;/a&gt;）。&lt;/p&gt;
+&lt;p&gt;绑定后，你可以隔一两周甚至一两个月复习一次，期末周继续发力。鉴于 MN4 对 PDF 的支持很好，可以将各类资源统一转换为 PDF（PPT、课本、试卷等），并且统一进行刷题。例如你可以把往年 10 多届的试卷都导入，用平板刷题。遇到错题，可以轻易地使用摘录工具形成卡片，并绑定到复习卡组。此后连着知识点与错题一起复习。&lt;/p&gt;
+&lt;p&gt;这种学习方法是比较高效的，至少我用这种方法可以高效地完成应试的工作。不过也有一些要求——因为 MN4 只支持 iOS 与 MacOS，你需要有 iPad 或者 Macbook，同时为了方便写，最好 iPad 买个笔（官方的太贵的，找一个平替即可）。&lt;/p&gt;
+&lt;p&gt;有条件可以考虑 iPad+Macbook，通过苹果自带的多端复制，可以在 iPad 上复制题目图片，粘贴到 Mac 上问 LLM。或者使用屏幕镜像中的随航，将 iPad 作为 Mac 的副屏使用。&lt;/p&gt;
+&lt;p&gt;当然，以上说的都是&lt;strong&gt;术&lt;/strong&gt;，并非&lt;strong&gt;道&lt;/strong&gt;。只要你能找到一个高效的工作流，不用过于在意具体的实现方式。上面只是一种可能的方案。&lt;/p&gt;
+&lt;h3 id="考前突击补充"&gt;考前突击补充
+&lt;/h3&gt;&lt;p&gt;一些公共课有大量的往年题目（例如概率论、大学物理下），然而对于计算机学院的专业课，&lt;strong&gt;能找到一两套的久远的往年题都算不错了&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;这种试卷的缺失，在深度学习的角度，可以看成是&lt;strong&gt;分布迁移(distribution shift)&lt;/strong&gt;，也即你的训练集与测试集的分布不同，导致泛化性能很弱。如果你做的都是书上面的题或者作业题，可能就与试卷上的题目相差很大。&lt;/p&gt;
+&lt;h4 id="方法一"&gt;方法一
+&lt;/h4&gt;&lt;p&gt;解决分布迁移有很多方法。&lt;strong&gt;最核心的还是多找一些真实数据&lt;/strong&gt;，例如 &lt;a class="link" href="https://github.com/YDX-2147483647/best-of-bits" target="_blank" rel="noopener"
+&gt;best of bits&lt;/a&gt; 或者 &lt;a class="link" href="https://bit101.cn/gallery/5850" target="_blank" rel="noopener"
+&gt;BIT101 上的 CS 仓库整理&lt;/a&gt; 的资源推荐，上面每一个 repo 都看一看，自己整理得到更多试卷。一些其他的途径，例如 &lt;a class="link" href="https://onedrive.bit101.cn/zh-CN/course/" target="_blank" rel="noopener"
+&gt;BIT101 网盘&lt;/a&gt;、贝塔驿站资料、睿信学指资料、学长学姐、身边其他老师班级的同学等，都尝试一下。&lt;/p&gt;
+&lt;h4 id="方法二"&gt;方法二
+&lt;/h4&gt;&lt;p&gt;⚠️下面有一些公式，只是为了好看，不影响全文的阅读。⚠️&lt;/p&gt;
+&lt;p&gt;解决分布迁移的第二个方法便是使用&lt;strong&gt;重要性采样&lt;/strong&gt;。在概率论中，设随机变量 $x$ 服从某个概率分布，例如 $p(x)$。这里的 $x$ 可以代表考试题目，$p(x)$ 代表考试题目的概率密度（例如有些考试题目常见，有些题目少见）。假设得分函数 $f_\theta(x)$ 是关于 $x$ 的函数，输入是题目，输出我们作答题目的得分，其中 $\theta$ 代表可以通过学习改进的参数（例如我们大脑中的神经元）。我们学习的目标就是最大化考试得分，也就是 $f_\theta(x)$ 的期望：
+&lt;/p&gt;
+$$
+\theta^* = \mathop{\arg\max}\limits_{\theta}\ \mathbb{E}_{x\sim p(x)}(f_\theta(x))
+$$&lt;p&gt;但是，因为往年题较少，所以 $p(x)$ 难以采样。相反，其他来源的题目容易采样（例如书上课后题等），假设这些训练集的题目的概率分布满足另一个分布 $q(x)$。那么，我们可以根据期望的定义，展开原先的式子：
+&lt;/p&gt;
+$$
+\mathbb{E}_{x\sim p(x)}(f_\theta(x)) = \int p(x)f_\theta(x)dx
+$$&lt;p&gt;
+接着，我们引入一个 “1”，进行化简：&lt;/p&gt;
+$$
+\mathbb{E}_{x\sim p(x)}(f_\theta(x)) = \int p(x)f_\theta(x)dx = \int \frac{q(x)}{q(x)}p(x)f_\theta(x) dx = \int \frac{p(x)}{q(x)}f_\theta(x)q(x) dx
+$$&lt;p&gt;最后，可以根据期望的定义，将 $q(x)$ 与 $dx$ 结合，变成期望：&lt;/p&gt;
+$$
+\mathbb{E}_{x\sim p(x)}(f_\theta(x)) = \int \frac{p(x)}{q(x)}f_\theta(x)q(x) dx = \mathbb{E}_{x\sim q(x)}(\frac{p(x)}{q(x)}f_\theta(x))
+$$&lt;p&gt;
+在此，我们证明了重要性采样，并且得到了重要性权重—— $\frac{p(x)}{q(x)}$。直观来讲，现在你不需要从原先考试题的分布 $p (x)$ 当中采样，而只需要在平时练习题的 $q (x)$ 采样，并在学习时乘以重要性权重——也就是根据 $\frac{p(x)}{q(x)}$ 进行判断，考试题的分布 $p (x)$ 越多，就越应该注重这个题目。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;（其实上面扯了这么多就是想写点公式）&lt;/em&gt; &lt;strong&gt;大白话很简单——考试题考得多的地方就是重点，要多看；几乎没考过的地方就少看甚至不看。如果老师考前发了考纲，那自然不用管考纲上没出现的内容。&lt;/strong&gt;&lt;/p&gt;
+&lt;h4 id="方法三"&gt;方法三
+&lt;/h4&gt;&lt;p&gt;解决分布迁移的第三个方法便是&lt;strong&gt;使用仿真数据或合成数据&lt;/strong&gt;（做具身智能的喜欢叫仿真数据，做 LLM 的喜欢叫合成数据）。这方面我只是做了一点点尝试。&lt;/p&gt;
+&lt;p&gt;在考数据科学与大数据的数学原理这门课前，我让 LLM 根据课件以及考纲，生成了一些题目。虽然不一定很好吧，但是也可以起到一定的练手作用。除了直接生成题目，你问 LLM 一道题后，让他做一些知识点的拓展与延伸，或者出一些类似题目，也可以算是使用仿真数据。&lt;/p&gt;
+&lt;h4 id="小结"&gt;小结
+&lt;/h4&gt;&lt;p&gt;这三个方法，可以解决不少 &lt;strong&gt;分布迁移&lt;/strong&gt; 的问题。从大模型的角度看，平时学习可以看成是海量的无监督学习（Unsupervised Learning），作业可以看成是有监督的微调（SFT），明确的模拟考试得分可以看成是 RL &lt;em&gt;（这个类比可能不是那么恰当，就当是随便说说吧）&lt;/em&gt;。&lt;/p&gt;
+&lt;p&gt;在无监督学习阶段，可以多补充一些材料，让自己更好理解（例如各类科普视频、科普书、博客、问 LLM 等等）。在有监督的微调阶段，如果试卷没有答案，可以写完后直接让 LLM 帮忙批改（一次不要问太多，3-5 小题或 1-2 个大题比较合适）。在 RL 阶段，完整地做一套试卷，重点是熟悉考试的题量，调整自己的时间安排。&lt;/p&gt;
+&lt;p&gt;以上，对考前突击做了不少补充。也希望各位也可以多一些&lt;strong&gt;自信&lt;/strong&gt;——即使平时没怎么学，甚至作业还是抄的或者让 ai 写的，也拥有考前一两周学完科目并且考高分的信心。事实上，如果你参加一些竞赛或科研活动，这几乎是唯一的选择。在日后，诸如研究生或职场，也不会有人给你 3-4 个月的时间完整学一个东西，最多用 1-2 周快速了解并熟悉。&lt;strong&gt;虽说对当下大学教育的诟病有许多，这种突击能力可能是未来真正会用到的技能吧&lt;/strong&gt;。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="大二上课程攻略"&gt;📃大二上课程攻略
+&lt;/h2&gt;&lt;h3 id="互联网应用开发基础训练"&gt;互联网应用开发基础训练
+&lt;/h3&gt;&lt;p&gt;如上面所述，今年起这门课与程序设计方法可能合并为了 3 分的一门课。&lt;/p&gt;
+&lt;p&gt;小学期的课，1 学分。计拔、软工应该都有这门课。计科的好像叫 Web 开发基础，相比起来好像要求更死板。&lt;/p&gt;
+&lt;p&gt;计拔与软工的这门课比较宽松，最后 3-4 人组队做一个产品。我们小组实现了一个交互式神经网络学习网站，可以拖拽式移动模块（例如 MLP 当中的神经元，CNN 当中的卷积层、池化层、全连接层等），并利用 Tensorflow.js 进行训练。最后高分。&lt;/p&gt;
+&lt;p&gt;那还是在一年前 AI 不太行的时候，我就用了许多 AI 辅助。如今 AI 写前端相当牛，有什么想法都可以轻松实现了。均分 90.5。&lt;/p&gt;
+&lt;h3 id="程序设计方法与实践"&gt;程序设计方法与实践
+&lt;/h3&gt;&lt;p&gt;小学期的课，1 学分。就是刷 30 道算法题，没别的。&lt;/p&gt;
+&lt;p&gt;想要认真学习算法建议参考下方《数据结构与算法设计》的资料推荐。这门课想要水让 AI 帮忙写就可以。均分 91.2。&lt;/p&gt;
+&lt;h3 id="数据结构与算法设计"&gt;数据结构与算法设计
+&lt;/h3&gt;&lt;p&gt;🗯️下一届开始，这门课拆成了 3.5 学分专门的数据结构，整体难度应该有所降低。🗯️&lt;/p&gt;
+&lt;p&gt;5 学分的存在，注定了这是一门硬课。同时，这也是&lt;strong&gt;CS 四大件&lt;/strong&gt;（数据结构和算法、计算机操作系统、计算机网络、计算机组成原理）之首，重要程度无需多言。&lt;/p&gt;
+&lt;p&gt;如此重要的科目，自然有数不尽的优质资源。例如 &lt;a class="link" href="https://csdiy.wiki/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/CS61B/" target="_blank" rel="noopener"
+&gt;CSDIY&lt;/a&gt; 上就有专门一节公开课推荐，其中有 CS61B、Coursera Algorithms、MIT 6.006、MIT 6.046、UCB CS170。我在大一暑假学完了 CS61B，收益颇丰，尤其是 SP21 的 Project2 Gitlet，需要你用 Java 手搓一个简化版 Git，整个项目大概 1000-2000 行。&lt;/p&gt;
+&lt;p&gt;如果你是搞 acm 的，自然可以多看看 &lt;a class="link" href="https://oi-wiki.org/" target="_blank" rel="noopener"
+&gt;OI Wiki&lt;/a&gt;，刷一些&lt;a class="link" href="https://www.luogu.com.cn/" target="_blank" rel="noopener"
+&gt;洛谷&lt;/a&gt; 的题。&lt;/p&gt;
+&lt;p&gt;在求职面试算法题方面，&lt;a class="link" href="https://leetcode.cn/" target="_blank" rel="noopener"
+&gt;力扣&lt;/a&gt;当然少不了，也可以参考&lt;a class="link" href="https://programmercarl.com/" target="_blank" rel="noopener"
+&gt;代码随想录&lt;/a&gt;刷一刷。&lt;a class="link" href="https://www.hello-algo.com/" target="_blank" rel="noopener"
+&gt;Hello 算法&lt;/a&gt;也是一个入门资源。&lt;/p&gt;
+&lt;p&gt;在考研 408 方面，可以刷一刷考研题。当时我刷了一些王道数据结构考研题（可以在 &lt;a class="link" href="https://annas-archive.org/" target="_blank" rel="noopener"
+&gt;Anna&amp;rsquo;s Archive&lt;/a&gt; 上找电子版，也可参考 &lt;a class="link" href="https://www.bilibili.com/video/BV12k4y1A79r/" target="_blank" rel="noopener"
+&gt;b站视频&lt;/a&gt;），记了很多比较偏的点。但是这个的&lt;strong&gt;分布迁移&lt;/strong&gt;有些大，真正考试的选择题并没有那么难，知识点并不会考得那么全。&lt;/p&gt;
+&lt;p&gt;虽然有如此多优质资源，BIT 的教学可谓是相当抽象，尤其是乐学上构思一般（甚至不如构思）的题目——&lt;strong&gt;从来不标注的数据范围与类型，从来不说明白的题意，从来没有的 starter code，注定了是一个折磨&lt;/strong&gt;。一方面，这显然不贴近工程中写代码的环境，没能起到类似 CS61a、CS61b 中 project 的作用；另一方面，这也不贴近算法题，因为题干很多东西都不清楚，锻炼的不是你的算法能力，而是揣摩汉字，考虑数不清的 &lt;em&gt;corner cases&lt;/em&gt; 的能力。&lt;/p&gt;
+&lt;p&gt;课程上，我们这一届是数据结构+算法+设计理论。下一届开始这一门课&lt;em&gt;又&lt;/em&gt;会分开。为什么我会说又呢？因为据说 4-5 年前这几门课就是分开的。设计理论考得很浅，就是一些定义与背诵，与前两者加在一起比较突兀。&lt;/p&gt;
+&lt;p&gt;设计理论方面我还看了一半的 &lt;strong&gt;《GEB——哥德尔、埃舍尔、巴赫：集异璧之大成》&lt;/strong&gt;。这本书我初中就因为科普视频接触过，不过看得一知半解，好像看了一半不到。这回重新看，还是感觉写得挺好，也相当有启发性。不过，我看了一半，之后又没看下去😂。&lt;/p&gt;
+&lt;p&gt;考试上，选择+大题的形式。其中大题占大头（70 分左右），有 6-7 道算法设计题目。部分题目除了描述算法，还需要手写代码，比较恶心。&lt;/p&gt;
+&lt;p&gt;因为上述提到的&lt;strong&gt;分布迁移&lt;/strong&gt;问题，我没有花时间多做一些算法题，而是过于看重一些选择题的概念，最后喜提大二上考试最低分。不过这属实有点凡尔赛，因为相比均分也挺高的了（均分 76.7）。&lt;/p&gt;
+&lt;h3 id="大学物理-a-ii"&gt;大学物理 A II
+&lt;/h3&gt;&lt;p&gt;4 学分，相当硬的课，均分 75.0。包含电磁学与近代物理。考试带计算器。&lt;/p&gt;
+&lt;p&gt;想要认真学，可以看郭爷（郭芃）在延河课堂上的课。理解方面，也许可以翻一翻 &lt;strong&gt;《费曼物理学讲义第二讲》&lt;/strong&gt;。虽然我高中搞过物理竞赛，不过只会做力学题，电学方面了解不多。翻开费曼物理学讲义，又感受到了物理的一些兴趣 &lt;em&gt;（不过这一届诺贝尔物理学奖颁给 AI，我也何尝不算是在学物理呢）&lt;/em&gt; 。工数下的一些工具（散度、旋度、各种线面积分等）还是挺有用的。&lt;/p&gt;
+&lt;p&gt;刷题方面，课本每章后有习题，可以在辅导手册上找到详细解答。建议刷一刷。往年题也有很多，我好像是刷完了。我记得报名物理竞赛项目有加分，但是我因为较忙，没有参加。MOOC 上记得按时完成。&lt;/p&gt;
+&lt;h3 id="离散数学"&gt;离散数学
+&lt;/h3&gt;&lt;p&gt;4 学分，这位更是重量级，均分 70.9。我在 BIT101 上已有过&lt;a class="link" href="https://bit101.cn/course/6020" target="_blank" rel="noopener"
+&gt;详细回答&lt;/a&gt;，可以参考。&lt;/p&gt;
+&lt;p&gt;我们老师的成绩组成如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;平时作业，乐学提交，不硬性限时，15分。&lt;/li&gt;
+&lt;li&gt;上机，实际上没去机房，就是乐学上八道编程题，8分。我让 AI 写的。&lt;/li&gt;
+&lt;li&gt;研究性学习，在考试结束后两周内提交，相当于写一个小论文，7分。我的大作业在&lt;a class="link" href="https://bit101.cn/paper/49" target="_blank" rel="noopener"
+&gt;如何用大模型水一篇LaTeX论文？&lt;/a&gt;中有分享。&lt;/li&gt;
+&lt;li&gt;期末考试 70分。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;几年前，离散的上下合并，从两学期合成为一学期，保留了数理逻辑、集合论、代数系统、图论四章。后两章难度显然更大，但前面也并不轻松。&lt;/p&gt;
+&lt;p&gt;离散课本是经典的填鸭式教材，两页可以冒出十个甚至九个定义与定理，对概念的直观理解与具体示例较少。为此，我在考前一个月还读了一些书，例如曾经初中翻过一点的《数学女孩》系列，其中有几本与离散数学关系紧密，有对群论的直观讲解。各位感兴趣可以照过来看一看。&lt;/p&gt;
+&lt;p&gt;群论还可以参考一些视频：
+&lt;a class="link" href="https://www.bilibili.com/video/BV1PM411g7o8/" target="_blank" rel="noopener"
+&gt;史上最好的群论入门-哔哩哔哩&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;有能力建议看 Youtube，作者之后还上传了一个群论介绍视频： &lt;a class="link" href="https://www.youtube.com/watch?v=VZiLpYC0t5E" target="_blank" rel="noopener"
+&gt;Simplifying problems with isomorphisms, explained — Group Theory Ep. 2&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;这个系列也不错：
+&lt;a class="link" href="https://www.bilibili.com/video/BV1NQ4y1777J" target="_blank" rel="noopener"
+&gt;高中生就能看懂的群论，如何从对称性构建出群，群论01：什么是群-哔哩哔哩&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;至于图论部分，我考前一周甚至两三天才开始突击的，较为折磨。概念一大堆，证明题也多。也可以b站搜点视频。&lt;/p&gt;
+&lt;p&gt;如果你想要考好离散数学，还是需要下不少的功夫。你所找到的离散数学的“考试”卷，与真正的考试难度，拥有巨大的&lt;strong&gt;分布迁移&lt;/strong&gt;，堪比学完1+1后考你微积分。&lt;/p&gt;
+&lt;p&gt;23级，也就是24-25-1学期，离散数学试卷题型如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;10 道选择题，每题2分&lt;/li&gt;
+&lt;li&gt;10 道填空题，每题1分&lt;/li&gt;
+&lt;li&gt;8道大题，分为6分题与8分题，共60分。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这题量相当恐怖，我在快写完选择题时，发现时间流逝了不少，后面提速，最后也还有题没来得及写。考试时还是强烈建议遇到难题果断跳过。题目是按照章节顺序排列的，而不是难度顺序。虽说实际上最后一题图论证明题确实是最难的，但是第一题等值演算相当恶心，我直接放弃，最后回来根据分类讨论写了个结果。好在老师应该是尽可能给分的，我最后的成绩也相当不错。&lt;/p&gt;
+&lt;h3 id="概率论与数理统计"&gt;概率论与数理统计
+&lt;/h3&gt;&lt;p&gt;经典数学课，3 学分，均分 78.7，考试难度还行。这同时也是考研数学的科目之一（除了高数与线代），所以b站上有一大把视频，资源相当多，想学好不难。&lt;/p&gt;
+&lt;p&gt;理解方面，可以看《普林斯顿概率论读本》，其中伽马函数可以秒杀一些正态分布的积分题目。适当看一些更高级的内容，对简单题目确实有作用。&lt;/p&gt;
+&lt;p&gt;应试方面，b站做一些考研题后，往年题十多套基本够用了。可能需要复习一些工数上与工数下的积分计算。考试不让带计算器。&lt;/p&gt;
+&lt;p&gt;这门课有 MOOC，记得按时完成。&lt;/p&gt;
+&lt;h3 id="马原"&gt;马原
+&lt;/h3&gt;&lt;p&gt;思政课，3 学分。考前可以看一些 b站视频，背一背概念。&lt;/p&gt;
+&lt;p&gt;如果你本身就对马克思主义感兴趣，那么在理解的情况下，考试多写一写，得分应该挺不错的。这还是我大学以来思政课最高分😊。&lt;/p&gt;
+&lt;h3 id="数值分析"&gt;数值分析
+&lt;/h3&gt;&lt;p&gt;😱 哎呀，骇死我了！ 😱&lt;/p&gt;
+&lt;p&gt;这门课 2 学分，但是很恶心。均分 74.0，考试带计算器。&lt;a class="link" href="https://bit101.cn/course/6030" target="_blank" rel="noopener"
+&gt;BIT101 上课程评价&lt;/a&gt;中我写了考前的一个小插曲。&lt;/p&gt;
+&lt;p&gt;好在这门课提前结课，有较为充足的复习时间。可以先看孙新老师的网课，大概理解每个公式是干什么的，然后带着理解背。&lt;/p&gt;
+&lt;p&gt;在扩充资料方面，可以参考周华任的《数值分析习题精讲及考研辅导（清华第 5 版）》（&lt;a class="link" href="https://annas-archive.org/" target="_blank" rel="noopener"
+&gt;Anna&amp;rsquo;s Archive&lt;/a&gt; 上可以找到），这上面许多题目可以参考。往年题比较充足，大概有 10 套左右。实际考试题量更大，需要抓紧时间写。身边许多同学考试没写完。&lt;/p&gt;
+&lt;p&gt;比较搞人心态的是，你需要为同一个问题，记住多种算法，背多个公式。因为考试会指定一种特定的算法用来求解问题。&lt;/p&gt;
+&lt;p&gt;建议熟悉一下计算器的使用，我之前写过《CASIO Is All You Need——数值分析计算器使用指南》，发到过 24 级学指群。也可以看这个&lt;a class="link" href="https://pan.quark.cn/s/dd2278776854" target="_blank" rel="noopener"
+&gt;夸克网盘链接&lt;/a&gt;。&lt;/p&gt;
+&lt;h3 id="物理实验下"&gt;物理实验下
+&lt;/h3&gt;&lt;p&gt;1 学分，没有绪论，总共 11 个实验。&lt;/p&gt;
+&lt;p&gt;这个就不用多说了，想办法找已有的实验报告，然后改数据对着抄。不要为这种区分度很低的 1 学分的课浪费精力👿。（均分 88.6）&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="大二下课程攻略"&gt;📑大二下课程攻略
+&lt;/h2&gt;&lt;p&gt;大二下还是比大二上轻松不少，想要保外并且不是走拿牌子路线的同学，建议想办法进组实习。可以根据自己感兴趣的方向，套磁外校（北京更牛的就是清北中科院吧）或本校的老师。&lt;/p&gt;
+&lt;p&gt;⚠️注意⚠️：因为现在有些课还没出分，所以未来我可能会进行更新，补充均分等。&lt;/p&gt;
+&lt;h3 id="数据库原理与设计"&gt;数据库原理与设计
+&lt;/h3&gt;&lt;p&gt;3 学分，这学期学分最多的专业课，均分 79.3。知识点很多很杂。&lt;/p&gt;
+&lt;p&gt;其中，前四章还算连贯。但是第五章开始，基本上每一章就是一个独立的话题，互不干扰——优化、安全性、完整性、恢复、并发处理、设计理论等。每一章都有许多要记忆的知识点。&lt;/p&gt;
+&lt;p&gt;一些知识点可以参考&lt;a class="link" href="https://donglinkang2021.github.io/DatabaseReview/" target="_blank" rel="noopener"
+&gt;北京理工大学数据库复习总结&lt;/a&gt;。不过这个我看得不多，可以做补充作用。我看的主要还是 PPT。&lt;/p&gt;
+&lt;p&gt;往年题就只有几套，很少。建议使用上方提到的解决&lt;strong&gt;分布迁移&lt;/strong&gt;的一些方法。&lt;/p&gt;
+&lt;p&gt;多利用 LLM 的力量，每一章的 PPT 都可以输出 PDF 扔进去，然后问一些问题，帮助理解。&lt;/p&gt;
+&lt;p&gt;期末占比 70%，题型如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;20 分填空题，一空一分；&lt;/li&gt;
+&lt;li&gt;10 分判断题，一题一分；&lt;/li&gt;
+&lt;li&gt;16 分单选题，一题一分；&lt;/li&gt;
+&lt;li&gt;10+ 分简答题，有四小问，每一问简要解释一个概念；&lt;/li&gt;
+&lt;li&gt;20+ 分作答题，5 大题，每一题还有小问，设计了许多章节的知识点；&lt;/li&gt;
+&lt;li&gt;20 分设计题，根据需求，画 E-R 图，转换为关系模型，最后利用 SQL 创建视图与触发器。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;题量是相当大的，我身边很多同学没写完。我考场上意识到不简单，抓紧时间，最后勉强写完。&lt;/p&gt;
+&lt;h3 id="面向对象技术与方法"&gt;面向对象技术与方法
+&lt;/h3&gt;&lt;p&gt;2.5 学分，笔试，均分 84.6。&lt;strong&gt;经典的陈旧 PPT ，很多就是偏难怪知识点的记忆，并没有起到学习面向对象思想的作用&lt;/strong&gt;（真正的知识还是建议按&lt;a class="link" href="https://csdiy.wiki/" target="_blank" rel="noopener"
+&gt;国外公开课&lt;/a&gt;学习）。&lt;/p&gt;
+&lt;p&gt;考试题是选择题、程序填空与输出判断、手写代码。&lt;/p&gt;
+&lt;p&gt;有同学推荐 &lt;a class="link" href="https://www.learncpp.com/" target="_blank" rel="noopener"
+&gt;learncpp&lt;/a&gt; ，不过我没看过。C++ 好像 &lt;a class="link" href="https://csdiy.wiki/%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8/cpp/CS106B_CS106X/" target="_blank" rel="noopener"
+&gt;Stanford CS106&lt;/a&gt; 也会涉及，不过我也没看过😢。&lt;/p&gt;
+&lt;p&gt;往年题更是稀少，我看到的只有两三套。不过 PPT 当中已经覆盖了很多偏难怪的点了。&lt;/p&gt;
+&lt;h3 id="数据科学与大数据技术的数学基础"&gt;数据科学与大数据技术的数学基础
+&lt;/h3&gt;&lt;p&gt;2 学分，少见的好课程。大数据以及计拔会学这门课。&lt;em&gt;（余老师这学期喉咙有些不太好，所以讲课上比较小声）&lt;/em&gt; 不过 PPT 是相当优质的。在当今 AI 发达的时代，很多可以直接问 AI。&lt;/p&gt;
+&lt;p&gt;30 分平时分是乐学的选择题，5 次，每次 6 道题。70 分是考试分。&lt;/p&gt;
+&lt;p&gt;随机算法方面，我觉得多问问 AI 就可以解决。&lt;strong&gt;谱分解方面，强烈推荐&lt;a class="link" href="https://github.com/Visualize-ML/Book4_Power-of-Matrix" target="_blank" rel="noopener"
+&gt;鸢尾花书 矩阵力量&lt;/a&gt;，里面用相当形象的方式，多视角详细讲解了特征值分解、主成分分析、奇异值分解等等&lt;/strong&gt;。相信你看完能建立很强的几何直观，回过头来看 PPT 就比较轻松了。如果你入门机器学习，其实整个鸢尾花书系列我都很推荐（虽说我最后的几本书还没怎么看）。&lt;/p&gt;
+&lt;p&gt;最后一章压缩感知也有点意思。不过我没怎么找补充材料，应试来看 PPT 当中的内容肯定是够用了的。&lt;/p&gt;
+&lt;p&gt;虽说均分 80.7 看着不高，但老师在群里面说计拔有8位同学卷面满分（共19人），可能是方差比较大吧🤔。&lt;/p&gt;
+&lt;h3 id="毛中特"&gt;毛中特
+&lt;/h3&gt;&lt;p&gt;3 学分，思政课。&lt;/p&gt;
+&lt;p&gt;思政课其实套路都差不多，多回答问题，小组展示的时候多讨论一下，积极合作。最后突击看一些视频，考场上用连贯的语言来写（不要仅仅是分点作答，这样老师不喜欢）。&lt;/p&gt;
+&lt;h3 id="数字逻辑"&gt;数字逻辑
+&lt;/h3&gt;&lt;p&gt;2.5 学分，均分 85.4。最后是机考，41 道选择题（我也不知道为什么不是更整的 40 道题）。&lt;strong&gt;比较逆天的是，机考无法回头，做一道题过一道。如果后面有题启发了你，你会意识到前面有题目做错，但自己无法修改，这种感觉很痛苦&lt;/strong&gt; &lt;em&gt;（太↑痛↑苦↓了→，太↑痛↑苦↓了！😭）&lt;/em&gt;。&lt;/p&gt;
+&lt;p&gt;强烈推荐 Steam 上的游戏&lt;a class="link" href="https://store.steampowered.com/app/1444480/Turing_Complete/?l=schinese" target="_blank" rel="noopener"
+&gt;图灵完备&lt;/a&gt;。就算买的时候不打折，我认为 70rmb 是相当值的。为了应对数字逻辑这门课，玩到图灵完备成就肯定就足够了。后面还有汇编部分，我也还没玩。（看一眼小黑盒，上次打折是今年 6 月 1 日到 15 日，通常一年多才打折一次。不过不打折就多花 20r，推荐直接入手）&lt;/p&gt;
+&lt;p&gt;比较恶心的是，作业题布置的是 2-4 章，没有第五章作业，给你一种第五章不重要的错觉。实际上，期末考试第五章题还不少，可能占到 1/5 左右。这部分一定要多看。CMOS相关可以参考Branch Education的&lt;a class="link" href="https://www.youtube.com/watch?v=_Pqfjer8-O4" target="_blank" rel="noopener"
+&gt;这期视频&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;可以参考&lt;a class="link" href="https://donglinkang2021.github.io/DigitLogic/" target="_blank" rel="noopener"
+&gt;北京理工大学数字逻辑期末考试复习&lt;/a&gt;，这个网站整理得相当好，也有许多题目，方便边看边做。（避免出现 &lt;em&gt;“全是字，一道例题也没有”&lt;/em&gt; 的情况）&lt;/p&gt;
+&lt;p&gt;往年题就只有一两套，好像是疫情期间机考有人截图流传下来的。我个人感觉这一届实际难度是变高了不少的，有些题目是“升级版”。&lt;/p&gt;
+&lt;p&gt;课程还需要小组实验拿板子，跑代码。我是一个人直接用 LLM 完成的（在 Cursor 当中）。源代码很方便用 Cursor 编辑，具体编译以及上板都是用 Vivado 实现的。（还是先要在 Vivado 中创建文件，然后才在 Cursor 中编辑，不然无法识别）&lt;/p&gt;
+&lt;h3 id="深度学习基础"&gt;深度学习基础
+&lt;/h3&gt;&lt;p&gt;选修课，2 学分，均分 89.8。前几年均分好像才 80 多，这一届均分变高了不少。&lt;/p&gt;
+&lt;p&gt;真知识都靠自学，不要指望通过这门课来入门深度学习。&lt;/p&gt;
+&lt;p&gt;如果你已经了解深度学习方向，并且有卡，那么推荐这门课。可以在讲台上讲一讲自己的研究方向，这样有10-20分加分。&lt;/p&gt;
+&lt;p&gt;最后的大作业需要实现目标检测。在如今LLM时代，这应该不是很难。&lt;/p&gt;
+&lt;h3 id="算法博弈论"&gt;算法博弈论
+&lt;/h3&gt;&lt;p&gt;选修课，2 学分，均分 89.7。&lt;/p&gt;
+&lt;p&gt;前几年是每个人单独提交报告，所以最高分也只有 96-97 左右。今年 3-4 人小组提交各类作业，最后得分根据小组内部商量决定。&lt;/p&gt;
+&lt;p&gt;具体来说，你可以填写一个表格——当总得分100时，小组各成员得分的平均数应该是100；总得分90时，小组各成员得分的平均数是90 。&lt;/p&gt;
+&lt;p&gt;不过实际上，我觉得大部分组可能还是平均填写。所有作业、ppt、报告等，最后都只需要组长提交。&lt;/p&gt;
+&lt;p&gt;在当今的LLM时代，我们组并没有花很大精力看真正的内容，而是直接让LLM做所有的工作。为了方便理解，我还用Claude Code Vibe Coding为final report做了一个可视化网站，解释其中的核心概念。最后得分很不错。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="尾声"&gt;🎉尾声
+&lt;/h2&gt;&lt;p&gt;到现在差不多纯字数有 10000 多，算上字符有 16000 了。&lt;/p&gt;
+&lt;p&gt;也希望上述整理可以或多或少帮到一些人吧。相信大部分看到这里的同学，要么是即将大二，要么是即将大三。如果有机会，你也许也可以向学弟学妹分享一些心得🤩。毕竟我可能只是站在很优秀的角度去看，看起来没有踩那么多的坑。&lt;/p&gt;
+&lt;p&gt;未来有时间也许也会整理一些科研入门教程等，不过估计这个暑假挺忙的）随缘吧。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;最后，真诚感谢 Frozen heart、JyYeah、ListenSnow、Lucien、NoMad、Omnipotent、Quan、Reina、Spranty、酸菜不吃鱼、Timothy 等同学的帮助！（首字母排序，不分先后）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;正是有了你们对本文的大力支持，并提出了许多有意义的建议，我才能不断完善内容。正文也从一开始 6000 多字，扩充到了 10000 字。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;同时，也感谢所有曾经在专业选择上或其他地方帮助过我的学长学姐，让我逐渐看清方向，并不断前行！&lt;/strong&gt;&lt;/p&gt;</description></item><item><title>信科大一通关指南</title><link>https://ovideros.site/p/guidance/</link><pubDate>Thu, 11 Jul 2024 00:00:00 +0000</pubDate><guid>https://ovideros.site/p/guidance/</guid><description>&lt;img src="https://ovideros.site/p/guidance/guidance.jpg" alt="Featured image of post 信科大一通关指南" /&gt;&lt;p&gt;其他指南：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://ovideros.site/p/guidance2/" &gt;计科大二通关指南&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://ovideros.site/p/guidance3/" &gt;计科大三通关指南&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://ovideros.site/p/baoyan/" &gt;2026年计算机保研经验贴&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="-前言"&gt;▶️ 前言
+&lt;/h1&gt;&lt;p&gt;时间过得飞快，如今我已是老登了。去年的今日，我还在暑假期间打 P5r。鉴于自己的成绩还挺不错的，于是想要整理一下一年以来用过的学习资料，以供各位大一学生参考。虽说主要是信科，但是大一的课大差不差。就算是电信、精工、特立等学生，也可以来看看，大概80%的内容是可以参考的。&lt;/p&gt;
+&lt;p&gt;本文大概分为三个部分——&lt;strong&gt;思想篇&lt;/strong&gt;，&lt;strong&gt;方法篇还有资料篇&lt;/strong&gt;。在&lt;strong&gt;思想篇&lt;/strong&gt;里，我会简单地介绍一些视频或网站，帮助各位完成从高中到大学思维的转变。在&lt;strong&gt;方法篇&lt;/strong&gt;里，我会介绍一些我认为的合理方法，帮助各位高效学习。在&lt;strong&gt;资料篇&lt;/strong&gt;里，我会对各个科目列举出我当时使用过的学习资料，供各位参考。&lt;/p&gt;
+&lt;p&gt;⚠️更新⚠️：24级的信科在课程上有些变化。将大学计算机改成了人工智能与计算科学A，将学术用途英语改成了基础英语，3学分变成了4学分。
+这些课都是第一次排课，也只能小登们自行探索了。&lt;/p&gt;
+&lt;p&gt;⚠️更新2⚠️：
+不过，我看购书列表当中，人工智能与计算科学A用的还是大学计算机的教材，感觉有可能换汤不换药。
+往届只有特立相关的班，需要英语分班考试。然而，今年应该都需要分班考试，
+可以刷一些四级题目准备一下。&lt;/p&gt;
+&lt;p&gt;⚠️️更新3⚠️：
+目前大学生心理素质发展也有一学分，但改变不了水的本性。&lt;/p&gt;
+&lt;h1 id="-关于暑假"&gt;🌞 关于暑假
+&lt;/h1&gt;&lt;p&gt;大学从来不是四年。有人说，大学只有三年，因为保研的流程从大三上的寒假开始，直到大四的 9 月 28 号，满打满算也只有三年的时间；考研要在大四的 12 月初试，也没有四年。也有人说，大学有五年，因为如果想要在竞赛或科研中取得较好成果，假期是几乎必须要牺牲的；如果把牺牲的寒暑假加起来，那么大学就有五年。&lt;/p&gt;
+&lt;p&gt;为什么我要这么说呢？答案是：高考后的暑假是最方便玩的暑假。如果以后想要走保研的路，那么高考暑假大概率是一生中最长的假期了。所以，好好玩吧。喜欢社交的可以多交些朋友，喜欢宅的可以多看看 ACGN，喜欢干什么就干什么吧。因为我暑假也是玩过来的，所以个人给不上任何建议。&lt;/p&gt;
+&lt;h1 id="-心态篇"&gt;💛 心态篇
+&lt;/h1&gt;&lt;p&gt;鉴于独特的教育环境，大学和高中的转变，远远比小升初、初升高的转变要大。&lt;strong&gt;这个过程可能是艰难的，但我希望各位通过充分了解，可以让这个过程更加轻松&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;以下，我会推荐五个有关大学认知的视频或文章，帮助大家思考。我在这只起到推荐作用，如果你有兴趣，也可以自行探索相关内容，进行更加深入的了解。我希望能帮助同学们拓宽视野，找到在大学中前进的方向。&lt;/p&gt;
+&lt;h2 id="1"&gt;1️⃣
+&lt;/h2&gt;&lt;p&gt;&lt;a class="link" href="https://www.bilibili.com/video/BV1XH4y1S7vn/" target="_blank" rel="noopener"
+&gt;普通出身，如何最大限度“利用”大学？【学生请一定看完！】&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;该视频先提出了优势与弱势学生的划分，进而提出了两种类型的学生——“目标掌控者”与“直觉依赖着”。这两者的形成正是源于学生曾经所处的环境。&lt;/p&gt;
+&lt;p&gt;在以上的分析以后，作者提出了解决方案：“&lt;strong&gt;学生必须主动投入，积极投身学校的各类教育实践, 提升学习成果，主动与老师和同学互动，才更有可能取得成功&lt;/strong&gt;。”作者因此鼓励我们减少自己所谓的“标签”，努力保持积极投入的状态；要克服道德策略，挑战习以为常的观念。在最后，作者也表达了自己的希望与祝福。&lt;/p&gt;
+&lt;h2 id="2"&gt;2️⃣
+&lt;/h2&gt;&lt;p&gt;在第一个推荐后，各位也许会想：“如何积极投入大学呢？”那么，下面的的视频，就是专门解决这个问题的。&lt;/p&gt;
+&lt;p&gt;&lt;a class="link" href="https://www.bilibili.com/video/BV15j41127WJ/" target="_blank" rel="noopener"
+&gt;一个视频讲透大学的一切！2023年所有高校均适用&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;可以看到，这个视频有 2 个多小时，相当长。自然地，没必要一次性看完，可以慢慢看。&lt;/p&gt;
+&lt;p&gt;该视频从大学的重要话题谈起，之后介绍了大学的信息渠道，阐释了如何规划大学道路，最后还讲了一下各个年级的主要工作。可以说，&lt;strong&gt;大学中80%以上的问题&lt;/strong&gt;，都可以在其中找到答案。up主框框还有许多有意义的视频，有时间可以看看。&lt;/p&gt;
+&lt;h2 id="3"&gt;3️⃣
+&lt;/h2&gt;&lt;p&gt;&lt;a class="link" href="https://www.bilibili.com/video/BV1QN411B76u/" target="_blank" rel="noopener"
+&gt;“大学物理”背后的教学问题与社会问题&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="视频梗概"&gt;视频梗概
+&lt;/h3&gt;&lt;p&gt;开头，作者提问：为什么许多大学生对于大学物理不理解甚至抵触？为什么许多本科基础课程被大量人吐槽？有没有正确的路，让理工科学生学好物理及其他基础学科？&lt;/p&gt;
+&lt;p&gt;一：物理学科的真正面貌&lt;br&gt;
+物理的普遍性。数学与物理的区别。物理将数学当做重要工具，但物理也很看重直观想象。&lt;/p&gt;
+&lt;p&gt;二：“大学物理”可能出现的学习与教学问题&lt;br&gt;
+第一：高中和大学脱节&lt;br&gt;
+第二：基础课程与专业需求脱节&lt;br&gt;
+第三：高数与大物的比较&lt;/p&gt;
+&lt;p&gt;接着，作者给出建议：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;教学问题不能上升到对学科本身的批判&lt;/li&gt;
+&lt;li&gt;打好数学基础&lt;/li&gt;
+&lt;li&gt;走出高中物理的舒适圈，体现在要注意公式的适用范围&lt;/li&gt;
+&lt;li&gt;远离题海战术，注重整理&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;三. 一些社会问题＆结束语&lt;/p&gt;
+&lt;h3 id="个人感悟"&gt;个人感悟
+&lt;/h3&gt;&lt;p&gt;所幸，北理在大物的安排上相对科学，从大一下才开始学。这意味着，在学习大物时，同学们已经有了微积分的基础。同时，工科数学分析里面也有一些与物理相结合的知识点与题目，这起到了一定的衔接作用。&lt;/p&gt;
+&lt;p&gt;然而，我也不能一味说北理的好话。如果把视野扩大，我依然能看到现有本科教育存在着的诸多问题。例如，在高度信息化的时代，在纸上画&lt;strong&gt;工程制图&lt;/strong&gt;真的有用吗？又比如，在信息技术日新月异的今天，十几年前的&lt;strong&gt;大学计算机&lt;/strong&gt;实验软件，在表达形式上是否过于落后？诸如此类的问题的确存在着。&lt;/p&gt;
+&lt;h2 id="4"&gt;4️⃣
+&lt;/h2&gt;&lt;p&gt;&lt;a class="link" href="https://survivesjtu.gitbook.io/survivesjtumanual/" target="_blank" rel="noopener"
+&gt;上海交通大学生存手册&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;《上海交通大学生存手册》，写于 08 年，后经过一些修改。这本册子的内容之广，难以简单概括。在此，我仅仅截取一些“名言警句”，希望能激励各位去阅读它：&lt;/p&gt;
+&lt;p&gt;“国内绝大部分大学的本科教学，不是濒临崩溃，而是早已崩溃。”&lt;/p&gt;
+&lt;p&gt;“我衷心希望这本书能够带给读者一些新鲜的思考，让同学们能看到人生道路上不同的风景。至少在读过本书之后，各位读者应该能够有勇气、有智慧，去发现并挑战那些比上课更为重要的追求。”&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;“如果一个人把政策评分作为自己的至高追求，那么他就是这个政策的牺牲品。”&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;“学习最需要的，不是悲壮的毅力，而是对无限未知的渴求。”&lt;/p&gt;
+&lt;p&gt;“某个环境的条件如何如何之好并不是你去到某个环境中的理由，你能从这个环境中获得什么样的成就，才是你前往某个环境的原因。”&lt;/p&gt;
+&lt;h2 id="5"&gt;5️⃣
+&lt;/h2&gt;&lt;p&gt;&lt;a class="link" href="https://csdiy.wiki" target="_blank" rel="noopener"
+&gt;CS自学指南&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;“这是一本计算机的自学指南，也是对自己大学三年自学生涯的一个纪念。”该书由北大的一名信科学生所写，包含了许多部分：必学工具，环境配置，经典书籍推荐，以及最重要的——国外高质量 CS 课程汇总。&lt;/p&gt;
+&lt;p&gt;在前言中，作者详细讲述了自己的大学体验，揭示了自己写作此书的理由，还分析了自学的好处与坏处。这当中的资源相当丰富，涵盖面也相当广。在 CS 方面，如果各位有什么想学的知识，在其中基本都可以找到相应的推荐。&lt;/p&gt;
+&lt;p&gt;用作者自己的话来说：“当然，作为一个还未毕业的本科生，我深感自己没有能力也没有权利去宣扬一种学习方式，&lt;strong&gt;我只是希望这份资料能让那些同样有自学之心和毅力朋友可以少走些弯路，收获更丰富、更多样、更满足的学习体验&lt;/strong&gt;。”&lt;/p&gt;
+&lt;h1 id="-方法篇"&gt;🔧 方法篇
+&lt;/h1&gt;&lt;p&gt;经过高中三年的折磨，如果各位想要继续在学习上取得进步，按照惯性，大概也会沿着高中学习的方向来走。然而，鉴于极度应试的环境，高中也带来了不少&lt;strong&gt;自我感动乃至于摧残式的学习方案&lt;/strong&gt;。当然，下面也只是表示我个人的看法，学习方法也因人而异，仅供各位选择性参考。&lt;/p&gt;
+&lt;h2 id="-关于一些学习行为"&gt;🏫 关于一些学习行为
+&lt;/h2&gt;&lt;p&gt;简单来说，学习的目的在于获得更多的知识，拓宽自己的视野，而不是获得更多所谓的学习时长。在我看来，&lt;strong&gt;效率是比时间要重要的多的&lt;/strong&gt;。$1.5 \times 4= 1 \times 6$，高效的四小时的学习要好于低效的 6 小时学习。&lt;/p&gt;
+&lt;p&gt;同时，有一些学习行为也没有太多作用。例如，抄笔记、手抄错题等。在信息化日渐普及的今天，在可以使用各类电子产品的大学，抄笔记不如直接找到书本的电子版然后标注，或者把感兴趣的内容拍下来整理；手抄错题更是没意义，如果用平板等设备来刷题，可以很方便地利用软件来整理错题，方便绘制思维导图，利用卡片复习等等。&lt;/p&gt;
+&lt;h2 id="-什么是高效的学习"&gt;📚 什么是高效的学习
+&lt;/h2&gt;&lt;p&gt;那么，什么样的学习是高效的呢？简单来说，&lt;strong&gt;如果某一种方法让你在学的过程中越感到费脑子，那么这个方法就越高效&lt;/strong&gt;。因为简单的行为——抄笔记、被动听课，都几乎不怎么需要思考；然而更有效的学习方法——整理一门课的大纲、深入研读课本、选择性听课、按类别主动整理错题等，都需要更高的参与度。只有充分调动大脑，让你在学的时候感到费脑子，这个方法才是有效的。&lt;/p&gt;
+&lt;h2 id="-我的日常学习过程"&gt;📓 我的日常学习过程
+&lt;/h2&gt;&lt;p&gt;在日常上课过程中，我一般都是认真听课的。然而，遇到思政课、水课、或讲得实在烂的专业课，我确实不怎么听。对于理工科课程，&lt;strong&gt;最重要的是听懂一些思想&lt;/strong&gt;，例如工数的极限思维、积分思维，线代的一些抽象思维，大物的形象理解，电分的叠加、等效、变换三大方法等等。这些思维对于理解各类理工科，都是通用的。&lt;/p&gt;
+&lt;p&gt;课后，认真完成作业。同时，一定要关注慕课、乐学等在线平台的&lt;strong&gt;截止时间&lt;/strong&gt;，否则会扣平时分。&lt;/p&gt;
+&lt;p&gt;对于一些自己认为没有特别理解的概念，我会选择寻找一些学习资料，来帮助自己理解。我主要通过课本，其他教材还有 b 站视频来寻找。同时，也有些人会看 MOOC，延河课堂等等。&lt;/p&gt;
+&lt;p&gt;可以说，我在平时阶段没有那么应试，还是注重真正的理解。因为，很多时候考试是千变万化的，&lt;strong&gt;无法保证今年的难度和往年相同&lt;/strong&gt;。举两个例子：22-23 年的工数下是有往年题以来最难的一届，题量大，计算量恐怖；在老师将许多人捞到 60 分后，平均分也只有 65 分。又比如 23-24 年的电分，也就是我们大一下信科类的电分，在我刷过 20 年以来的所有试卷后，我敢说今年是最难的，没有之一。如果有兴趣，各位在大一下也可以挑战一下这些试卷。&lt;/p&gt;
+&lt;p&gt;所以，平时阶段还是要真正理解概念，不能纯粹应试。否则，期末考试可能会超出你的意料之外。&lt;/p&gt;
+&lt;h2 id="-考前突击"&gt;🤺 考前突击
+&lt;/h2&gt;&lt;p&gt;大学的一大特色就在于考前突击。区别于高中三年认真学 6 门科目，在大学中，你一个学期就要学相当于高中三年的知识量。此时，不管平时学得怎么样，&lt;strong&gt;考前突击都是必需的&lt;/strong&gt;。对于比较重要的课，我考前突击的时间线比较长，可以有两周到三周。不过，如果某个课重要程度一般，并且时间比较紧，一周的时间大概也够了。&lt;/p&gt;
+&lt;p&gt;往年试卷是最好的参考。虽然我上面说不能只看往年卷，不过如果往年卷都不看，那我不知道有什么更好的资料。&lt;/p&gt;
+&lt;p&gt;我一般会把有记录的考试卷全部都刷一遍。有的科目从 04 年开始，有的科目从 08 年开始。然而，我并不是每一个试卷都从头刷到尾，而是借用了机器学习的方法——&lt;strong&gt;划分训练集和测试集&lt;/strong&gt;。具体来说，如果有过往 16 年的往年题，我可能把前 12 年的题目当成训练集，最近 4 年的题目当成测试集。&lt;/p&gt;
+&lt;p&gt;对于训练集的题目，我会根据题型来刷。例如，当我复习完工科数学分析上的极限这一章，我就会一个个看训练集当中的题目。如果找到了极限的题目，就做一做；对于其他还没有复习到的章节，则不管。就这样，每复习完一章，就做完训练集中的所有相关题目，并在最后作总结。这样，这一章差不多就通关了。&lt;/p&gt;
+&lt;p&gt;在考前最后 2-3 天（可以据情况留出更多时间），可以开始做测试集的题目。这时候，&lt;strong&gt;尽量按照考试的要求来严格模拟&lt;/strong&gt;。做试卷的时候找集中的时间做，模拟考场的氛围。如果你学得比较好，你往往会发现，自己做的时间远低于考试的 2 个小时。然而，这些科目往往又会有不少的低级错误。例如，我发现我做线代 B 往年题大概只要 1 个小时，工数上往年题只要一个小时十几分钟。对于这种科目，考试的时候一定要放慢解题步骤，不要太快，否则很容易出现低级错误。相反，有的科目题量较大，例如我发现如果认真画完工图，就要用 1 个小时 40 多分钟；因此，对于此类科目，考场上要保持较快的速度，不能太慢。&lt;/p&gt;
+&lt;p&gt;考试前，不要熬夜，尽量保持最充足的睡眠。这样考试的时候才能有最好的状态。&lt;/p&gt;
+&lt;p&gt;⚠️更新⚠️：对于想要追求高分的同学，建议做一些该科目的“升级版本”试卷。
+例如，对于工科数学分析，可以做一做数学分析的试卷。对于没有学过的知识点，
+可以略过。不过，至少80%的题目都是能做出来的。对于线代 B ，也可以
+做一点线代 A 的题目。&lt;/p&gt;
+&lt;p&gt;为什么我要建议做这种看似无用的事呢？因为我们这一届工数下的试卷，完全照抄了
+两年前的数学分析下试卷，重复率90%，就只是更换了题目顺序。同时，
+上一年的工数下试卷中，也有不少题目源自数学分析下试卷。
+因此，对于有高追求的同学来说，刷一刷数分、线代 A 是很有用的。
+当然，以上都建立在你的基础已经很好的基础上。如果只是想要及格，
+自然没有必要刷。&lt;/p&gt;
+&lt;h1 id="-资料篇上"&gt;📃 资料篇上
+&lt;/h1&gt;&lt;h2 id="关于军训"&gt;关于军训
+&lt;/h2&gt;&lt;p&gt;军训会影响学分，分为两个部分：军事技能和军事理论。军事理论 2 学分，在第一周的最后闭卷考试，很简单，考前会发题库，背下来就行。军事技能 2 学分，如果获得了优秀标兵什么的，可以加分。&lt;/p&gt;
+&lt;h2 id="工科数学分析"&gt;工科数学分析Ⅰ
+&lt;/h2&gt;&lt;p&gt;大一上最重要的一门课，有 6 学分。内容是单变量微积分，包括极限、微分、积分。很显然，这是对高中导数的延续，通过研究导数的逆运算——积分，可以解决实际理工科当中许多问题。&lt;/p&gt;
+&lt;p&gt;在此，推荐 3blue1brown 的视频。该系列视频从导数讲起，深入极限的本质，还涉及到了泰勒展开。可以说，这是对微分学相当好的入门视频。&lt;/p&gt;
+&lt;p&gt;&lt;a class="link" href="https://www.bilibili.com/video/BV1qW411N7FU" target="_blank" rel="noopener"
+&gt;【官方双语/合集】微积分的本质 - 系列合集&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class="link" href="https://www.bilibili.com/video/BV1ob411y7L9" target="_blank" rel="noopener"
+&gt;UP 主汉语配音【微积分的本质】合集&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;在科普方面，推荐一下《微积分的力量》这本书。这个书讲了微积分的各个方面，公式不多，高中生就能看。自然地，科普书看不看关系也不大。&lt;/p&gt;
+&lt;p&gt;同时，推荐一下《普林斯顿微积分读本》。该书讲得很细致，深入浅出，不需要太多数学基础就可以看。学好这本书，可以为单变量微积分基础打下坚实的基础。&lt;/p&gt;
+&lt;p&gt;在 b 站上有些教学视频，例如宋浩、梨米特、一高数等等。对于想要追求高分的同学，也可以看一些考研难度的视频，例如考研竞赛凯哥等等。&lt;/p&gt;
+&lt;p&gt;最后复习阶段，要重点看课本上每一章最后一节的综合例题，也要认真做每一章最后的综合习题。可以配买一本《工科数学分析习题全解》作为配合，其中有详细的解答过程。这当中的许多题来源于往年压轴题，如果吃透这些题，你就具有了考 100 分的资格。（实际发挥还要通过刷往年卷来检验。在我以为自己很牛的时候，往年卷也就90多分的水平。）当然，这些题难度较高，如果时间紧，可以不看。&lt;/p&gt;
+&lt;h2 id="线性代数-b"&gt;线性代数 B
+&lt;/h2&gt;&lt;p&gt;信科学习的是线代 B，3 学分。与线代 A 相比，简单不少。不过，线性代数对于之后理工科还是相当重要的，因此最好多学一学。&lt;/p&gt;
+&lt;p&gt;在几何直观理解方面，强烈推荐 3b1b 的视频——线性代数的本质。该视频以线性变换为中心，利用几何直观，展现出线代的美丽画卷。同时，也可以看看漫士沉思录的无痛线代系列，也通过几何直观，讲解了线代的应用。&lt;/p&gt;
+&lt;p&gt;&lt;a class="link" href="https://www.bilibili.com/video/BV1ib411t7YR" target="_blank" rel="noopener"
+&gt;UP 主汉语配音-【线性代数的本质】合集&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class="link" href="https://www.bilibili.com/video/BV1wu411T7dj" target="_blank" rel="noopener"
+&gt;线性代数很难学？因为没有深刻理解这个概念【无痛线代】&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;我们学校有一位线性代数的名师——吴惠彬老师。非常有幸上了吴老师的课，老师的上课节奏把握得很好，深入浅出，平时分给满，是最理想的大学老师。也可以在延河课堂上看老师的录播。&lt;/p&gt;
+&lt;p&gt;同时，MIT 的课也很不错。&lt;br&gt;
+&lt;a class="link" href="https://www.bilibili.com/video/BV16Z4y1U7oU" target="_blank" rel="noopener"
+&gt;麻省理工学院 - MIT - 线性代数&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;最后突击期间，刷往年题就够了。线代 B 的题型很固定，多刷刷就能上 90。&lt;/p&gt;
+&lt;h2 id="工程制图-c"&gt;工程制图 C
+&lt;/h2&gt;&lt;p&gt;信科的工图 C 是最简单的工图，2 学分。然而，这门课对信科后续学习几乎没什么作用，除非搞机器人的机械设计啥的。如果老师讲得不太行，可以看看清华的课。&lt;/p&gt;
+&lt;p&gt;&lt;a class="link" href="https://www.bilibili.com/video/BV1FA411i7v4" target="_blank" rel="noopener"
+&gt;【清华大学】机械制图 58 集全&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;自然，这个课当中有些内容是涉及不到的，选择性观看即可。&lt;/p&gt;
+&lt;p&gt;工图有三次大作业。我们班这一届第一次大作业要在 A3 纸上画图，第二次用 CAD 电脑画二维图，第三次用 SolidWorks 建三维模型。可能有其他班都是在纸上画的。如果对电脑不太熟悉，可以参考一些 B 站教程。&lt;/p&gt;
+&lt;p&gt;&lt;a class="link" href="https://www.bilibili.com/video/BV1Tg411k7XX" target="_blank" rel="noopener"
+&gt;「速成」全网最简单的 AutoCAD 入门教程没有之一&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class="link" href="https://www.bilibili.com/video/BV1E3411F7aQ" target="_blank" rel="noopener"
+&gt;「速成」全网最简单的 SW 入门教程没有之一（上）&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="大学计算机"&gt;大学计算机
+&lt;/h2&gt;&lt;p&gt;虽然只有 2 学分，但是这是我大一上所有科目中，考得最低的一门课。这门课本身就挺抽象的，本意是过一遍计算机知识，然而实际上用各种陈旧的信息，十几年前的实验软件，实在很没意思。往年题也不多。&lt;/p&gt;
+&lt;p&gt;顺带一提，我还被大计的慕课背刺过。这个慕课考试在期末考试之后，导致我根本没看慕课，结果慕课就 45 分。折算成 20% 到总分里面，太痛了。&lt;strong&gt;所以直到出成绩前，一定要常常检查慕课&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;只能推荐一下计算机科学速成课，这个视频做的挺好的。&lt;br&gt;
+&lt;a class="link" href="https://www.bilibili.com/video/BV1EW411u7th" target="_blank" rel="noopener"
+&gt;【计算机科学速成课】[40 集全/精校] - Crash Course Computer Science&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;⚠️更新⚠️：目前该课换成了人工智能与计算科学A，不过教材还是大学计算机，可能换汤不换药。&lt;/p&gt;
+&lt;h2 id="思想道德与法治"&gt;思想道德与法治
+&lt;/h2&gt;&lt;p&gt;3 学分。作为一门思政课，重点还是在于背诵。同时，还有一个红色文物大赛的竞赛，有兴趣可以组队做一下，算是比较容易水的竞赛。&lt;/p&gt;
+&lt;p&gt;期末考试只会考几道大题，都是结合知识和自己的理解来写。背诵的时候只用背重点内容，考试的时候临场发挥，拥有正能量即可。&lt;/p&gt;
+&lt;h2 id="知识产权法基础"&gt;知识产权法基础
+&lt;/h2&gt;&lt;p&gt;1 学分，水。考试的时候开卷，可以带课本，直接抄就行。&lt;/p&gt;
+&lt;h2 id="学术用途英语一级"&gt;学术用途英语一级
+&lt;/h2&gt;&lt;p&gt;3 学分，还是有一定重要程度的。英语平时分占 40%，口语考试占 20%，期末占 40%。英语课成绩主要要看老师。如果老师不错，那么你可以在愉悦的情况下拿下不错的成绩。如果不幸遇上了“冥师”，那么确实很折磨。&lt;/p&gt;
+&lt;p&gt;考试题型和四六级比较像。大一上就可以把四级考了，顺便刷一些四级题目，增加一些英语应试能力。
+听力有些难度，只听一遍，同时有各种各样的口音和环境音，可能比六级听力还要难。&lt;/p&gt;
+&lt;p&gt;⚠️更新⚠️：目前该课换成了基础英语/核心英语，学分变成了 4 学分，更加重要。&lt;/p&gt;
+&lt;h2 id="形势与政策"&gt;形势与政策
+&lt;/h2&gt;&lt;p&gt;水中水，0.25 学分。注意论文查重率，不要挂科就行。&lt;/p&gt;
+&lt;h2 id="大学生心理素质发展"&gt;大学生心理素质发展
+&lt;/h2&gt;&lt;p&gt;水中水中水，0 学分，事有点多，但不挂科就行。&lt;/p&gt;
+&lt;p&gt;⚠️️更新⚠️：
+目前大学生心理素质发展有一学分，但改变不了水的本性。&lt;/p&gt;
+&lt;h2 id="国家安全概论"&gt;国家安全概论
+&lt;/h2&gt;&lt;p&gt;1 学分，但是最后是等级制，也就是优秀对应 95 分，良好对应 85 分，通过对应 80 分。没有考试，主要是平时作业和结课论文，还有一个小组实践活动。作业和论文认真让大语言模型写一下就行。&lt;/p&gt;
+&lt;h1 id="-资料篇下"&gt;📑 资料篇下
+&lt;/h1&gt;&lt;p&gt;大一下相比于大一上，有了很大的变化。23 届大一上期末周只用考 3 门课程，其他课在之前就已经考完了。而大一下只有电分提前考，剩下六门课都在考试周。&lt;/p&gt;
+&lt;figure class="post-image"&gt;
+&lt;img src="https://ovideros.site/p/guidance/grades.jpg" alt="大一上下平均分于学分线性回归图" style="max-width: 100%;"
+&gt;
+&lt;figcaption&gt;大一上下平均分于学分线性回归图&lt;/figcaption&gt;
+&lt;/figure&gt;&lt;p&gt;如图，橙色的点代表大一上的科目，蓝色的点代表大一下的科目。很明显，大一上的科目的平均分高于大一下科目，同时大一下科目还有更多高学分的课。这就导致大一下课程又多又难。下面，我将简单介绍一下各个科目。&lt;/p&gt;
+&lt;h2 id="工科数学分析-"&gt;工科数学分析 Ⅱ
+&lt;/h2&gt;&lt;p&gt;工数下有 6 学分，仍然是大一下最重要的课。相比于工数上的单变量微积分和常微分方程，工数下拓展到多变量微积分，理解难度上了一个台阶。&lt;/p&gt;
+&lt;p&gt;可以在寒假期间看一看 3b1b 在可汗学院的视频，从几何直观讲解了多元微积分。&lt;/p&gt;
+&lt;p&gt;&lt;a class="link" href="https://www.bilibili.com/video/BV11a4y1L7BV" target="_blank" rel="noopener"
+&gt;（熟肉合集）多元微积分，微分部，3 Blue 1 Brown Grant Sanderson 讲授——可汗学院&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;与工数上一样，b 站上宋浩、梨米特、一高数、考研竞赛凯哥等也可以看。&lt;/p&gt;
+&lt;p&gt;最后突击期间，最好做一下每一章的综合例题和综合习题，不过难度确实很大。最好配合《工科数学分析习题全解》。往年题还是要刷的。&lt;/p&gt;
+&lt;h2 id="大学物理-a"&gt;大学物理 A Ⅰ
+&lt;/h2&gt;&lt;p&gt;4 学分。简而言之，量大。包含力学、热学、波动、光学，有许多公式。如果想要学好，需要耗费一些精力。&lt;/p&gt;
+&lt;p&gt;强烈推荐郭爷的物理讲解。作为北理光电学院的教师，郭爷讲的大学物理相当好。在高中时期，我学物理竞赛的时候，就受到了郭爷不小的帮助。到如今，也是在他的帮助下，我大物上才取得了高分。&lt;/p&gt;
+&lt;p&gt;&lt;a class="link" href="https://www.bilibili.com/video/BV1gA411t7oX" target="_blank" rel="noopener"
+&gt;2019-2020-4-大一春季《大学物理-上》完整版本 75 课时&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;大物的慕课较多，需要每周注意完成。最后期末复习时，可以刷课本上每章后的习题，复习慕课题目，刷往年题。&lt;/p&gt;
+&lt;h2 id="电路分析基础"&gt;电路分析基础
+&lt;/h2&gt;&lt;p&gt;4 学分。电分作为电路的专业入门课，有一些难度。一开始的纯电阻电路还比较好理解，但是进入动态电路之后，便上了难度。学好电分，需要对工数上的常微分方程熟悉，同时理解叠加、分解和变换三大方法。书上前言写得其实不错，可以看看。&lt;/p&gt;
+&lt;p&gt;石群老师讲得很细，不过太长了，我也只看了一点点。&lt;/p&gt;
+&lt;p&gt;&lt;a class="link" href="https://www.bilibili.com/video/BV1F7411a7iV" target="_blank" rel="noopener"
+&gt;电路石群老师主讲【80 集全带目录】&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;我主要还是看课本。相比于 ppt，课本的原理部分讲解更多，解释更加详细，可以帮助理解。应试方面，这个考研视频也可以看看。&lt;/p&gt;
+&lt;p&gt;&lt;a class="link" href="https://www.bilibili.com/video/BV1Dh4y1m7Vh" target="_blank" rel="noopener"
+&gt;邱关源《电路》第六版课后习题详解 1-8 章&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class="link" href="https://www.bilibili.com/video/BV1yj411j75U" target="_blank" rel="noopener"
+&gt;邱关源《电路》第六版课后习题详解 9-18 章&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;考前突击时，期末卷还是要写的。慕课上的题质量还行，可以复习。&lt;/p&gt;
+&lt;h2 id="c-语言程序设计"&gt;C 语言程序设计
+&lt;/h2&gt;&lt;p&gt;3 学分。这是我大一下理科中考得最烂的一门。C 语言的考试分为三个场次，每个场次有两套试卷。我在下午考，有 C 卷和 D 卷。我看都没看，就选择了 C 卷，结果有道题目比较恶心，没写出来。然而，据说 D 卷相当简单，我有个同学一个小时就写完了。所以，如果各位可以选择试卷，一定要先把两张试卷的大题都看完，然后选择更容易的一张试卷。&lt;/p&gt;
+&lt;p&gt;对于 OI 选手，我不敢提什么建议。如果没学过编程，可以看看 CS50 的前几讲，生动并且详细地介绍了 C 语言。&lt;/p&gt;
+&lt;p&gt;&lt;a class="link" href="https://www.bilibili.com/video/BV1XF411y7iJ" target="_blank" rel="noopener"
+&gt;【中文精翻】【CS 50】哈佛大学计算机科学导论课 (2023) - CS 50 Lecture 0 - Scratch&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;日常的乐学编程题最好尽早做。考前可以做一下课本每章后的选择题，这些题在 csdn 上有答案。&lt;/p&gt;
+&lt;p&gt;⚠️更新⚠️：对于指针和链表的部分，可以看以下两个印度老哥的视频。第二个视频只用看链表的部分。
+正如评论所言，
+“印度老哥可以用最迷惑的口音，把最晦涩的知识，讲得最通俗易懂。”&lt;/p&gt;
+&lt;p&gt;&lt;a class="link" href="https://www.bilibili.com/video/BV1bo4y1Z7xf" target="_blank" rel="noopener"
+&gt;【强烈推荐】4小时彻底掌握C指针 - 顶尖程序员图文讲解&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class="link" href="https://www.bilibili.com/video/BV1Fv4y1f7T1/" target="_blank" rel="noopener"
+&gt;【强烈推荐】深入浅出数据结构 - 顶尖程序员图文讲解&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="物理实验-b"&gt;物理实验 B Ⅰ
+&lt;/h2&gt;&lt;p&gt;简而言之，折磨王。给它 1 点学分，它可以每周占用 4-5 个小时。再给它一次选课的机会，它能让广大学生破防。&lt;/p&gt;
+&lt;p&gt;选课方面，可以问问学长，有一些选课秘籍可以帮助你抢到课。也可以问哪些老师给分比较好。实验的预习报告可以在思政课上抄。&lt;/p&gt;
+&lt;h2 id="学术用途英语二级"&gt;学术用途英语二级
+&lt;/h2&gt;&lt;p&gt;3 学分。和英语一级一样，要看老师。最后考试的听力很恶心，建议多刷一些六级听力。虽说如果你英语实力不是很好，我不建议大一下就考六级，因为大一下的期末周前很忙。&lt;/p&gt;
+&lt;h2 id="中国近现代史纲要"&gt;中国近现代史纲要
+&lt;/h2&gt;&lt;p&gt;3 学分。这个课有微课大赛，有兴趣的话可以水一水。该课还有一个小组实践活动。&lt;/p&gt;
+&lt;p&gt;最后一节课要认真听。同时，考前可以看一下速成视频。&lt;/p&gt;
+&lt;p&gt;&lt;a class="link" href="https://www.bilibili.com/video/BV1gQ4y1j7Kk/" target="_blank" rel="noopener"
+&gt;【古埃及掌管史纲的神】史纲速成｜第一章 进入近代后中华民族的磨难与抗争｜Strik0r&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="习概"&gt;习概
+&lt;/h2&gt;&lt;p&gt;3 学分。有的老师会要求课前放一些表演的视频。最后一节课有 ppt 划重点，考试几乎都是考重点，背好重点即可。&lt;/p&gt;
+&lt;h2 id="形势与政策-1"&gt;形势与政策
+&lt;/h2&gt;&lt;p&gt;0.25 学分。水中水，注意查重率就行。&lt;/p&gt;
+&lt;h1 id="-尾声"&gt;⏹️ 尾声
+&lt;/h1&gt;&lt;p&gt;以上都是关于分数的。然而，大学远远不只这些。单就学业方面，还有综测、竞赛和科研。综测方面，特立保研只看成绩，信科保研最后要看综测，可能更麻烦。竞赛方面，如果有 OI 经历，自然可以想办法入 acm 队；如果对自动化、机器人感兴趣，可以考虑机器人队、航模队、智能车队等等。大一下也有许多竞赛的机会，可以尝试大创、挑战杯、互联网+、数学竞赛、数学建模竞赛等等。科研方面，大一确实有些早，可以之后再考虑。&lt;/p&gt;
+&lt;p&gt;学业之外，大学还有更多。在百团大战，可以多看看不同种类的社团和学生组织，参加一些自己感兴趣的。多了解一些新的事物，尝试一些新的方法，毕竟，大学是试错成本相当低的场所。&lt;/p&gt;
+&lt;p&gt;最后，我也要对给予过我帮助的老师们，朋辈导师们，耐心的学长学姐们，表示深深的感谢。&lt;/p&gt;
+&lt;p&gt;欢迎转发这一篇博客。如果有机会，你也可以在未来的某一天，帮助之后的同学们。&lt;/p&gt;</description></item></channel></rss>

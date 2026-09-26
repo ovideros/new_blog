@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>保研 on Ovidero's Blog</title><link>https://ovideros.site/categories/%E4%BF%9D%E7%A0%94/</link><description>Recent content in 保研 on Ovidero's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Thu, 24 Sep 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://ovideros.site/categories/%E4%BF%9D%E7%A0%94/index.xml" rel="self" type="application/rss+xml"/><item><title>2026年(23级/27届)计算机保研经验贴——中九高rank无竞赛微科研</title><link>https://ovideros.site/p/baoyan/</link><pubDate>Thu, 24 Sep 2026 00:00:00 +0000</pubDate><guid>https://ovideros.site/p/baoyan/</guid><description>&lt;img src="https://ovideros.site/p/baoyan/baoyan.jpg" alt="Featured image of post 2026年(23级/27届)计算机保研经验贴——中九高rank无竞赛微科研" /&gt;&lt;p&gt;图文无关。画师为 X(twitter) 上的 @risuyorokobi。&lt;/p&gt;
+&lt;p&gt;我关于本校本科阶段的一些指南：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://ovideros.site/p/guidance/" &gt;信科大一通关指南&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://ovideros.site/p/guidance2/" &gt;计科大二通关指南&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://ovideros.site/p/guidance3/" &gt;计科大三通关指南&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="前言"&gt;前言
+&lt;/h2&gt;&lt;p&gt;每个人的情况终究不同，本帖&lt;strong&gt;只是从个人视角出发作介绍&lt;/strong&gt;。例如，我在获得导师口头offer后，没有报一些弱com院校的预推免，因为懒得再联系其他导师。本人报的院校较少，最后还是有幸获得了一个联培的名额，并且该offer很铁。我在保研期间&lt;strong&gt;没有鸽过任何老师&lt;/strong&gt;。我也懒得海投，投的学校基本都入了营。如果你确实没offer，可以尝试海投。&lt;/p&gt;
+&lt;p&gt;每年计算机保研似乎都在变得更卷。我这一届（23级）高三时，ChatGPT发布了；等到大学入学时，已经可以使用 AI 工具了。不过，直到我大二，ai 才发展得成熟，能够熟练解决课业问题与科研问题。这样，自然会有更多人利用 ai 做项目，bar 也水涨船高。可以预见后面几届同学，在刚入学时就有完善的 ai，此时，院校如何评价一个学生的水平，我们如何看待自身的水平，都是值得思考的问题。我目前没有答案。&lt;/p&gt;
+&lt;p&gt;个人角度来看，如果你不是高rank+ACM竞赛获奖型选手，可以走强com路线，要想保研外校，最好都提前进外校组进行科研。大多数top院校老师都希望在科研实习的过程中，看清学生的一些特质是否符合自己期待，进而起到筛选的作用。对老师而言，此类学生可能更不容易“鸽”（这条是我随便猜的，不确定）。因此，在确定名额时，&lt;strong&gt;会优先考虑在自己组实习过的学生&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;随着申请人越来越多，“专业对口”也变得重要，例如你申请具身组的研究生最好有具身的科研经历，申请llm组最好有llm的科研经历，等等。当然这也不尽然，有些导师可能更看重学生的基础能力，或者解决问题的视角等。只是说，在大二或大三阶段就选择好之后研究生的方向，能够最大化你被导师青睐的&lt;strong&gt;先验概率&lt;/strong&gt;，具体后验概率还要根据其他因素计算。&lt;/p&gt;
+&lt;p&gt;同时，我认为研究生阶段&lt;strong&gt;导师确实大于院校title&lt;/strong&gt;，因为导师能直接决定你有多少补贴、能得到多少指导、能否实习，同时决定有多少计算资源、组内氛围如何、课题组去向如何。这些方面因导师而异，不能只看院校。院校title体现在招聘时的一个初筛标签，只要不是太差，最终还是更加看重个人能力；同时院校还与城市有关，这个就更看个人偏好了。&lt;/p&gt;
+&lt;p&gt;至于选择硕士还是博士，我本人没有过多考虑，因为导师只有博士名额，所以我选择了博士。之前做过科研，感觉自己至少不讨厌科研。同时博士期间可以实习/与企业合作，所以感觉ok。&lt;/p&gt;
+&lt;h2 id="个人情况"&gt;个人情况
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;学校&lt;/strong&gt;：中九&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;专业&lt;/strong&gt;：计算机拔尖班&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;rank&lt;/strong&gt;：前五学期rank1，可以开大类130+的排名；前六学期rank2，可以开大类80+的排名。指的都是绩点，我没用过综测排名&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;竞赛&lt;/strong&gt;：无&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;科研&lt;/strong&gt;：夏令营期间一篇n作在投，9月中了CoRL&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;英语&lt;/strong&gt;：六级550+，四级600+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;荣誉&lt;/strong&gt;：两次国家奖学金&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;个人意向&lt;/strong&gt;：导师 ≈ 研究方向（具身）&amp;gt; 学校title ≈ 城市。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;最终去向&lt;/strong&gt;：上海交通大学与上海期智研究院联培，导师来自清华叉院。&lt;/p&gt;
+&lt;h2 id="保研黑话"&gt;保研黑话
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;rank（rk）&lt;/strong&gt;：指学生的绩点/综测排名，部分院校筛简历时会卡rank，也就是低于某个排名百分比不让进。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;bar&lt;/strong&gt;：指院校夏令营或预推免的入营门槛。一般学校越好，bar越高。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;wl&lt;/strong&gt;：即waiting list，候补队列。如果前面有人放弃资格，候补者就有机会依次递补。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;offer&lt;/strong&gt;：指优秀营员、考核结果优秀等，也就是院校愿意录取你；有些院校看似优营，实际要与导师双选后才有真正的offer。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;oq&lt;/strong&gt;：即over qualified，指学生水平远超所报院校的生源水平，院校因担心其最终不会选择自己而拒绝其入营。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;套磁（陶瓷）&lt;/strong&gt;：指提前通过邮件等方式与心仪导师联系，以争取实习机会、入营资格或提前锁定offer。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;鸽穿&lt;/strong&gt;：指一个学院的优营和候补人数中，最终决定接受录取的人数总和也未达到其招生数量。学院最终可能开新的批次来招生，或者电话联系学生等。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;com&lt;/strong&gt;：即committee，指招生委员会。强com指学院官方权力大，导师个人话语权小；弱com则指导师在录取中拥有很大决定权。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;bg&lt;/strong&gt;：即background，指个人的综合背景条件，包括本科院校、成绩排名、科研经历等。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;pub&lt;/strong&gt;：即publication，指论文发表情况。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="保研前准备"&gt;保研前准备
+&lt;/h2&gt;&lt;h3 id="前前保研时期大二上"&gt;前前保研时期（大二上）
+&lt;/h3&gt;&lt;p&gt;我在大二上加入了北大工学院的一位新ap的组，做的是具身智能方向。不过组内没有真机，显卡不多，只是在组会上研究一些论文。&lt;/p&gt;
+&lt;p&gt;这个阶段我入门了具身领域，阅读了 Diffusion Policy&lt;sup id="fnref:1"&gt;&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref"&gt;1&lt;/a&gt;&lt;/sup&gt;、ALOHA(ACT)&lt;sup id="fnref:2"&gt;&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref"&gt;2&lt;/a&gt;&lt;/sup&gt;、RT系列&lt;sup id="fnref:3"&gt;&lt;a href="#fn:3" class="footnote-ref" role="doc-noteref"&gt;3&lt;/a&gt;&lt;/sup&gt;&lt;sup id="fnref:4"&gt;&lt;a href="#fn:4" class="footnote-ref" role="doc-noteref"&gt;4&lt;/a&gt;&lt;/sup&gt;、Octo&lt;sup id="fnref:5"&gt;&lt;a href="#fn:5" class="footnote-ref" role="doc-noteref"&gt;5&lt;/a&gt;&lt;/sup&gt;、OpenVLA&lt;sup id="fnref:6"&gt;&lt;a href="#fn:6" class="footnote-ref" role="doc-noteref"&gt;6&lt;/a&gt;&lt;/sup&gt;等工作，虽然当时对它们的理解不深。在24年10月末，$\pi_0$ &lt;sup id="fnref:7"&gt;&lt;a href="#fn:7" class="footnote-ref" role="doc-noteref"&gt;7&lt;/a&gt;&lt;/sup&gt;发布，当时也是较早阅读了这篇工作，虽说Flow Matching、action expert等概念后面才真正理解。&lt;/p&gt;
+&lt;p&gt;该阶段的科研没有产出，只是利用Docker，复现了 Diffusion Policy 与 3D Diffusion Policy&lt;sup id="fnref:8"&gt;&lt;a href="#fn:8" class="footnote-ref" role="doc-noteref"&gt;8&lt;/a&gt;&lt;/sup&gt; 的一些实验，也尝试用 Hugging Face 的 Accelerate 库进行多卡训练（4卡）。工程上，熟悉了 Ubuntu、Pytorch、Wandb、YAML、OmegaConf 等。&lt;/p&gt;
+&lt;p&gt;后因为感觉在这个组比较缺少资源，于是寒假快结束时联系了清华的导师，并明确和北大的老师说退出该项目。当时还纠结了一阵子如何提出退出。和北大老师说完情况后，他也就简单地同意，然后挂了电话。后面想想，其实本科生退出本来就没啥，都是流动资源，导师也都心知肚明。可以尝试多个课题组，本来就是本科生的优势，没必要心态上觉得过不去。&lt;/p&gt;
+&lt;h3 id="前保研时期大二下大三上"&gt;前保研时期（大二下~大三上）
+&lt;/h3&gt;&lt;p&gt;我于大二下加入清华叉院某组做人形机器人方向（叉院做具身的不到10位，可以枚举），一开始先是旁听了一个进行到一半的项目。我最后没有被该项目挂名，只是被写在了 Acknowledgements 中。&lt;/p&gt;
+&lt;p&gt;我于25年4月左右开始参与一个新的人形机器人项目。不过该项目进展较慢，甚至前前后后花了将近一年时间。原因之一便是项目做到一半，原先想法被 scoop（抢先发表）了，导致不得不调整方向。后续引入新的硬件，带来了一些新的问题。我在25年暑假进行了接近两个月的线下实习，期间接触了真机，明白了宇树G1的一系列硬件。&lt;/p&gt;
+&lt;p&gt;大三上开始，我在该项目中没投入多少精力，也没做其他科研。&lt;/p&gt;
+&lt;h3 id="大三寒假"&gt;大三寒假
+&lt;/h3&gt;&lt;p&gt;有些同学会在此期间复习基础课程（高数、线代、概率论、机器学习、深度学习等），或者复习算法题（如刷 leetcode 等）。不过我主要还是在玩，最多复习了 CS285&lt;sup id="fnref:9"&gt;&lt;a href="#fn:9" class="footnote-ref" role="doc-noteref"&gt;9&lt;/a&gt;&lt;/sup&gt; 强化学习课程，以及其中的一些推导。&lt;/p&gt;
+&lt;h2 id="夏令营"&gt;夏令营
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;PS: 有些学校我放到预推免了。有些院校的“预推免”比另一些院校的“夏令营”还要早，因此两者差别不大，更多只是叫法的区别。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;夏令营阶段 0 offer，也算一种&lt;em&gt;夏0营&lt;/em&gt;（）&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;院校&lt;/th&gt;
+&lt;th&gt;报考类型&lt;/th&gt;
+&lt;th&gt;是否入营&lt;/th&gt;
+&lt;th&gt;是否优营&lt;/th&gt;
+&lt;th&gt;备注&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;清华 ai（cai）&lt;/td&gt;
+&lt;td&gt;直博&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;td&gt;❌&lt;/td&gt;
+&lt;td&gt;没联系cai的导师&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;清华叉院&lt;/td&gt;
+&lt;td&gt;直博&lt;/td&gt;
+&lt;td&gt;❌&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;此时叉院老师跟我说没清华的名额了&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;上交 ai（sai）&lt;/td&gt;
+&lt;td&gt;直博&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;td&gt;❌&lt;/td&gt;
+&lt;td&gt;没优营很尴尬，导致后续有些焦虑&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id="3月-5月"&gt;3月-5月
+&lt;/h3&gt;&lt;p&gt;3月回学校开始，我跟清华老师说想读他的博士/硕士，并继续做科研，老师说后续会有相关考核。&lt;/p&gt;
+&lt;p&gt;该科研项目主要是与一位学长合作，与第一人称（ego）视频有关。后续因学长实习等原因，项目没有进行下去，终止于5月多。&lt;/p&gt;
+&lt;p&gt;在4月初，我参加了导师给我的考核，为期一周半。似乎清华叉院或清华ai，导师大多数都有自己的考核，无论是完整的科研实习，还是小项目。受限于保密协议，该考核无法展开说明，只能说与具身智能26上半年最火的一个词有关。&lt;/p&gt;
+&lt;p&gt;考核结束时已经到了4月中旬，我意识到自己还没联系其他导师，因此有些担心。于是联系了上交 ai 一位导师，他不确定名额，让我等等。&lt;/p&gt;
+&lt;p&gt;考核结束约一周半后，导师约我聊了半小时，让我介绍考核中项目完成的情况，并让我继续等消息。&lt;/p&gt;
+&lt;h3 id="清华-ai-cai"&gt;清华 ai (cai)
+&lt;/h3&gt;&lt;p&gt;今年清华 ai 的 &lt;strong&gt;bar 相当高&lt;/strong&gt;，是计算机最顶尖的 bar 之一。根据官方统计数据，在报名的1000余人中，有500多位有国奖，700多位“一作”发表或在投，300多位“第一名”，100多位有ACM获奖（有学长对这类渲染peer pressure的展示持明确反对意见）。最后200多人入营。展示的图中，入营最多的是清华，其次是北理和北邮。此外是上交、北航、华科、人大等等。男女比例 4：1 。&lt;/p&gt;
+&lt;figure class="post-image"&gt;
+&lt;img src="https://ovideros.site/p/baoyan/cai.jpg" alt="姚期智院长开场演讲" style="max-width: 100%;"
+&gt;
+&lt;figcaption&gt;姚期智院长开场演讲&lt;/figcaption&gt;
+&lt;/figure&gt;&lt;figure class="post-image"&gt;
+&lt;img src="https://ovideros.site/p/baoyan/cai2.jpg" alt="cai入营情况" style="max-width: 100%;"
+&gt;
+&lt;figcaption&gt;cai入营情况&lt;/figcaption&gt;
+&lt;/figure&gt;&lt;p&gt;夏令营有三天，5月15日-5月17日。第一天下午报到+开放日（Open Office Hours），可以找导师套磁。我和几位做具身的导师聊了聊。期间发现许多参营同学都有对口研究经历，同时也有论文。晚上是AI理论知识竞赛，2小时，英文试卷英文作答。题目涵盖得很宽，包括数学、算法、AI，满分100，时间较为紧张，题目大致如下，其中第7题-第9题选一题作答（我选了第7题，因为比较套路）&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;15分，线性代数，给定矩阵，求秩、特征值、向量空间相关，求矩阵的20次方。&lt;/li&gt;
+&lt;li&gt;15分，高数的无穷级数，和函数，求导与积分。证明无穷级数等于另一个函数 $-ln(1-x)$，代入 $\frac{1}{2}$ 的值。&lt;/li&gt;
+&lt;li&gt;15分，动态规划，网格图dp问题，第一问没有障碍，写递推式，问左上角到右下角的路径数量；第二问加了障碍，写递推式，算结果；第三问格子里面是正负数，可以有一次豁免加负数的机会，改为加上0，要求到达右下角得分最大。在一个小例子中画状态转移图，求状态转移公式，写出计算结果。（三维dp）&lt;/li&gt;
+&lt;li&gt;15分，图论，有向无环图最短路径，这道题我不太确定。第一问先算各个路径对应的value，然后去掉一条边，让最小路径的值最大，求出要去除的边和对应最小的值。第二问对于所有可能去掉一条边的情况，给出求出总的最小路径的最大值的算法。第三问去掉每条边又有另一个cost，要求让cost最小，并使得终点不可达的算法。&lt;/li&gt;
+&lt;li&gt;15分，EM算法，第一问证明ELBO；给出具体伯努利分布、高斯分布后，第二问写出E-step，第三问写出M-step。&lt;/li&gt;
+&lt;li&gt;10分，CLIP模型，题目给出loss，第一问要对 $v_i^t$ 求导；第二问要利用互信息推导出InfoNCE Loss。&lt;/li&gt;
+&lt;li&gt;15分，Transformer基础推导，RoPE算法证明点积只与相对位置相关；LayerNorm的公式，以及证明可以约束梯度；先写出单头注意力公式，然后写出多头注意力公式。&lt;/li&gt;
+&lt;li&gt;15分，3d 点云与 RL 相关，涉及相机内外参数等，没有细看。&lt;/li&gt;
+&lt;li&gt;15分，优化（Optimization）相关的问题，很偏理论，没有细看。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;第二天上午，先是两个半小时的会议，最先是姚期智发言，然后是老师报告，介绍自己的课题组，每位老师都被限定了一定时间。研究方向挺多样，包括具身与空间智能、深度学习理论、autoresearch、LLM与VLM、ego视频、coding agent等等。中午在学院内有免费的午餐。下午三个半小时有三个平行的workshop，可以自行选择参加，包括空间智能、大模型Agent与AI+Science。我参加了空间智能，其实就是具身智能。该workshop主要是听该领域的五位导师仔细介绍自己的项目和想法，每个导师差不多半个小时，因此相比上午更加深入。也会有一些学生提问的环节。&lt;/p&gt;
+&lt;p&gt;这一天晚上，导师说他大概率没有清华这边的名额了，不过还有上交这边的名额，希望我考虑一下，在下周二之前给出决策（此时是周六）。我回导师需要考虑一下。&lt;/p&gt;
+&lt;p&gt;第三天是面试，需要自行准备ppt，时间为8分钟，5分钟 presentation + 3分钟 Q&amp;amp;A，有志愿者会在剩3分钟与1分钟的时候举牌子提醒。差不多一半左右的人进了面试。我面试时，有位老师的问题问得很深，我一时半会没回答上来。估计旁边老师看不下去了，还帮我打圆场😂。&lt;/p&gt;
+&lt;p&gt;总的来说，虽然清华 ai 才创办了几年，但&lt;strong&gt;老师都相当有实力与潜力&lt;/strong&gt;，未来还会引入更多AP。办公环境很好，是全新的一座大楼。录取方式上，大部分应该还是联系导师并且提前实习，之后在预推免获得名额，听说有的导师组内甚至有好几位985的rank1在实习，难度不小；好像也有少部分强com名额，但我没有优营。因为清华 ai 夏令营在5月左右，而此时导师应该都有自己的推荐人选了，因此实习要很早开始，在大三上甚至更早就要考虑。&lt;/p&gt;
+&lt;h3 id="5月-7月"&gt;5月-7月
+&lt;/h3&gt;&lt;p&gt;清华 ai 夏令营结束的晚上，我跟导师说自己愿意考虑在上交攻读直博。他说还不太确定，需要等其他一些同学回复，之后确定下来会回复。&lt;/p&gt;
+&lt;p&gt;之前清华叉院在5月7日报名截止。5月22日出了入营结果，不过此时老师已明确跟我说没有清华那边的名额了，因此没有入营。&lt;/p&gt;
+&lt;p&gt;接下来一两周感觉没什么目标有点摆，再之后两周多就是期末考试，因此突击了一下。&lt;/p&gt;
+&lt;p&gt;在6月中旬，导师询问我是否有博士的去向，电话沟通后，他说上交名额基本确定可以给到我，应该没有太多变数，问我愿不愿意接受。我自然接受。老师问我有没有其他变数，我回答基本确定，是我的第一意向。&lt;/p&gt;
+&lt;p&gt;事后想想，我与导师对这个offer的确定程度，都有些谦虚😂导师一直为我保留了这个offer，而我也没有与其他导师达成过双选。&lt;/p&gt;
+&lt;p&gt;一周多后，上交 ai 夏令营的通知出了，我与之前联系的上交导师明确说自己已有offer，准备放弃他那边的机会，他也恭喜我。他之前只是与我发过让我等待后续的消息，没有什么考核或名额方面的信息。&lt;/p&gt;
+&lt;h3 id="上交-aisai"&gt;上交 ai（sai）
+&lt;/h3&gt;&lt;p&gt;因为之前在良乡租房，我在7月中旬才正式搬到中关村，而不是7月上旬。搬到中关村再过一周，就要参加7月22日-23日的上交ai夏令营。&lt;/p&gt;
+&lt;figure class="post-image"&gt;
+&lt;img src="https://ovideros.site/p/baoyan/sai.jpg" alt="sai" style="max-width: 100%;"
+&gt;
+&lt;figcaption&gt;sai&lt;/figcaption&gt;
+&lt;/figure&gt;&lt;p&gt;提前一天坐高铁抵达上海，并入住酒店。sai对于硕士和博士的考核不同。对于直博，第一天早上进行专业测试，就是笔试，用时2小时。下午没有安排。考核的内容已有人明确整理，在小红书上&lt;sup id="fnref:10"&gt;&lt;a href="#fn:10" class="footnote-ref" role="doc-noteref"&gt;10&lt;/a&gt;&lt;/sup&gt;，如果未来下架，才可能考虑在本博客中详细展开。主要内容是 RL 方面，也涉及一些 AI infra、梯度下降、Transformer、机械臂、贝叶斯推断等方面。个人感觉最后一题计算量较大，没写出来，其他还好。&lt;/p&gt;
+&lt;p&gt;第二天面试，分为上午与下午两场，我被分到了下午。面试不使用ppt，只用简历，每人20分钟，时间相当多，因此留下了充足的“拷打”时间。每场面试内有7个专业老师+1个行政老师。面试首先会让你用英文介绍自己（这句话是英文，所以我第一时间没反应过来，老师讲第二次我才理解）。然后英文问你最喜欢的书是什么。之后全都是中文的提问。包括深入问一问你的项目细节，来弄清楚项目是不是你做的。同时会涉及一些“性格”方面的问题，或者是纯压力测试，例如“你有什么缺点”“和其他人相比你有你有什么优势与劣势”等。不太会问具体的专业问题，但会让你讲专业课（例如数学）在项目中有哪些应用。也会问你的未来研究兴趣。我当时简历上写了 World Action Model，老师似乎对此十分专业，因此拷打了许多相关问题，但彼时我对一些细节还不那么了解。具体到xxx模型的 backbone 是几B，xxx模型的优势与劣势等。行政老师可能会问你简历上社会实践等部分，以及前几天还有个心理测试但我在网站上没找到，她问我为什么没写。&lt;/p&gt;
+&lt;p&gt;sai 的结果等了较长时间才出，这里先按下不表。&lt;/p&gt;
+&lt;h2 id="预推免"&gt;预推免
+&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;院校&lt;/th&gt;
+&lt;th&gt;报考类型&lt;/th&gt;
+&lt;th&gt;是否入营&lt;/th&gt;
+&lt;th&gt;是否优营&lt;/th&gt;
+&lt;th&gt;备注&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;人大高瓴&lt;/td&gt;
+&lt;td&gt;直博&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;td&gt;❌&lt;/td&gt;
+&lt;td&gt;候补。当初没注意，报了直博；不过直博名额确实更多&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;自动化所（第一批）&lt;/td&gt;
+&lt;td&gt;随意，看双选结果&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;td&gt;⍻&lt;/td&gt;
+&lt;td&gt;优营但未双选，实际没有效力&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;上交 ai（sai）&lt;/td&gt;
+&lt;td&gt;直博&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;td&gt;“二进宫”，最终去向&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;本校 cs&lt;/td&gt;
+&lt;td&gt;学硕&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;td&gt;在确认资格ddl前，释放了本校offer&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id="人大高瓴"&gt;人大高瓴
+&lt;/h3&gt;&lt;p&gt;7月23日结束sai夏令营后，7月25日就到高瓴报道，7月26日-27日考核。&lt;/p&gt;
+&lt;p&gt;人大高瓴是&lt;strong&gt;纯粹的强com&lt;/strong&gt;，拥有硬核的考试与面试。第一天（26日）上午有两个半小时的笔试，内容很多，包括数据结构（408难度，例如给你二叉树的两种遍历写另一种遍历，hash冲突相关计算，排序等），高数，线代，概率论，机器学习（包括奇异值分解、PCA等）。前面这些都是选择题，题量较大，有40多道。两道大题选做一道，一道是算法题（我没有细看，大概是一个区间上搜索有关），一道是概率论的贝叶斯推断，具体如下。&lt;/p&gt;
+&lt;p&gt;考虑三门问题，第一问用贝叶斯定理求主持人打开一扇没有车的门后，换与不换门中奖的概率。第二问拓展到 N 个门，主持人打开 M 扇门，有 i 个车。这三者满足约束保证问题成立（具体忘了，可以让大模型补全）。求什么情况下，更换其他门可以使得门后有车的概率增加。第三问进一步为车在门后引入一个概率分布，要利用贝叶斯定理与积分，计算出后验概率，是更完整的贝叶斯推断。&lt;/p&gt;
+&lt;p&gt;除此之外，还有个英语题将中文翻译成英文，是 llm/agent 相关，内容不长，相对简单。&lt;/p&gt;
+&lt;figure class="post-image"&gt;
+&lt;img src="https://ovideros.site/p/baoyan/ruc.jpg" alt="人大高瓴" style="max-width: 100%;"
+&gt;
+&lt;figcaption&gt;人大高瓴&lt;/figcaption&gt;
+&lt;/figure&gt;&lt;p&gt;以上是笔试。当天下午，首先在报告厅开会，介绍了人大高瓴的大致情况，学院发展历史，老师研究方向等。之后便是德智体美劳考核，这也是人大颇具特色的一环。备考期间先把同学们集中在一间教室里，电子产品都放到包里管起来，只能看纸质材料复习。这样大概是为了防止同学们串通。这个考核问的问题自然很生活化，例如如果与舍友的作息不和，且学校没有多余宿舍可以换，要怎么办？以及导师的研究方向与你想做的方向不一致，怎么办？&lt;/p&gt;
+&lt;p&gt;当天下午也是 AI 学术市集环节，会有各个老师的poster介绍，且一般有博士生来向你推荐课题组。&lt;strong&gt;高瓴的强组去向是相当好的&lt;/strong&gt;，经常与大厂有学术合作，学生自然可以比较好地实习，毕业不愁找工作。方向上，llm/智能体最多，其次还有多模态、推广搜、ai4science、具身、ai理论与可解释性、社会科学智能等。整体方向都很不错。&lt;/p&gt;
+&lt;p&gt;第二天下午，面试。依旧把同学们放一块，不能使用电子设备，因此我提前打印了leetcode hot100以及一些数学题（让GPT整理的）。面试有些抽象，时间只有8分钟，却要做许多事——中文自我介绍、简单英文提问、抽试题回答（提供草稿纸，以口述为准，一道算法题，一道数学题，看别人经验贴好像还可能有ai题，但总数是两道），如果你都做完了，那才会有剩下的科研提问。显然时间相当紧张，而我甚至没有在考场中看到时间，导致完全不清楚进行到了哪里。算法题是图论相关，我刚好不知道，只能现编一个暴力方法；数学题是概率论相关，比较“脑筋急转弯”，虽然我想出来了，但回答到一半就被老师打断，因为时间到了。于是遗憾离场。&lt;/p&gt;
+&lt;p&gt;高瓴结果出得很快，三天后就出了，我在候补名单中，且排名相当靠后，基本没戏。&lt;/p&gt;
+&lt;h3 id="自动化所第一批"&gt;自动化所（第一批）
+&lt;/h3&gt;&lt;p&gt;7月末，自动化所发来通知，说是在8月12日进行面试。据说第一批的bar较高，后续还有第二批、工程硕博、第三批，bar 相对低一些。&lt;/p&gt;
+&lt;p&gt;8月6日，上交ai发来夏令营的结果，点开邮件，写着“&lt;strong&gt;未获评优秀营员资格&lt;/strong&gt;”。我久违地再次感受到挫败的滋味。回想起来自己大学过得确实挺&lt;em&gt;顺利&lt;/em&gt;的，考试排名都不错，论文不被接受也不算太大的事，反正之后能再投。倒是这次的没有优营，让我萌生了不少担忧——这是否意味着我这个offer没多大效力？要是之后预推免也没过怎么办？目前0offer怎么办？诸如此类。&lt;/p&gt;
+&lt;p&gt;几周前出成绩，就算几门课 &lt;strong&gt;60-70分&lt;/strong&gt;（详见&lt;a class="link" href="https://ovideros.site/p/guidance3/" &gt;计科大三通关指南&lt;/a&gt;），在拔尖班里排名最后，我内心也没什么感想，可能只有一种“自己主动放弃”的感慨。上一次有此类挫败的感觉，居然是大一上的《线性代数》课，老师小测，我认真复习各类证明题，结果考的是较为基础的求解非齐次方程。而我因为计算不够熟练，搞混了通解和特解，进而几乎全错。事后来看，这自然不算什么大事，不过是一门2学分的课上，一个占比较小的课堂测试罢了——老师更多只是为了看出勤，最后我甚至获得满分。但是，对当时刚进入大学校园的我，对自身没什么自我认同的我来说，确实是件大事，我浑浑噩噩了好几天，后面还是看了《积极心理学》&lt;sup id="fnref:11"&gt;&lt;a href="#fn:11" class="footnote-ref" role="doc-noteref"&gt;11&lt;/a&gt;&lt;/sup&gt;等才有所释怀，并在无聊中，翻阅到了CSDIY&lt;sup id="fnref:12"&gt;&lt;a href="#fn:12" class="footnote-ref" role="doc-noteref"&gt;12&lt;/a&gt;&lt;/sup&gt;，开始CS方面的自学。&lt;/p&gt;
+&lt;p&gt;上上次有这类挫败感，可能是高考出分吧。这种感觉，是在充分准备但结果不理想的情况下，才会有的。&lt;/p&gt;
+&lt;p&gt;我感到自己不得不面对它，但又懒得为自动化所准备更多东西。在上海期智招生老师的帮助下，联系了之前期智联培的学长，听说sai预推免只有一天的面试，他也只参加了预推免。我听说好像确实有在预推免被刷下来的人，联培终究还是要上交那边同意。&lt;/p&gt;
+&lt;p&gt;好在自动化所算是一件眼前需要做的事，因此我只能硬着头皮参加，倒是能减缓一点内心的空虚。8月12日上午报到，抵达报告厅，完成了《综合素质测评》，其实就是扫码回答心理问卷。随后便是面试，有7组不同的面试间，看名单反而清北较少，985或者顶211居多。&lt;/p&gt;
+&lt;figure class="post-image"&gt;
+&lt;img src="https://ovideros.site/p/baoyan/casia.jpg" alt="自动化所" style="width: 50%; max-width: 100%;"
+&gt;
+&lt;figcaption&gt;自动化所&lt;/figcaption&gt;
+&lt;/figure&gt;&lt;p&gt;我排在靠后位置，2:30之后。因此中午可以外出吃个饭，有充足的时间准备。面试时间为10分钟，有5位专业老师与1位行政老师。首先进行中文自我介绍。接着，我本来以为像往常经验贴，自动化所会有不少专业问题，结果实际上一个都没问，几乎全都是一位老师在问我科研项目中的细节。后来我才知道，是这位老师对我的研究方向感兴趣。其他也就问了问“你有报清北的预推免吗？为什么？”出门时，行政老师慈祥地看着我，说“有点紧张对吧，没事的”。我也意识到，自己在面试中确实可能过于紧张了，包括过往的面试。&lt;/p&gt;
+&lt;p&gt;过了两天，自动化所就发来通知，通过了考核，需要进行导师双选，&lt;strong&gt;没有导师双选相当于没有offer&lt;/strong&gt;。双选的时间有10天，需要本人与导师的签字。之前报名系统上填的硕博、专业也都不重要，更重要的是在双选阶段选择了什么。&lt;/p&gt;
+&lt;p&gt;我有些犹豫要不要找个导师保底，但想了想又觉得麻烦。有一位面试时对我感兴趣的导师，找我花一个小时聊了聊，我也比较坦诚地说了说自己已有口头offer与意向。他也说自动化所这边可能要多做所里面的一些项目等。交谈过后，之后也没联系。&lt;/p&gt;
+&lt;h3 id="上交-aisai-1"&gt;上交 ai（sai）
+&lt;/h3&gt;&lt;p&gt;又摆了一周，等到开学。很遗憾，本校就算是大四，也仍有小学期。此时本来保研的要参加预推免，考研的要复习，找工作的需要秋招，留学的&amp;hellip;（本校留学较少）。就是要在这种关键的时间点，继续恶心一下。不过好在 agent 很发达，项目一个人就能蹬完。最多的就是准备一下中期答辩与结题答辩。&lt;/p&gt;
+&lt;p&gt;在小学期的最后一周（9月14日-9月20日），发生了不少事，以下按天记录。&lt;/p&gt;
+&lt;p&gt;周一，上交 ai 预推免那边总算发了入围通知，确定了周五上午进行面试。我将此前简历与科研兴趣等方向改了改，避免出现一些自己不太熟悉的内容。&lt;/p&gt;
+&lt;p&gt;周二，我提交小学期答辩的请假条（小学期答辩在周五），咨询老师后，我们组可以放在下午，并且允许我线上答辩。&lt;/p&gt;
+&lt;p&gt;周三，没太多事，继续复习了一些项目、具身智能等知识。&lt;/p&gt;
+&lt;p&gt;周四，坐高铁前往上海。在酒店做点准备。&lt;/p&gt;
+&lt;p&gt;周五，八点抵达 sai。签到，八点半才开始面试。有四个平行组，我这次排到最后一名，倒也是有充足的时间，可以发呆一会，再多看看简历。在面试考场前，想到了两个月前的面试。这次我有意不去想太多，尝试深呼吸，确实感觉放松一些。面试中，老师仍然是几位专业老师+一位行政老师，主要是一位专业老师在提问，几乎都是项目相关。其他老师似乎不太会追问，总体比较友善。最后行政老师问了问其他的，然后老师们就下班了。我也走了。&lt;/p&gt;
+&lt;p&gt;下午，因为还有校内的答辩，故租了个钟点房。之后返回北京。&lt;/p&gt;
+&lt;h3 id="本校-cs"&gt;本校 cs
+&lt;/h3&gt;&lt;p&gt;本校 cs 的预推免是周六周天两天。&lt;del&gt;对于经历了前面那些拷打的我，恐怕是最简单的一集&lt;/del&gt;。&lt;/p&gt;
+&lt;p&gt;周六上午，半小时的英语听力。相当简单，只用关键词匹配就行，远不如六级听力，甚至可能比四级听力简单一点。&lt;/p&gt;
+&lt;p&gt;周六下午，跑到另一个校区机试。（这还是我保研期间，&lt;strong&gt;第一次参加机试&lt;/strong&gt;）使用C或者C++语言，题目相当简单：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;给定一个大于等于6的偶数，将它分解成两个质数之和，列出所有情况，每个情况一行。&lt;/li&gt;
+&lt;li&gt;给定一个字符串，将所有英文字符进行大小写转换，然后交换奇数位与偶数位（若长度为奇数，最后一位不交换位置）。&lt;/li&gt;
+&lt;li&gt;一道看似是模拟题，其实可能的输入只有13种，完全可以打表，分成13种情况打印结果即可。
+时间一个半小时，很多人都提前走了。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;周日，上午开始面试。4-5分钟自我介绍，4-5分钟英语问题，4-5分钟老师提问。请注意，这里前两项的时间加起来，&lt;strong&gt;比清华 ai、人大高瓴、自动化所的面试时间都要多&lt;/strong&gt;（这些的面试时间都小于10分钟）。再加上面试考场后面还有明确的时钟，时间把握起来很容易，慢慢讲都行。英语题有两道，一道生活向问题（你的父母怎么看待你），一道科技向问题（介绍一下安卓操作系统），题库好像挺大（感觉有20套以上）。老师提问时，问了一下项目，然后问我是否保外校，我说是的，参加了上交 ai 预推免，但结果还没出，出了结果会第一时间告诉本校的。&lt;/p&gt;
+&lt;p&gt;9月21日（下周一）上午9:00开始，可以在国家保研系统填写志愿，我只写了上交的。下午三点半，上交总算出了结果，发来的邮件中没有写情况如何，还需要打开链接，输入个人信息搜索。&lt;strong&gt;结果：优秀&lt;/strong&gt;。我也卡在ddl前，拒绝了本校的 offer。&lt;/p&gt;
+&lt;figure class="post-image"&gt;
+&lt;img src="https://ovideros.site/p/baoyan/bit.png" alt="释放本校" style="max-width: 100%;"
+&gt;
+&lt;figcaption&gt;释放本校&lt;/figcaption&gt;
+&lt;/figure&gt;&lt;p&gt;之后，9月22日上午8:00开始，学校会开始发送&lt;strong&gt;复试通知&lt;/strong&gt;。大多数学校的预推免在此前已经面试完成，这个复试通知只是走个形式。然而，上交 AI 还要求双选成功的导师将“导师评价表”发送到教务处，导师直到22日晚上才填完并发送。&lt;/p&gt;
+&lt;p&gt;复试通知直到9月23日下午才发，这是真的慢。记得学信网绑定微信，关闭消息免打扰，通知消息管理中设置以重要通知方式提醒。&lt;/p&gt;
+&lt;figure class="post-image"&gt;
+&lt;img src="https://ovideros.site/p/baoyan/fushi.png" alt="复试通知" style="max-width: 100%;"
+&gt;
+&lt;figcaption&gt;复试通知&lt;/figcaption&gt;
+&lt;/figure&gt;&lt;p&gt;9月24日上午8:00开始，学校可以发送拟录取通知。下午14:00起，学生可以接受拟录取通知。只能接受一个，并无法反悔。&lt;/p&gt;
+&lt;figure class="post-image"&gt;
+&lt;img src="https://ovideros.site/p/baoyan/dailuqu.png" alt="待录取通知" style="max-width: 100%;"
+&gt;
+&lt;figcaption&gt;待录取通知&lt;/figcaption&gt;
+&lt;/figure&gt;&lt;h2 id="感想"&gt;感想
+&lt;/h2&gt;&lt;p&gt;我的保研还算幸运，最后成功进了“梦导”的组。期间有些波折，可能事后来看波折并没有那么大，但当时会觉得看不清未来。&lt;/p&gt;
+&lt;p&gt;感谢那些在保研期间陪伴我度过焦虑日子的游戏（按时间顺序）——《以撒的结合》（寒假）、《极乐迪斯科》（寒假）、《杀戮尖塔》（2月、5月、6月、7月、8月）、《杀戮尖塔2》（3月、5月、6月）、Cataclysm系列（CDDA、CBN等）（3月、4月、6月、7月）、《奥日与黑暗森林》（7月）、《ToME4》（7月、8月、9月）、《Z.A.T.O.》（封面图）（9月）。&lt;/p&gt;
+&lt;p&gt;可以看出我是个 roguelike 爱好者，包括一些知名现代肉鸽，以及传统肉鸽。同时也感谢一些漫画——《蘑菇的拟态日常》、《杀手寓言》等。&lt;/p&gt;
+&lt;p&gt;感谢大学以来的老师，有些老师让我意识到大学教师评价体系中，科研与教课的分离；也有些教师让我真正理解了基础知识，并且体会到这些学科独特的美。&lt;/p&gt;
+&lt;p&gt;感谢我的导师，“稳稳地接住我”，给予了我一个铁 offer。&lt;/p&gt;
+&lt;p&gt;感谢所有自从我进入大学以来，向我答疑过的学长、学姐，有你们的指引，让我对未来状态的 &lt;em&gt;Value Function&lt;/em&gt; 更加精确，进而能在当下选择长远来看更优的一步。&lt;/p&gt;
+&lt;p&gt;感谢所有线上、线下的朋友，虽然我们不一定见过多少次、聊过多少天，但你们的存在，使得我见识到了大学生活更多的可能性，让我对大学的 &lt;em&gt;World Model&lt;/em&gt; 覆盖了更多 &lt;em&gt;OOD（Out of Distribution）&lt;/em&gt; 的情况。&lt;/p&gt;
+&lt;p&gt;感谢所有向我咨询过的学弟、学妹们，可能在你们的视角中，我在单方面帮助你们；但其实在我心中，这些答疑也能帮助我审视自己目前的状况，了解更多人的处境，让我能对历史状态的 &lt;em&gt;Memory&lt;/em&gt; 模块进行梯度下降。&lt;/p&gt;
+&lt;p&gt;感谢我的父母，在保研阶段坚定地相信我，为我提供基础的物质条件，也能支持我未来的选择。&lt;/p&gt;
+&lt;p&gt;最后，回到我本人。由于篇幅限制，自然忽略了许多我的准备工作：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;3月开始发现自己算法题能力太差，刷了一些leetcode题目。&lt;/li&gt;
+&lt;li&gt;导师考核阶段我花费了很大的精力，之前都不知道自己能在较短时间内，做出这么多的事（当然少不了 ai 帮忙）。&lt;/li&gt;
+&lt;li&gt;4月-5月，阅读了《Probabilistic Machine Learning》的部分内容，其中贝叶斯推断在后续多所院校的笔试中考到。&lt;/li&gt;
+&lt;li&gt;5月份对着往年笔试题，复习了线代、概率论等科目，深入了解了 Transformer （各种 attention 机制、linear attention、flash attention、RoPE等），并做了一些 ai 出的题。&lt;/li&gt;
+&lt;li&gt;6-7月复习了 GAN、VAE、Diffusion（原始 DDPM）、Flow-Matching 等生成模型的推导，虽说这些后面也没有考到（原始 DDPM 的详细推导真的很繁琐，据说中关村学院还考到了）。&lt;/li&gt;
+&lt;li&gt;8-9月阅读自己研究方向的论文，也仔细看了看 openpi、StarVLA 等开源库中的实现。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;所以，感谢我自己。&lt;/p&gt;
+&lt;p&gt;这一段是经典的保研总结语套路之一，人们总喜欢回望一下高考，觉得保研的“成功”能补偿什么，抑或是“大雪深埋”&lt;sup id="fnref:13"&gt;&lt;a href="#fn:13" class="footnote-ref" role="doc-noteref"&gt;13&lt;/a&gt;&lt;/sup&gt;。此类感慨太多了，让我们换个说法吧。&lt;strong&gt;保研，我可能遗失了什么？&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;我本来在初高中期间，为了做音MAD，自学了剪辑软件、特效软件、平面设计、音频编辑、混音、编曲等，虽然都很浅显，但都是真正出于兴趣来学。我也曾幻想大学阶段能自由地做这类事，然而没有。&lt;/li&gt;
+&lt;li&gt;我可能会很早地尝试海投大厂并实习，不一定是算法岗，但也能本科就业，更早地真正步入社会并承担责任，而不是用“研究生”的名号来拖延，逃避总会来临的身份转变。&lt;/li&gt;
+&lt;li&gt;我可能会留学（考虑到本校环境，除北美外），接触到完全全新的环境，去思考自己此前完全没想到的问题，并做出出乎意料的决策。&lt;/li&gt;
+&lt;li&gt;我可能会考研，在大学前几年有更多时间探索自己，也能利用大学原本就有的试错空间，而不是一入学就被成绩和各种时间节点束缚，人云亦云地参加竞赛、科研等等，即使自身并非真正喜爱做这些事。&lt;/li&gt;
+&lt;li&gt;&amp;hellip;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;至于&lt;strong&gt;保研让我获得了什么&lt;/strong&gt;，可以参考他人的帖子：&lt;a class="link" href="https://www.xiaohongshu.com/discovery/item/68e547d60000000004012544?source=webshare&amp;amp;xhsshare=pc_web&amp;amp;xsec_token=ABh5VPYCHsiSHTETplboq0s6wvGpq3NqPOKsGiTcTYinw=&amp;amp;xsec_source=pc_share" target="_blank" rel="noopener"
+&gt;保研为我带来了什么?&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;不管怎样，我还是到了这里。过去的我无法分割，没有这些经历也就没有现在的我，还是关注当下吧。&lt;/p&gt;
+&lt;p&gt;最后，祝愿大家都能找到想做的事，并尝试做下去！&lt;/p&gt;
+&lt;h2 id="参考资料"&gt;参考资料
+&lt;/h2&gt;&lt;div class="footnotes" role="doc-endnotes"&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id="fn:1"&gt;
+&lt;p&gt;Chi, Cheng, et al. &amp;ldquo;Diffusion policy: Visuomotor policy learning via action diffusion.&amp;rdquo; The International Journal of Robotics Research 44.10-11 (2025): 1684-1704.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:2"&gt;
+&lt;p&gt;Zhao, Tony Z., et al. &amp;ldquo;Learning fine-grained bimanual manipulation with low-cost hardware.&amp;rdquo; arXiv preprint arXiv:2304.13705 (2023).&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:3"&gt;
+&lt;p&gt;Brohan, Anthony, et al. &amp;ldquo;Rt-1: Robotics transformer for real-world control at scale.&amp;rdquo; arXiv preprint arXiv:2212.06817 (2022).&amp;#160;&lt;a href="#fnref:3" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:4"&gt;
+&lt;p&gt;Brohan, Anthony, et al. &amp;ldquo;Rt-2: Vision-language-action models transfer web knowledge to robotic control.&amp;rdquo; arXiv preprint arXiv:2307.15818 (2023).&amp;#160;&lt;a href="#fnref:4" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:5"&gt;
+&lt;p&gt;Team, Octo Model, et al. &amp;ldquo;Octo: An open-source generalist robot policy.&amp;rdquo; arXiv preprint arXiv:2405.12213 (2024).&amp;#160;&lt;a href="#fnref:5" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:6"&gt;
+&lt;p&gt;Kim, Moo Jin, et al. &amp;ldquo;Openvla: An open-source vision-language-action model.&amp;rdquo; arXiv preprint arXiv:2406.09246 (2024).&amp;#160;&lt;a href="#fnref:6" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:7"&gt;
+&lt;p&gt;Black, Kevin, et al. &amp;ldquo;$\pi_0 $: A Vision-Language-Action Flow Model for General Robot Control.&amp;rdquo; arXiv preprint arXiv:2410.24164 (2024).&amp;#160;&lt;a href="#fnref:7" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:8"&gt;
+&lt;p&gt;Ze, Yanjie, et al. &amp;ldquo;3d diffusion policy: Generalizable visuomotor policy learning via simple 3d representations.&amp;rdquo; arXiv preprint arXiv:2403.03954 (2024).&amp;#160;&lt;a href="#fnref:8" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:9"&gt;
+&lt;p&gt;CS285. UC Berkeley. &lt;a class="link" href="https://rail.eecs.berkeley.edu/deeprlcourse/" target="_blank" rel="noopener"
+&gt;https://rail.eecs.berkeley.edu/deeprlcourse/&lt;/a&gt;&amp;#160;&lt;a href="#fnref:9" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:10"&gt;
+&lt;p&gt;上海jt大学人工智能学院第一年笔试题目. &lt;a class="link" href="https://xhslink.cn/o/Acq8sJG9TdP" target="_blank" rel="noopener"
+&gt;https://xhslink.cn/o/Acq8sJG9TdP&lt;/a&gt;&amp;#160;&lt;a href="#fnref:10" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:11"&gt;
+&lt;p&gt;【哈佛大学】积极心理学 Talben Shahar（全23讲）
+. &lt;a class="link" href="https://www.bilibili.com/video/BV1Ka411w7qd" target="_blank" rel="noopener"
+&gt;https://www.bilibili.com/video/BV1Ka411w7qd&lt;/a&gt;&amp;#160;&lt;a href="#fnref:11" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:12"&gt;
+&lt;p&gt;CSDIY. &lt;a class="link" href="https://csdiy.wiki/" target="_blank" rel="noopener"
+&gt;https://csdiy.wiki/&lt;/a&gt;&amp;#160;&lt;a href="#fnref:12" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:13"&gt;
+&lt;p&gt;软微圣经. Github. &lt;a class="link" href="https://github.com/syficy/RuanWeiBible" target="_blank" rel="noopener"
+&gt;https://github.com/syficy/RuanWeiBible&lt;/a&gt;&amp;#160;&lt;a href="#fnref:13" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</description></item></channel></rss>
