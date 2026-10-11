@@ -17,6 +17,9 @@ weight: 30
 - [计科大三通关指南]({{< ref "/post/guidance3/index" >}})
 - [2026年计算机保研经验贴]({{< ref "/post/baoyan/index" >}})
 
+[✨我将各类计科的资料，上传了 BITShare，欢迎各位下载✨：BITshare](https://www.bitshare.com.cn/)
+
+
 ## ▶️ 前言
 相信各位应该看过[信科大一通关指南]({{< ref "/post/guidance/index" >}})。其中心态篇与方法篇也介绍了许多内容，各位感觉有需要可以翻一翻。
 
