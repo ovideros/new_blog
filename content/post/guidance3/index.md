@@ -20,7 +20,7 @@ weight: 20
 
 10月11日更新。我之前想过建立 Github repo 来上传个人大二大三阶段计算机课程用到的复习资料。不过，目前有了 BITshare，似乎没必要了。
 
-[✨我将各类计科的资料，上传了 BITShare，欢迎各位下载✨：BITshare](https://www.bitshare.com.cn/)
+[✨我将各类计科的资料，上传了 BITshare，欢迎各位下载✨：BITshare](https://www.bitshare.com.cn/)
 
 ## ▶️ 前言
 本文最先写于7月5日-7月6日，结合bit101评论与自己的回忆，整理了大多数课程的考试内容。后面由于忙保研搁置。于9月21日补上前言部分。
