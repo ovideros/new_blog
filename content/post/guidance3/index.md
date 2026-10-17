@@ -2,6 +2,7 @@
 title: 计科大三通关指南
 description: 惯例的通关指南
 slug: guidance3
+giscusDiscussion: 4
 date: 2026-07-05
 image: guidance3.png
 categories:

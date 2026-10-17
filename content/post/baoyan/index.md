@@ -2,6 +2,7 @@
 title: 2026年(23级/27届)计算机保研经验贴——中九高rank无竞赛微科研
 description: 含清华ai、上交ai、人大高瓴、自动化所、本校
 slug: baoyan
+giscusDiscussion: 5
 date: 2026-09-24
 image: baoyan.jpg
 categories:
