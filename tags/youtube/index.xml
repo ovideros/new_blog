@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Youtube on Ovidero's Blog</title><link>https://ovideros.site/tags/youtube/</link><description>Recent content in Youtube on Ovidero's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Mon, 13 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://ovideros.site/tags/youtube/index.xml" rel="self" type="application/rss+xml"/><item><title>🎬每日油管博主推荐——合订本，共16话</title><link>https://ovideros.site/p/youtuber_recommend/</link><pubDate>Mon, 13 Oct 2025 00:00:00 +0000</pubDate><guid>https://ovideros.site/p/youtuber_recommend/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;该内容于2025年8月18日——2025年9月2日每日连载，共16天，整理如下。于2025年10月13日上传博客。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;p&gt;油管上有许多精良的视频博主，有些在 b 站有官方搬运，有些则是被零散搬运。&lt;/p&gt;
+&lt;p&gt;该推荐旨在精选一些 CS、数学相关的博主，进行推荐，并简要介绍。&lt;/p&gt;
+&lt;p&gt;由于我的关注量有限，只能支撑我推荐两三周的量（）后续如何，后续再看。&lt;/p&gt;
+&lt;h2 id="第一周"&gt;第一周
+&lt;/h2&gt;&lt;h3 id="1"&gt;1
+&lt;/h3&gt;&lt;p&gt;✨每日油管博主推荐第一期✨——&lt;a class="link" href="https://www.youtube.com/@3blue1brown" target="_blank" rel="noopener"
+&gt;3Blue1Brown&lt;/a&gt;，简称 3b1b，创始人为 Grant Sanderson，毕业于 Stanford。&lt;sup id="fnref:1"&gt;&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref"&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;作为最知名的数学博主（可能没有之一），他为制作动画创建的 &lt;strong&gt;manim 库&lt;/strong&gt;，被广泛使用。他的视频风格也成了优质视频的标杆。&lt;/p&gt;
+&lt;p&gt;大概在初高中时期，我就在 &lt;a class="link" href="https://space.bilibili.com/88461692" target="_blank" rel="noopener"
+&gt;b 站&lt;/a&gt;看过不少他的视频）虽然大多数都一知半解，浮光掠影。不过，确实从可视化中，感受到了数学的优美。&lt;/p&gt;
+&lt;p&gt;上了大学，我也看了著名的&lt;strong&gt;微积分与线性代数系列&lt;/strong&gt;。以及关于&lt;strong&gt;深度学习、量子计算&lt;/strong&gt;的系列，都很有意思。&lt;/p&gt;
+&lt;p&gt;目前，该频道也有十多年了，视频质量却一直很高。但愿以后也能延续下去）&lt;/p&gt;
+&lt;h3 id="2"&gt;2
+&lt;/h3&gt;&lt;p&gt;✨每日油管博主推荐第二期✨——&lt;a class="link" href="https://www.youtube.com/@veritasium" target="_blank" rel="noopener"
+&gt;Veritasium&lt;/a&gt;，中文名真理元素，有 &lt;a class="link" href="https://space.bilibili.com/94742590" target="_blank" rel="noopener"
+&gt;b 站官方频道&lt;/a&gt;。该名字是一种原子序数为 i，原子量 42 的虚构化学元素。创始人Derek Muller 拥有教育物理的 PhD，专业性较高&lt;sup id="fnref:2"&gt;&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref"&gt;2&lt;/a&gt;&lt;/sup&gt;。该频道涉及广泛的科学与工程领域，包括但不限于&lt;strong&gt;数学、物理、化学、生物、材料、机械、建筑、经济&lt;/strong&gt;等等。然而，每期视频都能做到深入浅出。&lt;/p&gt;
+&lt;p&gt;对于数学物理视频，他会制作生动的可视化，以及一些数学家、物理学家的动画；对于工程领域，他会选择实地走访，或者采访在世的学者等。其形式的多样，在大众接受度与专业度上，达到了精巧的平衡。个人认为是科普视频的典范。&lt;/p&gt;
+&lt;h3 id="3"&gt;3
+&lt;/h3&gt;&lt;p&gt;✨每日油管博主推荐第三期✨——&lt;a class="link" href="https://www.youtube.com/@aiwarehouse" target="_blank" rel="noopener"
+&gt;AI Warehouse&lt;/a&gt;。今天推荐一个轻松的。该频道的主角是 Albert 与 Kai，两个具有视觉感知的方块 AI。频道会设置一些任务，以及 reward，通过强化学习来训练 AI（评论中说是 PPO），完成任务。&lt;/p&gt;
+&lt;p&gt;有些视频还会涉及到 &lt;strong&gt;Multi-agent RL&lt;/strong&gt;，看着 Albert 与 Kai ，很可爱，很有意思 ()。&lt;/p&gt;
+&lt;h3 id="4"&gt;4
+&lt;/h3&gt;&lt;p&gt;✨每日油管博主推荐第四期✨——&lt;a class="link" href="https://www.youtube.com/@BranchEducation" target="_blank" rel="noopener"
+&gt;BranchEducation&lt;/a&gt;。该频道利用 3D 动画来解释各类事务，例如 &lt;strong&gt;CPU、GPU、RAM、CG&lt;/strong&gt; 等等的工作原理。视频相当深入浅出，善用例子，能够生动形象地讲解工程的本质。&lt;/p&gt;
+&lt;p&gt;该频道相当偏 &amp;ldquo;engineering&amp;rdquo;，可以体会到，工程很多时候就是把东西搭好，与“纯粹的科学”还是有区别的。不过，以我自己所看到的 AI 研究领域为例，许多 paper 其实也与工程差不太多了）&lt;/p&gt;
+&lt;h3 id="5"&gt;5
+&lt;/h3&gt;&lt;p&gt;✨每日油管博主推荐第五期✨——&lt;a class="link" href="https://www.youtube.com/@WelchLabsVideo" target="_blank" rel="noopener"
+&gt;Welch Labs&lt;/a&gt;。该频道对于 LLM 的科普，做到了顶级。例如，对于 &lt;strong&gt;Scaling Law、LLM可解释性、Deepseek MLA&lt;/strong&gt; 等内容，都有可视化的深度讲解。&lt;/p&gt;
+&lt;p&gt;该频道的展现方式也很有意思，做到了动画与手写的平衡。近期也与 3b1b 出了一期深度生成模型的 guest video，很有意思。&lt;/p&gt;
+&lt;h3 id="6"&gt;6
+&lt;/h3&gt;&lt;p&gt;✨每日油管博主推荐第六期✨——&lt;a class="link" href="https://www.youtube.com/@ScienceClicEN" target="_blank" rel="noopener"
+&gt;ScienceClic&lt;/a&gt;。今天推荐一个物理频道。该频道通过可视化的手段，讲解了&lt;strong&gt;相对论、量子力学&lt;/strong&gt;等“常见”的话题（这里常见指的是科普中常见）。&lt;/p&gt;
+&lt;p&gt;其动画很美观，单纯从平面设计角度，也值得学习。如果有即将进入大二的同学，那么也不得不面对电磁学、相对论与量子力学。个人认为，拥有一些直观的印象，对学习总是有帮助的。&lt;/p&gt;
+&lt;h3 id="7"&gt;7
+&lt;/h3&gt;&lt;p&gt;✨每日油管博主推荐第七期✨——&lt;a class="link" href="https://www.youtube.com/@mathemaniac" target="_blank" rel="noopener"
+&gt;Mathemaniac&lt;/a&gt;。今天推荐一个数学频道。起因是我暑假看机器人学的时候，想要了解一些旋转方面的群论知识，便搜了搜，发现该频道有对于李群、李代数的讲解，大概能加深对于 &lt;strong&gt;SO(3)、SE(3)&lt;/strong&gt; 等的理解。&lt;/p&gt;
+&lt;p&gt;不过，说来也惭愧，我还只看了前面几期（）后面找时间再看看。&lt;/p&gt;
+&lt;h2 id="第二周"&gt;第二周
+&lt;/h2&gt;&lt;h3 id="8"&gt;8
+&lt;/h3&gt;&lt;p&gt;✨每日油管博主推荐第八期✨——&lt;a class="link" href="https://www.youtube.com/@EmergentGarden" target="_blank" rel="noopener"
+&gt;Emergent Garden&lt;/a&gt;。今天推荐一个 AI 向频道。该频道有些 MC 方向内容，也会涉及到一些“潮流”的概念，如 &lt;strong&gt;Vibe Coding、AI Agents&lt;/strong&gt; 等等。&lt;/p&gt;
+&lt;p&gt;不得不说，Vibe Coding 确实爽，有一种当产品经理，指挥 AI 打工的感觉。然而，当前模型往往又没有那么智能，所以埋下的雷，都需要你自己来拆。就算让 AI debug，个人的活还是不轻松，往往要理解系统，并对 AI 的内容做出引导。感觉这也不算真正的 Vibe Coding，只能有一半吧。&lt;/p&gt;
+&lt;h3 id="9"&gt;9
+&lt;/h3&gt;&lt;p&gt;✨每日油管博主推荐第九期✨——&lt;a class="link" href="https://www.youtube.com/@SteveMould" target="_blank" rel="noopener"
+&gt;SteveMould&lt;/a&gt;，有 b 站官方频道。该频道讲究现实中&lt;strong&gt;趣味的物理科普&lt;/strong&gt;，包括一些奇特的材料、物理现象等。&lt;/p&gt;
+&lt;p&gt;该频道普及了许多那些看起来反直觉，但实际上深度思考后合理的现象。往往这些现象都蕴含着我们平时看不到的点，拓展自己的知识边界。&lt;/p&gt;
+&lt;h3 id="10"&gt;10
+&lt;/h3&gt;&lt;p&gt;✨每日油管博主推荐第十期✨——&lt;a class="link" href="https://www.youtube.com/@CoreDumpped" target="_blank" rel="noopener"
+&gt;Core Dumped&lt;/a&gt;。今天来推荐一个我近期常看的计算机频道。该频道由南美 CS 工程师创建，因为自身口音，选择使用 AI 配音；但内容相当真诚，用动画来展现计算机的核心概念。讲解也相当清晰。&lt;/p&gt;
+&lt;p&gt;该频道讲解的是计算机系统方面，从最底层的电路（&lt;strong&gt;数字逻辑&lt;/strong&gt;），到组成 CPU 与内存（&lt;strong&gt;计算机组成原理&lt;/strong&gt;），如何分配内存与任务调度（&lt;strong&gt;操作系统&lt;/strong&gt;），涉及到&lt;strong&gt;编译&lt;/strong&gt;等操作，可谓是相当全面。&lt;/p&gt;
+&lt;p&gt;让我吃惊的是，他的视频居然是用 &lt;strong&gt;PPT&lt;/strong&gt; 动画制作的。看来，好的内容往往都是内核充盈，不依赖于具体工具吧）。&lt;/p&gt;
+&lt;h3 id="11"&gt;11
+&lt;/h3&gt;&lt;p&gt;✨每日油管博主推荐第十一期✨——&lt;a class="link" href="https://www.youtube.com/@ArtemKirsanov" target="_blank" rel="noopener"
+&gt;Artem Kirsanov&lt;/a&gt;。该频道是深度学习相关，也有许多其他有意思的内容。例如，该频道介绍了&lt;strong&gt;反向传播、Hopfield 网络与玻尔兹曼机&lt;/strong&gt;，这些都是现代深度学习的基石；对于交叉熵与 &lt;strong&gt;VAE&lt;/strong&gt; 的讲解，也都能让你体会到背后的直觉。&lt;/p&gt;
+&lt;p&gt;该频道可视化做得相当不错。唯一的缺点可能是英语有点俄语口音，不过无伤大雅）&lt;/p&gt;
+&lt;h3 id="12"&gt;12
+&lt;/h3&gt;&lt;p&gt;✨每日油管博主推荐第十二期✨——&lt;a class="link" href="https://www.youtube.com/@CodeAesthetic" target="_blank" rel="noopener"
+&gt;CodeAesthetic&lt;/a&gt;。该频道是软件工程相关，b 站上也有翻译（代码美学）。&lt;/p&gt;
+&lt;p&gt;该频道会介绍一些经典内容——例如&lt;strong&gt;变量命名、OOP 思想、不要过早优化、减少嵌套&lt;/strong&gt;；也会介绍一些“暴论”——例如**“不写注释”**。&lt;/p&gt;
+&lt;p&gt;可惜该频道更新比较缓慢，上次更新也是 23 年了）但愿之后能再次看到吧。&lt;/p&gt;
+&lt;h3 id="13"&gt;13
+&lt;/h3&gt;&lt;p&gt;✨每日油管博主推荐第十三期✨——&lt;a class="link" href="https://www.youtube.com/@Deepia-ls2fo" target="_blank" rel="noopener"
+&gt;Deepia&lt;/a&gt;。这是一个深度学习相关博主，利用 manim 制作视频，设计了一些经典话题，例如 &lt;strong&gt;Autoencoder、VAE、Diffusion&lt;/strong&gt; 等深度生成模型，&lt;strong&gt;PCA、t-SNE、UMAP&lt;/strong&gt; 等降维方法。&lt;/p&gt;
+&lt;p&gt;其视频讲解相当清楚，推荐。&lt;/p&gt;
+&lt;h3 id="14"&gt;14
+&lt;/h3&gt;&lt;p&gt;✨每日油管博主推荐第十四期✨——&lt;a class="link" href="https://www.youtube.com/@twoswap" target="_blank" rel="noopener"
+&gt;2swap&lt;/a&gt;。这是一个兴趣广泛的博主，自己的频道接受是 &lt;strong&gt;&amp;ldquo;I make videos about emergent systems in mathematics!&amp;rdquo;&lt;/strong&gt;。所以，什么是数学里的“涌现系统”呢？&lt;/p&gt;
+&lt;p&gt;该频道最初几个视频是关于 &lt;strong&gt;connect4&lt;/strong&gt; &lt;sup id="fnref:3"&gt;&lt;a href="#fn:3" class="footnote-ref" role="doc-noteref"&gt;3&lt;/a&gt;&lt;/sup&gt;的，我之前没听说过。查了一查，可以简单理解为带有重力版本的“四”子棋，也就是横竖斜着连成 4 子。这几个视频都挺有意思。&lt;/p&gt;
+&lt;p&gt;GRAVITY BASINS 讲述了一个质点在固定的多个星球中，哪些区域会被吸引到哪一个星球。这些动画展现了&lt;strong&gt;多体问题&lt;/strong&gt;的复杂性。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;曼德勃罗集&lt;/strong&gt;&lt;sup id="fnref:4"&gt;&lt;a href="#fn:4" class="footnote-ref" role="doc-noteref"&gt;4&lt;/a&gt;&lt;/sup&gt;是数学科普的常见题材，也是最知名的分形之一。该视频对于曼德勃罗集的可视化相当全面。许多频道也都做过曼德勃罗集：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;真理元素——&lt;a class="link" href="https://www.bilibili.com/video/BV1B7411W7LB/" target="_blank" rel="noopener"
+&gt;这个方程会改变你的世界观
+&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;3blue1brown——&lt;a class="link" href="https://www.bilibili.com/video/BV1nh411x78S/" target="_blank" rel="noopener"
+&gt;【官方双语】芒德布罗特集是如何从牛顿的工作中产生的
+&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;妈咪说——&lt;a class="link" href="https://www.bilibili.com/video/BV1UJ411C7gu/" target="_blank" rel="noopener"
+&gt;【分形与混沌2】最有魅力的几何图形——曼德勃罗集与朱利亚集 天使与魔鬼共存
+&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;其后还有视频介绍 lambda 演算法，以及其他话题，我还正在看）其视频的选题，确实可以说是数学里的“涌现系统”——从基本与简洁的数学，组合与涌现出智能。&lt;/p&gt;
+&lt;h2 id="第三周"&gt;第三周
+&lt;/h2&gt;&lt;h3 id="15"&gt;15
+&lt;/h3&gt;&lt;p&gt;✨每日油管博主推荐第十五期✨——&lt;a class="link" href="https://www.youtube.com/@Nemean" target="_blank" rel="noopener"
+&gt;Nemean&lt;/a&gt;。这是一个计算机相关博主，其关于图论介绍的视频讲得很好，可视化与例子的把控都很合适。&lt;/p&gt;
+&lt;p&gt;在曾经图论视频的三年之后，该频道才更新了第二期。从评论中可以得知这与疾病有关。许多时候，频道往往难以长久坚持，其一便是非全职 up 主，生活难免有变动；其二便是知识类 up 主，其制作视频所消耗的题材是线性的，然而自己知识增长却是对数的，因此往往会发现选题越来越难。&lt;/p&gt;
+&lt;p&gt;在这两周的更新里，我虽然也就推荐了十几个博主，不过也涵盖了我目前了解的大部分——我也确实感觉想要推荐好的频道，越来越难。这也算是知识类 up 主的共性之一吧。&lt;/p&gt;
+&lt;h3 id="16"&gt;16
+&lt;/h3&gt;&lt;p&gt;✨每日油管博主推荐第十六期✨——&lt;a class="link" href="https://www.youtube.com/@acegikmo" target="_blank" rel="noopener"
+&gt;Freya Holmér&lt;/a&gt;。这是一个&amp;quot;tech art&amp;quot;相关博主。其关于贝塞尔曲线、线条函数的视频都具有很好的可视化。&lt;/p&gt;
+&lt;p&gt;&lt;a class="link" href="https://www.bilibili.com/video/BV1zgztY7EJF/" target="_blank" rel="noopener"
+&gt;【Freya｜熟肉】贝塞尔曲线之美
+&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class="link" href="https://www.bilibili.com/video/BV1fHzoYaE4a/" target="_blank" rel="noopener"
+&gt;【Freya｜熟肉】线条函数的连续性
+&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;去年，在复习数值分析时，在 b 站刷到了相关视频，看完感觉很有启发。如果你也是大二计科，那么也能从中感受到插值带来的艺术之美。&lt;/p&gt;
+&lt;p&gt;然而，课本里插值就是一大堆冗杂的函数，你还需要背下来应付考试，只能让人感到恶心。看来，对于相同的知识，总能找到两种方式——一种是照本宣科的死记硬板，一种是可视化带来的直观理解吧。&lt;/p&gt;
+&lt;h2 id="完结"&gt;完结
+&lt;/h2&gt;&lt;p&gt;伴随计院大三“第二周”小学期的结束，我也是时候完结油管博主推荐了。&lt;/p&gt;
+&lt;p&gt;如果硬要推荐，也是可以继续水几周的，但这就违反了我做推荐的初衷——我并不是希望做一个完整的博主列表，而只是希望根据个人感想，推荐一些我认为真正有趣且独特的频道。在各位订阅这些频道之后，自然也会被推送到其他相近的频道。如果各位对其中某个频道达成了兴趣，那么我的目的就达到了。&lt;/p&gt;
+&lt;p&gt;后续我也可能会推荐其他内容，敬请期待。&lt;/p&gt;
+&lt;div class="footnotes" role="doc-endnotes"&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id="fn:1"&gt;
+&lt;p&gt;3blue1brown. Wikipedia. &lt;a class="link" href="https://en.wikipedia.org/wiki/3Blue1Brown" target="_blank" rel="noopener"
+&gt;https://en.wikipedia.org/wiki/3Blue1Brown&lt;/a&gt;&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:2"&gt;
+&lt;p&gt;Derek Muller. Wikipedia. &lt;a class="link" href="https://en.wikipedia.org/wiki/Derek_Muller" target="_blank" rel="noopener"
+&gt;https://en.wikipedia.org/wiki/Derek_Muller&lt;/a&gt;&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:3"&gt;
+&lt;p&gt;Connect Four. Wikipedia. &lt;a class="link" href="https://en.wikipedia.org/wiki/Connect_Four" target="_blank" rel="noopener"
+&gt;https://en.wikipedia.org/wiki/Connect_Four&lt;/a&gt;&amp;#160;&lt;a href="#fnref:3" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:4"&gt;
+&lt;p&gt;Mandelbrot set. Wikipedia. &lt;a class="link" href="https://en.wikipedia.org/wiki/Mandelbrot_set" target="_blank" rel="noopener"
+&gt;https://en.wikipedia.org/wiki/Mandelbrot_set&lt;/a&gt;&amp;#160;&lt;a href="#fnref:4" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</description></item></channel></rss>
